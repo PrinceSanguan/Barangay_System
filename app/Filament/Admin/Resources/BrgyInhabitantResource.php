@@ -1,17 +1,18 @@
 <?php
-
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\BrgyInhabitantResource\Pages;
-use App\Filament\Admin\Resources\BrgyInhabitantResource\RelationManagers;
 use App\Models\BrgyInhabitant;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\BooleanColumn;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Actions\Action;
+use App\Models\User;
+use Filament\Facades\Filament;
 
 class BrgyInhabitantResource extends Resource
 {
@@ -20,7 +21,7 @@ class BrgyInhabitantResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
     protected static ?string $navigationGroup = 'Inhabitants';
 
-    public static function form(Form $form): Form
+    public static function form(Forms\Form $form): Forms\Form
     {
         return $form
             ->schema([
@@ -73,60 +74,47 @@ class BrgyInhabitantResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('lastname')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('firstname')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('middlename')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('age')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('birthdate')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('placeofbirth')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('sex')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('civilstatus')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('positioninFamily')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('citizenship')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('educAttainment')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('occupation')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('ofw')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('pwd')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('lastname')->searchable(),
+                Tables\Columns\TextColumn::make('firstname')->searchable(),
+                Tables\Columns\TextColumn::make('middlename')->searchable(),
+                Tables\Columns\TextColumn::make('age')->searchable(),
+                Tables\Columns\TextColumn::make('birthdate')->searchable(),
+                Tables\Columns\TextColumn::make('placeofbirth')->searchable(),
+                Tables\Columns\TextColumn::make('sex')->searchable(),
+                Tables\Columns\TextColumn::make('civilstatus')->searchable(),
+                Tables\Columns\TextColumn::make('positioninFamily')->searchable(),
+                Tables\Columns\TextColumn::make('citizenship')->searchable(),
+                Tables\Columns\TextColumn::make('educAttainment')->searchable(),
+                Tables\Columns\TextColumn::make('occupation')->searchable(),
+                Tables\Columns\TextColumn::make('ofw')->searchable(),
+                Tables\Columns\TextColumn::make('pwd')->searchable(),
+                BooleanColumn::make('is_approved')->label('Approved'),
             ])
             ->filters([
-                //
+                Filter::make('Pending Approval')
+                    ->query(fn (Builder $query) => $query->where('is_approved', false)),
             ])
             ->actions([
+                Action::make('approve')
+                ->label('Approve')
+                ->action(function (BrgyInhabitant $record) {
+                    $record->is_approved = true;
+                    $record->save();
+                })
+               
+                ->visible(fn (BrgyInhabitant $record) => Filament::auth()->user() && (Filament::auth()->user()->hasRole('super_admin') || Filament::auth()->user()->hasRole('brgySecretary')) && !$record->is_approved),
+                Tables\Actions\EditAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 
     public static function getRelations(): array
     {
         return [
-            //
+            // Define any relationships if necessary
         ];
     }
 

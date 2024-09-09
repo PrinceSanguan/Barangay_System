@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Auth\CustomRegister;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -29,6 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->spa(true)
             ->login()
+            ->registration()
             ->passwordReset()
             ->defaultThemeMode(ThemeMode::Light)
             ->colors([

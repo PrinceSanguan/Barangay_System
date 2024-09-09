@@ -62,4 +62,10 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     {
         return true;
     }
+    protected static function booted(): void
+    {
+        static::created(function (User $user) {
+            $user->assignRole('brgyUser');
+        });
+    }
 }

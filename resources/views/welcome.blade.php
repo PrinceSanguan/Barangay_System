@@ -126,7 +126,7 @@
                 <li class="list-group-item">Service 5: Disaster Preparedness Training</li>
             </ul>
             <p>These services are designed to improve the quality of life for residents and foster a strong sense of community.</p>
-            <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+3" alt="Cartoon Image 3" class="img-fluid mt-3">
+            <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+3" alt="Cartoon Image 3"  class="img-fluid mt-3">
         </div>
     </section>
 

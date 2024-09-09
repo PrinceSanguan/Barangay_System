@@ -23,7 +23,7 @@ return [
     ],
 
     'filament_user' => [
-        'enabled' => false,
+        'enabled' => true,
         'name' => 'filament_user',
     ],
 
@@ -33,6 +33,7 @@ return [
             'view_any',
             'create',
             'update',
+            'approve',
             'delete',
             'delete_any',
         ],
@@ -45,7 +46,9 @@ return [
         'pages' => true,
         'widgets' => true,
         'resources' => true,
-        'custom_permissions' => false,
+        'custom_permissions' => [
+            'approve', // Approve custom permission 
+        ],
     ],
 
     'generator' => [

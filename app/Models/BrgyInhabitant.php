@@ -10,4 +10,16 @@ class BrgyInhabitant extends Model
     use HasFactory;
 
     protected $guarded = [];
+   
+
+
+     public function scopeApproved($query)
+     {
+         return $query->where('is_approved', true);
+     }
+ 
+     public function scopePendingApproval($query)
+     {
+         return $query->where('is_approved', false);
+     }
 }
