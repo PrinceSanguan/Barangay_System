@@ -14,9 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // User::factory(10)->create();brgySecretary
         if (!Role::where('name', 'brgyUser')->exists()) {
             Role::create(['name' => 'brgyUser', 'guard_name' => 'web']);
+        }
+        if (!Role::where('name', 'brgySecretary')->exists()) {
+            Role::create(['name' => 'brgySecretary', 'guard_name' => 'web']);
         }
         
         
