@@ -1,3 +1,7 @@
+@php
+    // Fetch the first site setting
+    $siteSetting = \App\Models\SiteSetting::first();
+@endphp
 <!-- resources/views/barangay.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +28,11 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="https://via.placeholder.com/50x50.png?text=Logo" alt="Barangay Logo"> <!-- Example logo image -->
+                @if ($siteSetting && $siteSetting->logo)
+                    <img src="{{ asset('storage/' . $siteSetting->logo) }}" alt="Barangay Logo" style="max-height: 50px;">
+                @else
+                    <img src="https://via.placeholder.com/50x50.png?text=Logo" alt="Barangay Logo"> <!-- Fallback logo -->
+                @endif
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -44,52 +52,54 @@
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
+    
 
-                <!-- Authentication Links -->
-                @if (Route::has('filament.admin.auth.login'))
-                    <nav class="d-flex flex-1 justify-content-end">
-                        @auth
-                            <a href="{{ route('filament.admin.pages.dashboard') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                Dashboard
-                            </a>
-                        @else
-                            <a href="{{ route('filament.admin.auth.login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                Log in
-                            </a>
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                    Register
-                                </a>
-                            @endif
-                        @endauth
-                    </nav>
-                @endif
-            </div>
-        </div>
-    </nav>
+         <!-- Authentication Links -->
+         @if (Route::has('filament.admin.auth.login'))
+         <nav class="d-flex flex-1 justify-content-end">
+             @auth
+                 <a href="{{ route('filament.admin.pages.dashboard') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                     Dashboard
+                 </a>
+             @else
+                 <a href="{{ route('filament.admin.auth.login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                     Log in
+                 </a>
+                 @if (Route::has('register'))
+                     <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                         Register
+                     </a>
+                 @endif
+             @endauth
+         </nav>
+     @endif
+ </div>
+</div>
+</nav>
 
+  
     <!-- Image Slider (Carousel) -->
-    <div id="imageSlider" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://via.placeholder.com/1200x400.png?text=Slide+1" class="d-block w-100" alt="Slide 1">
-            </div>
-            <div class="carousel-item">
-                <img src="https://via.placeholder.com/1200x400.png?text=Slide+2" class="d-block w-100" alt="Slide 2">
-            </div>
-            <div class="carousel-item">
-                <img src="https://via.placeholder.com/1200x400.png?text=Slide+3" class="d-block w-100" alt="Slide 3">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#imageSlider" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#imageSlider" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+<div id="imageSlider" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        @if ($siteSetting && is_array($siteSetting->slider_images))
+            @foreach ($siteSetting->slider_images as $index => $slider_image)
+                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                    <img src="{{ asset('storage/' . $slider_image) }}" class="d-block w-100" alt="Slide {{ $index + 1 }}">
+                </div>
+            @endforeach
+        @else
+            <p>No slider images available.</p>
+        @endif
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#imageSlider" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#imageSlider" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
     <!-- Home Section -->
     <section id="home" class="pt-5 mt-5">
@@ -129,7 +139,27 @@
             <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+3" alt="Cartoon Image 3"  class="img-fluid mt-3">
         </div>
     </section>
-
+    <div class="container">
+        <h1>Upcoming Events</h1>
+        @if ($events->count())
+            <div class="row">
+                @foreach ($events as $event)
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $event->title }}</h5>
+                                <p class="card-text">{{ $event->description }}</p>
+                                <p><strong>Location:</strong> {{ $event->location }}</p>
+                                <p><strong>Date:</strong> {{ $event->event_date->format('F j, Y') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @else
+            <p>No events are currently available.</p>
+        @endif
+    </div>
     <!-- Contact Section -->
     <section id="contact" class="pt-5 mt-5">
         <div class="container">
