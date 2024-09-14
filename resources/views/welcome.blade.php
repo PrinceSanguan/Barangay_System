@@ -49,57 +49,59 @@
                         <a class="nav-link" href="#services">Services</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#citizens-charter">Citizens Charter</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
     
 
-         <!-- Authentication Links -->
-         @if (Route::has('filament.admin.auth.login'))
-         <nav class="d-flex flex-1 justify-content-end">
-             @auth
-                 <a href="{{ route('filament.admin.pages.dashboard') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                     Dashboard
-                 </a>
-             @else
-                 <a href="{{ route('filament.admin.auth.login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                     Log in
-                 </a>
-                 @if (Route::has('register'))
-                     <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                         Register
-                     </a>
-                 @endif
-             @endauth
-         </nav>
-     @endif
- </div>
-</div>
-</nav>
+                <!-- Authentication Links -->
+                @if (Route::has('filament.admin.auth.login'))
+                <nav class="d-flex flex-1 justify-content-end">
+                    @auth
+                        <a href="{{ route('filament.admin.pages.dashboard') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                            Dashboard
+                        </a>
+                    @else
+                        <a href="{{ route('filament.admin.auth.login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                            Log in
+                        </a>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                Register
+                            </a>
+                        @endif
+                    @endauth
+                </nav>
+                @endif
+            </div>
+        </div>
+    </nav>
 
-  
     <!-- Image Slider (Carousel) -->
-<div id="imageSlider" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        @if ($siteSetting && is_array($siteSetting->slider_images))
-            @foreach ($siteSetting->slider_images as $index => $slider_image)
-                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                    <img src="{{ asset('storage/' . $slider_image) }}" class="d-block w-100" alt="Slide {{ $index + 1 }}">
-                </div>
-            @endforeach
-        @else
-            <p>No slider images available.</p>
-        @endif
+    <div id="imageSlider" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @if ($siteSetting && is_array($siteSetting->slider_images))
+                @foreach ($siteSetting->slider_images as $index => $slider_image)
+                    <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                        <img src="{{ asset('storage/' . $slider_image) }}" class="d-block w-100" alt="Slide {{ $index + 1 }}">
+                    </div>
+                @endforeach
+            @else
+                <p>No slider images available.</p>
+            @endif
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageSlider" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageSlider" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#imageSlider" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#imageSlider" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
 
     <!-- Home Section -->
     <section id="home" class="pt-5 mt-5">
@@ -139,27 +141,159 @@
             <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+3" alt="Cartoon Image 3"  class="img-fluid mt-3">
         </div>
     </section>
+
+    <!-- Citizens Charter Section -->
+    <!-- Citizens Charter Section -->
+<section id="citizens-charter" class="pt-5 mt-5">
     <div class="container">
-        <h1>Upcoming Events</h1>
-        @if ($events->count())
-            <div class="row">
-                @foreach ($events as $event)
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $event->title }}</h5>
-                                <p class="card-text">{{ $event->description }}</p>
-                                <p><strong>Location:</strong> {{ $event->location }}</p>
-                                <p><strong>Date:</strong> {{ $event->event_date->format('F j, Y') }}</p>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        @else
-            <p>No events are currently available.</p>
-        @endif
+        <h2>Citizens Charter</h2>
+        <p>Pursuant to Section 6 of R.A 9485</p>
+        <p><strong>Vision:</strong> Centro 2: An exemplar Barangay with unified, disciplined, and God-loving constituents towards prosperity</p>
+        <p><strong>Mission:</strong> To provide satisfactory services through democratic leadership that would enable the people to become politically responsible, morally upright, and economically capable</p>
+        
+        <!-- Citizens Charter Table -->
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Frontline Services</th>
+                        <th>Step / Procedures</th>
+                        <th>Responsible Person</th>
+                        <th>Maximum Response Time</th>
+                        <th>Requirements</th>
+                        <th>Amount of Fees</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Issuance of Clearances and Certificate (CTC)</td>
+                        <td>
+                            1. Filling-up of Request Slip <br>
+                            2. Receiving/Recording of request <br>
+                            3. Processing of requested document <br>
+                            4. Release of Certificate of CTC
+                        </td>
+                        <td>
+                            Officer of the Day <br>
+                            Jene Lea T. Aurelio (Barangay Secretary) <br>
+                            Donalyn M. Tamayo (Barangay Treasurer)
+                        </td>
+                        <td>
+                            1. 3 minutes <br>
+                            2. 2 minutes <br>
+                            3. 5 minutes <br>
+                            4. 2 minutes
+                        </td>
+                        <td>None</td>
+                        <td>₱5.00 Basic Tax plus 0.001% of his/her preceding annual income</td>
+                    </tr>
+                    <tr>
+                        <td>Issuance of Clearances and Certifications</td>
+                        <td>
+                            1. Filling-up of Request Slip <br>
+                            2. Receiving/Recording of request <br>
+                            3. Processing of requested document <br>
+                            4. Releasing of documents
+                        </td>
+                        <td>
+                            Officer of the Day <br>
+                            Jene Lea T. Aurelio (Barangay Secretary) <br>
+                            Donalyn M. Tamayo (Barangay Treasurer) <br>
+                            Camilo P. Perdido (Punong Barangay)
+                        </td>
+                        <td>
+                            1. 4 minutes <br>
+                            2. 3 minutes <br>
+                            3. 12 minutes <br>
+                            4. 5 minutes
+                        </td>
+                        <td>CTC <br> Valid ID <br> Barangay Clearance</td>
+                        <td>₱100.00 - ₱150.00 - ₱200.00<br> Note: Certificate of Indigency is free of charge</td>
+                    </tr>
+                    <tr>
+                        <td>Filing of Summons</td>
+                        <td>
+                            1. Approval of request slip <br>
+                            2. Filing of Complaint Form in the record book <br>
+                            3. Recording of the same in the logbook <br>
+                            4. Scheduling of hearings
+                        </td>
+                        <td>
+                            Officer of the Day <br>
+                            Jene Lea T. Aurelio (Barangay Secretary) <br>
+                            Camilo P. Perdido (Punong Barangay)
+                        </td>
+                        <td>
+                            1. 2 minutes <br>
+                            2. 1 minute <br>
+                            3. 1 minute <br>
+                            4. 1 minute
+                        </td>
+                        <td>CTC</td>
+                        <td>₱100.00</td>
+                    </tr>
+                    <tr>
+                        <td>Issuance of Permit</td>
+                        <td>
+                            1. Filling-up of Request Slip <br>
+                            2. Receiving/Recording of request <br>
+                            3. Processing of requested permit <br>
+                            4. Paying of fees <br>
+                            5. Approving/Issuing of requested document
+                        </td>
+                        <td>
+                            Officer of the Day <br>
+                            Jene Lea T. Aurelio (Barangay Secretary) <br>
+                            Donalyn M. Tamayo (Barangay Treasurer) <br>
+                            Camilo P. Perdido (Punong Barangay)
+                        </td>
+                        <td>
+                            1. 3 minutes <br>
+                            2. 2 minutes <br>
+                            3. 10 minutes <br>
+                            4. 3 minutes <br>
+                            5. 3 minutes
+                        </td>
+                        <td>CTC and Barangay Clearance</td>
+                        <td>
+                            Barangay Clearance - ₱20.00<br>
+                            Barangay Certification - ₱20.00<br>
+                            Barangay Clearance w/ Photo - ₱30.00<br>
+                            Transport Clearance/Certificate - ₱20.00<br>
+                            PC - Lights/Water - ₱30.00<br>
+                            Building Permit - ₱80.00<br>
+                            Bldg. Clearance - ₱80.00<br>
+                            Old/New Furniture Wooden Materials - ₱50.00<br>
+                            Gymnasium Rent - ₱50.00
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Health Services</td>
+                        <td>
+                            1. Filling-up of Request Slip <br>
+                            2. Evaluating of request <br>
+                            3. Check-up (if needs medical attention)
+                        </td>
+                        <td>
+                            Brgy. Health Workers <br>
+                            Julie Grace L. Torida (Midwife)
+                        </td>
+                        <td>
+                            1. 5 minutes <br>
+                            2. 5 minutes <br>
+                            3. 20 minutes
+                        </td>
+                        <td>CTC</td>
+                        <td>Free</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Note: Each frontline service shall be given two (2) days processing time extension.</p>
+        <p><strong>Service Pledge:</strong> "We the Officers of Barangay Centro 2 promise to provide and prompt & genuine service to our constituents."</p>
     </div>
+</section>
+
     <!-- Contact Section -->
     <section id="contact" class="pt-5 mt-5">
         <div class="container">

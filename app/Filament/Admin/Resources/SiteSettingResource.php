@@ -22,7 +22,11 @@ class SiteSettingResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     protected static ?string $navigationGroup = 'Administration';
-
+    public static function shouldRegisterNavigation(): bool
+{
+    // Allow both 'admin' and 'brgy secretary' to see the resource
+    return auth()->user()->hasAnyRole(['super_admin', 'brgySecretary']) || auth()->user()->can('view site settings');
+}
     public static function form(Form $form): Form
     {
         return $form
