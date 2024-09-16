@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('ofw');
             $table->string('pwd');
             $table->timestamps();
-            $table->boolean('is_approved')->default(false);
+            $table->boolean('is_approved')->default(false); // default zero
             
         });
     }

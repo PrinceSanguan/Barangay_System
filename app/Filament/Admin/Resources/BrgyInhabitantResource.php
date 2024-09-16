@@ -36,28 +36,47 @@ class BrgyInhabitantResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('age')
                     ->required()
+                    ->numeric()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('birthdate')
-                    ->required()
-                    ->maxLength(255),
+                Forms\Components\DatePicker::make('birthdate')
+                ->required(),
                 Forms\Components\TextInput::make('placeofbirth')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('sex')
+                Forms\Components\Select::make('sex')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('civilstatus')
+                    ->options([
+                        'Male' => 'Male',
+                        'Female' => 'Female',
+                    ]),
+                Forms\Components\Select::make('civilstatus')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('positioninFamily')
+                    ->options([
+                        'Single' => 'Single',
+                        'Married' => 'Married',
+                        'Divorced' => 'Divorced',
+                        'Widowed' => 'Widowed',
+                    ]),
+                Forms\Components\Select::make('positioninFamily')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('citizenship')
+                    ->options([
+                        'Head of the family' => 'Head of the family',
+                        'Wife' => 'Wife',
+                        'Son' => 'Son',
+                        'Daugther' => 'Daugther',
+                    ]),
+                Forms\Components\Select::make('citizenship')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('educAttainment')
+                    ->options([
+                        'Filipino' => 'Filipino',
+                        'Others' => 'Others',
+                    ]),
+                Forms\Components\Select::make('educAttainment')
                     ->required()
-                    ->maxLength(255),
+                    ->options([
+                        'Graduate' => 'Graduate',
+                        'Others' => 'Others',
+                    ]),
                 Forms\Components\TextInput::make('occupation')
                     ->required()
                     ->maxLength(255),
