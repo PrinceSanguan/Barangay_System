@@ -23,6 +23,7 @@ class FamilyProfileResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Hidden::make('user_id')->default(auth()->id()),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
@@ -63,6 +64,7 @@ class FamilyProfileResource extends Resource
     {
         return $table
             ->columns([
+                
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('sex')
@@ -113,6 +115,15 @@ class FamilyProfileResource extends Resource
             //
         ];
     }
+    public static function getEloquentQuery(): Builder
+    {
+    // Allow only the user who created the record to view it
+    if (auth()->user()->hasRole('super_admin') || auth()->user()->hasRole('brgySecretary')) {
+        return parent::getEloquentQuery();
+    }
+
+    return parent::getEloquentQuery()->where('user_id', auth()->id());
+}
 
     public static function getPages(): array
     {

@@ -25,6 +25,7 @@ class BrgyInhabitantResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Hidden::make('user_id')->default(auth()->id()),
                 Forms\Components\TextInput::make('lastname')
                     ->required()
                     ->maxLength(255),
@@ -129,7 +130,14 @@ class BrgyInhabitantResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
+    public static function getEloquentQuery(): Builder
+    {
+        if (auth()->user()->hasRole('super_admin') || auth()->user()->hasRole('brgySecretary')) {
+            return parent::getEloquentQuery();
+        }
 
+        return parent::getEloquentQuery()->where('user_id', auth()->id());
+    }
     public static function getRelations(): array
     {
         return [

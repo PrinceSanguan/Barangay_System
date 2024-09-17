@@ -20,6 +20,7 @@
         .navbar-brand img {
             max-height: 50px; /* Adjust the size of the logo */
         }
+        
     </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="70" tabindex="0">
@@ -113,7 +114,7 @@
             <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+1" alt="Cartoon Image 1" class="img-fluid mt-3">
         </div>
     </section>
-
+    
     <!-- About Section -->
     <section id="about" class="pt-5 mt-5">
         <div class="container">
@@ -141,7 +142,31 @@
             <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+3" alt="Cartoon Image 3"  class="img-fluid mt-3">
         </div>
     </section>
-
+     <!-- Events Section -->
+     <section id="events" class="pt-5 mt-5">
+        <div class="container">
+            <h2>Upcoming Events</h2>
+            <p>This section displays upcoming events in the barangay.</p>
+            
+            @if($events->isEmpty())
+                <p>No upcoming events at the moment. Please check back later.</p>
+            @else
+                <div class="row">
+                    @foreach($events as $event)
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $event->title }}</h5>
+                                    <p class="card-text">{{ $event->description }}</p>
+                                    <p class="card-text"><small class="text-muted">{{ $event->event_date->format('F j, Y') }}</small></p>
+                                    <p class="card-text"><strong>Location:</strong> {{ $event->location }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        </div>
     <!-- Citizens Charter Section -->
     <!-- Citizens Charter Section -->
 <section id="citizens-charter" class="pt-5 mt-5">
@@ -293,6 +318,62 @@
         <p><strong>Service Pledge:</strong> "We the Officers of Barangay Centro 2 promise to provide and prompt & genuine service to our constituents."</p>
     </div>
 </section>
+<!-- Barangay Officials Section -->
+<div id="officials" class="pt-5 mt-5">
+    <div class="container">
+        <h1>Barangay Officials</h1>
+        <div class="wrapper text-center">
+            <img class="img-cpt mb-3" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="">
+            <h2>Camilo P. Perdido</h2>
+            <h3>Punong Barangay</h3>
+        </div>
+
+        <div class="wrapper-2 mt-5">
+            <ul class="list-unstyled">
+                <li class="d-inline-block mx-2">
+                    <img class="img-kagawad mb-2" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2">
+                    <h3>Estrelita C. Estabillo</h3>
+                    <p>SB Member</p>
+                </li>
+                <li class="d-inline-block mx-2">
+                    <img class="img-kagawad mb-2" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2">
+                    <h3>Vicky C. Fuertes</h3>
+                    <p>SB Member</p>
+                </li>
+                <li class="d-inline-block mx-2">
+                    <img class="img-kagawad mb-2" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2">
+                    <h3>Recto S. Obispo</h3>
+                    <p>SB Member</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="wrapper-3 mt-5">
+            <ul class="list-unstyled">
+                <li class="d-inline-block mx-2">
+                    <img class="img-kagawad mb-2" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="">
+                    <h3>Andrew L. Pagayatan</h3>
+                    <p>SB Member</p>
+                </li>
+                <li class="d-inline-block mx-2">
+                    <img class="img-kagawad mb-2" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="">
+                    <h3>Almie Joy D. Cabuyadao</h3>
+                    <p>SB Member</p>
+                </li>
+                <li class="d-inline-block mx-2">
+                    <img class="img-kagawad mb-2" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="">
+                    <h3>Darwin R. Callangan</h3>
+                    <p>SB Member</p>
+                </li>
+                <li class="d-inline-block mx-2">
+                    <img class="img-kagawad mb-2" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="">
+                    <h3>Alfonso S. Grande Jr.</h3>
+                    <p>SB Member</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
     <!-- Contact Section -->
     <section id="contact" class="pt-5 mt-5">

@@ -22,4 +22,8 @@ class BrgyInhabitant extends Model
      {
          return $query->where('is_approved', false);
      }
+     public function user()
+{
+    return $this->belongsTo(User::class);
+}
 }
