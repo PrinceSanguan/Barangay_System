@@ -114,6 +114,48 @@
             <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+1" alt="Cartoon Image 1" class="img-fluid mt-3">
         </div>
     </section>
+   <!-- Add this section where you want the demographic statistics to appear -->
+<section id="demographics" class="pt-5 mt-5">
+    <div class="container">
+        <h2>Demographic Statistics</h2>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h3>Total Population</h3>
+                    <p>{{ $totalPopulation }}</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h3>Male Count</h3>
+                    <p>{{ $maleCount }}</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h3>Female Count</h3>
+                    <p>{{ $femaleCount }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card p-3">
+                    <h3>Population by Age Groups</h3>
+                    <ul>
+                        @foreach ($ageGroups as $ageRange => $count)
+                            <li>{{ $ageRange }}: {{ $count }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     
     <!-- About Section -->
     <section id="about" class="pt-5 mt-5">
@@ -277,7 +319,7 @@
 </section>
     <!-- Services Section -->
     <section id="services" class="pt-5 mt-5">
-        <div class="container">
+    <div class="container">
             <h2>Our Services</h2>
             <p>This section describes the services provided by the barangay.</p>
             <ul class="list-group">

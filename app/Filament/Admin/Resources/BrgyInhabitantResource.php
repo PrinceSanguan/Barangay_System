@@ -33,7 +33,7 @@ class BrgyInhabitantResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('middlename')
-                    ->required()
+                    ->label('Middlename (optional)')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('age')
                     ->required()
@@ -66,27 +66,46 @@ class BrgyInhabitantResource extends Resource
                         'Son' => 'Son',
                         'Daugther' => 'Daugther',
                     ]),
-                Forms\Components\Select::make('citizenship')
+                    Forms\Components\Select::make('citizenship')
                     ->required()
                     ->options([
                         'Filipino' => 'Filipino',
                         'Others' => 'Others',
-                    ]),
+                    ])
+                    ->reactive(), // Make this field reactive to detect changes
+                
+                Forms\Components\TextInput::make('other_citizenship')
+                    ->label('Please specify citizenship')
+                    ->required()
+                    ->maxLength(255)
+                    ->visible(fn ($get) => $get('citizenship') === 'Others'), 
                 Forms\Components\Select::make('educAttainment')
                     ->required()
                     ->options([
                         'Graduate' => 'Graduate',
                         'Others' => 'Others',
-                    ]),
+                    ])
+                    ->reactive(),
+                    Forms\Components\TextInput::make('other_educationalAtt')
+                    ->label('Please specify Attainment')
+                    ->required()
+                    ->maxLength(255)
+                    ->visible(fn ($get) => $get('educAttainment') === 'Others'), 
                 Forms\Components\TextInput::make('occupation')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('ofw')
+                    Forms\Components\Select::make('ofw')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('pwd')
+                    ->options([
+                        'Yes' => 'YES',
+                        'No' => 'No',
+                    ]),
+                    Forms\Components\Select::make('PWD')
                     ->required()
-                    ->maxLength(255),
+                    ->options([
+                        'YES' => 'YES',
+                        'NO' => 'NO',
+                    ]),
             ]);
     }
 
