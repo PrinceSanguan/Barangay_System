@@ -126,6 +126,155 @@
         </div>
     </section>
 
+    <!-- Mission and Vision Section -->
+    <section id="mission-vision" class="pt-5 mt-5">
+        <div class="container">
+            <h2>Our Mission & Vision</h2>
+            <p><strong>Mission:</strong> To provide satisfactory services through democratic leadership that enables the people to become politically responsible, morally upright, and economically capable.</p>
+            <p><strong>Vision:</strong> An exemplary barangay with unified, disciplined, and God-loving constituents working together towards prosperity.</p>
+        </div>
+    </section>
+      <!-- History of the Barangay Section -->
+      <section id="history" class="pt-5 mt-5">
+        <div class="container">
+            <h2>History of the Barangay</h2>
+            <p>The history of our barangay dates back to the early 1900s. It was originally a small farming community that gradually evolved into a vibrant hub of culture and commerce. Our ancestors worked hard to establish the barangay as a place of unity, progress, and shared values.</p>
+            <p>Through the years, the barangay has overcome various challenges, including natural disasters, economic hardships, and social changes. Despite these obstacles, our community has remained resilient, maintaining its core values of unity, hard work, and mutual respect.</p>
+            <p>Today, our barangay continues to thrive, blending modern progress with our rich cultural heritage. We honor our past by remembering the efforts and sacrifices of those who came before us, and we strive to build a brighter future for the generations to come.</p>
+        </div>
+    </section>
+    <!-- Visitors' Launch Section -->
+<section id="visitors-launch" class="pt-5 mt-5">
+    <div class="container">
+        <h2>Visitors' Launch</h2>
+        <p>Explore the tourist spots, restaurants, hotels, parks, schools, hospitals, and churches in our barangay.</p>
+
+        <!-- Tourist Spots -->
+        <h3 class="mt-4">Tourist Spots</h3>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=Tourist+Spot+1" class="card-img-top" alt="Tourist Spot 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Mountain View Park</h5>
+                        <p class="card-text">A beautiful spot with stunning mountain views and hiking trails.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=Tourist+Spot+2" class="card-img-top" alt="Tourist Spot 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Heritage Museum</h5>
+                        <p class="card-text">Learn about the history and culture of our barangay at this museum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Restaurants -->
+        <h3 class="mt-4">Restaurants</h3>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=Restaurant+1" class="card-img-top" alt="Restaurant 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Bistro Delights</h5>
+                        <p class="card-text">A cozy restaurant offering a variety of local and international dishes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=Restaurant+2" class="card-img-top" alt="Restaurant 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Seaside Grill</h5>
+                        <p class="card-text">Enjoy fresh seafood with a stunning view of the sea.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hotels -->
+        <h3 class="mt-4">Hotels</h3>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=Hotel+1" class="card-img-top" alt="Hotel 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Grand Plaza Hotel</h5>
+                        <p class="card-text">Luxury accommodation with top-notch amenities and services.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=Hotel+2" class="card-img-top" alt="Hotel 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Comfort Inn</h5>
+                        <p class="card-text">Affordable lodging with comfortable rooms and friendly staff.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Parks -->
+        <h3 class="mt-4">Parks</h3>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=Park+1" class="card-img-top" alt="Park 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Sunset Park</h5>
+                        <p class="card-text">A peaceful park perfect for evening strolls and picnics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schools -->
+        <h3 class="mt-4">Schools</h3>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=School+1" class="card-img-top" alt="School 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Barangay National High School</h5>
+                        <p class="card-text">A public high school offering quality education for students.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hospitals -->
+        <h3 class="mt-4">Hospitals</h3>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=Hospital+1" class="card-img-top" alt="Hospital 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Barangay General Hospital</h5>
+                        <p class="card-text">Providing comprehensive healthcare services to the community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Churches -->
+        <h3 class="mt-4">Churches</h3>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=Church+1" class="card-img-top" alt="Church 1">
+                    <div class="card-body">
+                        <h5 class="card-title">St. Mary's Church</h5>
+                        <p class="card-text">A historic church known for its beautiful architecture and serene environment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- Services Section -->
     <section id="services" class="pt-5 mt-5">
         <div class="container">
