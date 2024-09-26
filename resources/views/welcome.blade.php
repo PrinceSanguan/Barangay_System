@@ -291,6 +291,52 @@
             <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+3" alt="Cartoon Image 3"  class="img-fluid mt-3">
         </div>
     </section>
+    <!-- Promotional Advertisement Announcement Section -->
+<section id="promotional-announcement" class="pt-5 mt-5">
+    <div class="container">
+        <h2>Promotional Advertisement Announcement</h2>
+        <p>Stay updated with the latest promotional advertisements and announcements in our barangay. From community events to local business promotions, find out what's happening around you!</p>
+        
+        <!-- Sample Promotional Advertisements -->
+        <div class="row">
+            <!-- Advertisement 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=Ad+1" class="card-img-top" alt="Ad 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Local Business Fair</h5>
+                        <p class="card-text">Join us for a local business fair showcasing products from various businesses in our barangay. Don't miss the special discounts and promos!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advertisement 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=Ad+2" class="card-img-top" alt="Ad 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Community Sports Fest</h5>
+                        <p class="card-text">Get ready for an exciting community sports festival! Open to all age groups with various sports activities and contests.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advertisement 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=Ad+3" class="card-img-top" alt="Ad 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Health & Wellness Seminar</h5>
+                        <p class="card-text">Join our free health and wellness seminar focusing on mental health, nutrition, and physical fitness. Open to all residents.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Information or Call to Action -->
+        <p class="mt-4">For more announcements and promotional events, visit our community center or follow our social media pages.</p>
+    </div>
+</section>
      <!-- Events Section -->
      <section id="events" class="pt-5 mt-5">
         <div class="container">
@@ -316,6 +362,52 @@
                 </div>
             @endif
         </div>
+        <!-- SK Program Section -->
+<section id="sk-program" class="pt-5 mt-5">
+    <div class="container">
+        <h2>SK Program</h2>
+        <p>The Sangguniang Kabataan (SK) is committed to providing youth-oriented programs and activities that foster community involvement, leadership, and development among the youth in our barangay.</p>
+        
+        <!-- List of Sample SK Programs -->
+        <div class="row">
+            <!-- Program 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=SK+Program+1" class="card-img-top" alt="SK Program 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Youth Leadership Training</h5>
+                        <p class="card-text">A series of workshops designed to enhance leadership skills, teamwork, and community engagement among the youth.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=SK+Program+2" class="card-img-top" alt="SK Program 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Clean and Green Project</h5>
+                        <p class="card-text">An environmental awareness program that encourages youth participation in community clean-up drives and tree-planting activities.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300.png?text=SK+Program+3" class="card-img-top" alt="SK Program 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Sports Fest</h5>
+                        <p class="card-text">Annual sports events that promote health, fitness, and camaraderie among the youth through various sports competitions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Information or Call to Action -->
+        <p class="mt-4">For more information on upcoming SK programs and events, please contact the SK Office or visit our Facebook page.</p>
+    </div>
+</section>
     <!-- Citizens Charter Section -->
     <!-- Citizens Charter Section -->
 <section id="citizens-charter" class="pt-5 mt-5">
