@@ -1,24 +1,25 @@
 <?php
+
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\BrgyInhabitantResource\Pages;
 use App\Models\BrgyInhabitant;
+use Filament\Facades\Filament;
 use Filament\Forms;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\BooleanColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Filament\Tables\Actions\Action;
-use App\Models\User;
-use Filament\Facades\Filament;
 
 class BrgyInhabitantResource extends Resource
 {
     protected static ?string $model = BrgyInhabitant::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
+
     protected static ?string $navigationGroup = 'Inhabitants';
 
     public static function form(Forms\Form $form): Forms\Form
@@ -40,7 +41,7 @@ class BrgyInhabitantResource extends Resource
                     ->numeric()
                     ->maxLength(255),
                 Forms\Components\DatePicker::make('birthdate')
-                ->required(),
+                    ->required(),
                 Forms\Components\TextInput::make('placeofbirth')
                     ->required()
                     ->maxLength(255),
@@ -66,19 +67,19 @@ class BrgyInhabitantResource extends Resource
                         'Son' => 'Son',
                         'Daugther' => 'Daugther',
                     ]),
-                    Forms\Components\Select::make('citizenship')
+                Forms\Components\Select::make('citizenship')
                     ->required()
                     ->options([
                         'Filipino' => 'Filipino',
                         'Others' => 'Others',
                     ])
                     ->reactive(), // Make this field reactive to detect changes
-                
+
                 Forms\Components\TextInput::make('other_citizenship')
                     ->label('Please specify citizenship')
                     ->required()
                     ->maxLength(255)
-                    ->visible(fn ($get) => $get('citizenship') === 'Others'), 
+                    ->visible(fn ($get) => $get('citizenship') === 'Others'),
                 Forms\Components\Select::make('educAttainment')
                     ->required()
                     ->options([
@@ -86,21 +87,21 @@ class BrgyInhabitantResource extends Resource
                         'Others' => 'Others',
                     ])
                     ->reactive(),
-                    Forms\Components\TextInput::make('other_educationalAtt')
+                Forms\Components\TextInput::make('other_educationalAtt')
                     ->label('Please specify Attainment')
                     ->required()
                     ->maxLength(255)
-                    ->visible(fn ($get) => $get('educAttainment') === 'Others'), 
+                    ->visible(fn ($get) => $get('educAttainment') === 'Others'),
                 Forms\Components\TextInput::make('occupation')
                     ->required()
                     ->maxLength(255),
-                    Forms\Components\Select::make('ofw')
+                Forms\Components\Select::make('ofw')
                     ->required()
                     ->options([
                         'Yes' => 'YES',
                         'No' => 'No',
                     ]),
-                    Forms\Components\Select::make('PWD')
+                Forms\Components\Select::make('PWD')
                     ->required()
                     ->options([
                         'YES' => 'YES',
@@ -135,13 +136,12 @@ class BrgyInhabitantResource extends Resource
             ])
             ->actions([
                 Action::make('approve')
-                ->label('Approve')
-                ->action(function (BrgyInhabitant $record) {
-                    $record->is_approved = true;
-                    $record->save();
-                })
-               
-                ->visible(fn (BrgyInhabitant $record) => Filament::auth()->user() && (Filament::auth()->user()->hasRole('super_admin') || Filament::auth()->user()->hasRole('brgySecretary')) && !$record->is_approved),
+                    ->label('Approve')
+                    ->action(function (BrgyInhabitant $record) {
+                        $record->is_approved = true;
+                        $record->save();
+                    })
+                    ->visible(fn (BrgyInhabitant $record) => Filament::auth()->user() && (Filament::auth()->user()->hasRole('super_admin') || Filament::auth()->user()->hasRole('brgySecretary')) && ! $record->is_approved),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
@@ -149,6 +149,7 @@ class BrgyInhabitantResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
+
     public static function getEloquentQuery(): Builder
     {
         if (auth()->user()->hasRole('super_admin') || auth()->user()->hasRole('brgySecretary')) {
@@ -157,6 +158,7 @@ class BrgyInhabitantResource extends Resource
 
         return parent::getEloquentQuery()->where('user_id', auth()->id());
     }
+
     public static function getRelations(): array
     {
         return [

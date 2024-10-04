@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('brangay_officials', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->date('event_date');
-            $table->string('location');
-            $table->boolean('published')->default(false); // Control whether it's visible on the frontend
+            $table->string('name');
+            $table->text('designation');
+            $table->string('image')->nullable();  // For storing image path
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('brangay_officials');
     }
 };

@@ -5,13 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class BrangayOfficials extends Model
 {
     use HasFactory;
-
-    protected $guarded = [];
-
-    protected $casts = [
-        'event_date' => 'date',
-    ];
 }

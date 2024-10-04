@@ -47,7 +47,7 @@ return [
         'widgets' => true,
         'resources' => true,
         'custom_permissions' => [
-            'approve', // Approve custom permission 
+            'approve', // Approve custom permission
         ],
     ],
 

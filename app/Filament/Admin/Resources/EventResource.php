@@ -3,7 +3,6 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\EventResource\Pages;
-use App\Filament\Admin\Resources\EventResource\RelationManagers;
 use App\Models\Event;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -12,8 +11,6 @@ use Filament\Tables;
 use Filament\Tables\Columns\BooleanColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class EventResource extends Resource
 {
@@ -22,13 +19,12 @@ class EventResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     protected static ?string $navigationGroup = 'Administration';
-    
 
     public static function shouldRegisterNavigation(): bool
-{
-    // Allow both 'admin' and 'brgy secretary' to see the resource
-    return auth()->user()->hasAnyRole(['super_admin', 'brgySecretary']) || auth()->user()->can('view events');
-}
+    {
+        // Allow both 'admin' and 'brgy secretary' to see the resource
+        return auth()->user()->hasAnyRole(['super_admin', 'brgySecretary']) || auth()->user()->can('view events');
+    }
 
     public static function form(Form $form): Form
     {

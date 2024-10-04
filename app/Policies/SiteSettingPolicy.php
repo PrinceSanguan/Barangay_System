@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Demograph;
 use App\Models\User;
+use App\Models\SiteSetting;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class DemographPolicy
+class SiteSettingPolicy
 {
     use HandlesAuthorization;
 
@@ -15,15 +15,15 @@ class DemographPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_demograph');
+        return $user->can('view_any_site::setting');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Demograph $demograph): bool
+    public function view(User $user, SiteSetting $siteSetting): bool
     {
-        return $user->can('view_demograph');
+        return $user->can('view_site::setting');
     }
 
     /**
@@ -31,23 +31,23 @@ class DemographPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_demograph');
+        return $user->can('create_site::setting');
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Demograph $demograph): bool
+    public function update(User $user, SiteSetting $siteSetting): bool
     {
-        return $user->can('update_demograph');
+        return $user->can('update_site::setting');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Demograph $demograph): bool
+    public function delete(User $user, SiteSetting $siteSetting): bool
     {
-        return $user->can('delete_demograph');
+        return $user->can('delete_site::setting');
     }
 
     /**
@@ -55,13 +55,13 @@ class DemographPolicy
      */
     public function deleteAny(User $user): bool
     {
-        return $user->can('delete_any_demograph');
+        return $user->can('delete_any_site::setting');
     }
 
     /**
      * Determine whether the user can permanently delete.
      */
-    public function forceDelete(User $user, Demograph $demograph): bool
+    public function forceDelete(User $user, SiteSetting $siteSetting): bool
     {
         return $user->can('{{ ForceDelete }}');
     }
@@ -77,7 +77,7 @@ class DemographPolicy
     /**
      * Determine whether the user can restore.
      */
-    public function restore(User $user, Demograph $demograph): bool
+    public function restore(User $user, SiteSetting $siteSetting): bool
     {
         return $user->can('{{ Restore }}');
     }
@@ -93,7 +93,7 @@ class DemographPolicy
     /**
      * Determine whether the user can replicate.
      */
-    public function replicate(User $user, Demograph $demograph): bool
+    public function replicate(User $user, SiteSetting $siteSetting): bool
     {
         return $user->can('{{ Replicate }}');
     }

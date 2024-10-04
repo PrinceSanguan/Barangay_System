@@ -19,7 +19,6 @@ Livewire::setScriptRoute(function ($handle) {
 / END
 */
 
-
 Route::get('/', function () {
     // Fetch only published events, ordered by event date
     $events = Event::where('published', true)->orderBy('event_date', 'asc')->get();

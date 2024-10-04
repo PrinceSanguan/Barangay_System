@@ -11,10 +11,7 @@ class Certificate extends Model
 
     protected $guarded = [];
 
-
     protected $casts = [
         'requested_date' => 'date',
     ];
-
-
 }

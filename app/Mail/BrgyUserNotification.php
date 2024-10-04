@@ -2,10 +2,10 @@
 
 namespace App\Mail;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
-use Illuminate\Queue\SerializesModels;
-use App\Models\User; // Adjust this as per your User model's namespace
+use Illuminate\Queue\SerializesModels; // Adjust this as per your User model's namespace
 
 class BrgyUserNotification extends Mailable
 {
@@ -31,6 +31,6 @@ class BrgyUserNotification extends Mailable
     public function build()
     {
         return $this->subject('Information Dissemination')
-                    ->view('emails.brgyUserNotification');
+            ->view('emails.brgyUserNotification');
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\FamilyProfileResource\Pages;
-use App\Filament\Admin\Resources\FamilyProfileResource\RelationManagers;
 use App\Models\FamilyProfile;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -11,14 +10,15 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class FamilyProfileResource extends Resource
 {
     protected static ?string $model = FamilyProfile::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
+
     protected static ?string $navigationGroup = 'Inhabitants';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -64,7 +64,7 @@ class FamilyProfileResource extends Resource
     {
         return $table
             ->columns([
-                
+
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('sex')
@@ -115,15 +115,16 @@ class FamilyProfileResource extends Resource
             //
         ];
     }
+
     public static function getEloquentQuery(): Builder
     {
-    // Allow only the user who created the record to view it
-    if (auth()->user()->hasRole('super_admin') || auth()->user()->hasRole('brgySecretary')) {
-        return parent::getEloquentQuery();
-    }
+        // Allow only the user who created the record to view it
+        if (auth()->user()->hasRole('super_admin') || auth()->user()->hasRole('brgySecretary')) {
+            return parent::getEloquentQuery();
+        }
 
-    return parent::getEloquentQuery()->where('user_id', auth()->id());
-}
+        return parent::getEloquentQuery()->where('user_id', auth()->id());
+    }
 
     public static function getPages(): array
     {

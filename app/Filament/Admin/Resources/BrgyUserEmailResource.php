@@ -3,11 +3,8 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\BrgyUserEmailResource\Pages;
-use App\Filament\Admin\Resources\BrgyUserEmailResource\RelationManagers;
-use App\Models\BrgyUserEmail;
-use App\Models\User;
 use App\Mail\BrgyUserNotification;
-use Filament\Forms;
+use App\Models\User;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -17,7 +14,6 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Mail;
 
 class BrgyUserEmailResource extends Resource
@@ -26,6 +22,7 @@ class BrgyUserEmailResource extends Resource
     {
         return 'Email Sending'; // Singular label (e.g., "Email")
     }
+
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
@@ -54,10 +51,10 @@ class BrgyUserEmailResource extends Resource
             ])
             ->filters([
                 Filter::make('brgyUser')
-                ->label('Brgy User Emails')
-                ->query(fn (Builder $query) => $query->whereHas('roles', function (Builder $q) {
-                    $q->where('name', 'brgyUser');
-                })),
+                    ->label('Brgy User Emails')
+                    ->query(fn (Builder $query) => $query->whereHas('roles', function (Builder $q) {
+                        $q->where('name', 'brgyUser');
+                    })),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -67,17 +64,17 @@ class BrgyUserEmailResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
                 BulkAction::make('sendEmails')
-                ->label('Send Emails')
-                ->action(function (Collection $records) {
-                    // Iterate over each record in the collection
-                    foreach ($records as $record) {
-                        // Ensure $record is a User instance
-                        if ($record instanceof \App\Models\User) {
-                            // Send the Mailable to the user's email
-                            Mail::to($record->email)->send(new BrgyUserNotification($record));
+                    ->label('Send Emails')
+                    ->action(function (Collection $records) {
+                        // Iterate over each record in the collection
+                        foreach ($records as $record) {
+                            // Ensure $record is a User instance
+                            if ($record instanceof \App\Models\User) {
+                                // Send the Mailable to the user's email
+                                Mail::to($record->email)->send(new BrgyUserNotification($record));
+                            }
                         }
-                    }
-                }),
+                    }),
             ]);
     }
 

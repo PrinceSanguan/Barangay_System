@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('pwd');
             $table->timestamps();
             $table->boolean('is_approved')->default(false); // default zero
-            
+
         });
     }
 
