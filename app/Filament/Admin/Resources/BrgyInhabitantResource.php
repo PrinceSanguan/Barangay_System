@@ -42,6 +42,10 @@ class BrgyInhabitantResource extends Resource
                     ->maxLength(255),
                 Forms\Components\DatePicker::make('birthdate')
                     ->required(),
+                    Forms\Components\TextInput::make('purok')
+                    ->label('Purok')
+                    ->required()
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('placeofbirth')
                     ->required()
                     ->maxLength(255),
@@ -119,6 +123,7 @@ class BrgyInhabitantResource extends Resource
                 Tables\Columns\TextColumn::make('middlename')->searchable(),
                 Tables\Columns\TextColumn::make('age')->searchable(),
                 Tables\Columns\TextColumn::make('birthdate')->searchable(),
+                Tables\Columns\TextColumn::make('purok')->searchable(),
                 Tables\Columns\TextColumn::make('placeofbirth')->searchable(),
                 Tables\Columns\TextColumn::make('sex')->searchable(),
                 Tables\Columns\TextColumn::make('civilstatus')->searchable(),
@@ -133,6 +138,18 @@ class BrgyInhabitantResource extends Resource
             ->filters([
                 Filter::make('Pending Approval')
                     ->query(fn (Builder $query) => $query->where('is_approved', false)),
+                  // Filter for PWD
+            Filter::make('PWD')
+            ->query(fn (Builder $query) => $query->where('pwd', true)),
+
+        // Filter for OFW
+        Filter::make('OFW')
+            ->query(fn (Builder $query) => $query->where('ofw', true)),
+
+        // Filter for age 60 and above
+        Filter::make('Senior Citizens')
+            ->label('Age 60 and Above')
+            ->query(fn (Builder $query) => $query->where('age', '>=', 60)),
             ])
             ->actions([
                 Action::make('approve')

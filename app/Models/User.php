@@ -24,6 +24,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         'name',
         'email',
         'password',
+       'is_active',
         'avatar_url',
     ];
 
@@ -60,13 +61,17 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return true;
+        return $this->hasRole('super_admin') || $this->is_active;
+        // return $this->is_active;
     }
 
     protected static function booted(): void
     {
         static::created(function (User $user) {
             $user->assignRole('brgyUser');
+              // Set the user as inactive upon registration
+        $user->is_active = false;
+        $user->save();
         });
     }
     public function emails()

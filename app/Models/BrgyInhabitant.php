@@ -32,6 +32,7 @@ class BrgyInhabitant extends Model
         'middlename',
         'age',
         'birthdate',
+        'purok',
         'placeofbirth',
         'sex',
         'civilstatus',
