@@ -4,6 +4,7 @@ use App\Http\Controllers\LocationController;
 use App\Models\BrgyInhabitant;
 use App\Models\Event;
 use App\Models\SiteSetting;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /* NOTE: Do Not Remove
@@ -43,3 +44,12 @@ Route::get('/', function () {
     return view('welcome', compact('events', 'totalPopulation', 'maleCount', 'femaleCount', 'ageGroups', 'siteSetting'));
 });
 Route::get('/map', [LocationController::class, 'showMap']);
+
+Route::get('/send-test-email', function () {
+    Mail::raw('This is a test email from Mailtrap!', function ($message) {
+        $message->to('test@example.com')
+            ->subject('Mailtrap Test Email');
+    });
+
+    return 'Test email sent!';
+});

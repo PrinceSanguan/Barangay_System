@@ -69,4 +69,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
             $user->assignRole('brgyUser');
         });
     }
+    public function emails()
+{
+    return $this->belongsToMany(Email::class);
+}
 }

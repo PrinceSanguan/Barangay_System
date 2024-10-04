@@ -2,12 +2,11 @@
 
 namespace App\Mail;
 
-use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
-use Illuminate\Queue\SerializesModels; // Adjust this as per your User model's namespace
+use Illuminate\Queue\SerializesModels;
 
-class BrgyUserNotification extends Mailable
+class SendEmailToUsers extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -22,8 +21,10 @@ class BrgyUserNotification extends Mailable
 
     public function build()
     {
-        return $this->view('emails.notification')
-                    ->subject($this->title)
-                    ->with(['body' => $this->body]);
+        return $this->subject($this->title)
+                    ->view('emails.send_email_to_users')  // Create this view file
+                    ->with([
+                        'body' => $this->body,
+                    ]);
     }
 }
