@@ -20,7 +20,7 @@
         .navbar-brand img {
             max-height: 50px; /* Adjust the size of the logo */
         }
-        
+
     </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="70" tabindex="0">
@@ -56,11 +56,11 @@
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
-    
+
 
                 <!-- Authentication Links -->
                 @if (Route::has('filament.admin.auth.login'))
-                <nav class="d-flex flex-1 justify-content-end">
+                <nav class="flex-1 d-flex justify-content-end">
                     @auth
                         <a href="{{ route('filament.admin.pages.dashboard') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                             Dashboard
@@ -111,7 +111,7 @@
             <p>This is the home section of the website.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+1" alt="Cartoon Image 1" class="img-fluid mt-3">
+            <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+1" alt="Cartoon Image 1" class="mt-3 img-fluid">
         </div>
     </section>
    <!-- Add this section where you want the demographic statistics to appear -->
@@ -119,32 +119,32 @@
     <div class="container">
         <h2>Demographic Statistics</h2>
 
-        <div class="row mt-4">
+        <div class="mt-4 row">
             <div class="col-md-4">
-                <div class="card p-3">
+                <div class="p-3 card">
                     <h3>Total Population</h3>
                     <p>{{ $totalPopulation }}</p>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="card p-3">
+                <div class="p-3 card">
                     <h3>Male Count</h3>
                     <p>{{ $maleCount }}</p>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="card p-3">
+                <div class="p-3 card">
                     <h3>Female Count</h3>
                     <p>{{ $femaleCount }}</p>
                 </div>
             </div>
         </div>
 
-        <div class="row mt-4">
+        <div class="mt-4 row">
             <div class="col-12">
-                <div class="card p-3">
+                <div class="p-3 card">
                     <h3>Population by Age Groups</h3>
                     <ul>
                         @foreach ($ageGroups as $ageRange => $count)
@@ -156,7 +156,7 @@
         </div>
     </div>
 </section>
-    
+
     <!-- About Section -->
     <section id="about" class="pt-5 mt-5">
         <div class="container">
@@ -164,7 +164,7 @@
             <p>This is the about section content. It gives an overview of the barangay.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere. Praesent non nulla eget mi dictum interdum. Fusce pretium, nisi vel dapibus consequat, nisl odio feugiat turpis, ut facilisis quam velit eu est. Cras in dolor tellus. Nullam vestibulum ante a sapien euismod, vel accumsan ex commodo. Curabitur pharetra tincidunt libero, sit amet fermentum lacus hendrerit in.</p>
             <p>Vivamus viverra dolor non massa elementum, ac vehicula ex aliquet. Integer eget dui vitae orci sagittis fermentum non vel ante. Etiam in nulla in justo tincidunt convallis a id elit.</p>
-            <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="Cartoon Image 2" class="img-fluid mt-3">
+            <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="Cartoon Image 2" class="mt-3 img-fluid">
         </div>
     </section>
 
@@ -194,7 +194,7 @@
         <!-- Tourist Spots -->
         <h3 class="mt-4">Tourist Spots</h3>
         <div class="row">
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=Tourist+Spot+1" class="card-img-top" alt="Tourist Spot 1">
                     <div class="card-body">
@@ -203,7 +203,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=Tourist+Spot+2" class="card-img-top" alt="Tourist Spot 2">
                     <div class="card-body">
@@ -217,7 +217,7 @@
         <!-- Restaurants -->
         <h3 class="mt-4">Restaurants</h3>
         <div class="row">
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=Restaurant+1" class="card-img-top" alt="Restaurant 1">
                     <div class="card-body">
@@ -226,7 +226,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=Restaurant+2" class="card-img-top" alt="Restaurant 2">
                     <div class="card-body">
@@ -240,7 +240,7 @@
         <!-- Hotels -->
         <h3 class="mt-4">Hotels</h3>
         <div class="row">
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=Hotel+1" class="card-img-top" alt="Hotel 1">
                     <div class="card-body">
@@ -249,7 +249,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=Hotel+2" class="card-img-top" alt="Hotel 2">
                     <div class="card-body">
@@ -263,7 +263,7 @@
         <!-- Parks -->
         <h3 class="mt-4">Parks</h3>
         <div class="row">
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=Park+1" class="card-img-top" alt="Park 1">
                     <div class="card-body">
@@ -277,7 +277,7 @@
         <!-- Schools -->
         <h3 class="mt-4">Schools</h3>
         <div class="row">
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=School+1" class="card-img-top" alt="School 1">
                     <div class="card-body">
@@ -291,7 +291,7 @@
         <!-- Hospitals -->
         <h3 class="mt-4">Hospitals</h3>
         <div class="row">
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=Hospital+1" class="card-img-top" alt="Hospital 1">
                     <div class="card-body">
@@ -305,7 +305,7 @@
         <!-- Churches -->
         <h3 class="mt-4">Churches</h3>
         <div class="row">
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=Church+1" class="card-img-top" alt="Church 1">
                     <div class="card-body">
@@ -330,7 +330,7 @@
                 <li class="list-group-item">Service 5: Disaster Preparedness Training</li>
             </ul>
             <p>These services are designed to improve the quality of life for residents and foster a strong sense of community.</p>
-            <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+3" alt="Cartoon Image 3"  class="img-fluid mt-3">
+            <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+3" alt="Cartoon Image 3"  class="mt-3 img-fluid">
         </div>
     </section>
     <!-- Promotional Advertisement Announcement Section -->
@@ -338,11 +338,11 @@
     <div class="container">
         <h2>Promotional Advertisement Announcement</h2>
         <p>Stay updated with the latest promotional advertisements and announcements in our barangay. From community events to local business promotions, find out what's happening around you!</p>
-        
+
         <!-- Sample Promotional Advertisements -->
         <div class="row">
             <!-- Advertisement 1 -->
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=Ad+1" class="card-img-top" alt="Ad 1">
                     <div class="card-body">
@@ -353,7 +353,7 @@
             </div>
 
             <!-- Advertisement 2 -->
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=Ad+2" class="card-img-top" alt="Ad 2">
                     <div class="card-body">
@@ -364,7 +364,7 @@
             </div>
 
             <!-- Advertisement 3 -->
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=Ad+3" class="card-img-top" alt="Ad 3">
                     <div class="card-body">
@@ -384,14 +384,14 @@
         <div class="container">
             <h2>Upcoming Events</h2>
             <p>This section displays upcoming events in the barangay.</p>
-            
+
             @if($events->isEmpty())
                 <p>No upcoming events at the moment. Please check back later.</p>
             @else
                 <div class="row">
                     @foreach($events as $event)
                         <div class="col-md-4">
-                            <div class="card mb-4">
+                            <div class="mb-4 card">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $event->title }}</h5>
                                     <p class="card-text">{{ $event->description }}</p>
@@ -409,11 +409,11 @@
     <div class="container">
         <h2>SK Program</h2>
         <p>The Sangguniang Kabataan (SK) is committed to providing youth-oriented programs and activities that foster community involvement, leadership, and development among the youth in our barangay.</p>
-        
+
         <!-- List of Sample SK Programs -->
         <div class="row">
             <!-- Program 1 -->
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=SK+Program+1" class="card-img-top" alt="SK Program 1">
                     <div class="card-body">
@@ -424,7 +424,7 @@
             </div>
 
             <!-- Program 2 -->
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=SK+Program+2" class="card-img-top" alt="SK Program 2">
                     <div class="card-body">
@@ -435,7 +435,7 @@
             </div>
 
             <!-- Program 3 -->
-            <div class="col-md-4 mb-4">
+            <div class="mb-4 col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/400x300.png?text=SK+Program+3" class="card-img-top" alt="SK Program 3">
                     <div class="card-body">
@@ -458,7 +458,7 @@
         <p>Pursuant to Section 6 of R.A 9485</p>
         <p><strong>Vision:</strong> Centro 2: An exemplar Barangay with unified, disciplined, and God-loving constituents towards prosperity</p>
         <p><strong>Mission:</strong> To provide satisfactory services through democratic leadership that would enable the people to become politically responsible, morally upright, and economically capable</p>
-        
+
         <!-- Citizens Charter Table -->
         <div class="table-responsive">
             <table class="table table-bordered">
@@ -605,51 +605,51 @@
 <div id="officials" class="pt-5 mt-5">
     <div class="container">
         <h1>Barangay Officials</h1>
-        <div class="wrapper text-center">
-            <img class="img-cpt mb-3" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="">
+        <div class="text-center wrapper">
+            <img class="mb-3 img-cpt" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="">
             <h2>Camilo P. Perdido</h2>
             <h3>Punong Barangay</h3>
         </div>
 
-        <div class="wrapper-2 mt-5">
+        <div class="mt-5 wrapper-2">
             <ul class="list-unstyled">
-                <li class="d-inline-block mx-2">
-                    <img class="img-kagawad mb-2" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2">
+                <li class="mx-2 d-inline-block">
+                    <img class="mb-2 img-kagawad" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2">
                     <h3>Estrelita C. Estabillo</h3>
                     <p>SB Member</p>
                 </li>
-                <li class="d-inline-block mx-2">
-                    <img class="img-kagawad mb-2" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2">
+                <li class="mx-2 d-inline-block">
+                    <img class="mb-2 img-kagawad" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2">
                     <h3>Vicky C. Fuertes</h3>
                     <p>SB Member</p>
                 </li>
-                <li class="d-inline-block mx-2">
-                    <img class="img-kagawad mb-2" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2">
+                <li class="mx-2 d-inline-block">
+                    <img class="mb-2 img-kagawad" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2">
                     <h3>Recto S. Obispo</h3>
                     <p>SB Member</p>
                 </li>
             </ul>
         </div>
 
-        <div class="wrapper-3 mt-5">
+        <div class="mt-5 wrapper-3">
             <ul class="list-unstyled">
-                <li class="d-inline-block mx-2">
-                    <img class="img-kagawad mb-2" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="">
+                <li class="mx-2 d-inline-block">
+                    <img class="mb-2 img-kagawad" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="">
                     <h3>Andrew L. Pagayatan</h3>
                     <p>SB Member</p>
                 </li>
-                <li class="d-inline-block mx-2">
-                    <img class="img-kagawad mb-2" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="">
+                <li class="mx-2 d-inline-block">
+                    <img class="mb-2 img-kagawad" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="">
                     <h3>Almie Joy D. Cabuyadao</h3>
                     <p>SB Member</p>
                 </li>
-                <li class="d-inline-block mx-2">
-                    <img class="img-kagawad mb-2" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="">
+                <li class="mx-2 d-inline-block">
+                    <img class="mb-2 img-kagawad" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="">
                     <h3>Darwin R. Callangan</h3>
                     <p>SB Member</p>
                 </li>
-                <li class="d-inline-block mx-2">
-                    <img class="img-kagawad mb-2" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="">
+                <li class="mx-2 d-inline-block">
+                    <img class="mb-2 img-kagawad" src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+2" alt="">
                     <h3>Alfonso S. Grande Jr.</h3>
                     <p>SB Member</p>
                 </li>
@@ -667,11 +667,14 @@
             <p><strong>Email:</strong> info@barangayname.com</p>
             <p><strong>Phone:</strong> (123) 456-7890</p>
             <p><strong>Address:</strong> 123 Barangay Street, City, Country</p>
-            <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+4" alt="Cartoon Image 4" class="img-fluid mt-3">
+            <img src="https://via.placeholder.com/400x300.png?text=Cartoon+Image+4" alt="Cartoon Image 4" class="mt-3 img-fluid">
         </div>
     </section>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
 </body>
 </html>

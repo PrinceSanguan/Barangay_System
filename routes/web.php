@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LocationController;
 use App\Models\BrgyInhabitant;
 use App\Models\Event;
 use App\Models\SiteSetting;
@@ -41,3 +42,4 @@ Route::get('/', function () {
     // Pass data to the view
     return view('welcome', compact('events', 'totalPopulation', 'maleCount', 'femaleCount', 'ageGroups', 'siteSetting'));
 });
+Route::get('/map', [LocationController::class, 'showMap']);

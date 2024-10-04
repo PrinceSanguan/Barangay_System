@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BrangayOfficials extends Model
+class Restaurant extends Model
 {
     use HasFactory;
 
-
-    protected $guarded = [];
+    protected $fillable = ['name', 'description', 'image'];
 }
