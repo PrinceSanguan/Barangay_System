@@ -2,8 +2,16 @@
 
 use App\Http\Controllers\LocationController;
 use App\Models\BrgyInhabitant;
+use App\Models\Church;
 use App\Models\Event;
+use App\Models\Hospital;
+use App\Models\Hotel;
+use App\Models\Park;
+use App\Models\Restaurant;
+use App\Models\School;
 use App\Models\SiteSetting;
+use App\Models\Skprogram;
+use App\Models\TouristSpot;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +30,7 @@ Livewire::setScriptRoute(function ($handle) {
 */
 
 Route::get('/', function () {
-    // Fetch only published events, ordered by event date
+    // Fetch events
     $events = Event::where('published', true)->orderBy('event_date', 'asc')->get();
 
     // Fetch demographic statistics
@@ -40,8 +48,33 @@ Route::get('/', function () {
     // Fetch site settings
     $siteSetting = SiteSetting::first();
 
+    // Fetch other models
+    $touristSpots = TouristSpot::all();
+    $restaurants = Restaurant::all();
+    $hotels = Hotel::all();
+    $parks = Park::all();
+    $schools = School::all();
+    $hospitals = Hospital::all();
+    $churches = Church::all();
+    $skPrograms = Skprogram::all();
+
     // Pass data to the view
-    return view('welcome', compact('events', 'totalPopulation', 'maleCount', 'femaleCount', 'ageGroups', 'siteSetting'));
+    return view('welcome', compact(
+        'events',
+        'totalPopulation',
+        'maleCount',
+        'femaleCount',
+        'ageGroups',
+        'siteSetting',
+        'touristSpots',
+        'restaurants',
+        'hotels',
+        'parks',
+        'schools',
+        'hospitals',
+        'churches',
+        'skPrograms'
+    ));
 });
 Route::get('/map', [LocationController::class, 'showMap']);
 
