@@ -100,7 +100,7 @@
         <div class="container position-relative" style="z-index: 1;">
             <div class="row">
                 <div class="col-lg-10">
-                    <h2 data-aos="fade-up" data-aos-delay="100">Welcome to Brgy. CENTRO 2 Website</h2>
+                    {{-- <h2 data-aos="fade-up" data-aos-delay="100">Welcome to Brgy. CENTRO 2 Website</h2> --}}
                     {{-- <p data-aos="fade-up" data-aos-delay="200">{{ $siteSetting->tagline ?? '<<-tag line here->>' }}</p> --}}
                 </div>
                 <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
