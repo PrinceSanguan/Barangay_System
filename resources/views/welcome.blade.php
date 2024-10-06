@@ -47,6 +47,23 @@
     height: 100%; /* Takes the full height of the slider */
     width: 100%; /* Takes the full width of the slider */
 }
+/* Full-width slider styling */
+.custom-slider {
+    height: 500px; /* Adjust the slider height as needed */
+    overflow: hidden;
+}
+
+/* Remove padding from the container-fluid to stretch the slider */
+.container-fluid {
+    padding: 0;
+}
+
+/* Slider image styling */
+.custom-slider .carousel-item img {
+    object-fit: cover; /* Makes the image cover the entire slider area */
+    height: 100%; /* Takes the full height of the slider */
+    width: 100%; /* Takes the full width of the slider */
+}
 
     </style>
 </head>
@@ -113,40 +130,38 @@
 
         <!-- Content Container -->
        <!-- Content Container -->
-<div class="container position-relative" style="z-index: 1;">
-    <div class="row">
-        <div class="col-lg-10">
-            {{-- <h2 data-aos="fade-up" data-aos-delay="100">Welcome to Brgy. CENTRO 2 Website</h2> --}}
-            {{-- <p data-aos="fade-up" data-aos-delay="200">{{ $siteSetting->tagline ?? '<<-tag line here->>' }}</p> --}}
-        </div>
-        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-            <!-- Slider Section -->
-            @if(isset($siteSetting->slider_images) && is_array($siteSetting->slider_images) && count($siteSetting->slider_images) > 0)
-            <div id="slider" class="carousel slide custom-slider" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    @foreach($siteSetting->slider_images as $index => $image)
-                    <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                        <img src="{{ asset('storage/' . $image) }}" class="d-block w-100 slider-image" alt="Slider Image {{ $index + 1 }}">
+       {{-- <section id="hero" class="hero section dark-background"> --}}
+        <!-- Full-width Slider Container -->
+        <div class="container-fluid position-relative" style="z-index: 1; padding: 0;">
+            <div class="row">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Slider Section -->
+                    @if(isset($siteSetting->slider_images) && is_array($siteSetting->slider_images) && count($siteSetting->slider_images) > 0)
+                    <div id="slider" class="carousel slide custom-slider" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach($siteSetting->slider_images as $index => $image)
+                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                <img src="{{ asset('storage/' . $image) }}" class="d-block w-100 slider-image" alt="Slider Image {{ $index + 1 }}">
+                            </div>
+                            @endforeach
+                        </div>
+                        <!-- Controls for Slider -->
+                        <a class="carousel-control-prev" href="#slider" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#slider" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
                     </div>
-                    @endforeach
+                    @else
+                    <p>No slider images available.</p>
+                    @endif
                 </div>
-                <!-- Controls for Slider -->
-                <a class="carousel-control-prev" href="#slider" role="button" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#slider" role="button" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </a>
             </div>
-            @else
-            <p>No slider images available.</p>
-            @endif
         </div>
-    </div>
-</div>
-</section>
+    </section>
 
     {{-- </section><!-- /Hero Section --> --}}
 
