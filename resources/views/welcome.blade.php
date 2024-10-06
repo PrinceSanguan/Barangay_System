@@ -22,7 +22,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
   <!-- Vendor CSS Files -->
   <link href="{{asset('template/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('template/vendor/bootstrap-icons/bootstrap-icons.css')}}"" rel="stylesheet">
@@ -33,13 +33,7 @@
   <!-- Main CSS File -->
   <link href="{{ asset('template/css/main.css') }}" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Append
-  * Template URL: https://bootstrapmade.com/append-bootstrap-website-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+
 </head>
 
 <body class="index-page">
@@ -97,26 +91,46 @@
   <main class="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
+    {{-- <section id="hero" class="hero section dark-background" style="position: relative; overflow: hidden;"> --}}
 
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+        <!-- Background Image -->
+        {{-- <img src="assets/img/hero-bg.jpg" alt="" class="background-image" data-aos="fade-in" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;"> --}}
 
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10">
-            <h2 data-aos="fade-up" data-aos-delay="100">Welcome to Brgy. CENTRO 2 Website</h2>
-            <p data-aos="fade-up" data-aos-delay="200"><<-tag line here->></p>
-          </div>
-          <div class="col-lg-5" data-aos="fade-up" data-aos-delay="300">
-            {{-- <form action="forms/newsletter.php" method="post" class="php-email-form">
-              <div class="sign-up-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-            </form> --}}
-          </div>
+        <!-- Content Container -->
+        <div class="container position-relative" style="z-index: 1;">
+            <div class="row">
+                <div class="col-lg-10">
+                    <h2 data-aos="fade-up" data-aos-delay="100">Welcome to Brgy. CENTRO 2 Website</h2>
+                    {{-- <p data-aos="fade-up" data-aos-delay="200">{{ $siteSetting->tagline ?? '<<-tag line here->>' }}</p> --}}
+                </div>
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Slider Section -->
+                    @if(isset($siteSetting->slider_images) && is_array($siteSetting->slider_images) && count($siteSetting->slider_images) > 0)
+                    <div id="slider" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach($siteSetting->slider_images as $index => $image)
+                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                <img src="{{ asset('storage/' . $image) }}" class="d-block w-100" alt="Slider Image {{ $index + 1 }}">
+                            </div>
+                            @endforeach
+                        </div>
+                        <!-- Controls for Slider -->
+                        <a class="carousel-control-prev" href="#slider" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#slider" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
+                    </div>
+                    @else
+                    <p>No slider images available.</p>
+                    @endif
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
     </section><!-- /Hero Section -->
 
@@ -974,6 +988,7 @@
   <script src="{{ asset('template/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
   <script src="{{ asset('template/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('template/vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 
   <!-- Main JS File -->
   <script src="{{ asset('template/js/main.js') }}"></script>
