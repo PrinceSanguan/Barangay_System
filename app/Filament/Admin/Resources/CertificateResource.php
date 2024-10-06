@@ -215,27 +215,51 @@ class CertificateResource extends Resource
             'edit' => Pages\EditCertificate::route('/{record}/edit'),
         ];
     }
-    public static function beforeCreate($record, $data)
-    {
-        $prices = [
-            'Indigency_certificate' => '100.00',
-            'barangay_clearance' => '150.00',
-            'business_permit' => '300.00',
-        ];
+    // public static function beforeCreate($record, $data)
+    // {
+    //     $prices = [
+    //         'Indigency_certificate' => '100.00',
+    //         'barangay_clearance' => '150.00',
+    //         'business_permit' => '300.00',
+    //     ];
 
-        $record->price = $prices[$data['certificate_type']] ?? '0.00';
-    }
+    //     $record->price = $prices[$data['certificate_type']] ?? '0.00';
+    // }
+    public static function mutateFormDataBeforeCreate(array $data): array
+{
+    $prices = [
+        'Indigency_certificate' => '100.00',
+        'barangay_clearance' => '150.00',
+        'business_permit' => '300.00',
+    ];
 
-    public static function beforeSave($record, $data)
-    {
-        $prices = [
-            'Indigency_certificate' => '100.00',
-            'barangay_clearance' => '150.00',
-            'business_permit' => '300.00',
-        ];
+    $data['price'] = $prices[$data['certificate_type']] ?? '0.00';
 
-        $record->price = $prices[$data['certificate_type']] ?? '0.00';
-    }
+    return $data;
+}
+
+    // public static function beforeSave($record, $data)
+    // {
+    //     $prices = [
+    //         'Indigency_certificate' => '100.00',
+    //         'barangay_clearance' => '150.00',
+    //         'business_permit' => '300.00',
+    //     ];
+
+    //     $record->price = $prices[$data['certificate_type']] ?? '0.00';
+    // }
+    public static function mutateFormDataBeforeSave(array $data): array
+{
+    $prices = [
+        'Indigency_certificate' => '100.00',
+        'barangay_clearance' => '150.00',
+        'business_permit' => '300.00',
+    ];
+
+    $data['price'] = $prices[$data['certificate_type']] ?? '0.00';
+
+    return $data;
+}
     public static function getEloquentQuery(): Builder
     {
         // Check if the user has the 'brgyUser' role

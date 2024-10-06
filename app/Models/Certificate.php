@@ -10,7 +10,7 @@ class Certificate extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+    'name',
     'email',
     'certificate_type',
     'purpose',
@@ -24,4 +24,8 @@ class Certificate extends Model
     protected $casts = [
         'requested_date' => 'date',
     ];
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
 }
