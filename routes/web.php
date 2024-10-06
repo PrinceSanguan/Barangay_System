@@ -1,14 +1,20 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\LocationController;
+use App\Models\Announcement;
+use App\Models\BrangayOfficials;
 use App\Models\BrgyInhabitant;
 use App\Models\Church;
 use App\Models\Event;
 use App\Models\Hospital;
 use App\Models\Hotel;
+use App\Models\Location;
 use App\Models\Park;
+use App\Models\Program;
 use App\Models\Restaurant;
 use App\Models\School;
+use App\Models\Schoolar;
 use App\Models\SiteSetting;
 use App\Models\Skprogram;
 use App\Models\TouristSpot;
@@ -31,7 +37,7 @@ Livewire::setScriptRoute(function ($handle) {
 
 Route::get('/', function () {
     // Fetch events
-    $events = Event::where('published', true)->orderBy('event_date', 'asc')->get();
+    $events = Event::orderBy('created_at', 'desc')->take(3)->get();
 
     // Fetch demographic statistics
     $totalPopulation = BrgyInhabitant::count();
@@ -58,6 +64,15 @@ Route::get('/', function () {
     $churches = Church::all();
     $skPrograms = Skprogram::all();
 
+    // Fetch Barangay Officials
+    $barangayOfficials = BrangayOfficials::all();
+
+      // Fetch programs
+      $programs = Program::all();
+      $testimonials = Schoolar::all();
+       // Fetch announcements
+    $announcements = Announcement::all();
+    $location = Location::all();
     // Pass data to the view
     return view('welcome', compact(
         'events',
@@ -73,7 +88,12 @@ Route::get('/', function () {
         'schools',
         'hospitals',
         'churches',
-        'skPrograms'
+        'skPrograms',
+        'barangayOfficials',
+        'programs',
+         'testimonials',
+         'announcements',
+         'location'
     ));
 });
 Route::get('/map', [LocationController::class, 'showMap']);
@@ -86,3 +106,4 @@ Route::get('/send-test-email', function () {
 
     return 'Test email sent!';
 });
+Route::get('/events/{id}', [EventController::class, 'show'])->name('event.details');
