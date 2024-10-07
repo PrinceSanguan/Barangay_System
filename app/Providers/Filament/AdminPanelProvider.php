@@ -2,6 +2,9 @@
 
 namespace App\Providers\Filament;
 
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\RegisterController as ControllersRegisterController;
+use App\Http\Middleware\RedirectIfRegistered;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -100,6 +103,7 @@ class AdminPanelProvider extends PanelProvider
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
+
                 StartSession::class,
                 AuthenticateSession::class,
                 ShareErrorsFromSession::class,
@@ -107,11 +111,14 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                // RedirectIfRegistered::class,
+
 
                 \Hasnayeen\Themes\Http\Middleware\SetTheme::class,
             ])
             ->authMiddleware([
-                Authenticate::class,
+                 Authenticate::class,
             ]);
     }
+
 }

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
@@ -13,7 +15,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements FilamentUser, HasAvatar
 {
-    use HasFactory, HasRoles, Notifiable;
+    use HasFactory, HasRoles, Notifiable, HasPanelShield;
 
     /**
      * The attributes that are mass assignable.
@@ -61,14 +63,16 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return $this->hasRole('super_admin') || $this->is_active;
-        // return $this->is_active;
+        // return $this->hasRole('super_admin') || $this->is_active;
+        return true;
+
+
     }
 
     protected static function booted(): void
     {
         static::created(function (User $user) {
-            $user->assignRole('brgyUser');
+            $user->assignRole('preregister');
               // Set the user as inactive upon registration
         $user->is_active = false;
         $user->save();
