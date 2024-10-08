@@ -9,6 +9,5 @@ class Schoolar extends Model
 {
     use HasFactory;
 
-
     protected $guarded = [];
 }

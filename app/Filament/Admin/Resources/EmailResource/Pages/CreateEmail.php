@@ -3,10 +3,8 @@
 namespace App\Filament\Admin\Resources\EmailResource\Pages;
 
 use App\Filament\Admin\Resources\EmailResource;
-use App\Mail\BrgyUserNotification;
 use App\Mail\SendEmailToUsers;
 use App\Models\User;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Facades\Mail;
 

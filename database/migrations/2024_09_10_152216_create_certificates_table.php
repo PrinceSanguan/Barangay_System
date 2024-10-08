@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name'); // Requester's name
             $table->string('email'); // Requester's email
             $table->string('certificate_type'); // Type of certificate (e.g., Birth, Barangay Clearance)

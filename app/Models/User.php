@@ -24,7 +24,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         'name',
         'email',
         'password',
-       'is_active',
+        'is_active',
         'avatar_url',
     ];
 
@@ -69,13 +69,14 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     {
         static::created(function (User $user) {
             $user->assignRole('brgyUser');
-              // Set the user as inactive upon registration
-        $user->is_active = false;
-        $user->save();
+            // Set the user as inactive upon registration
+            $user->is_active = false;
+            $user->save();
         });
     }
+
     public function emails()
-{
-    return $this->belongsToMany(Email::class);
-}
+    {
+        return $this->belongsToMany(Email::class);
+    }
 }

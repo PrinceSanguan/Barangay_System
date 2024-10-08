@@ -9,7 +9,5 @@ class Skprogram extends Model
 {
     use HasFactory;
 
-
     protected $guarded = [];
-
 }

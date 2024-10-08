@@ -19,6 +19,7 @@ class FamilyProfileResource extends Resource
     protected static ?string $model = FamilyProfile::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
     protected static ?string $navigationGroup = 'Inhabitants';
 
     public static function form(Forms\Form $form): Forms\Form
@@ -115,11 +116,11 @@ class FamilyProfileResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                    BooleanColumn::make('is_approved')->label('Approved'),
+                BooleanColumn::make('is_approved')->label('Approved'),
             ])
             ->filters([
                 Filter::make('Pending Approval')
-                ->query(fn (Builder $query) => $query->where('is_approved', false)),
+                    ->query(fn (Builder $query) => $query->where('is_approved', false)),
             ])
             ->actions([
                 Action::make('approve')
@@ -138,6 +139,7 @@ class FamilyProfileResource extends Resource
                 ]),
             ]);
     }
+
     public static function getEloquentQuery(): Builder
     {
         if (auth()->user()->hasRole('super_admin') || auth()->user()->hasRole('brgySecretary')) {

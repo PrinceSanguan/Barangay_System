@@ -10,8 +10,4 @@ class Hospital extends Model
     use HasFactory;
 
     protected $guarded = [];
-
-
-
-
 }

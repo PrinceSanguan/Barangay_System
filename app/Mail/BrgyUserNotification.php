@@ -12,6 +12,7 @@ class BrgyUserNotification extends Mailable
     use Queueable, SerializesModels;
 
     public $title;
+
     public $body;
 
     public function __construct($title, $body)
@@ -23,7 +24,7 @@ class BrgyUserNotification extends Mailable
     public function build()
     {
         return $this->view('emails.notification')
-                    ->subject($this->title)
-                    ->with(['body' => $this->body]);
+            ->subject($this->title)
+            ->with(['body' => $this->body]);
     }
 }

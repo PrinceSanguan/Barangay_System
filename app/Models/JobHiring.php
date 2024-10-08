@@ -9,6 +9,5 @@ class JobHiring extends Model
 {
     use HasFactory;
 
-
     protected $guarded = [];
 }

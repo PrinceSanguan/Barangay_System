@@ -3,22 +3,21 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\TouristSpotResource\Pages;
-use App\Filament\Admin\Resources\TouristSpotResource\RelationManagers;
 use App\Models\TouristSpot;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class TouristSpotResource extends Resource
 {
     protected static ?string $model = TouristSpot::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
     protected static ?string $navigationGroup = 'Visitors Launch';
+
     public static function form(Form $form): Form
     {
         return $form

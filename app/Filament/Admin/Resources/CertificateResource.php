@@ -15,7 +15,6 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 class CertificateResource extends Resource
 {
@@ -28,137 +27,137 @@ class CertificateResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-        ->schema([
-            Forms\Components\TextInput::make('name')
-            ->label('Name')
-            ->required()
-            ->maxLength(255),
+            ->schema([
+                Forms\Components\TextInput::make('name')
+                    ->label('Name')
+                    ->required()
+                    ->maxLength(255),
 
-        Forms\Components\TextInput::make('email')
-            ->label('Email')
-            ->email()
-            ->required(),
+                Forms\Components\TextInput::make('email')
+                    ->label('Email')
+                    ->email()
+                    ->required(),
 
-        Forms\Components\Select::make('certificate_type')
-            ->label('Certificate Type')
-            ->options([
-                'Indigency_certificate' => 'Indigency Certificate',
-                'barangay_clearance' => 'Barangay Clearance',
-                'business_permit' => 'Business Permit',
-            ])
-            ->required()
-            ->reactive()
-            ->afterStateUpdated(function ($state, callable $set) {
-                $prices = [
-                    'Indigency_certificate' => '100.00',
-                    'barangay_clearance' => '150.00',
-                    'business_permit' => '300.00',
-                ];
+                Forms\Components\Select::make('certificate_type')
+                    ->label('Certificate Type')
+                    ->options([
+                        'Indigency_certificate' => 'Indigency Certificate',
+                        'barangay_clearance' => 'Barangay Clearance',
+                        'business_permit' => 'Business Permit',
+                    ])
+                    ->required()
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        $prices = [
+                            'Indigency_certificate' => '100.00',
+                            'barangay_clearance' => '150.00',
+                            'business_permit' => '300.00',
+                        ];
 
-                $set('price', $prices[$state] ?? '0.00');
-            }),
+                        $set('price', $prices[$state] ?? '0.00');
+                    }),
 
-        Forms\Components\TextInput::make('price')
-            ->label('Price')
-            ->prefix('₱')
-            ->readOnly()
-            ->maxLength(255),
+                Forms\Components\TextInput::make('price')
+                    ->label('Price')
+                    ->prefix('₱')
+                    ->readOnly()
+                    ->maxLength(255),
 
-        Forms\Components\Textarea::make('purpose')
-            ->label('Purpose')
-            ->required(),
+                Forms\Components\Textarea::make('purpose')
+                    ->label('Purpose')
+                    ->required(),
 
-        // Add the payment method field
-        Forms\Components\Select::make('payment_method')
-            ->label('Payment Method')
-            ->options([
-                'cash' => 'Cash',
-                'gcash' => 'Gcash',
-            ])
-            ->required(),
+                // Add the payment method field
+                Forms\Components\Select::make('payment_method')
+                    ->label('Payment Method')
+                    ->options([
+                        'cash' => 'Cash',
+                        'gcash' => 'Gcash',
+                    ])
+                    ->required(),
 
-        Forms\Components\Select::make('payment_status')
-            ->label('Payment Status')
-            ->options([
-                'pending' => 'Pending',
-                'paid' => 'Paid',
-                'failed' => 'Failed',
-            ])
-            ->default('pending')
-            ->required()
-            ->disabled(fn () => Auth::user()->hasRole('brgyUser')),
+                Forms\Components\Select::make('payment_status')
+                    ->label('Payment Status')
+                    ->options([
+                        'pending' => 'Pending',
+                        'paid' => 'Paid',
+                        'failed' => 'Failed',
+                    ])
+                    ->default('pending')
+                    ->required()
+                    ->disabled(fn () => Auth::user()->hasRole('brgyUser')),
 
-        Forms\Components\Select::make('status')
-            ->label('Status')
-            ->options([
-                'submitted' => 'Submitted',
-                'received' => 'Received',
-                'under_processing' => 'Under Processing',
-                'pending' => 'Pending',
-                'ready_for_release' => 'Ready for Release',
-                'released' => 'Released',
-                'cancelled' => 'Cancelled',
-            ])
-            ->default('submitted')
-            ->required()
-            ->disabled(fn () => Auth::user()->hasRole('brgyUser')),
+                Forms\Components\Select::make('status')
+                    ->label('Status')
+                    ->options([
+                        'submitted' => 'Submitted',
+                        'received' => 'Received',
+                        'under_processing' => 'Under Processing',
+                        'pending' => 'Pending',
+                        'ready_for_release' => 'Ready for Release',
+                        'released' => 'Released',
+                        'cancelled' => 'Cancelled',
+                    ])
+                    ->default('submitted')
+                    ->required()
+                    ->disabled(fn () => Auth::user()->hasRole('brgyUser')),
 
-        Forms\Components\Toggle::make('is_approved')
-            ->label('Approved')
-            ->disabled()
-            ->visible(fn () => Auth::user()->hasRole('brgySecretary')),
-               // Hidden field to automatically set the user_id
-               Forms\Components\Hidden::make('user_id')
-               ->default(Auth::id()),
-    ]);
-}
+                Forms\Components\Toggle::make('is_approved')
+                    ->label('Approved')
+                    ->disabled()
+                    ->visible(fn () => Auth::user()->hasRole('brgySecretary')),
+                // Hidden field to automatically set the user_id
+                Forms\Components\Hidden::make('user_id')
+                    ->default(Auth::id()),
+            ]);
+    }
 
     public static function table(Table $table): Table
     {
         return $table
-        ->columns([
-            TextColumn::make('name')
-            ->label('Name')
-            ->searchable(),
+            ->columns([
+                TextColumn::make('name')
+                    ->label('Name')
+                    ->searchable(),
 
-        TextColumn::make('email')
-            ->label('Email'),
+                TextColumn::make('email')
+                    ->label('Email'),
 
-        TextColumn::make('certificate_type')
-            ->label('Certificate Type')
-            ->formatStateUsing(fn ($state) => ucfirst(str_replace('_', ' ', $state))),
+                TextColumn::make('certificate_type')
+                    ->label('Certificate Type')
+                    ->formatStateUsing(fn ($state) => ucfirst(str_replace('_', ' ', $state))),
 
-        TextColumn::make('price')
-            ->label('Price')
-            ->prefix('₱')
-            ->sortable(),
+                TextColumn::make('price')
+                    ->label('Price')
+                    ->prefix('₱')
+                    ->sortable(),
 
-        // Display the payment method
-        TextColumn::make('payment_method')
-            ->label('Payment Method')
-            ->formatStateUsing(fn ($state) => ucfirst($state))
-            ->sortable(),
+                // Display the payment method
+                TextColumn::make('payment_method')
+                    ->label('Payment Method')
+                    ->formatStateUsing(fn ($state) => ucfirst($state))
+                    ->sortable(),
 
-        TextColumn::make('payment_status')
-            ->label('Payment Status')
-            ->formatStateUsing(fn ($state) => ucfirst($state))
-            ->sortable(),
+                TextColumn::make('payment_status')
+                    ->label('Payment Status')
+                    ->formatStateUsing(fn ($state) => ucfirst($state))
+                    ->sortable(),
 
-        TextColumn::make('purpose')
-            ->label('Purpose')
-            ->limit(50),
+                TextColumn::make('purpose')
+                    ->label('Purpose')
+                    ->limit(50),
 
-        BooleanColumn::make('is_approved')
-            ->label('Approved')
-            ->trueIcon('heroicon-o-check-circle')
-            ->falseIcon('heroicon-o-x-circle'),
+                BooleanColumn::make('is_approved')
+                    ->label('Approved')
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->falseIcon('heroicon-o-x-circle'),
 
-        TextColumn::make('status')
-            ->label('Status')
-            ->formatStateUsing(fn ($state) => ucfirst(str_replace('_', ' ', $state)))
-            ->sortable()
-            ->searchable(),
-    ])
+                TextColumn::make('status')
+                    ->label('Status')
+                    ->formatStateUsing(fn ($state) => ucfirst(str_replace('_', ' ', $state)))
+                    ->sortable()
+                    ->searchable(),
+            ])
             ->filters([
                 Filter::make('certificate_type')
                     ->label('Certificate Type')
@@ -226,17 +225,17 @@ class CertificateResource extends Resource
     //     $record->price = $prices[$data['certificate_type']] ?? '0.00';
     // }
     public static function mutateFormDataBeforeCreate(array $data): array
-{
-    $prices = [
-        'Indigency_certificate' => '100.00',
-        'barangay_clearance' => '150.00',
-        'business_permit' => '300.00',
-    ];
+    {
+        $prices = [
+            'Indigency_certificate' => '100.00',
+            'barangay_clearance' => '150.00',
+            'business_permit' => '300.00',
+        ];
 
-    $data['price'] = $prices[$data['certificate_type']] ?? '0.00';
+        $data['price'] = $prices[$data['certificate_type']] ?? '0.00';
 
-    return $data;
-}
+        return $data;
+    }
 
     // public static function beforeSave($record, $data)
     // {
@@ -249,17 +248,18 @@ class CertificateResource extends Resource
     //     $record->price = $prices[$data['certificate_type']] ?? '0.00';
     // }
     public static function mutateFormDataBeforeSave(array $data): array
-{
-    $prices = [
-        'Indigency_certificate' => '100.00',
-        'barangay_clearance' => '150.00',
-        'business_permit' => '300.00',
-    ];
+    {
+        $prices = [
+            'Indigency_certificate' => '100.00',
+            'barangay_clearance' => '150.00',
+            'business_permit' => '300.00',
+        ];
 
-    $data['price'] = $prices[$data['certificate_type']] ?? '0.00';
+        $data['price'] = $prices[$data['certificate_type']] ?? '0.00';
 
-    return $data;
-}
+        return $data;
+    }
+
     public static function getEloquentQuery(): Builder
     {
         // Check if the user has the 'brgyUser' role
