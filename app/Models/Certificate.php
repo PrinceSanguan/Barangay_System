@@ -10,6 +10,7 @@ class Certificate extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'name',
         'email',
         'certificate_type',
