@@ -13,6 +13,9 @@ use Filament\Tables\Columns\BooleanColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
+use Filament\Tables\Filters\Filter;
+use Illuminate\Database\Eloquent\Builder; // Ensure this is imported
+use App\Models\Role; // Add this line
 
 class UserResource extends Resource
 {
@@ -48,7 +51,6 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-
                 Forms\Components\Grid::make(2)
                     ->schema([
                         Forms\Components\TextInput::make('name')
@@ -70,7 +72,6 @@ class UserResource extends Resource
                             ->prefixIcon('heroicon-m-envelope')
                             ->columnSpan('full')
                             ->email(),
-
                         Forms\Components\TextInput::make('password')
                             ->password()
                             ->confirmed()
@@ -98,7 +99,6 @@ class UserResource extends Resource
                             ->label('Roles'),
                     ])
                     ->columns(1),
-
             ]);
     }
 
@@ -131,26 +131,49 @@ class UserResource extends Resource
                     ->date()
                     ->sortable()
                     ->searchable(),
-
             ])
             ->filters([
-                //
+                // Pending Accounts Filter
+                Filter::make('Pending Accounts')
+                    ->label('Pending Accounts')
+                    ->query(function (Builder $query) {
+                        return $query->where('is_active', false);
+                    }),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-
+                Tables\Actions\Action::make('approve')
+                    ->label('Approve Account')
+                    ->action(function (User $record) {
+                        $record->is_active = true; // Approve account
+                        
+                        // Retrieve the role ID for 'brgyUser'
+                        $brgyUserRole = \App\Models\Role::where('name', 'brgyUser')->first();
+                        
+                        if ($brgyUserRole) {
+                            // Change role to brgyUser
+                            $record->roles()->sync([$brgyUserRole->id]);
+                        } else {
+                            // Handle the case where the role doesn't exist
+                            // You might want to log this or throw an exception
+                        }
+    
+                        $record->save();
+                    })
+                    ->visible(fn (User $record) => !$record->is_active), // Show if not active
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    // Tables\Actions\DeleteBulkAction::make(),
+                    // Add bulk actions here if needed
                 ]),
             ])
             ->emptyStateActions([
                 Tables\Actions\CreateAction::make(),
             ]);
     }
+    
 
     public static function getRelations(): array
     {
