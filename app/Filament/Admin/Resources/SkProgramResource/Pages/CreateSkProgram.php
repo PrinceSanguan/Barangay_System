@@ -8,4 +8,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateSkProgram extends CreateRecord
 {
     protected static string $resource = SkProgramResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

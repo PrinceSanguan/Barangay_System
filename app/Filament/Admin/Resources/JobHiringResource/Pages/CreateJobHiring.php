@@ -8,4 +8,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateJobHiring extends CreateRecord
 {
     protected static string $resource = JobHiringResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

@@ -8,4 +8,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateTouristSpot extends CreateRecord
 {
     protected static string $resource = TouristSpotResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }
