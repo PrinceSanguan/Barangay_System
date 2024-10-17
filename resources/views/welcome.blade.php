@@ -836,6 +836,9 @@
                                 <p class="post-date">
                                     <time datetime="{{ $event->event_date }}">{{ \Carbon\Carbon::parse($event->event_date)->format('M d, Y') }}</time>
                                 </p>
+                                <p class="post-organizer">
+                                    <strong>Organizer:</strong> {{ $event->organizer }}
+                                </p>
                             </div>
                         </div>
                     </article>
