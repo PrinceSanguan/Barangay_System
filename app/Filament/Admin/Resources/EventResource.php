@@ -34,6 +34,9 @@ class EventResource extends Resource
                 Forms\Components\Textarea::make('description')->required(),
                 Forms\Components\DatePicker::make('event_date')->required(),
                 Forms\Components\TextInput::make('location')->required(),
+                Forms\Components\TextInput::make('organizer')  // New Organizer Field
+                    ->label('Organizer')
+                    ->required(),
                 Forms\Components\Toggle::make('published')->label('Publish Event'),
             ]);
     }
@@ -45,6 +48,8 @@ class EventResource extends Resource
                 TextColumn::make('title')->sortable()->searchable(),
                 TextColumn::make('description')->limit(50),
                 TextColumn::make('event_date')->sortable(),
+                TextColumn::make('location')->label('Location'),  // Display Location
+                TextColumn::make('organizer')->label('Organizer')->sortable()->searchable(),  // New Organizer Column
                 BooleanColumn::make('published')->label('Published'),
             ])
             ->filters([
