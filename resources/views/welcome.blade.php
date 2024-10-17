@@ -839,6 +839,18 @@
                                 <p class="post-organizer">
                                     <strong>Organizer:</strong> {{ $event->organizer }}
                                 </p>
+                                <p class="post-attendees">
+                                    <strong>Participants/Attendees:</strong>
+                                    @if($event->attendees && is_array($event->attendees) && count($event->attendees) > 0)
+                                        <ul>
+                                            @foreach($event->attendees as $attendee)
+                                                <li>{{ $attendee }}</li>
+                                            @endforeach
+                                        </ul>
+                                    @else
+                                        <span>Expected Attendees: {{ $event->expected_attendees }}</span>
+                                    @endif
+                                </p>
                             </div>
                         </div>
                     </article>
