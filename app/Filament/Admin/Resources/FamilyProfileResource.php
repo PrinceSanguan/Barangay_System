@@ -50,7 +50,7 @@ class FamilyProfileResource extends Resource
                 Forms\Components\TextInput::make('occupation')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('tenurestatus')
+                Forms\Components\TextInput::make('monthlyincome')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('typeOfDwelling')
@@ -94,7 +94,7 @@ class FamilyProfileResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('occupation')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('tenurestatus')
+                Tables\Columns\TextColumn::make('monthlyincome')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('typeOfDwelling')
                     ->searchable(),
