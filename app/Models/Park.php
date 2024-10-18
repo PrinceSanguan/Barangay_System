@@ -9,6 +9,5 @@ class Park extends Model
 {
     use HasFactory;
 
-
     protected $guarded = [];
 }

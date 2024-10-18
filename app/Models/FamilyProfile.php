@@ -34,7 +34,7 @@ class FamilyProfile extends Model
         'religion',
         'educAttainment',
         'occupation',
-        'tenurestatus',
+        'monthlyincome',
         'typeOfDwelling',
         'watersource',
         'toiletFacility',

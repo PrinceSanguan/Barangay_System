@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name'); // Requester's name
             $table->string('email'); // Requester's email
             $table->string('certificate_type'); // Type of certificate (e.g., Birth, Barangay Clearance)
             $table->text('purpose'); // Purpose of the request
+            $table->enum('payment_status', ['pending', 'paid', 'failed'])->default('pending');
+            $table->string('payment_method')->nullable(); // Add payment_method as a nullable string
+            $table->string('price', 8, 2)->nullable(); // Price field for certificate type
             $table->boolean('is_approved')->default(false);
             $table->timestamps();
         });

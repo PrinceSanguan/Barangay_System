@@ -9,6 +9,5 @@ class Church extends Model
 {
     use HasFactory;
 
-
     protected $guarded = [];
 }

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('religion');
             $table->string('educAttainment');
             $table->string('occupation');
-            $table->string('tenurestatus');
+            $table->string('monthlyincome');
             $table->string('typeOfDwelling');
             $table->string('watersource');
             $table->string('toiletFacility');

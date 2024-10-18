@@ -67,12 +67,13 @@ Route::get('/', function () {
     // Fetch Barangay Officials
     $barangayOfficials = BrangayOfficials::all();
 
-      // Fetch programs
-      $programs = Program::all();
-      $testimonials = Schoolar::all();
-       // Fetch announcements
+    // Fetch programs
+    $programs = Program::all();
+    $testimonials = Schoolar::all();
+    // Fetch announcements
     $announcements = Announcement::all();
     $location = Location::all();
+
     // Pass data to the view
     return view('welcome', compact(
         'events',
@@ -91,9 +92,9 @@ Route::get('/', function () {
         'skPrograms',
         'barangayOfficials',
         'programs',
-         'testimonials',
-         'announcements',
-         'location'
+        'testimonials',
+        'announcements',
+        'location'
     ));
 });
 Route::get('/map', [LocationController::class, 'showMap']);

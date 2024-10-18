@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('schoolars', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->string('image')->nullable();  // For storing image path
-            $table->timestamps();
+        Schema::table('events', function (Blueprint $table) {
+            $table->string('organizer')->nullable();  // Add organizer column
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('schoolars');
+        Schema::table('events', function (Blueprint $table) {
+            $table->dropColumn('organizer');  // Drop organizer column on rollback
+        });
     }
 };

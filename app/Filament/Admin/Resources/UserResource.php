@@ -83,12 +83,12 @@ class UserResource extends Resource
                             ->columnSpan(1)
                             ->password(),
                     ]),
-                        Section::make('Activate')
-                        ->schema([
-                            Forms\Components\Toggle::make('is_active')
+                Section::make('Activate')
+                    ->schema([
+                        Forms\Components\Toggle::make('is_active')
                             ->label('Activate Account')
                             ->default(false), // Set the default to 'inactive'
-                        ]),
+                    ]),
                 Forms\Components\Section::make('Roles')
                     ->schema([
                         Forms\Components\Select::make('roles')
@@ -119,7 +119,7 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->sortable()
                     ->searchable(),
-                    BooleanColumn::make('is_active')
+                BooleanColumn::make('is_active')
                     ->label('Active')
                     ->trueIcon('heroicon-o-check-circle')
                     ->falseIcon('heroicon-o-x-circle'),

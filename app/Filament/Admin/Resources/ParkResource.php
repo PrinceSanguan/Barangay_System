@@ -3,9 +3,7 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\ParkResource\Pages;
-use App\Filament\Admin\Resources\ParkResource\RelationManagers;
 use App\Models\Park;
-use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -15,8 +13,6 @@ use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ParkResource extends Resource
 {
@@ -24,21 +20,21 @@ class ParkResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-
     protected static ?string $navigationGroup = 'Visitors Launch';
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 TextInput::make('name')
-                ->required()
-                ->label('Name'),
-            Textarea::make('description')
-                ->required()
-                ->label('Description'),
-            FileUpload::make('image')
-                ->image()
-                ->label('Image'),
+                    ->required()
+                    ->label('Name'),
+                Textarea::make('description')
+                    ->required()
+                    ->label('Description'),
+                FileUpload::make('image')
+                    ->image()
+                    ->label('Image'),
             ]);
     }
 

@@ -41,6 +41,7 @@ class BrgyInhabitant extends Model
         'educAttainment',
         'occupation',
         'ofw',
+        'email',
         'pwd',
         'is_approved',
     ];

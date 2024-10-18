@@ -9,6 +9,5 @@ class BrangayOfficials extends Model
 {
     use HasFactory;
 
-
     protected $guarded = [];
 }

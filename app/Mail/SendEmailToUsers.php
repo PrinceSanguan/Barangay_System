@@ -11,6 +11,7 @@ class SendEmailToUsers extends Mailable
     use Queueable, SerializesModels;
 
     public $title;
+
     public $body;
 
     public function __construct($title, $body)
@@ -22,9 +23,9 @@ class SendEmailToUsers extends Mailable
     public function build()
     {
         return $this->subject($this->title)
-                    ->view('emails.send_email_to_users')  // Create this view file
-                    ->with([
-                        'body' => $this->body,
-                    ]);
+            ->view('emails.send_email_to_users')  // Create this view file
+            ->with([
+                'body' => $this->body,
+            ]);
     }
 }
