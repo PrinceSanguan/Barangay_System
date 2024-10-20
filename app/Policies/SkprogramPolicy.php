@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\SkProgram;
 use App\Models\User;
+use App\Models\SkProgram;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class SkProgramPolicy

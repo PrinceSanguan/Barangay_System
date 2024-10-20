@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\Church;
 use App\Models\User;
+use App\Models\Church;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ChurchPolicy

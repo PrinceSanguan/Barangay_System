@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\JobHiring;
 use App\Models\User;
+use App\Models\JobHiring;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class JobHiringPolicy

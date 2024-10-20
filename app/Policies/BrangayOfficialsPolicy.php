@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\BrangayOfficials;
 use App\Models\User;
+use App\Models\BrangayOfficials;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class BrangayOfficialsPolicy

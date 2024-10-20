@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\FamilyProfile;
 use App\Models\User;
+use App\Models\FamilyProfile;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class FamilyProfilePolicy

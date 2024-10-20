@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\BrgyInhabitant;
 use App\Models\User;
+use App\Models\BrgyInhabitant;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class BrgyInhabitantPolicy
