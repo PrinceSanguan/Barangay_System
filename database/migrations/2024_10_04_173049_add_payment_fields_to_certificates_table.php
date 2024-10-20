@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('certificates', function (Blueprint $table) {
-            $table->enum('payment_status', ['pending', 'paid', 'failed'])->default('pending');
-            $table->string('price', 8, 2)->nullable(); // Price field for certificate type
+            // $table->enum('payment_status', ['pending', 'paid', 'failed'])->default('pending');
+            // $table->string('price', 8, 2)->nullable(); // Price field for certificate type
         });
     }
 
