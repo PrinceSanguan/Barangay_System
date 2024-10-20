@@ -33,7 +33,7 @@
   <!-- Main CSS File -->
   <link href="{{ asset('template/css/main.css') }}" rel="stylesheet">
 
-    <style>
+ <!--  <style>
         /* Custom slider styling */
 .custom-slider {
     height: 500px; /* Adjust the slider height as needed */
@@ -66,6 +66,7 @@
 }
 
     </style>
+    -->
 </head>
 
 <body class="index-page">
