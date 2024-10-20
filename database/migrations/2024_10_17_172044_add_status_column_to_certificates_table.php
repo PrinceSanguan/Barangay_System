@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('certificates', function (Blueprint $table) {
-            $table->string('status')->default('submitted'); // Add the 'status' column
+            // $table->string('status')->default('submitted'); // Add the 'status' column
         });
     }
 

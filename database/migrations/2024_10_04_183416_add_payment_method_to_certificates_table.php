@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('certificates', function (Blueprint $table) {
-            $table->string('payment_method')->nullable(); // Add payment_method as a nullable string
+            // $table->string('payment_method')->nullable(); // Add payment_method as a nullable string
         });
     }
 
