@@ -88,13 +88,14 @@
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Visitor's Launch </a></li>
+          <li><a href="#portfolio">Visitor's Lounge </a></li>
           {{-- <li><a href="#pricing">Pricing</a></li> --}}
           <li><a href="#team">Barangay officials</a></li>
+          <li><a href="#contact">Contact</a></li>
           {{-- <li><a href="#blog">Blog</a></li> --}}
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="#"><span>Visitors</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">Dropdown 1</a></li>
+              <li><a href="#">Banks</a></li>
               <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
                   <li><a href="#">Deep Dropdown 1</a></li>
@@ -109,7 +110,7 @@
               <li><a href="#">Dropdown 4</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Contact</a></li>
+          
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -1127,7 +1128,7 @@
     </div>
 
     <div class="container mt-4 text-center copyright">
-      <p>© <span>Copyright</span> <strong class="sitename">Ursulum</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright 2024 All Rights Reserved | Sanchez Mira Centro02</span> <strong class="sitename"></strong> <span>All Rights Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
