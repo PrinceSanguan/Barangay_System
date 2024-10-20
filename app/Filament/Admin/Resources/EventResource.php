@@ -34,6 +34,17 @@ class EventResource extends Resource
                 Forms\Components\Textarea::make('description')->required(),
                 Forms\Components\DatePicker::make('event_date')->required(),
                 Forms\Components\TextInput::make('location')->required(),
+                Forms\Components\TextInput::make('organizer')  // Organizer Field
+                    ->label('Organizer')
+                    ->required(),
+                Forms\Components\TextInput::make('expected_attendees')  // Expected Attendees Field
+                    ->label('Expected Attendees')
+                    ->numeric()
+                    ->required(),
+                Forms\Components\Textarea::make('attendees')  // Attendees List Field
+                    ->label('Attendees')
+                    ->rows(4)
+                    ->placeholder('List of attendees'),
                 Forms\Components\Toggle::make('published')->label('Publish Event'),
             ]);
     }
@@ -45,6 +56,9 @@ class EventResource extends Resource
                 TextColumn::make('title')->sortable()->searchable(),
                 TextColumn::make('description')->limit(50),
                 TextColumn::make('event_date')->sortable(),
+                TextColumn::make('location')->label('Location'),  // Location Column
+                TextColumn::make('organizer')->label('Organizer')->sortable()->searchable(),  // Organizer Column
+                TextColumn::make('expected_attendees')->label('Expected Attendees')->sortable(),  // Expected Attendees Column
                 BooleanColumn::make('published')->label('Published'),
             ])
             ->filters([

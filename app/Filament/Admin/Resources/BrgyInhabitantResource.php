@@ -69,7 +69,7 @@ class BrgyInhabitantResource extends Resource
                         'Head of the family' => 'Head of the family',
                         'Wife' => 'Wife',
                         'Son' => 'Son',
-                        'Daugther' => 'Daugther',
+                        'Daughter' => 'Daughter',
                     ]),
                 Forms\Components\Select::make('citizenship')
                     ->required()
@@ -77,7 +77,7 @@ class BrgyInhabitantResource extends Resource
                         'Filipino' => 'Filipino',
                         'Others' => 'Others',
                     ])
-                    ->reactive(), // Make this field reactive to detect changes
+                    ->reactive(), // Reactive to detect changes
 
                 Forms\Components\TextInput::make('other_citizenship')
                     ->label('Please specify citizenship')
@@ -111,6 +111,11 @@ class BrgyInhabitantResource extends Resource
                         'YES' => 'YES',
                         'NO' => 'NO',
                     ]),
+                Forms\Components\TextInput::make('email')
+                    ->label('Active Email Account') // New email field
+                    ->email()
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
@@ -133,6 +138,9 @@ class BrgyInhabitantResource extends Resource
                 Tables\Columns\TextColumn::make('occupation')->searchable(),
                 Tables\Columns\TextColumn::make('ofw')->searchable(),
                 Tables\Columns\TextColumn::make('pwd')->searchable(),
+                Tables\Columns\TextColumn::make('email')  // Add email field in table
+                    ->label('Active Email Account')
+                    ->searchable(),
                 BooleanColumn::make('is_approved')->label('Approved'),
             ])
             ->filters([
@@ -159,7 +167,6 @@ class BrgyInhabitantResource extends Resource
                         $record->save();
                     })
                     ->visible(fn (BrgyInhabitant $record) => Filament::auth()->user() && (Filament::auth()->user()->hasRole('super_admin') || Filament::auth()->user()->hasRole('brgySecretary')) && ! $record->is_approved),
-                Tables\Actions\EditAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([

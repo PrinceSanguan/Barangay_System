@@ -26,4 +26,9 @@ class CreateEmail extends CreateRecord
 
         return $emailRecord;
     }
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }
