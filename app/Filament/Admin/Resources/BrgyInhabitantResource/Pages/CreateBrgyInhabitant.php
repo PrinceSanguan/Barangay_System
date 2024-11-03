@@ -8,6 +8,7 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateBrgyInhabitant extends CreateRecord
 {
     protected static string $resource = BrgyInhabitantResource::class;
+
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');

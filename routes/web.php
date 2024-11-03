@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\brgycaptainController;
+use App\Http\Controllers\ChairpersonController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LocationController;
 use App\Models\Announcement;
 use App\Models\BrangayOfficials;
+use App\Models\BrgyCaptainCorner;
 use App\Models\BrgyInhabitant;
 use App\Models\Church;
 use App\Models\Event;
@@ -14,6 +17,7 @@ use App\Models\Park;
 use App\Models\Program;
 use App\Models\Restaurant;
 use App\Models\School;
+use App\Models\Chairperson;
 use App\Models\Schoolar;
 use App\Models\SiteSetting;
 use App\Models\Skprogram;
@@ -24,17 +28,16 @@ use Illuminate\Support\Facades\Route;
 /* NOTE: Do Not Remove
 / Livewire asset handling if using sub folder in domain
 */
-Livewire::setUpdateRoute(function ($handle) {
-    return Route::post(env('ASSET_PREFIX', '').'/livewire/update', $handle);
-});
+// Livewire::setUpdateRoute(function ($handle) {
+//     return Route::post(env('ASSET_PREFIX', '').'/livewire/update', $handle);
+// });
 
-Livewire::setScriptRoute(function ($handle) {
-    return Route::get(env('ASSET_PREFIX', '').'/livewire/livewire.js', $handle);
-});
+// Livewire::setScriptRoute(function ($handle) {
+//     return Route::get(env('ASSET_PREFIX', '').'/livewire/livewire.js', $handle);
+// });
 /*
 / END
 */
-
 Route::get('/', function () {
     // Fetch events
     $events = Event::orderBy('created_at', 'desc')->take(3)->get();
@@ -70,12 +73,16 @@ Route::get('/', function () {
     // Fetch programs
     $programs = Program::all();
     $testimonials = Schoolar::all();
+
     // Fetch announcements
     $announcements = Announcement::all();
     $location = Location::all();
 
+    // Fetch chairperson data
+    $chairperson = BrgyCaptainCorner::latest()->first();
+
     // Pass data to the view
-    return view('welcome', compact(
+    return view('pages.welcome', compact(
         'events',
         'totalPopulation',
         'maleCount',
@@ -94,7 +101,8 @@ Route::get('/', function () {
         'programs',
         'testimonials',
         'announcements',
-        'location'
+        'location',
+        'chairperson' // Add chairperson data here
     ));
 });
 Route::get('/map', [LocationController::class, 'showMap']);
@@ -108,3 +116,4 @@ Route::get('/send-test-email', function () {
     return 'Test email sent!';
 });
 Route::get('/events/{id}', [EventController::class, 'show'])->name('event.details');
+Route::get('/barangay-captain/details', [brgycaptainController::class, 'showCaptainDetails'])->name('barangay.captain.details');

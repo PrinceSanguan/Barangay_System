@@ -7,9 +7,9 @@ use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Filament\Pages\Page;
 
 class DemographicStatistics extends Page
-
 {
     use HasPageShield;
+
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
     protected static string $view = 'filament.admin.pages.demographic-statistics';
