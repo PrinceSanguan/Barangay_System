@@ -2,6 +2,8 @@
 
 namespace App\Filament\Admin\Pages;
 
+use App\Filament\Admin\Widgets\AgeGroupChartWidget;
+use App\Filament\Admin\Widgets\GenderChartWidget;
 use App\Models\BrgyInhabitant;
 use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Filament\Pages\Page;
@@ -33,6 +35,13 @@ class DemographicStatistics extends Page
             'male_count' => $maleCount,
             'female_count' => $femaleCount,
             'age_groups' => $ageGroups,
+        ];
+    }
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            GenderChartWidget::class,
+            AgeGroupChartWidget::class,
         ];
     }
 }

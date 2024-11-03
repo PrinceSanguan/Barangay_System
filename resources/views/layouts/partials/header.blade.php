@@ -25,7 +25,14 @@
                 <li class="dropdown"><a href="#"><span>Visitors</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
                       <li><a href="#">Banks</a></li>
-                      <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                      <li><a href="#">Shopping Centers</a></li>
+                      <li><a href="#">HardWare Shops</a></li>
+                      <li><a href="#">HealthCare</a></li>
+                      <li><a href="#">Water Stations</a></li>
+                      <li><a href="#">Gasoline Stations</a></li>
+                      
+
+                      <li class="dropdown"><a href="#"><span>Bids and awards</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
                           <li><a href="#">Deep Dropdown 1</a></li>
                           <li><a href="#">Deep Dropdown 2</a></li>
