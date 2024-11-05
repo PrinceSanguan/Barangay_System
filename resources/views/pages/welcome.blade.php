@@ -67,8 +67,10 @@
 <!-- Demographic Stats Section -->
 <section id="stats" class="stats-section py-5 bg-light">
     <div class="container">
-        <h2 class="section-title">Demographic Statistics</h2>
-        <div class="row text-center">
+        <h2 class="section-title text-center">Demographic Statistics</h2>
+        
+        <div class="row text-center mb-4">
+            <!-- Total Population, Male, and Female Counts Display -->
             <div class="col-md-4">
                 <p><strong>Total Population:</strong> {{ $totalPopulation }}</p>
             </div>
@@ -79,16 +81,80 @@
                 <p><strong>Female Count:</strong> {{ $femaleCount }}</p>
             </div>
         </div>
-        <div class="age-groups mt-4">
-            <h4>Age Groups</h4>
-            <ul class="list-unstyled">
-                @foreach($ageGroups as $ageRange => $count)
-                    <li>{{ $ageRange }}: {{ $count }}</li>
-                @endforeach
-            </ul>
+
+        <div class="row">
+            <!-- Gender Distribution Pie Chart -->
+            <div class="col-md-6">
+                <h4 class="text-center">Gender Distribution</h4>
+                <canvas id="genderChart" width="100%" height="100"></canvas>
+            </div>
+
+            <!-- Population by Age Groups Pie Chart -->
+            <div class="col-md-6">
+                <h4 class="text-center">Population by Age Groups</h4>
+                <canvas id="ageGroupChart" width="80%" height="80"></canvas>
+            </div>
         </div>
     </div>
 </section>
+
+<!-- Include Chart.js Library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- JavaScript for Chart.js -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Retrieve gender and age group data from Blade variables
+        const maleCount = {{ $maleCount }};
+        const femaleCount = {{ $femaleCount }};
+        const ageGroups = @json($ageGroups);
+
+        // Gender Distribution Pie Chart
+        const genderCtx = document.getElementById('genderChart').getContext('2d');
+        new Chart(genderCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Male', 'Female'],
+                datasets: [{
+                    data: [maleCount, femaleCount],
+                    backgroundColor: ['#4e73df', '#ff6384'], // Blue for male, pink for female
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Age Groups Pie Chart
+        const ageLabels = Object.keys(ageGroups);
+        const ageData = Object.values(ageGroups);
+        const ageCtx = document.getElementById('ageGroupChart').getContext('2d');
+        new Chart(ageCtx, {
+            type: 'pie',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: ageData,
+                    backgroundColor: ['#1cc88a', '#36b9cc', '#f6c23e', '#4e73df', '#e74a3b'],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    });
+</script>
+
 
 <!-- Services Section -->
 <section id="services" class="services-section py-5">
@@ -108,21 +174,38 @@
 </section>
 
 <!-- Barangay Officials Section -->
-<section id="barangay-officials" class="barangay-officials-section py-5 bg-light">
+<section id="barangay-officials" class="barangay-officials-section team py-5 bg-light">
     <div class="container">
         <h2 class="section-title">Barangay Officials</h2>
         <div class="row">
             @foreach($barangayOfficials as $official)
                 <div class="col-md-4">
-                    <div class="official p-3 mb-4 text-center">
-                        <h3 class="official-name">{{ $official->name }}</h3>
-                        <p class="official-designation">{{ $official->designation }}</p>
+                    <div class="member p-3 mb-4 text-center">
+                        <!-- Official's Image with CSS classes applied -->
+                        <div class="member-img">
+                            <img src="{{ asset('storage/' . $official->image) }}" alt="{{ $official->name }}" class="img-fluid mb-3">
+                            <div class="social">
+                                <!-- Add social links here if needed -->
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <!-- Official's Info -->
+                        <div class="member-info">
+                            <h4>{{ $official->name }}</h4>
+                            <span>{{ $official->designation }}</span>
+                        </div>
                     </div>
                 </div>
             @endforeach
         </div>
     </div>
 </section>
+
+
+
+
 
 <!-- Announcements Section -->
 <section id="announcements" class="announcements-section py-5">
