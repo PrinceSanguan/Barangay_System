@@ -94,8 +94,10 @@ class BrangayOfficialsResource extends Resource
     {
         return [
             'index' => Pages\ListBrangayOfficials::route('/'),
-            'create' => Pages\CreateBrangayOfficials::route('/create'),
+            'create' => Pages\CreateBrangayOfficials::route('/create'),  // This is your 'Create' page
             'edit' => Pages\EditBrangayOfficials::route('/{record}/edit'),
         ];
     }
+    
+    
 }
