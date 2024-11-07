@@ -5,6 +5,7 @@ namespace App\Filament\Admin\Widgets;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Spatie\Activitylog\Models\Activity;
@@ -14,6 +15,20 @@ class LatestAccessLogs extends BaseWidget
     protected int|string|array $columnSpan = 2;
 
     protected static ?int $sort = 100;
+
+    // Make canView public
+    public static function canView(): bool
+    {
+        // Get the current authenticated user
+        $user = Auth::user();
+
+        // Check if the user has either the 'preregister' or 'brgyUser' role
+        if ($user && ($user->hasRole('preregister') || $user->hasRole('brgyUser'))) {
+            return false;  // Hide the widget for these roles
+        }
+
+        return true;  // Show the widget for all other roles
+    }
 
     public function table(Table $table): Table
     {
@@ -31,13 +46,11 @@ class LatestAccessLogs extends BaseWidget
                 Tables\Columns\TextColumn::make('event')
                     ->label(__('filament-logger::filament-logger.resource.label.event'))
                     ->sortable(),
-
                 Tables\Columns\TextColumn::make('description')
                     ->label(__('filament-logger::filament-logger.resource.label.description'))
                     ->toggleable()
                     ->toggledHiddenByDefault()
                     ->wrap(),
-
                 Tables\Columns\TextColumn::make('subject_type')
                     ->label(__('filament-logger::filament-logger.resource.label.subject'))
                     ->formatStateUsing(function ($state, Model $record) {
@@ -48,10 +61,8 @@ class LatestAccessLogs extends BaseWidget
 
                         return Str::of($state)->afterLast('\\')->headline().' # '.$record->subject_id;
                     }),
-
                 Tables\Columns\TextColumn::make('causer.name')
                     ->label(__('filament-logger::filament-logger.resource.label.user')),
-
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('filament-logger::filament-logger.resource.label.logged_at'))
                     ->dateTime(config('d/m/Y H:i A'))

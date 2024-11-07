@@ -131,16 +131,20 @@ class UserResource extends Resource
                     ->date()
                     ->sortable()
                     ->searchable(),
-
-            ])
-            ->filters([
-                //
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-
+                Tables\Actions\Action::make('approve')
+                    ->label('Approve')
+                    ->icon('heroicon-o-check')
+                    ->requiresConfirmation()
+                    ->action(function (User $record) {
+                        $record->is_active = true;
+                        $record->save();
+                    })
+                    ->visible(fn (User $record) => !$record->is_active),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -151,6 +155,7 @@ class UserResource extends Resource
                 Tables\Actions\CreateAction::make(),
             ]);
     }
+    
 
     public static function getRelations(): array
     {
