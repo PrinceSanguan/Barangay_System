@@ -9,6 +9,8 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Tables\Filters\SelectFilter; // Import SelectFilter
+use Illuminate\Database\Eloquent\Builder;
 
 class BrangayOfficialsResource extends Resource
 {
@@ -30,6 +32,14 @@ class BrangayOfficialsResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
                     ->image(),
+                Forms\Components\Select::make('term_year')  // Term year selection
+                    ->required()
+                    ->label('Term Year')
+                    ->options([
+                        '2016 to 2018' => '2016 to 2018',
+                        '2018 to 2021' => '2018 to 2021',
+                        '2023 to 2026' => '2023 to 2026',
+                    ]),
             ]);
     }
 
@@ -40,6 +50,9 @@ class BrangayOfficialsResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\TextColumn::make('term_year')  // Term Year Column
+                    ->label('Term Year')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -50,22 +63,30 @@ class BrangayOfficialsResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                SelectFilter::make('term_year')
+                    ->label('Term Year')
+                    ->options([
+                        '2016 to 2018' => '2016 to 2018',
+                        '2018 to 2021' => '2018 to 2021',
+                        '2023 to 2026' => '2023 to 2026',
+                    ])
+                    ->default('2023 to 2026'),  // Default value for the filter
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
+                Tables\Actions\BulkActionGroup::make([ 
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
+    
 
     public static function getRelations(): array
     {
         return [
-            //
+            // If you have any relations, they would be defined here.
         ];
     }
 

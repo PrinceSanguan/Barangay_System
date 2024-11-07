@@ -3,17 +3,22 @@
 namespace App\Filament\Admin\Resources\BrangayOfficialsResource\Pages;
 
 use App\Filament\Admin\Resources\BrangayOfficialsResource;
-use Filament\Actions;
+use App\Models\BrangayOfficials;
+use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Database\Eloquent\Builder;
 
 class ListBrangayOfficials extends ListRecords
 {
     protected static string $resource = BrangayOfficialsResource::class;
 
-    protected function getHeaderActions(): array
+    // Override the query method
+    public function query(): Builder
     {
-        return [
-            Actions\CreateAction::make(),
-        ];
+        // Get the term_year filter from the request or default to '2023 to 2026'
+        $termYear = request()->query('filters.term_year', '2023 to 2026');
+        
+        // Apply the filter query on the term_year field
+        return BrangayOfficials::query()->where('term_year', $termYear);
     }
 }
