@@ -173,6 +173,7 @@
     </div>
 </section>
 
+
 <!-- Barangay Officials Section -->
 <section id="barangay-officials" class="barangay-officials-section team py-5 bg-light">
     <div class="container">

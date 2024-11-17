@@ -24,11 +24,11 @@ class AssocFoundationResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
+                Forms\Components\TextInput::make('name')
                     ->required()
                     ->label('Title'),
-                Forms\Components\Textarea::make('description')
-                    ->label('Description'),
+                Forms\Components\Textarea::make('designation')
+                    ->label('designation'),
                 Forms\Components\FileUpload::make('image')
                     ->label('Image')
                     ->disk('public')

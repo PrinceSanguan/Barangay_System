@@ -14,6 +14,7 @@
     <link href="{{ asset('template/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
     <link href="{{ asset('template/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
     <link href="{{ asset('template/css/main.css') }}" rel="stylesheet">
+ 
 </head>
 <body class="index-page">
 

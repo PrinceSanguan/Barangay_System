@@ -19,18 +19,21 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
+use Swis\Filament\Backgrounds\ImageProviders\MyImages;
 
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
+        ->brandLogo(fn () => view('custom_logo'))
             ->default()
             ->id('admin')
             ->path('admin')
             ->spa(true)
             ->login()
             ->registration()
+            // ->databaseNotifications()
             ->passwordReset()
             ->defaultThemeMode(ThemeMode::Light)
             ->colors([
@@ -56,7 +59,7 @@ class AdminPanelProvider extends PanelProvider
                         hasAvatars: true,
                         slug: 'profile'
                     ),
-                    FilamentSpatieLaravelBackupPlugin::make(),
+                FilamentSpatieLaravelBackupPlugin::make(),
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()
                     ->gridColumns([
                         'default' => 1,
@@ -79,7 +82,10 @@ class AdminPanelProvider extends PanelProvider
                         'auth.password',
                     ]),
                 \Swis\Filament\Backgrounds\FilamentBackgroundsPlugin::make()
-                    ->showAttribution(false),
+                ->imageProvider(
+                    MyImages::make()
+                        ->directory('images/backgrounds')
+                ),
 
                 \Awcodes\Overlook\OverlookPlugin::make()
                     ->includes([
