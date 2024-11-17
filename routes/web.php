@@ -26,7 +26,7 @@ use App\Models\Skprogram;
 use App\Models\TouristSpot;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\IncidentReportPrintController;
+
 
 /* NOTE: Do Not Remove
 / Livewire asset handling if using sub folder in domain

@@ -164,17 +164,6 @@ class IncidentReportResource extends Resource
                     'others' => 'Others',
                 ])
         ])
-        ->actions([
-            Tables\Actions\EditAction::make(),
-            Action::make('print')
-                ->label('Print')
-                ->icon('heroicon-o-printer')
-                ->action(function (IncidentReport $record) {
-                    // Redirect to print route
-                    return redirect()->route('incident-report.print', $record->id);
-                })
-                ->color('primary'),
-        ])
         ->bulkActions([
             Tables\Actions\DeleteBulkAction::make(),
         ]);
