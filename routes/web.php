@@ -117,4 +117,3 @@ Route::get('/send-test-email', function () {
 });
 Route::get('/events/{id}', [EventController::class, 'show'])->name('event.details');
 Route::get('/barangay-captain/details', [brgycaptainController::class, 'showCaptainDetails'])->name('barangay.captain.details');
-Route::get('incident-report/print/{incidentReport}', [IncidentReportPrintController::class, 'print'])->name('incident-report.print');
