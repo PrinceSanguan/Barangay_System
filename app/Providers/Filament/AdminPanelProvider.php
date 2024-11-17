@@ -31,6 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->spa(true)
             ->login()
             ->registration()
+            // ->databaseNotifications()
             ->passwordReset()
             ->defaultThemeMode(ThemeMode::Light)
             ->colors([
@@ -56,7 +57,7 @@ class AdminPanelProvider extends PanelProvider
                         hasAvatars: true,
                         slug: 'profile'
                     ),
-                    FilamentSpatieLaravelBackupPlugin::make(),
+                FilamentSpatieLaravelBackupPlugin::make(),
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()
                     ->gridColumns([
                         'default' => 1,
