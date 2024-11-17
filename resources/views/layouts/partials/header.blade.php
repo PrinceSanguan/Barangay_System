@@ -6,6 +6,14 @@
         object-fit: cover; /* Ensures the image fills the area without distortion */
         width: 100%; /* Full width */
     }
+    #citizens-charter {
+    display: block;
+    visibility: visible;
+}
+.charter-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
 </style>
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
@@ -23,6 +31,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="{{ route('visitors.lounge') }}">Visitors Lounge</a></li>
+                <li><a href="{{ route('citizens.charter') }}">Citizens Charter</a></li>
                 <li><a href="#team">Barangay Officials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
