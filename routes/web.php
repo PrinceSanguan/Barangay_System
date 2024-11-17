@@ -3,6 +3,7 @@
 use App\Http\Controllers\brgycaptainController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\VisitorsController;
 use App\Models\Announcement;
 use App\Models\BrangayOfficials;
 use App\Models\BrgyCaptainCorner;
@@ -116,3 +117,4 @@ Route::get('/send-test-email', function () {
 });
 Route::get('/events/{id}', [EventController::class, 'show'])->name('event.details');
 Route::get('/barangay-captain/details', [brgycaptainController::class, 'showCaptainDetails'])->name('barangay.captain.details');
+Route::get('/visitors-lounge', [VisitorsController::class, 'showVisitors'])->name('visitors.lounge');
