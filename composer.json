@@ -14,6 +14,7 @@
         "awcodes/light-switch": "^1.0",
         "awcodes/overlook": "^2.2",
         "aymanalhattami/filament-slim-scrollbar": "^2.0",
+        "barryvdh/laravel-dompdf": "*",
         "bezhansalleh/filament-shield": "^3.2",
         "filament/filament": "^3.2",
         "hasnayeen/themes": "^3.0",

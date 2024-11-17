@@ -3,23 +3,23 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\BHWResource\Pages;
-use App\Filament\Admin\Resources\BHWResource\RelationManagers;
 use App\Models\BHW;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class BHWResource extends Resource
 {
     protected static ?string $model = BHW::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
     protected static ?string $navigationGroup = 'Administration';
-     protected static ?string $pluralModelLabel = 'Brgy Health Worker';
+
+    protected static ?string $pluralModelLabel = 'Brgy Health Worker';
+
     public static function form(Form $form): Form
     {
         return $form

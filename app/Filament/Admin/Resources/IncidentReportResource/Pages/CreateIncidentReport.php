@@ -3,7 +3,6 @@
 namespace App\Filament\Admin\Resources\IncidentReportResource\Pages;
 
 use App\Filament\Admin\Resources\IncidentReportResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateIncidentReport extends CreateRecord

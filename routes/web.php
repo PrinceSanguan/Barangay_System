@@ -1,13 +1,13 @@
 <?php
 
 use App\Http\Controllers\brgycaptainController;
-use App\Http\Controllers\ChairpersonController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LocationController;
 use App\Models\Announcement;
 use App\Models\BrangayOfficials;
 use App\Models\BrgyCaptainCorner;
 use App\Models\BrgyInhabitant;
+use App\Models\Chairperson;
 use App\Models\Church;
 use App\Models\Event;
 use App\Models\Hospital;
@@ -17,13 +17,13 @@ use App\Models\Park;
 use App\Models\Program;
 use App\Models\Restaurant;
 use App\Models\School;
-use App\Models\Chairperson;
 use App\Models\Schoolar;
 use App\Models\SiteSetting;
 use App\Models\Skprogram;
 use App\Models\TouristSpot;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IncidentReportPrintController;
 
 /* NOTE: Do Not Remove
 / Livewire asset handling if using sub folder in domain
@@ -117,3 +117,4 @@ Route::get('/send-test-email', function () {
 });
 Route::get('/events/{id}', [EventController::class, 'show'])->name('event.details');
 Route::get('/barangay-captain/details', [brgycaptainController::class, 'showCaptainDetails'])->name('barangay.captain.details');
+Route::get('incident-report/print/{incidentReport}', [IncidentReportPrintController::class, 'print'])->name('incident-report.print');

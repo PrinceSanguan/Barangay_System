@@ -3,7 +3,6 @@
 namespace App\Filament\Admin\Resources\ResolutionResource\Pages;
 
 use App\Filament\Admin\Resources\ResolutionResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateResolution extends CreateRecord
