@@ -8,10 +8,12 @@ use Filament\Widgets\Widget;
 class GenderChartWidget extends Widget
 {
     protected static string $view = 'filament.admin.widgets.gender-chart-widget';
+
     protected function getType(): string
     {
         return 'pie';
     }
+
     protected function getData(): array
     {
         $maleCount = BrgyInhabitant::where('sex', 'Male')->count();

@@ -3,7 +3,6 @@
 namespace App\Filament\Admin\Resources\GalleryResource\Pages;
 
 use App\Filament\Admin\Resources\GalleryResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateGallery extends CreateRecord

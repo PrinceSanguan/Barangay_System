@@ -3,40 +3,38 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\BrgyCaptainCornerResource\Pages;
-use App\Filament\Admin\Resources\BrgyCaptainCornerResource\RelationManagers;
 use App\Models\BrgyCaptainCorner;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class BrgyCaptainCornerResource extends Resource
 {
     protected static ?string $model = BrgyCaptainCorner::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
     protected static ?string $navigationGroup = 'Community Management';
-    
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                ->required()
-                ->maxLength(255),
-            Forms\Components\FileUpload::make('image')
-                ->label('Image')
-                ->image(),
-            Forms\Components\Textarea::make('message')
-                ->label('Message')
-                ->required(),
-            Forms\Components\TextInput::make('video_link')
-                ->label('Video Link')
-                ->url()
-                ->maxLength(255),
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\FileUpload::make('image')
+                    ->label('Image')
+                    ->image(),
+                Forms\Components\Textarea::make('message')
+                    ->label('Message')
+                    ->required(),
+                Forms\Components\TextInput::make('video_link')
+                    ->label('Video Link')
+                    ->url()
+                    ->maxLength(255),
             ]);
     }
 
@@ -44,7 +42,7 @@ class BrgyCaptainCornerResource extends Resource
     {
         return $table
             ->columns([
-                  Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
                 Tables\Columns\ImageColumn::make('image')->label('Image'),
                 Tables\Columns\TextColumn::make('message')->limit(50),
                 Tables\Columns\TextColumn::make('created_at')->label('Created At')->date(),

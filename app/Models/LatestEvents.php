@@ -6,6 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class LatestEvents extends Model
 {
-  protected $guarded = [];
-  
+    protected $guarded = [];
 }

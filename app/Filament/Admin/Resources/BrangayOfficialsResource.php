@@ -27,7 +27,7 @@ class BrangayOfficialsResource extends Resource // "Brangay" as requested
                     ->required()
                     ->maxLength(255)
                     ->placeholder('Enter Full Name'),
-                
+
                 // Select Dropdown for Designation
                 Forms\Components\Select::make('designation')
                     ->required()
@@ -50,7 +50,7 @@ class BrangayOfficialsResource extends Resource // "Brangay" as requested
                     ->nullable(),
 
                 // Term year selection
-                Forms\Components\Select::make('term_year')  
+                Forms\Components\Select::make('term_year')
                     ->required()
                     ->label('Term Year')
                     ->options([
@@ -76,7 +76,7 @@ class BrangayOfficialsResource extends Resource // "Brangay" as requested
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('term_year')  
+                Tables\Columns\TextColumn::make('term_year')
                     ->label('Term Year')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('designation') // Display the designation here
@@ -103,12 +103,12 @@ class BrangayOfficialsResource extends Resource // "Brangay" as requested
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make() // Option to delete quickly
+                Tables\Actions\DeleteAction::make(), // Option to delete quickly
             ])
-            ->bulkActions([ 
-                Tables\Actions\BulkActionGroup::make([ 
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
-                ]), 
+                ]),
             ]);
     }
 

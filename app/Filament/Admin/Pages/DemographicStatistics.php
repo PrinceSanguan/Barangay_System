@@ -37,6 +37,7 @@ class DemographicStatistics extends Page
             'age_groups' => $ageGroups,
         ];
     }
+
     protected function getHeaderWidgets(): array
     {
         return [

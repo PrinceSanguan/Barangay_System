@@ -144,7 +144,7 @@ class UserResource extends Resource
                         $record->is_active = true;
                         $record->save();
                     })
-                    ->visible(fn (User $record) => !$record->is_active),
+                    ->visible(fn (User $record) => ! $record->is_active),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -155,7 +155,6 @@ class UserResource extends Resource
                 Tables\Actions\CreateAction::make(),
             ]);
     }
-    
 
     public static function getRelations(): array
     {

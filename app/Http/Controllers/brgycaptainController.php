@@ -8,7 +8,6 @@ use App\Models\Gallery;
 use App\Models\PhotoRelease;
 use App\Models\SiteSetting;
 use App\Models\Speech;
-use Illuminate\Http\Request;
 
 class brgycaptainController extends Controller
 {
@@ -34,5 +33,4 @@ class brgycaptainController extends Controller
             'achievements'
         ));
     }
-
 }

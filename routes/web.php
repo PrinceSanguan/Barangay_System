@@ -1,13 +1,13 @@
 <?php
 
 use App\Http\Controllers\brgycaptainController;
-use App\Http\Controllers\ChairpersonController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LocationController;
 use App\Models\Announcement;
 use App\Models\BrangayOfficials;
 use App\Models\BrgyCaptainCorner;
 use App\Models\BrgyInhabitant;
+use App\Models\Chairperson;
 use App\Models\Church;
 use App\Models\Event;
 use App\Models\Hospital;
@@ -17,7 +17,6 @@ use App\Models\Park;
 use App\Models\Program;
 use App\Models\Restaurant;
 use App\Models\School;
-use App\Models\Chairperson;
 use App\Models\Schoolar;
 use App\Models\SiteSetting;
 use App\Models\Skprogram;

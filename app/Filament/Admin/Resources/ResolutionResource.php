@@ -3,22 +3,21 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\ResolutionResource\Pages;
-use App\Filament\Admin\Resources\ResolutionResource\RelationManagers;
 use App\Models\Resolution;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ResolutionResource extends Resource
 {
     protected static ?string $model = Resolution::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
     protected static ?string $navigationGroup = 'Community Management';
+
     public static function form(Form $form): Form
     {
         return $form
