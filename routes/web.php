@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\brgycaptainController;
-use App\Http\Controllers\CitezensCharter;
 use App\Http\Controllers\CitezensCharterController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LocationController;
@@ -26,7 +25,7 @@ use App\Models\Skprogram;
 use App\Models\TouristSpot;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\SkProgramController;
 
 /* NOTE: Do Not Remove
 / Livewire asset handling if using sub folder in domain
@@ -122,6 +121,5 @@ Route::get('/events/{id}', [EventController::class, 'show'])->name('event.detail
 Route::get('/barangay-captain/details', [brgycaptainController::class, 'showCaptainDetails'])->name('barangay.captain.details');
 Route::get('/visitors-lounge', [VisitorsController::class, 'showVisitors'])->name('visitors.lounge');
 Route::get('/citizens-charter', [CitezensCharterController::class, 'showIndex'])->name('citizens.charter');
-
-
-
+// Define a route that uses the controller
+Route::get('/sk-programs', [SkProgramController::class, 'index']);

@@ -56,6 +56,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#team">Events</a></li>
+          <li><a href="#team">Sk Programs</a></li>
           <li><a href="#portfolio">Visitor's Lounge </a></li>
           {{-- <li><a href="#pricing">Pricing</a></li> --}}
           <li><a href="#team">Barangay officials</a></li>
