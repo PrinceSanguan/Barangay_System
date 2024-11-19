@@ -55,9 +55,10 @@
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#team">Events</a></li>
-          <li><a href="#team">Sk Programs</a></li>
-          <li><a href="#portfolio">Visitor's Lounge </a></li>
+          <li><a href="#events">Barangay Events</a></li>
+          <li><a href="#portfolio">Sk Programs</a></li>
+          <li><a href="#portfolio">Agkaykaysa Programs</a></li>
+          <li><a href="#">Visitor's Lounge </a></li>
           {{-- <li><a href="#pricing">Pricing</a></li> --}}
           <li><a href="#team">Barangay officials</a></li>
           <li><a href="#team">Barangay Health Worker</a></li>
@@ -65,23 +66,7 @@
 
           <li><a href="#contact">Contact</a></li>
           {{-- <li><a href="#blog">Blog</a></li> --}}
-          <li class="dropdown"><a href="#"><span>Visitors</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Banks</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
+          
           
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -265,260 +250,182 @@
     </div>
 </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services section">
+    <!-- Barangay Services Section -->
+<section id="services" class="services section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Barangay Services</h2>
+    <p>Providing essential services to the community for a better and safer environment</p>
+  </div><!-- End Section Title -->
 
-      <div class="container">
+  <div class="container">
 
-        <div class="row gy-4">
+    <div class="row gy-4">
 
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item d-flex">
-              <div class="flex-shrink-0 icon"><i class="bi bi-briefcase"></i></div>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link">Community Clean-up</a></h4>
-                <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-              </div>
-            </div>
+      <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item d-flex">
+          <div class="flex-shrink-0 icon"><i class="bi bi-briefcase"></i></div>
+          <div>
+            <h4 class="title"><a href="#" class="stretched-link">Community Clean-up</a></h4>
+            <p class="description">Engaging in community-wide initiatives to maintain a clean and healthy environment for all residents.</p>
           </div>
-          <!-- End Service Item -->
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item d-flex">
-              <div class="flex-shrink-0 icon"><i class="bi bi-card-checklist"></i></div>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link">Health and Wellness Programs</a></h4>
-                <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item d-flex">
-              <div class="flex-shrink-0 icon"><i class="bi bi-bar-chart"></i></div>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link">Security and Safety Patrols</a></h4>
-                <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item d-flex">
-              <div class="flex-shrink-0 icon"><i class="bi bi-binoculars"></i></div>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link">Educational Workshops</a></h4>
-                <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item d-flex">
-              <div class="flex-shrink-0 icon"><i class="bi bi-brightness-high"></i></div>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link"> Disaster Preparedness Training</a></h4>
-                <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item d-flex">
-              <div class="flex-shrink-0 icon"><i class="bi bi-calendar4-week"></i></div>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link">Others</a></h4>
-                <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
         </div>
-
       </div>
+      <!-- End Service Item -->
 
-    </section><!-- /Services Section -->
-
-    <!-- Features Section -->
-    <section id="features" class="features section">
-
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Announcement</h2>
-            <p>Discover the latest announcements and features in our community.</p>
-        </div><!-- End Section Title -->
-
-        <div class="container">
-            @foreach($announcements as $index => $announcement)
-                <div class="row gy-4 align-items-center features-item">
-                    <!-- Alternate the layout for each announcement -->
-                    <div class="{{ $index % 2 == 0 ? 'order-2' : 'order-1' }} col-lg-5 {{ $index % 2 == 0 ? 'order-lg-1' : 'order-lg-2' }}" data-aos="fade-up" data-aos-delay="200">
-                        <h3>{{ $announcement->name }}</h3>
-                        <p>{{ $announcement->description }}</p>
-                        <a class="btn-getstarted" href="#">Get Started</a>
-                    </div>
-
-                    <div class="{{ $index % 2 == 0 ? 'order-1' : 'order-2' }} col-lg-7 {{ $index % 2 == 0 ? 'order-lg-2' : 'order-lg-1' }} d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
-                        <div class="image-stack">
-                            @if($announcement->image)
-                                <img src="{{ asset('storage/' . $announcement->image) }}" alt="{{ $announcement->name }}" class="stack-front img-fluid">
-                            @else
-                                <img src="{{ asset('template/img/default.jpg') }}" alt="Default Image" class="stack-front img-fluid">
-                            @endif
-                        </div>
-                    </div>
-                </div><!-- Features Item -->
-            @endforeach
+      <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="200">
+        <div class="service-item d-flex">
+          <div class="flex-shrink-0 icon"><i class="bi bi-card-checklist"></i></div>
+          <div>
+            <h4 class="title"><a href="#" class="stretched-link">Health and Wellness Programs</a></h4>
+            <p class="description">Programs designed to enhance the health and well-being of the community through regular health checks and wellness activities.</p>
+          </div>
         </div>
+      </div><!-- End Service Item -->
 
-    </section><!-- /Features Section -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Visitors' Launch</h2>
-            <p>Explore the tourist spots, restaurants, hotels, parks, schools, hospitals, churches, and SK programs in our barangay.</p>
-        </div><!-- End Section Title -->
-
-        <div class="container">
-            <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-                <!-- Portfolio Items -->
-                <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-                    <!-- Tourist Spots -->
-                    @foreach($touristSpots as $spot)
-                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item">
-                        <!-- Add GLightbox functionality -->
-                        <a href="{{ asset('storage/' . $spot->image) }}" class="glightbox">
-                            <img src="{{ asset('storage/' . $spot->image) }}" class="img-fluid" alt="{{ $spot->name }}">
-                        </a>
-                        <div class="portfolio-info">
-                            <h4>{{ $spot->name }}</h4>
-                            <p>{{ $spot->description }}</p>
-                            <a href="{{ asset('storage/' . $spot->image) }}" title="{{ $spot->name }}" data-gallery="portfolio-gallery" class="glightbox preview-link">
-                                <i class="bi bi-zoom-in"></i>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-
-                    <!-- Restaurants -->
-                    @foreach($restaurants as $restaurant)
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-restaurant">
-                            <a href="{{ asset('storage/' . $restaurant->image) }}" class="glightbox">
-                            <img src="{{ asset('storage/' . $restaurant->image) }}" class="img-fluid" alt="{{ $restaurant->name }}">
-                            <div class="portfolio-info">
-                                <h4>{{ $restaurant->name }}</h4>
-                                <p>{{ $restaurant->description }}</p>
-                                <a href="{{ asset('storage/' . $restaurant->image) }}" title="{{ $restaurant->name }}" data-gallery="portfolio-gallery-restaurant" class="glightbox preview-link">
-                                    <i class="bi bi-zoom-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-
-                    <!-- Hotels -->
-                    @foreach($hotels as $hotel)
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-hotel">
-                            <a href="{{ asset('storage/' . $hotel->image) }}" class="glightbox">
-                            <img src="{{ asset('storage/' . $hotel->image) }}" class="img-fluid" alt="{{ $hotel->name }}">
-                            <div class="portfolio-info">
-                                <h4>{{ $hotel->name }}</h4>
-                                <p>{{ $hotel->description }}</p>
-                                <a href="{{ asset('storage/' . $hotel->image) }}" title="{{ $hotel->name }}" data-gallery="portfolio-gallery-hotel" class="glightbox preview-link">
-                                    <i class="bi bi-zoom-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-
-                    <!-- Parks -->
-                    @foreach($parks as $park)
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-park">
-                            <a href="{{ asset('storage/' . $park->image) }}" class="glightbox">
-                            <img src="{{ asset('storage/' . $park->image) }}" class="img-fluid" alt="{{ $park->name }}">
-                            <div class="portfolio-info">
-                                <h4>{{ $park->name }}</h4>
-                                <p>{{ $park->description }}</p>
-                                <a href="{{ asset('storage/' . $park->image) }}" title="{{ $park->name }}" data-gallery="portfolio-gallery-park" class="glightbox preview-link">
-                                    <i class="bi bi-zoom-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-
-                    <!-- Schools -->
-                    @foreach($schools as $school)
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-school">
-                            <a href="{{ asset('storage/' . $school->image) }}" class="glightbox">
-                            <img src="{{ asset('storage/' . $school->image) }}" class="img-fluid" alt="{{ $school->name }}">
-                            <div class="portfolio-info">
-                                <h4>{{ $school->name }}</h4>
-                                <p>{{ $school->description }}</p>
-                                <a href="{{ asset('storage/' . $school->image) }}" title="{{ $school->name }}" data-gallery="portfolio-gallery-school" class="glightbox preview-link">
-                                    <i class="bi bi-zoom-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-
-                    <!-- Hospitals -->
-                    @foreach($hospitals as $hospital)
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-hospital">
-                            <a href="{{ asset('storage/' . $hospital->image) }}" class="glightbox">
-                            <img src="{{ asset('storage/' . $hospital->image) }}" class="img-fluid" alt="{{ $hospital->name }}">
-                            <div class="portfolio-info">
-                                <h4>{{ $hospital->name }}</h4>
-                                <p>{{ $hospital->description }}</p>
-                                <a href="{{ asset('storage/' . $hospital->image) }}" title="{{ $hospital->name }}" data-gallery="portfolio-gallery-hospital" class="glightbox preview-link">
-                                    <i class="bi bi-zoom-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-
-                    <!-- Churches -->
-                    @foreach($churches as $church)
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-church">
-                            <a href="{{ asset('storage/' . $church->image) }}" class="glightbox">
-                            <img src="{{ asset('storage/' . $church->image) }}" class="img-fluid" alt="{{ $church->name }}">
-                            <div class="portfolio-info">
-                                <h4>{{ $church->name }}</h4>
-                                <p>{{ $church->description }}</p>
-                                <a href="{{ asset('storage/' . $church->image) }}" title="{{ $church->name }}" data-gallery="portfolio-gallery-church" class="glightbox preview-link">
-                                    <i class="bi bi-zoom-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-
-                    <!-- SK Programs -->
-                    @foreach($skPrograms as $program)
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-skprogram">
-                            <a href="{{ asset('storage/' . $program->image) }}" class="glightbox">
-                            <img src="{{ asset('storage/' . $program->image) }}" class="img-fluid" alt="{{ $program->name }}">
-                            <div class="portfolio-info">
-                                <h4>{{ $program->name }}</h4>
-                                <p>{{ $program->description }}</p>
-                                <a href="{{ asset('storage/' . $program->image) }}" title="{{ $program->name }}" data-gallery="portfolio-gallery-skprogram" class="glightbox preview-link">
-                                    <i class="bi bi-zoom-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-
-                </div><!-- End Portfolio Container -->
-            </div>
+      <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="300">
+        <div class="service-item d-flex">
+          <div class="flex-shrink-0 icon"><i class="bi bi-bar-chart"></i></div>
+          <div>
+            <h4 class="title"><a href="#" class="stretched-link">Security and Safety Patrols</a></h4>
+            <p class="description">Ensuring the safety of residents through regular patrols and community-based security measures.</p>
+          </div>
         </div>
-    </section><!-- /Portfolio Section -->
+      </div><!-- End Service Item -->
 
+      <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="400">
+        <div class="service-item d-flex">
+          <div class="flex-shrink-0 icon"><i class="bi bi-binoculars"></i></div>
+          <div>
+            <h4 class="title"><a href="#" class="stretched-link">Educational Workshops</a></h4>
+            <p class="description">Workshops designed to educate residents on various aspects such as legal rights, financial literacy, and emergency preparedness.</p>
+          </div>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="500">
+        <div class="service-item d-flex">
+          <div class="flex-shrink-0 icon"><i class="bi bi-brightness-high"></i></div>
+          <div>
+            <h4 class="title"><a href="#" class="stretched-link">Disaster Preparedness Training</a></h4>
+            <p class="description">Providing training to residents on how to prepare for natural disasters and other emergencies to ensure community resilience.</p>
+          </div>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="600">
+        <div class="service-item d-flex">
+          <div class="flex-shrink-0 icon"><i class="bi bi-calendar4-week"></i></div>
+          <div>
+            <h4 class="title"><a href="#" class="stretched-link">Other Services</a></h4>
+            <p class="description">A range of other community services aimed at improving the quality of life for barangay residents.</p>
+          </div>
+        </div>
+      </div><!-- End Service Item -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Barangay Services Section -->
+
+
+<!-- Features Section -->
+<section id="features" class="features section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+      <h2>Announcement</h2>
+      <p>Discover the latest announcements and features in our community.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+      @foreach($announcements as $index => $announcement)
+          <div class="row gy-4 align-items-center features-item">
+              <!-- Alternate the layout for each announcement -->
+              <div class="{{ $index % 2 == 0 ? 'order-2' : 'order-1' }} col-lg-5 {{ $index % 2 == 0 ? 'order-lg-1' : 'order-lg-2' }}" data-aos="fade-up" data-aos-delay="200">
+                  <h3>{{ $announcement->name }}</h3>
+                  <p>{{ $announcement->description }}</p>
+                  <a class="btn-getstarted" href="#">Get Started</a>
+              </div>
+
+              <div class="{{ $index % 2 == 0 ? 'order-1' : 'order-2' }} col-lg-7 {{ $index % 2 == 0 ? 'order-lg-2' : 'order-lg-1' }} d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+                  <div class="image-stack">
+                      @if($announcement->image)
+                          <img src="{{ asset('storage/' . $announcement->image) }}" alt="{{ $announcement->name }}" class="stack-front img-fluid">
+                      @else
+                          <img src="{{ asset('template/img/default.jpg') }}" alt="Default Image" class="stack-front img-fluid">
+                      @endif
+                  </div>
+              </div>
+          </div><!-- Features Item -->
+      @endforeach
+  </div>
+
+</section><!-- /Features Section -->
+
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio section">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+      <h2>SK EVENTS</h2>
+      <p>Discover the latest youth-led initiatives and vibrant community events with SK Events – your go-to platform for staying connected, inspired, and involved!</p>
+  </div><!-- End Section Title -->
+
+  <!-- SK Programs -->
+  <div class="container">
+      <div class="row gy-4"> <!-- Start a Bootstrap row for horizontal layout -->
+          @foreach($skPrograms as $program)
+              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-skprogram">
+                  <a href="{{ asset('storage/' . $program->image) }}" class="glightbox">
+                      <img src="{{ asset('storage/' . $program->image) }}" class="img-fluid" alt="{{ $program->name }}">
+                  </a>
+                  <div class="portfolio-info">
+                      <h4>{{ $program->name }}</h4>
+                      <p>{{ $program->description }}</p>
+                      <a href="{{ asset('storage/' . $program->image) }}" title="{{ $program->name }}" data-gallery="portfolio-gallery-skprogram" class="glightbox preview-link">
+                          <i class="bi bi-zoom-in"></i>
+                      </a>
+                  </div>
+              </div>
+          @endforeach
+      </div> <!-- End row -->
+  </div>
+
+</section><!-- /Portfolio Section -->
+
+
+
+    
+
+        <!-- Portfolio Section -->
+        <section id="BRGY ACTIVITIES" class="portfolio section">
+          <!-- Section Title -->
+          <div class="container section-title" data-aos="fade-up">
+              <h2>BARANGAY ACTIVITIES</h2>
+              <p>Stay updated and get involved with your community through Brangay Activities – your hub for local events, programs, and everything happening in our Brangay!</p>
+          </div><!-- End Section Title -->
+  
+          <!-- SK Programs -->
+  @foreach($skPrograms as $program)
+  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-skprogram">
+      <a href="{{ asset('storage/' . $program->image) }}" class="glightbox">
+          <img src="{{ asset('storage/' . $program->image) }}" class="img-fluid" alt="{{ $program->name }}">
+      </a>
+      <div class="portfolio-info">
+          <h4>{{ $program->name }}</h4>
+          <p>{{ $program->description }}</p>
+          <a href="{{ asset('storage/' . $program->image) }}" title="{{ $program->name }}" data-gallery="portfolio-gallery-skprogram" class="glightbox preview-link">
+              <i class="bi bi-zoom-in"></i>
+          </a>
+      </div>
+  </div>
+  @endforeach
+  
+      </section><!-- /bARANGAY ACTIVITIES -->
+      
     <!-- Pricing Section -->
     {{-- <section id="pricing" class="pricing section">
 
@@ -593,9 +500,16 @@
 
     </section><!-- /Pricing Section --> --}}
 
+
+
     <!-- Faq Section -->
     <section id="faq" class="faq section">
-
+        <!-- Portfolio Section -->
+          <!-- Section Title -->
+          <div class="container section-title" data-aos="fade-up">
+              <h2>AGKAYKAYSA PROGRAMS</h2>
+              <p>Stay updated and get involved with your community through Brangay Activities – your hub for local events, programs, and everything happening in our Brangay!</p>
+          </div><!-- End Section Title -->
       <div class="container">
 
         <div class="row gy-4">
@@ -664,6 +578,117 @@
       </div>
 
     </section><!-- /Faq Section -->
+     <!-- Testimonials Section -->
+     <section id="testimonials" class="testimonials section light-background">
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-lg-5 info" data-aos="fade-up" data-aos-delay="100">
+                  <h3>OUR AGKAYKAYSA SCHOOLARS</h3>
+                  <p>What our scholars have to say</p>
+              </div>
+
+              <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+                  <div class="swiper init-swiper">
+                      <script type="application/json" class="swiper-config">
+                      {
+                          "loop": true,
+                          "speed": 600,
+                          "autoplay": {
+                              "delay": 5000
+                          },
+                          "slidesPerView": "auto",
+                          "pagination": {
+                              "el": ".swiper-pagination",
+                              "type": "bullets",
+                              "clickable": true
+                          }
+                      }
+                      </script>
+                      <div class="swiper-wrapper">
+                          @foreach($testimonials as $testimonial)
+                          <div class="swiper-slide">
+                              <div class="testimonial-item">
+                                  <div class="d-flex">
+                                      <img src="{{ asset('storage/' . $testimonial->image) }}" class="flex-shrink-0 testimonial-img" alt="{{ $testimonial->name }}">
+                                      <div>
+                                          <h3>{{ $testimonial->name }}</h3>
+                                          <h4>{{ $testimonial->designation }}</h4>
+                                          <div class="stars">
+                                              <!-- You can add dynamic star ratings here if available -->
+                                              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <p>
+                                      <i class="bi bi-quote quote-icon-left"></i>
+                                      <span>{{ $testimonial->description }}</span>
+                                      <i class="bi bi-quote quote-icon-right"></i>
+                                  </p>
+                              </div>
+                          </div><!-- End testimonial item -->
+                          @endforeach
+                      </div>
+                      <div class="swiper-pagination"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+ <!-- Recent Posts Section -->
+<section id="events" class="recent-posts section">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+      <h2>Barangay Events</h2>
+      <p>Check out our latest barangay events</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+      <div class="row gy-4">
+          @foreach($events as $event)
+              <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                  <article>
+                      <div class="post-img">
+                          <!-- Assuming you have an 'image' column or want to display a placeholder image -->
+                          {{-- <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->title }}" class="img-fluid"> --}}
+                      </div>
+
+                      <p class="post-category">{{ $event->location }}</p>
+
+                      <h2 class="title">
+                          <a href="{{ route('event.details', $event->id) }}">{{ $event->title }}</a>
+                      </h2>
+
+                      <p>{{ $event->description }}</p>
+
+                      <div class="d-flex align-items-center">
+                          <div class="post-meta">
+                              <p class="post-date">
+                                  <time datetime="{{ $event->event_date }}">{{ \Carbon\Carbon::parse($event->event_date)->format('M d, Y') }}</time>
+                              </p>
+                              <p class="post-organizer">
+                                  <strong>Organizer:</strong> {{ $event->organizer }}
+                              </p>
+                              <p class="post-attendees">
+                                  <strong>Participants/Attendees:</strong>
+                                  @if($event->attendees && is_array($event->attendees) && count($event->attendees) > 0)
+                                      <ul>
+                                          @foreach($event->attendees as $attendee)
+                                              <li>{{ $attendee }}</li>
+                                          @endforeach
+                                      </ul>
+                                  @else
+                                      <span>Expected Attendees: {{ $event->expected_attendees }}</span>
+                                  @endif
+                              </p>
+                          </div>
+                      </div>
+                  </article>
+              </div><!-- End post list item -->
+          @endforeach
+      </div><!-- End recent posts list -->
+  </div>
+</section><!-- /Recent Posts Section -->
 
     <!-- Team Section -->
     <section id="team" class="team section light-background">
@@ -699,117 +724,7 @@
 
 
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section light-background">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 info" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Our Schoolar</h3>
-                    <p>What our scholars have to say</p>
-                </div>
-
-                <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
-                    <div class="swiper init-swiper">
-                        <script type="application/json" class="swiper-config">
-                        {
-                            "loop": true,
-                            "speed": 600,
-                            "autoplay": {
-                                "delay": 5000
-                            },
-                            "slidesPerView": "auto",
-                            "pagination": {
-                                "el": ".swiper-pagination",
-                                "type": "bullets",
-                                "clickable": true
-                            }
-                        }
-                        </script>
-                        <div class="swiper-wrapper">
-                            @foreach($testimonials as $testimonial)
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <div class="d-flex">
-                                        <img src="{{ asset('storage/' . $testimonial->image) }}" class="flex-shrink-0 testimonial-img" alt="{{ $testimonial->name }}">
-                                        <div>
-                                            <h3>{{ $testimonial->name }}</h3>
-                                            <h4>{{ $testimonial->designation }}</h4>
-                                            <div class="stars">
-                                                <!-- You can add dynamic star ratings here if available -->
-                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        <span>{{ $testimonial->description }}</span>
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div><!-- End testimonial item -->
-                            @endforeach
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <!-- Recent Posts Section -->
-<section id="recent-posts" class="recent-posts section">
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-        <h2>Events</h2>
-        <p>Check out our latest events</p>
-    </div><!-- End Section Title -->
-
-    <div class="container">
-        <div class="row gy-4">
-            @foreach($events as $event)
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <article>
-                        <div class="post-img">
-                            <!-- Assuming you have an 'image' column or want to display a placeholder image -->
-                            {{-- <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->title }}" class="img-fluid"> --}}
-                        </div>
-
-                        <p class="post-category">{{ $event->location }}</p>
-
-                        <h2 class="title">
-                            <a href="{{ route('event.details', $event->id) }}">{{ $event->title }}</a>
-                        </h2>
-
-                        <p>{{ $event->description }}</p>
-
-                        <div class="d-flex align-items-center">
-                            <div class="post-meta">
-                                <p class="post-date">
-                                    <time datetime="{{ $event->event_date }}">{{ \Carbon\Carbon::parse($event->event_date)->format('M d, Y') }}</time>
-                                </p>
-                                <p class="post-organizer">
-                                    <strong>Organizer:</strong> {{ $event->organizer }}
-                                </p>
-                                <p class="post-attendees">
-                                    <strong>Participants/Attendees:</strong>
-                                    @if($event->attendees && is_array($event->attendees) && count($event->attendees) > 0)
-                                        <ul>
-                                            @foreach($event->attendees as $attendee)
-                                                <li>{{ $attendee }}</li>
-                                            @endforeach
-                                        </ul>
-                                    @else
-                                        <span>Expected Attendees: {{ $event->expected_attendees }}</span>
-                                    @endif
-                                </p>
-                            </div>
-                        </div>
-                    </article>
-                </div><!-- End post list item -->
-            @endforeach
-        </div><!-- End recent posts list -->
-    </div>
-</section><!-- /Recent Posts Section -->
+   
 <section id="citizens-charter" class="section light-background">
     <div class="container" data-aos="fade-up">
         <div class="section-title">
