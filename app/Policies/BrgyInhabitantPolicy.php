@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Policies;
 
 use App\Models\BrgyInhabitant;
@@ -15,6 +14,7 @@ class BrgyInhabitantPolicy
      */
     public function viewAny(User $user): bool
     {
+        // Add your condition if necessary, e.g., only allowing approved records
         return $user->can('view_any_brgy::inhabitant');
     }
 
@@ -23,7 +23,8 @@ class BrgyInhabitantPolicy
      */
     public function view(User $user, BrgyInhabitant $brgyInhabitant): bool
     {
-        return $user->can('view_brgy::inhabitant');
+        // Check if the user has permission and if the record is approved
+        return $user->can('view_brgy::inhabitant') && $brgyInhabitant->approved;
     }
 
     /**
@@ -63,7 +64,7 @@ class BrgyInhabitantPolicy
      */
     public function forceDelete(User $user, BrgyInhabitant $brgyInhabitant): bool
     {
-        return $user->can('{{ ForceDelete }}');
+        return $user->can('force_delete_brgy::inhabitant') && $brgyInhabitant->approved;
     }
 
     /**
@@ -71,7 +72,7 @@ class BrgyInhabitantPolicy
      */
     public function forceDeleteAny(User $user): bool
     {
-        return $user->can('{{ ForceDeleteAny }}');
+        return $user->can('force_delete_any_brgy::inhabitant');
     }
 
     /**
@@ -79,7 +80,7 @@ class BrgyInhabitantPolicy
      */
     public function restore(User $user, BrgyInhabitant $brgyInhabitant): bool
     {
-        return $user->can('{{ Restore }}');
+        return $user->can('restore_brgy::inhabitant') && $brgyInhabitant->approved;
     }
 
     /**
@@ -87,7 +88,7 @@ class BrgyInhabitantPolicy
      */
     public function restoreAny(User $user): bool
     {
-        return $user->can('{{ RestoreAny }}');
+        return $user->can('restore_any_brgy::inhabitant');
     }
 
     /**
@@ -95,7 +96,7 @@ class BrgyInhabitantPolicy
      */
     public function replicate(User $user, BrgyInhabitant $brgyInhabitant): bool
     {
-        return $user->can('{{ Replicate }}');
+        return $user->can('replicate_brgy::inhabitant') && $brgyInhabitant->approved;
     }
 
     /**
@@ -103,6 +104,6 @@ class BrgyInhabitantPolicy
      */
     public function reorder(User $user): bool
     {
-        return $user->can('{{ Reorder }}');
+        return $user->can('reorder_brgy::inhabitant');
     }
 }

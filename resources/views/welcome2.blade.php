@@ -33,40 +33,7 @@
   <!-- Main CSS File -->
   <link href="{{ asset('template/css/main.css') }}" rel="stylesheet">
 
- <!--  <style>
-        /* Custom slider styling */
-.custom-slider {
-    height: 500px; /* Adjust the slider height as needed */
-    overflow: hidden;
-    margin-top: 100px; /* Add top margin to prevent overlap with the header */
-}
-
-/* Slider image styling */
-.custom-slider .carousel-item img {
-    object-fit: cover; /* Makes the image cover the entire slider area */
-    height: 100%; /* Takes the full height of the slider */
-    width: 100%; /* Takes the full width of the slider */
-}
-/* Full-width slider styling */
-.custom-slider {
-    height: 500px; /* Adjust the slider height as needed */
-    overflow: hidden;
-}
-
-/* Remove padding from the container-fluid to stretch the slider */
-.container-fluid {
-    padding: 0;
-}
-
-/* Slider image styling */
-.custom-slider .carousel-item img {
-    object-fit: cover; /* Makes the image cover the entire slider area */
-    height: 100%; /* Takes the full height of the slider */
-    width: 100%; /* Takes the full width of the slider */
-}
-
-    </style>
-    -->
+ 
 </head>
 
 <body class="index-page">

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\BrgyInhabitantResource\Pages;
@@ -77,8 +76,7 @@ class BrgyInhabitantResource extends Resource
                         'Filipino' => 'Filipino',
                         'Others' => 'Others',
                     ])
-                    ->reactive(), // Reactive to detect changes
-
+                    ->reactive(),
                 Forms\Components\TextInput::make('other_citizenship')
                     ->label('Please specify citizenship')
                     ->required()
@@ -112,7 +110,7 @@ class BrgyInhabitantResource extends Resource
                         'NO' => 'NO',
                     ]),
                 Forms\Components\TextInput::make('email')
-                    ->label('Active Email Account') // New email field
+                    ->label('Active Email Account')
                     ->email()
                     ->required()
                     ->maxLength(255),
@@ -138,23 +136,18 @@ class BrgyInhabitantResource extends Resource
                 Tables\Columns\TextColumn::make('occupation')->searchable(),
                 Tables\Columns\TextColumn::make('ofw')->searchable(),
                 Tables\Columns\TextColumn::make('pwd')->searchable(),
-                Tables\Columns\TextColumn::make('email')  // Add email field in table
-                    ->label('Active Email Account')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('email')->label('Active Email Account')->searchable(),
                 BooleanColumn::make('is_approved')->label('Approved'),
             ])
             ->filters([
                 Filter::make('Pending Approval')
                     ->query(fn (Builder $query) => $query->where('is_approved', false)),
-                // Filter for PWD
+                Filter::make('Approved Only')
+                    ->query(fn (Builder $query) => $query->where('is_approved', true)),
                 Filter::make('PWD')
-                    ->query(fn (Builder $query) => $query->where('pwd', true)),
-
-                // Filter for OFW
+                    ->query(fn (Builder $query) => $query->where('PWD', true)),
                 Filter::make('OFW')
                     ->query(fn (Builder $query) => $query->where('ofw', true)),
-
-                // Filter for age 60 and above
                 Filter::make('Senior Citizens')
                     ->label('Age 60 and Above')
                     ->query(fn (Builder $query) => $query->where('age', '>=', 60)),
@@ -166,7 +159,9 @@ class BrgyInhabitantResource extends Resource
                         $record->is_approved = true;
                         $record->save();
                     })
-                    ->visible(fn (BrgyInhabitant $record) => Filament::auth()->user() && (Filament::auth()->user()->hasRole('super_admin') || Filament::auth()->user()->hasRole('brgySecretary')) && ! $record->is_approved),
+                    ->visible(fn (BrgyInhabitant $record) => Filament::auth()->user() && 
+                        (Filament::auth()->user()->hasRole('super_admin') || Filament::auth()->user()->hasRole('brgySecretary')) && 
+                        ! $record->is_approved),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -176,11 +171,15 @@ class BrgyInhabitantResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
+        $query = parent::getEloquentQuery();
+
         if (auth()->user()->hasRole('super_admin') || auth()->user()->hasRole('brgySecretary')) {
-            return parent::getEloquentQuery();
+            // Show all records, approved or not, for super_admin and brgySecretary
+            return $query;
         }
 
-        return parent::getEloquentQuery()->where('user_id', auth()->id());
+        // Show only approved records for other users
+        return $query->where('is_approved', true);
     }
 
     public static function getRelations(): array

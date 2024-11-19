@@ -18,7 +18,7 @@ class JobHiringResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Job Opportunities';
 
-    protected static ?string $navigationGroup = 'Visitors Launch';
+    protected static ?string $navigationGroup = 'Community Management';
 
     public static function form(Form $form): Form
     {

@@ -19,15 +19,16 @@ class DemographicStatistics extends Page
     // This method calculates the statistics needed for the page
     public function getDemographicData(): array
     {
-        $totalPopulation = BrgyInhabitant::count();
-        $maleCount = BrgyInhabitant::where('sex', 'Male')->count();
-        $femaleCount = BrgyInhabitant::where('sex', 'Female')->count();
+        // Calculate statistics for approved records
+        $totalPopulation = BrgyInhabitant::where('is_approved', true)->count();
+        $maleCount = BrgyInhabitant::where('is_approved', true)->where('sex', 'Male')->count();
+        $femaleCount = BrgyInhabitant::where('is_approved', true)->where('sex', 'Female')->count();
 
         $ageGroups = [
-            '0-17' => BrgyInhabitant::whereBetween('age', [0, 17])->count(),
-            '18-35' => BrgyInhabitant::whereBetween('age', [18, 35])->count(),
-            '36-60' => BrgyInhabitant::whereBetween('age', [36, 60])->count(),
-            '60+' => BrgyInhabitant::where('age', '>', 60)->count(),
+            '0-17' => BrgyInhabitant::where('is_approved', true)->whereBetween('age', [0, 17])->count(),
+            '18-35' => BrgyInhabitant::where('is_approved', true)->whereBetween('age', [18, 35])->count(),
+            '36-60' => BrgyInhabitant::where('is_approved', true)->whereBetween('age', [36, 60])->count(),
+            '60+' => BrgyInhabitant::where('is_approved', true)->where('age', '>', 60)->count(),
         ];
 
         return [

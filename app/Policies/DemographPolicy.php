@@ -23,7 +23,8 @@ class DemographPolicy
      */
     public function view(User $user, Demograph $demograph): bool
     {
-        return $user->can('view_demograph');
+        // Check if the user has permission and if the record is approved
+        return $user->can('view_demograph') && $demograph->approved;
     }
 
     /**
@@ -63,7 +64,8 @@ class DemographPolicy
      */
     public function forceDelete(User $user, Demograph $demograph): bool
     {
-        return $user->can('{{ ForceDelete }}');
+        // Check if the user has permission and if the record is approved
+        return $user->can('force_delete_demograph') && $demograph->approved;
     }
 
     /**
@@ -71,7 +73,7 @@ class DemographPolicy
      */
     public function forceDeleteAny(User $user): bool
     {
-        return $user->can('{{ ForceDeleteAny }}');
+        return $user->can('force_delete_any_demograph');
     }
 
     /**
@@ -79,7 +81,8 @@ class DemographPolicy
      */
     public function restore(User $user, Demograph $demograph): bool
     {
-        return $user->can('{{ Restore }}');
+        // Check if the user has permission and if the record is approved
+        return $user->can('restore_demograph') && $demograph->approved;
     }
 
     /**
@@ -87,7 +90,7 @@ class DemographPolicy
      */
     public function restoreAny(User $user): bool
     {
-        return $user->can('{{ RestoreAny }}');
+        return $user->can('restore_any_demograph');
     }
 
     /**
@@ -95,7 +98,8 @@ class DemographPolicy
      */
     public function replicate(User $user, Demograph $demograph): bool
     {
-        return $user->can('{{ Replicate }}');
+        // Check if the user has permission and if the record is approved
+        return $user->can('replicate_demograph') && $demograph->approved;
     }
 
     /**
@@ -103,6 +107,7 @@ class DemographPolicy
      */
     public function reorder(User $user): bool
     {
-        return $user->can('{{ Reorder }}');
+        return $user->can('reorder_demograph');
     }
 }
+
