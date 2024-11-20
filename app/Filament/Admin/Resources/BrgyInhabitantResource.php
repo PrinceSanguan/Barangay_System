@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\BrgyInhabitantResource\Pages;
@@ -54,14 +55,18 @@ class BrgyInhabitantResource extends Resource
                         'Male' => 'Male',
                         'Female' => 'Female',
                     ]),
-                Forms\Components\Select::make('civilstatus')
+                    Forms\Components\Select::make('civilstatus')
+                    ->label('Civil Status')
                     ->required()
                     ->options([
                         'Single' => 'Single',
                         'Married' => 'Married',
-                        'Divorced' => 'Divorced',
                         'Widowed' => 'Widowed',
+                        'Separated' => 'Separated',
+                        'Annulled' => 'Annulled',
+                        'Live-in' => 'Live-in',
                     ]),
+                
                 Forms\Components\Select::make('positioninFamily')
                     ->required()
                     ->options([
@@ -82,13 +87,21 @@ class BrgyInhabitantResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->visible(fn ($get) => $get('citizenship') === 'Others'),
-                Forms\Components\Select::make('educAttainment')
+                    Forms\Components\Select::make('educAttainment')
+                    ->label('Educational Attainment')
                     ->required()
                     ->options([
+                        'No Formal Education' => 'No Formal Education',
+                        'Elementary' => 'Elementary',
+                        'High School' => 'High School',
+                        'Vocational' => 'Vocational',
+                        'Undergraduate' => 'Undergraduate',
                         'Graduate' => 'Graduate',
+                        'Postgraduate' => 'Postgraduate',
                         'Others' => 'Others',
                     ])
                     ->reactive(),
+                
                 Forms\Components\TextInput::make('other_educationalAtt')
                     ->label('Please specify Attainment')
                     ->required()
@@ -159,8 +172,8 @@ class BrgyInhabitantResource extends Resource
                         $record->is_approved = true;
                         $record->save();
                     })
-                    ->visible(fn (BrgyInhabitant $record) => Filament::auth()->user() && 
-                        (Filament::auth()->user()->hasRole('super_admin') || Filament::auth()->user()->hasRole('brgySecretary')) && 
+                    ->visible(fn (BrgyInhabitant $record) => Filament::auth()->user() &&
+                        (Filament::auth()->user()->hasRole('super_admin') || Filament::auth()->user()->hasRole('brgySecretary')) &&
                         ! $record->is_approved),
                 Tables\Actions\EditAction::make(),
             ])
