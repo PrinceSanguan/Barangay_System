@@ -7,6 +7,7 @@
         <div class="col-lg-3 mb-4">
             <div class="list-group shadow-sm">
                 <a href="#churches" class="list-group-item list-group-item-action">Churches</a>
+                <a href="#hostitals" class="list-group-item list-group-item-action">Hospitals</a>
                 <a href="#hotels" class="list-group-item list-group-item-action">Hotels</a>
                 <a href="#job-opportunities" class="list-group-item list-group-item-action">Job Opportunities</a>
                 <a href="#parks" class="list-group-item list-group-item-action">Parks</a>
@@ -43,6 +44,15 @@
                 <ul>
                     @foreach($churches as $church)
                         <li><strong>{{ $church->name }}</strong> - {{ $church->description }}</li>
+                    @endforeach
+                </ul>
+            </section>
+              <!-- hospital Section -->
+              <section id="hospitals" class="mb-5">
+                <h2 class="mb-4" style="font-weight: bold; color: #333;">Hospitals</h2>
+                <ul>
+                    @foreach($hospitals as $hospital)
+                        <li><strong>{{ $hospital->name }}</strong> - {{ $hospital->description }}</li>
                     @endforeach
                 </ul>
             </section>

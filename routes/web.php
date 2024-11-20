@@ -26,6 +26,7 @@ use App\Models\TouristSpot;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SkProgramController;
+use App\Models\brgyActivity;
 
 /* NOTE: Do Not Remove
 / Livewire asset handling if using sub folder in domain
@@ -68,7 +69,7 @@ Route::get('/', function () {
     $hospitals = Hospital::all();
     $churches = Church::all();
     $skPrograms = Skprogram::all();
-
+    $brgyActivities = brgyActivity::all();
     // Fetch Barangay Officials
     $barangayOfficials = BrangayOfficials::all();
 
@@ -104,7 +105,8 @@ Route::get('/', function () {
         'testimonials',
         'announcements',
         'location',
-        'chairperson' // Add chairperson data here
+        'chairperson',
+        'brgyActivities' 
     ));
 });
 Route::get('/map', [LocationController::class, 'showMap']);
@@ -123,3 +125,4 @@ Route::get('/visitors-lounge', [VisitorsController::class, 'showVisitors'])->nam
 Route::get('/citizens-charter', [CitezensCharterController::class, 'showIndex'])->name('citizens.charter');
 // Define a route that uses the controller
 Route::get('/sk-programs', [SkProgramController::class, 'index']);
+Route::get('/ordinance', [VisitorsController::class, 'ShowOrdinance'])->name('assoc.foundation');

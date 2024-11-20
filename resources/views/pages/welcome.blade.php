@@ -58,7 +58,7 @@
           <li><a href="#events">Barangay Events</a></li>
           <li><a href="#portfolio">Sk Programs</a></li>
           <li><a href="#portfolio">Agkaykaysa Programs</a></li>
-          <li><a href="#">Visitor's Lounge </a></li>
+          <li><a href="{{url('visitors-lounge')}}">Visitor's Lounge </a></li>
           {{-- <li><a href="#pricing">Pricing</a></li> --}}
           <li><a href="#team">Barangay officials</a></li>
           <li><a href="#team">Barangay Health Worker</a></li>
@@ -181,7 +181,7 @@
             <p>The history of our barangay dates back to the early 1900s. It was originally a small farming community that gradually evolved into a vibrant hub of culture and commerce. Our ancestors worked hard to establish the barangay as a place of unity, progress, and shared values.</p>
             <p>Through the years, the barangay has overcome various challenges, including natural disasters, economic hardships, and social changes. Despite these obstacles, our community has remained resilient, maintaining its core values of unity, hard work, and mutual respect.</p>
             <p>Today, our barangay continues to thrive, blending modern progress with our rich cultural heritage. We honor our past by remembering the efforts and sacrifices of those who came before us, and we strive to build a brighter future for the generations to come.</p>
-            <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            <a href="{{route('assoc.foundation')}}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
           </div>
 
           <div class="col-xl-7">
@@ -396,35 +396,65 @@
 
 </section><!-- /Portfolio Section -->
 
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio section">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>BARANGAY ACTIVITIES</h2>
+    <p>Stay updated and get involved with your community through Brangay Activities – your hub for local events, programs, and everything happening in our Brangay!</p>
+  </div><!-- End Section Title -->
 
+  <!-- SK Programs -->
+  <div class="container">
+      <div class="row gy-4"> <!-- Start a Bootstrap row for horizontal layout -->
+        @foreach($brgyActivities as $brgyAct)
+              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-skprogram">
+                  <a href="{{ asset('storage/' . $brgyAct->image) }}" class="glightbox">
+                      <img src="{{ asset('storage/' . $brgyAct->image) }}" class="img-fluid" alt="{{ $brgyAct->title }}">
+                  </a>
+                  <div class="portfolio-info">
+                      <h4>{{ $brgyAct->title }}</h4>
+                      <p>{{ $brgyAct->description }}</p>
+                      <a href="{{ asset('storage/' . $brgyAct->image) }}" title="{{ $brgyAct->title }}" data-gallery="portfolio-gallery-skprogram" class="glightbox preview-link">
+                          <i class="bi bi-zoom-in"></i>
+                      </a>
+                  </div>
+              </div>
+          @endforeach
+      </div> <!-- End row -->
+  </div>
+
+</section><!-- /Portfolio Section -->
 
     
 
-        <!-- Portfolio Section -->
+        {{-- <!-- Portfolio Section -->
         <section id="BRGY ACTIVITIES" class="portfolio section">
           <!-- Section Title -->
           <div class="container section-title" data-aos="fade-up">
               <h2>BARANGAY ACTIVITIES</h2>
-              <p>Stay updated and get involved with your community through Brangay Activities – your hub for local events, programs, and everything happening in our Brangay!</p>
+   <p>Stay updated and get involved with your community through Brangay Activities – your hub for local events, programs, and everything happening in our Brangay!</p>
           </div><!-- End Section Title -->
-  
           <!-- SK Programs -->
-  @foreach($skPrograms as $program)
+  @foreach($brgyActivities as $brgyAct)
   <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-skprogram">
-      <a href="{{ asset('storage/' . $program->image) }}" class="glightbox">
-          <img src="{{ asset('storage/' . $program->image) }}" class="img-fluid" alt="{{ $program->name }}">
+      <a href="{{ asset('storage/' . $brgyAct->image) }}" class="glightbox">
+          <img src="{{ asset('storage/' . $brgyAct->image) }}" class="img-fluid" alt="{{ $brgyAct->title }}">
       </a>
       <div class="portfolio-info">
-          <h4>{{ $program->name }}</h4>
-          <p>{{ $program->description }}</p>
-          <a href="{{ asset('storage/' . $program->image) }}" title="{{ $program->name }}" data-gallery="portfolio-gallery-skprogram" class="glightbox preview-link">
+          <h4>{{ $brgyAct->title }}</h4>
+          <p>{{ $brgyAct->description }}</p>
+          <a href="{{ asset('storage/' . $brgyAct->image) }}" title="{{ $brgyAct->title }}" data-gallery="portfolio-gallery-skprogram" class="glightbox preview-link">
               <i class="bi bi-zoom-in"></i>
           </a>
       </div>
   </div>
   @endforeach
-  
-      </section><!-- /bARANGAY ACTIVITIES -->
+</div> <!-- End row -->
+</div>
+</section> --}}
+
+<!-- /Portfolio Section --><!-- /bARANGAY ACTIVITIES -->
       
     <!-- Pricing Section -->
     {{-- <section id="pricing" class="pricing section">
@@ -504,7 +534,81 @@
 
     <!-- Faq Section -->
     <section id="faq" class="faq section">
+       <!-- Section Title -->
+       <div class="container section-title" data-aos="fade-up">
+        <h2>Events</h2>
+        <p>Stay updated and get involved with your community through Brangay Activities – your hub for local events, programs, and everything happening in our Brangay!</p>
+    </div><!-- End Section Title -->
+<div class="container">
+
+  <div class="row gy-4">
+
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          @foreach($programs as $program)
+              <div class="mb-4 content px-xl-5">
+                  <!-- Check if the program has an image -->
+                  @if($program->image)
+                      <img src="{{ asset('storage/' . $program->image) }}" class="mb-3 img-fluid" alt="{{ $program->name }}">
+                  @endif
+                  <h3><span>{{ $program->name }} </span><strong>Programs</strong></h3>
+                  <p>{{ $program->description }}</p>
+              </div>
+          @endforeach
+      </div>
+
+    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+
+      <div class="faq-container">
+        <div class="faq-item faq-active">
+          <h3><span class="num">1.</span> <span>Non consectetur a erat nam at lectus urna duis?</span></h3>
+          <div class="faq-content">
+            <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+          </div>
+          <i class="faq-toggle bi bi-chevron-right"></i>
+        </div><!-- End Faq item-->
+
+        <div class="faq-item">
+          <h3><span class="num">2.</span> <span>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</span></h3>
+          <div class="faq-content">
+            <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+          </div>
+          <i class="faq-toggle bi bi-chevron-right"></i>
+        </div><!-- End Faq item-->
+
+        <div class="faq-item">
+          <h3><span class="num">3.</span> <span>Dolor sit amet consectetur adipiscing elit pellentesque?</span></h3>
+          <div class="faq-content">
+            <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
+          </div>
+          <i class="faq-toggle bi bi-chevron-right"></i>
+        </div><!-- End Faq item-->
+
+        <div class="faq-item">
+          <h3><span class="num">4.</span> <span>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</span></h3>
+          <div class="faq-content">
+            <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+          </div>
+          <i class="faq-toggle bi bi-chevron-right"></i>
+        </div><!-- End Faq item-->
+
+        <div class="faq-item">
+          <h3><span class="num">5.</span> <span>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</span></h3>
+          <div class="faq-content">
+            <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
+          </div>
+          <i class="faq-toggle bi bi-chevron-right"></i>
+        </div><!-- End Faq item-->
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</section><!-- /Faq Section -->
         <!-- Portfolio Section -->
+
           <!-- Section Title -->
           <div class="container section-title" data-aos="fade-up">
               <h2>AGKAYKAYSA PROGRAMS</h2>
@@ -578,6 +682,7 @@
       </div>
 
     </section><!-- /Faq Section -->
+    
      <!-- Testimonials Section -->
      <section id="testimonials" class="testimonials section light-background">
       <div class="container">
