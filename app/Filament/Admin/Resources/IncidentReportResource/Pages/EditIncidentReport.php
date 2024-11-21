@@ -9,6 +9,10 @@ use Filament\Resources\Pages\EditRecord;
 class EditIncidentReport extends EditRecord
 {
     protected static string $resource = IncidentReportResource::class;
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 
     protected function getHeaderActions(): array
     {

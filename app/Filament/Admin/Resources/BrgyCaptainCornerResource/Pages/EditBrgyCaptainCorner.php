@@ -9,6 +9,10 @@ use Filament\Resources\Pages\EditRecord;
 class EditBrgyCaptainCorner extends EditRecord
 {
     protected static string $resource = BrgyCaptainCornerResource::class;
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 
     protected function getHeaderActions(): array
     {

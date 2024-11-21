@@ -28,6 +28,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SkProgramController;
 use App\Models\brgyActivity;
 use App\Models\BHW;
+use App\Models\brgyFestival;
+
 
 /* NOTE: Do Not Remove
 / Livewire asset handling if using sub folder in domain
@@ -71,6 +73,8 @@ Route::get('/', function () {
     $churches = Church::all();
     $skPrograms = Skprogram::all();
     $brgyActivities = brgyActivity::all();
+    $brgyFestival = brgyFestival::all();
+
     // Fetch Barangay Officials
     $barangayOfficials = BrangayOfficials::all();
     $barangayHealthWorker = BHW::all();
@@ -109,7 +113,8 @@ Route::get('/', function () {
         'location',
         'chairperson',
         'brgyActivities' ,
-        'barangayHealthWorker'
+        'barangayHealthWorker',
+        'brgyFestival'
     ));
 });
 Route::get('/map', [LocationController::class, 'showMap']);

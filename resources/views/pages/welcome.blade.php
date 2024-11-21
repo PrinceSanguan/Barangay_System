@@ -138,35 +138,85 @@
       </div>
 
     </section><!-- /Clients Section -->
- <!-- Barangay Captain Section -->
- <section id="barangay-captain" class="barangay-captain-section py-5 bg-light">
-    <div class="container">
-        <h2 class="section-title">Message from the Barangay Captain</h2>
-        @if(isset($chairperson))
-            <div class="row align-items-center">
-                <div class="col-md-4 text-center">
-                    @if($chairperson->image)
-                        <img src="{{ asset('storage/' . $chairperson->image) }}" alt="Barangay Captain" class="img-fluid rounded-circle captain-image">
-                    @else
-                        <img src="https://via.placeholder.com/150" alt="Barangay Captain" class="img-fluid rounded-circle captain-image"> <!-- Placeholder image -->
-                    @endif
-                </div>
-                <div class="col-md-8">
-                    <h3 class="captain-name">{{ $chairperson->name ?? 'Barangay Captain' }}</h3>
-                    <p class="captain-designation">{{ $chairperson->designation ?? 'Barangay Captain' }}</p>
-                    <p class="captain-message">{{ $chairperson->description ?? 'No message available.' }}</p>
-                    
-                    <!-- Button Link to More Details -->
-                    <a href="{{ route('barangay.captain.details') }}" class="btn btn-primary mt-3">
-                        Read More
-                    </a>
-                </div>
-            </div>
-        @else
-            <p class="text-center">Barangay Captain's information is currently unavailable.</p>
-        @endif
-    </div>
+
+<!-- Barangay Captain Section -->
+<section id="barangay-captain" class="barangay-captain-section py-5 bg-light">
+  <div class="container">
+      <h2 class="section-title text-center mb-5">Message from the Barangay Captain</h2>
+      @if(isset($chairperson))
+          <div class="row align-items-center">
+              <div class="col-md-4 text-center mb-4 mb-md-0">
+                  @if($chairperson->image)
+                      <img src="{{ asset('storage/' . $chairperson->image) }}" 
+                           alt="Portrait of {{ $chairperson->name ?? 'Barangay Captain' }}" 
+                           class="img-fluid rounded-circle captain-image neon-glow-effect">
+                  @else
+                      <img src="https://via.placeholder.com/150" 
+                           alt="Default placeholder for Barangay Captain" 
+                           class="img-fluid rounded-circle captain-image neon-glow-effect"> 
+                  @endif
+              </div>
+              <div class="col-md-8">
+                  <h3 class="captain-name fw-bold">{{ $chairperson->name ?? 'Barangay Captain' }}</h3>
+                  <p class="captain-designation text-muted">{{ $chairperson->designation ?? 'Barangay Captain' }}</p>
+                  <p class="captain-message">{{ $chairperson->message ?? 'No message available.' }}</p>
+                  
+                  <!-- Button Link to More Details -->
+                  <a href="{{ route('barangay.captain.details') }}" class="btn btn-primary mt-3">
+                      Read More
+                  </a>
+              </div>
+          </div>
+      @else
+          <div class="text-center">
+              <p class="text-muted">Barangay Captain's information is currently unavailable.</p>
+          </div>
+      @endif
+  </div>
 </section>
+
+<!-- CSS for Neon Green Glow Effect -->
+<style>
+  .neon-glow-effect {
+      position: relative;
+      transition: transform 0.3s ease-in-out;
+  }
+
+  /* Neon Green Glow Effect */
+  .neon-glow-effect::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      box-shadow: 0 0 15px 5px rgba(57, 255, 20, 0.7);
+      opacity: 0;
+      animation: neon-glow 2s infinite alternate;
+      z-index: -1;
+  }
+
+  /* Pulsating Neon Green Animation */
+  @keyframes neon-glow {
+      0% {
+          box-shadow: 0 0 15px 5px rgba(57, 255, 20, 0.5);
+          opacity: 0.7;
+      }
+      100% {
+          box-shadow: 0 0 30px 15px rgba(57, 255, 20, 1);
+          opacity: 1;
+      }
+  }
+
+  /* Hover Effect for Interaction */
+  .neon-glow-effect:hover {
+      transform: scale(1.05);
+  }
+</style>
+
+
+
 
 
     <!-- About Section -->
@@ -395,6 +445,40 @@
   </div>
 
 </section><!-- /Portfolio Section -->
+
+<!-- Festival Section -->
+<section id="features" class="features section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+      <h2>BARANGAY FESTIVAL</h2>
+      <p>Discover the latest festivals in our community.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+      @foreach($brgyFestival as $index => $brgyFestival)
+          <div class="row gy-4 align-items-center features-item">
+              <!-- Alternate the layout for each announcement -->
+              <div class="{{ $index % 2 == 0 ? 'order-2' : 'order-1' }} col-lg-5 {{ $index % 2 == 0 ? 'order-lg-1' : 'order-lg-2' }}" data-aos="fade-up" data-aos-delay="200">
+                  <h3>{{ $brgyFestival->title }}</h3>
+                  <p>{{ $brgyFestival->description }}</p>
+
+              </div>
+
+              <div class="{{ $index % 2 == 0 ? 'order-1' : 'order-2' }} col-lg-7 {{ $index % 2 == 0 ? 'order-lg-2' : 'order-lg-1' }} d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+                  <div class="image-stack">
+                      @if($brgyFestival->image)
+                          <img src="{{ asset('storage/' . $brgyFestival->image) }}" alt="{{ $brgyFestival->name }}" class="stack-front img-fluid">
+                      @else
+                          <img src="{{ asset('template/img/default.jpg') }}" alt="Default Image" class="stack-front img-fluid">
+                      @endif
+                  </div>
+              </div>
+          </div><!-- Features Item -->
+      @endforeach
+  </div>
+
+</section><!-- /Features Section -->
 
 <!-- Portfolio Section -->
 <section id="portfolio" class="portfolio section">

@@ -8,4 +8,8 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateOrdinance extends CreateRecord
 {
     protected static string $resource = OrdinanceResource::class;
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

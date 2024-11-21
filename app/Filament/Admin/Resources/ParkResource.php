@@ -20,7 +20,7 @@ class ParkResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationGroup = 'Visitors Launch';
+    protected static ?string $navigationGroup = 'Visitors Lounge';
 
     public static function form(Form $form): Form
     {
