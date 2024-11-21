@@ -24,11 +24,11 @@ class BHWResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
+                Forms\Components\TextInput::make('name')
                     ->required()
                     ->label('Title'),
-                Forms\Components\Textarea::make('description')
-                    ->label('Description'),
+                Forms\Components\Textarea::make('designation')
+                    ->label('designation '),
                 Forms\Components\FileUpload::make('image')
                     ->label('Image')
                     ->disk('public')
@@ -41,7 +41,7 @@ class BHWResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
                 Tables\Columns\ImageColumn::make('image')->disk('public'),
                 Tables\Columns\TextColumn::make('created_at')->label('Created')->dateTime(),
             ])

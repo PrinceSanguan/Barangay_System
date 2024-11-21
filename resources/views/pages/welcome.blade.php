@@ -751,6 +751,45 @@
             </div>
         </section>
 
+<!-- Barangay Health Worker Section -->
+<section id="team" class="team section light-background">
+  <!-- Section Title -->
+  <div class="container section-title text-center" data-aos="fade-up">
+      <h2>BARANGAY HEALTH WORKER</h2>
+      <p class="mb-5">Meet our dedicated team of Barangay Health Workers who are committed to serving the community.</p>
+  </div>
+
+  <!-- Barangay Health Workers Grid -->
+  <div class="container">
+      <div class="row gy-4">
+          @foreach($barangayHealthWorker as $worker)
+              <div class="col-lg-4 col-md-6 member-container" data-aos="fade-up" data-aos-delay="100">
+                  <div class="member position-relative">
+                      <!-- Image and Social Icons -->
+                      <div class="member-img position-relative overflow-hidden">
+                          <img src="{{ asset('storage/' . $worker->image) }}" class="img-fluid" alt="{{ $worker->name }}">
+                          <div class="social d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50">
+                              <a href="#" class="mx-2 text-white"><i class="bi bi-twitter"></i></a>
+                              <a href="#" class="mx-2 text-white"><i class="bi bi-facebook"></i></a>
+                              <a href="#" class="mx-2 text-white"><i class="bi bi-instagram"></i></a>
+                              <a href="#" class="mx-2 text-white"><i class="bi bi-linkedin"></i></a>
+                          </div>
+                      </div>
+
+                      <!-- Worker Info -->
+                      <div class="text-center member-info p-3">
+                          <h4 class="mb-1">{{ $worker->name }}</h4>
+                          <span class="text-muted d-block mb-2">{{ $worker->designation }}</span>
+                      </div>
+                  </div>
+              </div><!-- End Barangay Health Worker Member -->
+          @endforeach
+      </div>
+  </div>
+</section>
+
+
+
 
 
    
