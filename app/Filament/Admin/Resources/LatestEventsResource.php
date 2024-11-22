@@ -16,7 +16,7 @@ class LatestEventsResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationGroup = 'Community Management';
+    protected static ?string $navigationGroup = 'Barangay News And Events';
 
     // protected static ?string $pluralModelLabel = 'Activities';
     public static function form(Form $form): Form
