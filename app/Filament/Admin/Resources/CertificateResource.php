@@ -67,14 +67,12 @@ class CertificateResource extends Resource
                     ->label('Purpose')
                     ->required(),
 
-                // Add the payment method field
-                Forms\Components\Select::make('payment_method')
+                // Using TextInput to display the payment method message
+                Forms\Components\TextInput::make('payment_method')
                     ->label('Payment Method')
-                    ->options([
-                        'cash' => 'Cash',
-                        'gcash' => 'Gcash',
-                    ])
-                    ->required(),
+                    ->default('Please proceed to the Barangay Office for payment.')
+                    ->readonly()
+                    ->disabled(),
 
                 Forms\Components\Select::make('payment_status')
                     ->label('Payment Status')
@@ -106,9 +104,19 @@ class CertificateResource extends Resource
                     ->label('Approved')
                     ->disabled()
                     ->visible(fn () => Auth::user()->hasRole('brgySecretary')),
+
                 // Hidden field to automatically set the user_id
                 Forms\Components\Hidden::make('user_id')
                     ->default(Auth::id()),
+
+// Add the DateTimePicker for appointment-like date and time selection
+Forms\Components\DateTimePicker::make('certificate_date')
+    ->label('Certificate Date')
+    ->required()
+    ->format('Y-m-d H:i') // Format for date and time without seconds
+    ->minDate(now()) // Prevent past dates
+    ->hint('Select the date and time for your certificate appointment. Note: If you do not appear at the Barangay Office within 3 days from the selected date, the appointment will be automatically cancelled.')
+            
             ]);
     }
 
@@ -132,7 +140,6 @@ class CertificateResource extends Resource
                     ->prefix('₱')
                     ->sortable(),
 
-                // Display the payment method
                 TextColumn::make('payment_method')
                     ->label('Payment Method')
                     ->formatStateUsing(fn ($state) => ucfirst($state))
@@ -157,13 +164,18 @@ class CertificateResource extends Resource
                     ->formatStateUsing(fn ($state) => ucfirst(str_replace('_', ' ', $state)))
                     ->sortable()
                     ->searchable(),
+
+                // Add the certificate date column for table view
+                TextColumn::make('certificate_date')
+                    ->label('Certificate Date')
+                    ->dateTime()
+                    ->sortable(),
             ])
             ->filters([
                 Filter::make('certificate_type')
                     ->label('Certificate Type')
                     ->query(fn (Builder $query) => $query->where('certificate_type', '!=', null)),
 
-                // Filter by status
                 Filter::make('status')
                     ->label('Status')
                     ->form([
@@ -185,10 +197,10 @@ class CertificateResource extends Resource
                 Action::make('approve')
                     ->label('Approve')
                     ->action(function (Certificate $record) {
-                        $record->is_approved = true; // Set approved status to true
+                        $record->is_approved = true;
                         $record->save();
                     })
-                    ->visible(fn (Certificate $record) => Auth::user()->hasAnyRole(['brgySecretary', 'super_admin']) && ! $record->is_approved), // Visible for both roles and if not approved yet
+                    ->visible(fn (Certificate $record) => Auth::user()->hasAnyRole(['brgySecretary', 'super_admin']) && !$record->is_approved),
 
                 Tables\Actions\EditAction::make(),
             ])
@@ -201,9 +213,7 @@ class CertificateResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array
@@ -214,16 +224,7 @@ class CertificateResource extends Resource
             'edit' => Pages\EditCertificate::route('/{record}/edit'),
         ];
     }
-    // public static function beforeCreate($record, $data)
-    // {
-    //     $prices = [
-    //         'Indigency_certificate' => '100.00',
-    //         'barangay_clearance' => '150.00',
-    //         'business_permit' => '300.00',
-    //     ];
 
-    //     $record->price = $prices[$data['certificate_type']] ?? '0.00';
-    // }
     public static function mutateFormDataBeforeCreate(array $data): array
     {
         $prices = [
@@ -237,16 +238,6 @@ class CertificateResource extends Resource
         return $data;
     }
 
-    // public static function beforeSave($record, $data)
-    // {
-    //     $prices = [
-    //         'Indigency_certificate' => '100.00',
-    //         'barangay_clearance' => '150.00',
-    //         'business_permit' => '300.00',
-    //     ];
-
-    //     $record->price = $prices[$data['certificate_type']] ?? '0.00';
-    // }
     public static function mutateFormDataBeforeSave(array $data): array
     {
         $prices = [
@@ -262,13 +253,10 @@ class CertificateResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        // Check if the user has the 'brgyUser' role
         if (Auth::user()->hasRole('brgyUser')) {
-            // Restrict the query to show only certificates created by the logged-in user
             return parent::getEloquentQuery()->where('user_id', Auth::id());
         }
 
-        // For other roles, show all certificates
         return parent::getEloquentQuery();
     }
 }

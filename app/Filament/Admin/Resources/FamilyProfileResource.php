@@ -27,7 +27,7 @@ class FamilyProfileResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Hidden::make('user_id')->default(auth()->id()),
-                Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('Family HouseHold Name')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('sex')

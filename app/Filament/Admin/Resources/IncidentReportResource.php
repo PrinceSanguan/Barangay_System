@@ -87,10 +87,10 @@ class IncidentReportResource extends Resource
                         Forms\Components\Select::make('resolution_or_escalation')
                             ->label('Resolution or Escalation')
                             ->options([
+                                'pending' => 'Pending',
                                 'resolved' => 'Resolved Locally',
                                 'escalated' => 'Escalated to Authorities',
-                            ])
-                            ->required(),
+                            ]),
                     ])->collapsible(),
             ]);
     }
