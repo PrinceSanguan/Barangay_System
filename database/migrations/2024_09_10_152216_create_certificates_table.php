@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('payment_method')->nullable(); // Add payment_method as a nullable string
             $table->string('price', 8, 2)->nullable(); // Price field for certificate type
             $table->boolean('is_approved')->default(false);
+            $table->date('certificate_date')->nullable(); // Add certificate_date as a nullable date
             $table->timestamps();
         });
     }
@@ -34,3 +35,4 @@ return new class extends Migration
         Schema::dropIfExists('certificates');
     }
 };
+

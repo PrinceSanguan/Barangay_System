@@ -20,6 +20,7 @@ class Certificate extends Model
         'payment_status',
         'status',
         'is_approved',
+        'certificate_date',
     ];
 
     protected $casts = [

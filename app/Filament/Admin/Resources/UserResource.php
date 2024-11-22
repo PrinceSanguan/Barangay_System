@@ -4,6 +4,7 @@ namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\UserResource\Pages;
 use App\Models\User;
+use App\Models\Role; // Add this import for the Role model
 use Filament\Forms;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
@@ -50,7 +51,7 @@ class UserResource extends Resource
             ->schema([
 
                 Forms\Components\Grid::make(2)
-                    ->schema([
+                    ->schema([ 
                         Forms\Components\TextInput::make('name')
                             ->minLength(2)
                             ->maxLength(255)
@@ -83,12 +84,14 @@ class UserResource extends Resource
                             ->columnSpan(1)
                             ->password(),
                     ]),
+
                 Section::make('Activate')
                     ->schema([
                         Forms\Components\Toggle::make('is_active')
                             ->label('Activate Account')
                             ->default(false), // Set the default to 'inactive'
                     ]),
+
                 Forms\Components\Section::make('Roles')
                     ->schema([
                         Forms\Components\Select::make('roles')
@@ -141,13 +144,19 @@ class UserResource extends Resource
                     ->icon('heroicon-o-check')
                     ->requiresConfirmation()
                     ->action(function (User $record) {
+                        // Set the user as active
                         $record->is_active = true;
+
+                        // Replace the user's role with "brgyUser"
+                        $record->roles()->sync([Role::where('name', 'brgyUser')->first()->id]);
+
+                        // Save the updated user record
                         $record->save();
                     })
                     ->visible(fn (User $record) => ! $record->is_active),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
+                Tables\Actions\BulkActionGroup::make([ 
                     // Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])
