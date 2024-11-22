@@ -59,7 +59,8 @@ class AdminPanelProvider extends PanelProvider
                         hasAvatars: true,
                         slug: 'profile'
                     ),
-                FilamentSpatieLaravelBackupPlugin::make(),
+                FilamentSpatieLaravelBackupPlugin::make()
+                ,
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()
                     ->gridColumns([
                         'default' => 1,
