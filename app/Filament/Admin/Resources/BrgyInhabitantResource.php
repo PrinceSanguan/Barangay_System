@@ -65,6 +65,14 @@ class BrgyInhabitantResource extends Resource
                         'Annulled' => 'Annulled',
                         'Live-in' => 'Live-in',
                     ]),
+                    Forms\Components\Select::make('positioninFamily')
+                    ->required()
+                    ->options([
+                        'Head of the family' => 'Head of the family',
+                        'Wife' => 'Wife',
+                        'Son' => 'Son',
+                        'Daughter' => 'Daughter',
+                    ]),
                 Forms\Components\Select::make('citizenship')
                     ->required()
                     ->options([
@@ -132,6 +140,7 @@ class BrgyInhabitantResource extends Resource
                 Tables\Columns\TextColumn::make('placeofbirth')->searchable(),
                 Tables\Columns\TextColumn::make('sex')->searchable(),
                 Tables\Columns\TextColumn::make('civilstatus')->searchable(),
+                Tables\Columns\TextColumn::make('positioninFamily')->searchable(),
                 Tables\Columns\TextColumn::make('citizenship')->searchable(),
                 Tables\Columns\TextColumn::make('educAttainment')->searchable(),
                 Tables\Columns\TextColumn::make('occupation')->searchable(),
