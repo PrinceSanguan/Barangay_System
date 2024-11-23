@@ -29,6 +29,15 @@ use App\Models\Skprogram;
 use App\Models\TouristSpot;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\SkProgramController;
+use App\Models\brgyActivity;
+use App\Models\BHW;
+use App\Models\brgyFestival;
+use App\Models\LatestNews;
+
+>>>>>>> 5a41dfbab2b610515f388669544f4bab319d8a3c
 
 /* NOTE: Do Not Remove
 / Livewire asset handling if using sub folder in domain
@@ -73,6 +82,7 @@ Route::get('/', function () {
     $skPrograms = Skprogram::all();
     $brgyActivities = brgyActivity::all();
     $brgyFestival = brgyFestival::all();
+    $LatestNews = LatestNews::all();
 
     // Fetch Barangay Officials
     $barangayOfficials = BrangayOfficials::all();
@@ -113,7 +123,8 @@ Route::get('/', function () {
         'chairperson',
         'brgyActivities',
         'barangayHealthWorker',
-        'brgyFestival'
+        'brgyFestival',
+        'LatestNews',
     ));
 });
 Route::get('/map', [LocationController::class, 'showMap']);
