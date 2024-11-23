@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\AssocFoundation;
-use App\Models\SiteSetting;
 use App\Models\Church;
 use App\Models\Hospital;
 use App\Models\Hotel;
@@ -13,8 +12,8 @@ use App\Models\Park;
 use App\Models\Resolution;
 use App\Models\Restaurant;
 use App\Models\School;
+use App\Models\SiteSetting;
 use App\Models\TouristSpot;
-use Illuminate\Http\Request;
 
 class VisitorsController extends Controller
 {
@@ -47,18 +46,20 @@ class VisitorsController extends Controller
         ));
     }
 
-    public function ShowOrdinance() {
+    public function ShowOrdinance()
+    {
         $siteSetting = SiteSetting::first();
         $ordinances = Ordinance::all();
         $resolutions = Resolution::all();
         $assocfound = AssocFoundation::all();
+
         return view('pages.ordinance', compact(
-            
+
             'siteSetting',
             'ordinances',
             'resolutions',
             'assocfound'
-            
+
         ));
     }
 }

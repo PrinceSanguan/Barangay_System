@@ -8,7 +8,6 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Table;
 
 class IncidentReportResource extends Resource
@@ -95,80 +94,79 @@ class IncidentReportResource extends Resource
             ]);
     }
 
- public static function table(Table $table): Table
-{
-    return $table
-        ->columns([
-            Tables\Columns\TextColumn::make('incident_datetime')
-                ->label('Incident Date & Time')
-                ->sortable(),
-            Tables\Columns\TextColumn::make('location')
-                ->label('Location')
-                ->sortable(),
-            Tables\Columns\TextColumn::make('incident_type')
-                ->label('Incident Type')
-                ->sortable(),
-            Tables\Columns\TextColumn::make('created_at')
-                ->label('Reported On')
-                ->dateTime(),
-        ])
-        ->filters([
-            Tables\Filters\Filter::make('month')
-                ->label('Filter by Month')
-                ->form([
-                    Forms\Components\Select::make('month')
-                        ->options([
-                            '01' => 'January',
-                            '02' => 'February',
-                            '03' => 'March',
-                            '04' => 'April',
-                            '05' => 'May',
-                            '06' => 'June',
-                            '07' => 'July',
-                            '08' => 'August',
-                            '09' => 'September',
-                            '10' => 'October',
-                            '11' => 'November',
-                            '12' => 'December',
-                        ])
-                        ->placeholder('Select Month')
-                ])
-                ->query(function ($query, array $data) {
-                    if (!empty($data['month'])) {
-                        $query->whereMonth('incident_datetime', $data['month']);
-                    }
-                }),
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                Tables\Columns\TextColumn::make('incident_datetime')
+                    ->label('Incident Date & Time')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('location')
+                    ->label('Location')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('incident_type')
+                    ->label('Incident Type')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Reported On')
+                    ->dateTime(),
+            ])
+            ->filters([
+                Tables\Filters\Filter::make('month')
+                    ->label('Filter by Month')
+                    ->form([
+                        Forms\Components\Select::make('month')
+                            ->options([
+                                '01' => 'January',
+                                '02' => 'February',
+                                '03' => 'March',
+                                '04' => 'April',
+                                '05' => 'May',
+                                '06' => 'June',
+                                '07' => 'July',
+                                '08' => 'August',
+                                '09' => 'September',
+                                '10' => 'October',
+                                '11' => 'November',
+                                '12' => 'December',
+                            ])
+                            ->placeholder('Select Month'),
+                    ])
+                    ->query(function ($query, array $data) {
+                        if (! empty($data['month'])) {
+                            $query->whereMonth('incident_datetime', $data['month']);
+                        }
+                    }),
 
-            Tables\Filters\Filter::make('year')
-                ->label('Filter by Year')
-                ->form([
-                    Forms\Components\TextInput::make('year')
-                        ->numeric()
-                        ->placeholder('Enter Year')
-                ])
-                ->query(function ($query, array $data) {
-                    if (!empty($data['year'])) {
-                        $query->whereYear('incident_datetime', $data['year']);
-                    }
-                }),
+                Tables\Filters\Filter::make('year')
+                    ->label('Filter by Year')
+                    ->form([
+                        Forms\Components\TextInput::make('year')
+                            ->numeric()
+                            ->placeholder('Enter Year'),
+                    ])
+                    ->query(function ($query, array $data) {
+                        if (! empty($data['year'])) {
+                            $query->whereYear('incident_datetime', $data['year']);
+                        }
+                    }),
 
-            Tables\Filters\SelectFilter::make('incident_type')
-                ->label('Filter by Incident Type')
-                ->options([
-                    'altercation' => 'Altercation',
-                    'theft' => 'Theft',
-                    'accident' => 'Accident',
-                    'vandalism' => 'Vandalism',
-                    'disturbance' => 'Disturbance',
-                    'trespassing' => 'Trespassing',
-                    'others' => 'Others',
-                ])
-        ])
-        ->bulkActions([
+                Tables\Filters\SelectFilter::make('incident_type')
+                    ->label('Filter by Incident Type')
+                    ->options([
+                        'altercation' => 'Altercation',
+                        'theft' => 'Theft',
+                        'accident' => 'Accident',
+                        'vandalism' => 'Vandalism',
+                        'disturbance' => 'Disturbance',
+                        'trespassing' => 'Trespassing',
+                        'others' => 'Others',
+                    ]),
+            ])
+            ->bulkActions([
             Tables\Actions\DeleteBulkAction::make(),
         ]);
-}
-
+    }
 
     public static function getRelations(): array
     {

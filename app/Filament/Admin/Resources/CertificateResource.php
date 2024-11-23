@@ -109,15 +109,15 @@ class CertificateResource extends Resource
                 Forms\Components\Hidden::make('user_id')
                     ->default(Auth::id()),
 
-// Add the DateTimePicker for date, hour, and minute selection without seconds
-Forms\Components\DateTimePicker::make('certificate_date')
-    ->label('Certificate Date')
-    ->required()
-    ->format('Y-m-d H:i') // Format for date with hour and minute, no seconds
-    ->minDate(now()) // Prevent past dates
-    ->hint('Select the date and time for your certificate appointment. Note: If you do not appear at the Barangay Office within 3 days from the selected date, the appointment will be automatically cancelled.')
-     
-    ]);
+                // Add the DateTimePicker for date, hour, and minute selection without seconds
+                Forms\Components\DateTimePicker::make('certificate_date')
+                    ->label('Certificate Date')
+                    ->required()
+                    ->format('Y-m-d H:i') // Format for date with hour and minute, no seconds
+                    ->minDate(now()) // Prevent past dates
+                    ->hint('Select the date and time for your certificate appointment. Note: If you do not appear at the Barangay Office within 3 days from the selected date, the appointment will be automatically cancelled.'),
+
+            ]);
     }
 
     public static function table(Table $table): Table
@@ -200,7 +200,7 @@ Forms\Components\DateTimePicker::make('certificate_date')
                         $record->is_approved = true;
                         $record->save();
                     })
-                    ->visible(fn (Certificate $record) => Auth::user()->hasAnyRole(['brgySecretary', 'super_admin']) && !$record->is_approved),
+                    ->visible(fn (Certificate $record) => Auth::user()->hasAnyRole(['brgySecretary', 'super_admin']) && ! $record->is_approved),
 
                 Tables\Actions\EditAction::make(),
             ])

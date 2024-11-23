@@ -9,6 +9,7 @@ use Filament\Resources\Pages\EditRecord;
 class EditOrdinance extends EditRecord
 {
     protected static string $resource = OrdinanceResource::class;
+
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');

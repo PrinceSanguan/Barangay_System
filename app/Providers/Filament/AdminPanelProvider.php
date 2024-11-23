@@ -26,7 +26,7 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
-        ->brandLogo(fn () => view('custom_logo'))
+            ->brandLogo(fn () => view('custom_logo'))
             ->default()
             ->id('admin')
             ->path('admin')
@@ -59,8 +59,7 @@ class AdminPanelProvider extends PanelProvider
                         hasAvatars: true,
                         slug: 'profile'
                     ),
-                FilamentSpatieLaravelBackupPlugin::make()
-                ,
+                FilamentSpatieLaravelBackupPlugin::make(),
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()
                     ->gridColumns([
                         'default' => 1,
@@ -83,10 +82,10 @@ class AdminPanelProvider extends PanelProvider
                         'auth.password',
                     ]),
                 \Swis\Filament\Backgrounds\FilamentBackgroundsPlugin::make()
-                ->imageProvider(
-                    MyImages::make()
-                        ->directory('images/backgrounds')
-                ),
+                    ->imageProvider(
+                        MyImages::make()
+                            ->directory('images/backgrounds')
+                    ),
 
                 \Awcodes\Overlook\OverlookPlugin::make()
                     ->includes([

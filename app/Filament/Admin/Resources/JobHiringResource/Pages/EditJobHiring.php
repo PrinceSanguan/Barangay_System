@@ -9,6 +9,7 @@ use Filament\Resources\Pages\EditRecord;
 class EditJobHiring extends EditRecord
 {
     protected static string $resource = JobHiringResource::class;
+
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');

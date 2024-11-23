@@ -24,8 +24,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Gate::policy(Activity::class, ActivityPolicy::class);
-        Gate::define('create-backup', fn(User $user) => $user->hasRole('super_admin'));
-        Gate::define('download-backup', fn(User $user) => $user->hasRole('super_admin'));
-        Gate::define('delete-backup', fn(User $user) => false);
+        Gate::define('create-backup', fn (User $user) => $user->hasRole('super_admin'));
+        Gate::define('download-backup', fn (User $user) => $user->hasRole('super_admin'));
+        Gate::define('delete-backup', fn (User $user) => false);
     }
 }
