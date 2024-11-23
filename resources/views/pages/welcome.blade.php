@@ -43,28 +43,64 @@
 
       <a href="#hero" class="logo d-flex align-items-center me-auto me-xl-0">
         @if ($siteSetting && $siteSetting->logo)
-                    <img src="{{ asset('storage/' . $siteSetting->logo) }}" alt="Barangay Logo" style="max-height: 50px;">
-                @else
-                    <img src="https://via.placeholder.com/50x50.png?text=Logo" alt="Barangay Logo"> <!-- Fallback logo -->
-                @endif
+          <img src="{{ asset('storage/' . $siteSetting->logo) }}" alt="Barangay Logo" style="max-height: 50px;">
+        @else
+          <img src="https://via.placeholder.com/50x50.png?text=Logo" alt="Barangay Logo"> <!-- Fallback logo -->
+        @endif
         <h1 class="sitename">BARANGAY</h1>CENTRO 2<span></span>
       </a>
+      
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
+      <nav id="navmenu" class="navmenu" style="display: flex; justify-content: center; padding: 0;">
+        <ul style="list-style: none; display: flex; padding: 0; margin: 0; justify-content: center;">
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#events">Barangay Events</a></li>
-          <li><a href="#portfolio">Sk Programs</a></li>
-          <li><a href="#portfolio">Agkaykaysa Programs</a></li>
-          <li><a href="{{url('visitors-lounge')}}">Visitor's Lounge </a></li>
+          <li class="dropdown">
+          <a href="#"><span>Programs</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li><a href="#portfolio">Sk Programs</a></li>
+            <li><a href="#faq">Agkaykaysa Programs</a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="#"><span>Community Updates</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li><a href="#ACTIVITIES">Activities</a></li>
+            <li><a href="#latest_events">Latest Events</a></li>
+            <li><a href="#latest_news">Latest News</a></li>
+          </ul>
+        </li>
+
+
+
+          <li class="dropdown">
+          <a href="#"><span>Barangay Officials & Health Workers</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#team">Barangay officials</a></li>
+              <li><a href="#team">Barangay Health Worker</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#"><span>Residents</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="{{url('visitors-lounge')}}">Visitor's Lounge</a></li>
+
+              <li><a href="citizens-charter">Citizens Charter</a></li>
+              <li><a href="#">Deep Dropdown 4</a></li>
+              <li><a href="#">Deep Dropdown 5</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      
+          
           {{-- <li><a href="#pricing">Pricing</a></li> --}}
-          <li><a href="#team">Barangay officials</a></li>
-          <li><a href="#team">Barangay Health Worker</a></li>
+
           
 
-          <li><a href="#contact">Contact</a></li>
+
           {{-- <li><a href="#blog">Blog</a></li> --}}
           
           
@@ -481,7 +517,7 @@
 </section><!-- /Features Section -->
 
 <!-- Portfolio Section -->
-<section id="portfolio" class="portfolio section">
+<section id="ACTIVITIES" class="portfolio section">
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
     <h2>BARANGAY ACTIVITIES</h2>
@@ -757,7 +793,7 @@
   </div><!-- End Section Title -->
 
   <div class="container">
-      <div class="row gy-4">
+      <div id="latest_events" class="row gy-4">
       <h3> <strong>Latest Events</strong></h3>
           @foreach($events as $event)
               <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
@@ -805,7 +841,7 @@
 
 
   <div class="container">
-    <div class="row gy-4">
+    <div id="latest_news" class="row gy-4">
       <br>
       <h3><strong>Latest News</strong></h3></br>
         @foreach($LatestNews as $LatestNews)
