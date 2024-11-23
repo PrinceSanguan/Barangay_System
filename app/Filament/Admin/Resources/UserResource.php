@@ -3,8 +3,8 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\UserResource\Pages;
-use App\Models\User;
-use App\Models\Role; // Add this import for the Role model
+use App\Models\Role;
+use App\Models\User; // Add this import for the Role model
 use Filament\Forms;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
@@ -51,7 +51,7 @@ class UserResource extends Resource
             ->schema([
 
                 Forms\Components\Grid::make(2)
-                    ->schema([ 
+                    ->schema([
                         Forms\Components\TextInput::make('name')
                             ->minLength(2)
                             ->maxLength(255)
@@ -156,7 +156,7 @@ class UserResource extends Resource
                     ->visible(fn (User $record) => ! $record->is_active),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([ 
+                Tables\Actions\BulkActionGroup::make([
                     // Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])

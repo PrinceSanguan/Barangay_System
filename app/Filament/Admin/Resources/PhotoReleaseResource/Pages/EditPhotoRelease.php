@@ -9,6 +9,7 @@ use Filament\Resources\Pages\EditRecord;
 class EditPhotoRelease extends EditRecord
 {
     protected static string $resource = PhotoReleaseResource::class;
+
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');

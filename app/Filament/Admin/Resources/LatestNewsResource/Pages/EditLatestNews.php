@@ -9,6 +9,7 @@ use Filament\Resources\Pages\EditRecord;
 class EditLatestNews extends EditRecord
 {
     protected static string $resource = LatestNewsResource::class;
+
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');

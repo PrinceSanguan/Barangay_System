@@ -17,6 +17,7 @@ class BrgyCaptainCornerResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     protected static ?string $navigationGroup = 'Barangay Chairperson Corner';
+
     protected static ?string $pluralModelLabel = 'Barangay Chairperson ';
 
     public static function form(Form $form): Form

@@ -77,7 +77,7 @@ class LatestNewsResource extends Resource
                     ->sortable()
                     ->searchable()
                     ->label('Event Title'),
-    
+
                 ImageColumn::make('image')
                     ->disk('public')
                     ->label('Event Image')
@@ -85,33 +85,33 @@ class LatestNewsResource extends Resource
                     ->height(100)
                     ->getStateUsing(function ($record) {
                         // Ensure the image path is constructed correctly
-                        return $record->image ? asset('storage/gallery_images/' . $record->image) : null;
+                        return $record->image ? asset('storage/gallery_images/'.$record->image) : null;
                     }),
-    
+
                 TextColumn::make('event_date')
                     ->label('Event Date')
                     ->dateTime()
                     ->sortable(),
-    
+
                 TextColumn::make('location')
                     ->label('Event Location')
                     ->sortable(),
-    
+
                 TextColumn::make('organizer')
                     ->label('Organizer')
                     ->sortable(),
-    
+
                 TextColumn::make('expected_attendees')
                     ->label('Expected Attendees')
                     ->sortable()
                     ->numeric(),
-    
+
                 BooleanColumn::make('published')
                     ->label('Published')
                     ->trueIcon('heroicon-o-check')  // Use the correct Heroicon for 'true'
                     ->falseIcon('heroicon-x')       // Use the correct Heroicon for 'false'
                     ->sortable(),
-    
+
                 TextColumn::make('created_at')
                     ->label('Created')
                     ->dateTime(),

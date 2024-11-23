@@ -80,4 +80,9 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     {
         return $this->belongsToMany(Email::class);
     }
+
+    public function task()
+    {
+        return $this->hasMany(Task::class);
+    }
 }

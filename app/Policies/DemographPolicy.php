@@ -110,4 +110,3 @@ class DemographPolicy
         return $user->can('reorder_demograph');
     }
 }
-

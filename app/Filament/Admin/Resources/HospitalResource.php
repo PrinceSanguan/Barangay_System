@@ -15,7 +15,9 @@ class HospitalResource extends Resource
     protected static ?string $model = Hospital::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
     protected static ?string $navigationGroup = 'Visitors Lounge';
+
     protected static ?string $pluralModelLabel = 'Health Cares';
 
     public static function form(Form $form): Form

@@ -4,16 +4,21 @@ use App\Http\Controllers\brgycaptainController;
 use App\Http\Controllers\CitezensCharterController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\SkProgramController;
 use App\Http\Controllers\VisitorsController;
 use App\Models\Announcement;
+use App\Models\BHW;
 use App\Models\BrangayOfficials;
+use App\Models\brgyActivity;
 use App\Models\BrgyCaptainCorner;
+use App\Models\brgyFestival;
 use App\Models\BrgyInhabitant;
 use App\Models\Chairperson;
 use App\Models\Church;
 use App\Models\Event;
 use App\Models\Hospital;
 use App\Models\Hotel;
+use App\Models\LatestNews;
 use App\Models\Location;
 use App\Models\Park;
 use App\Models\Program;
@@ -25,12 +30,6 @@ use App\Models\Skprogram;
 use App\Models\TouristSpot;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SkProgramController;
-use App\Models\brgyActivity;
-use App\Models\BHW;
-use App\Models\brgyFestival;
-use App\Models\LatestNews;
-
 
 /* NOTE: Do Not Remove
 / Livewire asset handling if using sub folder in domain
@@ -114,7 +113,7 @@ Route::get('/', function () {
         'announcements',
         'location',
         'chairperson',
-        'brgyActivities' ,
+        'brgyActivities',
         'barangayHealthWorker',
         'brgyFestival',
         'LatestNews',

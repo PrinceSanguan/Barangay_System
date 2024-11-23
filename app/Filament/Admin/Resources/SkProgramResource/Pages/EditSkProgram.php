@@ -9,6 +9,7 @@ use Filament\Resources\Pages\EditRecord;
 class EditSkProgram extends EditRecord
 {
     protected static string $resource = SkProgramResource::class;
+
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');

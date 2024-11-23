@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\SkProgram;
-use Illuminate\Http\Request;
 
 class SkProgramController extends Controller
 {

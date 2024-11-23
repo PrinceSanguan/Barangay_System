@@ -9,6 +9,7 @@ use Filament\Resources\Pages\EditRecord;
 class EditBrangayOfficials extends EditRecord
 {
     protected static string $resource = BrangayOfficialsResource::class;
+
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');

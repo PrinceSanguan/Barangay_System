@@ -18,6 +18,7 @@ class BrangayOfficialsResource extends Resource // "Brangay" as requested
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     protected static ?string $navigationGroup = 'Administration';
+
     protected static ?string $pluralModelLabel = 'Barangay Officials';
 
     public static function form(Form $form): Form

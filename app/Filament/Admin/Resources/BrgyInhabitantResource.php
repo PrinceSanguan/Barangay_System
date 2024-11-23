@@ -19,6 +19,7 @@ class BrgyInhabitantResource extends Resource
     protected static ?string $model = BrgyInhabitant::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
+
     protected static ?string $navigationGroup = 'Inhabitants';
 
     public static function form(Forms\Form $form): Forms\Form
@@ -65,7 +66,7 @@ class BrgyInhabitantResource extends Resource
                         'Annulled' => 'Annulled',
                         'Live-in' => 'Live-in',
                     ]),
-                    Forms\Components\Select::make('positioninFamily')
+                Forms\Components\Select::make('positioninFamily')
                     ->required()
                     ->options([
                         'Head of the family' => 'Head of the family',
