@@ -758,6 +758,7 @@
 
   <div class="container">
       <div class="row gy-4">
+      <h3> <strong>Latest Events</strong></h3>
           @foreach($events as $event)
               <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                   <article>
@@ -801,7 +802,69 @@
           @endforeach
       </div><!-- End recent posts list -->
   </div>
+
+
+  <div class="container">
+    <div class="row gy-4">
+      <br>
+      <h3><strong>Latest News</strong></h3></br>
+        @foreach($LatestNews as $LatestNews)
+            <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <article>
+                    <div class="post-img">
+                        <!-- Assuming you have an 'image' column or want to display a placeholder image -->
+                        {{-- <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->title }}" class="img-fluid"> --}}
+                    </div>
+
+                    <p class="post-category">{{ $LatestNews->location }}</p>
+
+
+
+                    <p>{{ $LatestNews->description }}</p>
+
+                    <div class="d-flex align-items-center">
+                        <div class="post-meta">
+                            <p class="post-date">
+                                <time datetime="{{ $LatestNews->event_date }}">{{ \Carbon\Carbon::parse($LatestNews->event_date)->format('M d, Y') }}</time>
+                            </p>
+                            <p class="post-organizer">
+                                <strong>Organizer:</strong> {{ $LatestNews->organizer }}
+                            </p>
+                            <p class="post-attendees">
+                              @if($LatestNews->image)
+                         <img src="{{ asset('storage/' . $LatestNews->image) }}" class="mb-3 img-fluid" alt="{{ $LatestNews->name }}">
+                          @endif
+                                <strong>Participants/Attendees:</strong>
+                                @if($LatestNews->attendees && is_array($LatestNews->attendees) && count($LatestNews->attendees) > 0)
+                                    <ul>
+                                        @foreach($LatestNews->attendees as $attendee)
+                                            <li>{{ $attendee }}</li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                    <span>Expected Attendees: {{ $LatestNews->expected_attendees }}</span>
+                                @endif
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div><!-- End post list item -->
+        @endforeach
+    </div><!-- End recent posts list -->
+</div>
 </section><!-- /Recent Posts Section -->
+<div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+  @foreach($programs as $program)
+      <div class="mb-4 content px-xl-5">
+          <!-- Check if the program has an image -->
+          @if($program->image)
+              <img src="{{ asset('storage/' . $program->image) }}" class="mb-3 img-fluid" alt="{{ $program->name }}">
+          @endif
+          <h3><span>{{ $program->name }} </span><strong>Programs</strong></h3>
+          <p>{{ $program->description }}</p>
+      </div>
+  @endforeach
+</div>
 
     <!-- Team Section -->
     <section id="team" class="team section light-background">

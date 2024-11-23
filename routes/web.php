@@ -29,6 +29,7 @@ use App\Http\Controllers\SkProgramController;
 use App\Models\brgyActivity;
 use App\Models\BHW;
 use App\Models\brgyFestival;
+use App\Models\LatestNews;
 
 
 /* NOTE: Do Not Remove
@@ -74,6 +75,7 @@ Route::get('/', function () {
     $skPrograms = Skprogram::all();
     $brgyActivities = brgyActivity::all();
     $brgyFestival = brgyFestival::all();
+    $LatestNews = LatestNews::all();
 
     // Fetch Barangay Officials
     $barangayOfficials = BrangayOfficials::all();
@@ -114,7 +116,8 @@ Route::get('/', function () {
         'chairperson',
         'brgyActivities' ,
         'barangayHealthWorker',
-        'brgyFestival'
+        'brgyFestival',
+        'LatestNews',
     ));
 });
 Route::get('/map', [LocationController::class, 'showMap']);
