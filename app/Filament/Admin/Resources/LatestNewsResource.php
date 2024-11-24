@@ -36,8 +36,8 @@ class LatestNewsResource extends Resource
                     ->label('Event Description')
                     ->required(),
 
-                Forms\Components\DatePicker::make('event_date')
-                    ->label('Event Date')
+                Forms\Components\DatePicker::make('news_date')
+                    ->label('News Date')
                     ->required(),
 
                 Forms\Components\TextInput::make('location')
@@ -88,8 +88,8 @@ class LatestNewsResource extends Resource
                         return $record->image ? asset('storage/gallery_images/'.$record->image) : null;
                     }),
 
-                TextColumn::make('event_date')
-                    ->label('Event Date')
+                TextColumn::make('news_date')
+                    ->label('News Date')
                     ->dateTime()
                     ->sortable(),
 

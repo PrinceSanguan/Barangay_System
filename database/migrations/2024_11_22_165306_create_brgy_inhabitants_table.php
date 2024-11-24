@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('positioninFamily');
             $table->string('citizenship');
             $table->string('educAttainment');
+            $table->string('purok');
+            $table->string('email');
             $table->string('occupation');
             $table->string('ofw');
             $table->string('pwd');

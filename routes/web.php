@@ -75,6 +75,7 @@ Route::get('/', function () {
     $brgyActivities = brgyActivity::all();
     $brgyFestival = brgyFestival::all();
     $LatestNews = LatestNews::all();
+    $LatestEvents = LatestNews::all();
 
     // Fetch Barangay Officials
     $barangayOfficials = BrangayOfficials::all();
