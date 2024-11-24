@@ -35,15 +35,51 @@
         </a>
         <nav id="navmenu" class="navmenu">
             <ul>
-                <li><a href="{{ url('/#hero') }}">Home</a></li>
-                <li><a href="{{ url('/#about') }}">About</a></li>
-                <li><a href="{{ url('/#services') }}">Services</a></li>
-                <li><a href="{{ url('/#events') }}">Barangay Events</a></li>
-                <li><a href="{{ url('/#portfolio') }}">Sk Programs</a></li>
-                <li><a href="{{ url('/#portfolio') }}">Agkaykaysa Programs</a></li>
-                <li><a href="{{ url('visitors-lounge') }}">Visitor's Lounge</a></li>
-                <li><a href="{{ url('/#team') }}">Barangay officials</a></li>
-                <li><a href="{{ url('/#team') }}">Barangay Health Worker</a></li>
+                <ul style="list-style: none; display: flex; padding: 0; margin: 0; justify-content: center;">
+                    <li><a href="{{ url('/#hero') }}" class="active">Home</a></li>
+                    <li><a href="{{ url('/#about') }}">About</a></li>
+                    <li><a href="{{ url('/#services') }}">Services</a></li>
+                    
+                    <!-- Programs Dropdown -->
+                    <li class="dropdown">
+                        <a href="#"><span>Programs</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li><a href="{{ url('/#portfolio') }}">Sk Programs</a></li>
+                            <li><a href="{{ url('/#faq') }}">Agkaykaysa Programs</a></li>
+                        </ul>
+                    </li>
+                
+                    <!-- Community Updates Dropdown -->
+                    <li class="dropdown">
+                        <a href="#"><span>Community Updates</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li><a href="{{ url('/#ACTIVITIES') }}">Activities</a></li>
+                            <li><a href="{{ url('/#latest_events') }}">Latest Events</a></li>
+                            <li><a href="{{ url('/#latest_news') }}">Latest News</a></li>
+                        </ul>
+                    </li>
+                
+                    <!-- Barangay Officials & Health Workers Dropdown -->
+                    <li class="dropdown">
+                        <a href="#"><span>Barangay Officials & Health Workers</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li><a href="{{ url('/#team') }}">Barangay Officials</a></li>
+                            <li><a href="{{ url('/#team') }}">Barangay Health Workers</a></li>
+                        </ul>
+                    </li>
+                
+                    <!-- Residents Dropdown -->
+                    <li class="dropdown">
+                        <a href="#"><span>Residents</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li><a href="{{ url('visitors-lounge') }}">Visitor's Lounge</a></li>
+                            <li><a href="{{ url('/#citizens-charter') }}">Citizens Charter</a></li>
+                            <li><a href="#">Deep Dropdown 4</a></li>
+                            <li><a href="#">Deep Dropdown 5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
             </ul>
             
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
