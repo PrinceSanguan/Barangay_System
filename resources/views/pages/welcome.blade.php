@@ -87,7 +87,7 @@
             <ul>
               <li><a href="{{url('visitors-lounge')}}">Visitor's Lounge</a></li>
 
-              <li><a href="citizens-charter">Citizens Charter</a></li>
+              <li><a href="#citizens-charter">Citizens Charter</a></li>
               <li><a href="#">Deep Dropdown 4</a></li>
               <li><a href="#">Deep Dropdown 5</a></li>
             </ul>
@@ -653,81 +653,80 @@
 
 
     <section id="faq" class="faq section">
-        <!-- Portfolio Section -->
-          <!-- Section Title -->
-          <div class="container section-title" data-aos="fade-up">
-              <h2>AGKAYKAYSA PROGRAMS</h2>
-              <p>Stay updated and get involved with your community through Brangay Activities – your hub for local events, programs, and everything happening in our Brangay!</p>
-          </div><!-- End Section Title -->
+      <!-- Portfolio Section -->
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+          <h2>AGKAYKAYSA PROGRAMS</h2>
+          <p>Stay updated and get involved with your community through Barangay Activities – your hub for local events, programs, and everything happening in our Barangay!</p>
+      </div><!-- End Section Title -->
+      
       <div class="container">
+          <div class="row gy-4">
+              <!-- Program Section -->
+              <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                  <div class="row">
+                      @foreach($programs as $program)
+                          <div class="col-md-6 mb-4 content px-xl-5">
+                              <h3><span>{{ $program->name }}</span></h3>
+                              <p>{{ $program->description }}</p>
+                              <!-- Check if the program has an image -->
+                              @if($program->image)
+                                  <img src="{{ asset('storage/' . $program->image) }}" class="mb-3 img-fluid" alt="{{ $program->name }}">
+                              @endif
+                          </div>
+                      @endforeach
+                  </div>
+              </div>
+  
+<!-- FAQ Section -->
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-container">
+                    <div class="faq-item faq-active">
+                        <h3><span class="num">1.</span> <span>What is the Agkaykaysa Project?</span></h3>
+                        <div class="faq-content">
+                            <p>The Agkaykaysa Project is a flagship program of Governor Mamba that focuses on enhancing community cooperation and improving local development. It covers a wide range of initiatives aimed at uplifting the lives of residents through social, economic, and environmental programs.</p>
+                        </div>
+                        <i class="faq-toggle bi bi-chevron-right"></i>
+                    </div><!-- End Faq item-->
+                    
+                    <div class="faq-item">
+                        <h3><span class="num">2.</span> <span>How does the Agkaykaysa Project benefit the community?</span></h3>
+                        <div class="faq-content">
+                            <p>The project promotes community-driven development, providing assistance in education, health services, infrastructure, and livelihood. It empowers local leaders and citizens to actively participate in shaping their future, ensuring sustainable growth in the province.</p>
+                        </div>
+                        <i class="faq-toggle bi bi-chevron-right"></i>
+                    </div><!-- End Faq item-->
 
-        <div class="row gy-4">
+                    <div class="faq-item">
+                        <h3><span class="num">3.</span> <span>What programs are included in the Agkaykaysa Project?</span></h3>
+                        <div class="faq-content">
+                            <p>The project includes various programs such as health and wellness initiatives, agricultural support for farmers, youth empowerment programs, community infrastructure development, and disaster response and recovery activities.</p>
+                        </div>
+                        <i class="faq-toggle bi bi-chevron-right"></i>
+                    </div><!-- End Faq item-->
 
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                @foreach($programs as $program)
-                    <div class="mb-4 content px-xl-5">
-                        <!-- Check if the program has an image -->
-                        @if($program->image)
-                            <img src="{{ asset('storage/' . $program->image) }}" class="mb-3 img-fluid" alt="{{ $program->name }}">
-                        @endif
-                        <h3><span>{{ $program->name }} </span><strong>Programs</strong></h3>
-                        <p>{{ $program->description }}</p>
-                    </div>
-                @endforeach
+                    <div class="faq-item">
+                        <h3><span class="num">4.</span> <span>How can I participate in the Agkaykaysa programs?</span></h3>
+                        <div class="faq-content">
+                            <p>Participation is open to all residents. You can register for specific programs through the Barangay office or sign up during local events organized under the Agkaykaysa Project. Stay updated by following the project's official channels for announcements.</p>
+                        </div>
+                        <i class="faq-toggle bi bi-chevron-right"></i>
+                    </div><!-- End Faq item-->
+
+                    <div class="faq-item">
+                        <h3><span class="num">5.</span> <span>Can I volunteer for the Agkaykaysa Project?</span></h3>
+                        <div class="faq-content">
+                            <p>Yes, volunteers are always welcome! The Agkaykaysa Project thrives on community involvement, and anyone interested in contributing their time and skills can register at the local Barangay office or through the project's volunteer program.</p>
+                        </div>
+                        <i class="faq-toggle bi bi-chevron-right"></i>
+                    </div><!-- End Faq item-->
+                </div>
             </div>
-
-          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="faq-container">
-              <div class="faq-item faq-active">
-                <h3><span class="num">1.</span> <span>Non consectetur a erat nam at lectus urna duis?</span></h3>
-                <div class="faq-content">
-                  <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3><span class="num">2.</span> <span>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</span></h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3><span class="num">3.</span> <span>Dolor sit amet consectetur adipiscing elit pellentesque?</span></h3>
-                <div class="faq-content">
-                  <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3><span class="num">4.</span> <span>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</span></h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3><span class="num">5.</span> <span>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</span></h3>
-                <div class="faq-content">
-                  <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-            </div>
-
-          </div>
         </div>
-
-      </div>
-
-    </section><!-- /Faq Section -->
-     <!-- Testimonials Section -->
+    </div>
+  </section>
+  
+      <!-- Testimonials Section -->
      <section id="testimonials" class="testimonials section light-background">
       <div class="container">
           <div class="row align-items-center">
@@ -783,6 +782,9 @@
           </div>
       </div>
   </section>
+  </section><!-- /Faq Section -->
+  
+     
 
  <!-- Recent Posts Section -->
 <section id="events" class="recent-posts section">
@@ -851,21 +853,27 @@
                         <!-- Assuming you have an 'image' column or want to display a placeholder image -->
                         {{-- <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->title }}" class="img-fluid"> --}}
                     </div>
-
-                    <p class="post-category">{{ $LatestNews->location }}</p>
-
-
-
-                    <p>{{ $LatestNews->description }}</p>
+                    <p class="Title">
+                      <strong>Title:</strong> {{ $LatestNews->title }}
+                  </p>
+                  <p class="Title">
+                    <strong>Description:</strong> {{ $LatestNews->description }}
+                </p>
+                 <p class="post-date">
+                                <time datetime="{{ $LatestNews->news_date }}">{{ \Carbon\Carbon::parse($LatestNews->news_date)->format('M d, Y') }}</time>
+                            </p>
 
                     <div class="d-flex align-items-center">
+                      
                         <div class="post-meta">
-                            <p class="post-date">
-                                <time datetime="{{ $LatestNews->event_date }}">{{ \Carbon\Carbon::parse($LatestNews->event_date)->format('M d, Y') }}</time>
-                            </p>
+                           
+                            <p class="post-organizer">
+                              <strong>Location:</strong> {{ $LatestNews->location }}
+                          </p>
                             <p class="post-organizer">
                                 <strong>Organizer:</strong> {{ $LatestNews->organizer }}
                             </p>
+
                             <p class="post-attendees">
                               @if($LatestNews->image)
                          <img src="{{ asset('storage/' . $LatestNews->image) }}" class="mb-3 img-fluid" alt="{{ $LatestNews->name }}">
@@ -889,19 +897,8 @@
     </div><!-- End recent posts list -->
 </div>
 </section><!-- /Recent Posts Section -->
-<div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-  @foreach($programs as $program)
-      <div class="mb-4 content px-xl-5">
-          <!-- Check if the program has an image -->
-          @if($program->image)
-              <img src="{{ asset('storage/' . $program->image) }}" class="mb-3 img-fluid" alt="{{ $program->name }}">
-          @endif
-          <h3><span>{{ $program->name }} </span><strong>Programs</strong></h3>
-          <p>{{ $program->description }}</p>
-      </div>
-  @endforeach
-</div>
-
+  <!-- Section Title -->
+  
     <!-- Team Section -->
     <section id="team" class="team section light-background">
             <!-- Section Title -->

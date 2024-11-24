@@ -1877,7 +1877,7 @@ section,
 
 .recent-posts .post-date {
   font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  color: var(--accent-color);
   margin-bottom: 0;
 }
 
