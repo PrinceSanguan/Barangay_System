@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->string('image'); // path to the image
+            $table->string('image')->nullable(); // Allow the image column to be nullable
             $table->timestamps();
         });
+        
     }
 
     /**
