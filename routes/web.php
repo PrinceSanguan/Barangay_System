@@ -3,7 +3,7 @@
 use App\Http\Controllers\brgycaptainController;
 use App\Http\Controllers\CitezensCharterController;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\LocationController;
+
 use App\Http\Controllers\SkProgramController;
 use App\Http\Controllers\VisitorsController;
 use App\Models\Announcement;
@@ -19,7 +19,7 @@ use App\Models\Event;
 use App\Models\Hospital;
 use App\Models\Hotel;
 use App\Models\LatestNews;
-use App\Models\Location;
+
 use App\Models\Park;
 use App\Models\Program;
 use App\Models\Restaurant;
@@ -87,7 +87,7 @@ Route::get('/', function () {
 
     // Fetch announcements
     $announcements = Announcement::all();
-    $location = Location::all();
+
 
     // Fetch chairperson data
     $chairperson = BrgyCaptainCorner::latest()->first();
@@ -112,7 +112,7 @@ Route::get('/', function () {
         'programs',
         'testimonials',
         'announcements',
-        'location',
+
         'chairperson',
         'brgyActivities',
         'barangayHealthWorker',
@@ -120,7 +120,7 @@ Route::get('/', function () {
         'LatestNews',
     ));
 });
-Route::get('/map', [LocationController::class, 'showMap']);
+
 
 Route::get('/send-test-email', function () {
     Mail::raw('This is a test email from Mailtrap!', function ($message) {
