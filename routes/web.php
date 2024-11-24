@@ -19,7 +19,8 @@ use App\Models\Event;
 use App\Models\Hospital;
 use App\Models\Hotel;
 use App\Models\LatestNews;
-
+use App\Models\JobHiring;
+use App\Models\LatestEvents;
 use App\Models\Park;
 use App\Models\Program;
 use App\Models\Restaurant;
@@ -75,7 +76,8 @@ Route::get('/', function () {
     $brgyActivities = brgyActivity::all();
     $brgyFestival = brgyFestival::all();
     $LatestNews = LatestNews::all();
-    $LatestEvents = LatestNews::all();
+    $LatestEvents = LatestEvents::all();
+    $JobHiring = JobHiring::all();
 
     // Fetch Barangay Officials
     $barangayOfficials = BrangayOfficials::all();
@@ -112,6 +114,7 @@ Route::get('/', function () {
         'programs',
         'testimonials',
         'announcements',
+        'JobHiring',
 
         'chairperson',
         'brgyActivities',

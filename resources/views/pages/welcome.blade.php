@@ -451,6 +451,41 @@
 
 </section><!-- /Features Section -->
 
+<!-- Job Hiring Section -->
+<section id="job-opportunities" class="features section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Job Opportunities</h2>
+    <p>Discover the latest job opportunities in our community.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+    @foreach($JobHiring as $index => $job)
+      <div class="row gy-5 align-items-center features-item mb-5">
+        <!-- Content Block -->
+        <div class="col-lg-5 {{ $index % 2 == 0 ? 'order-lg-1' : 'order-lg-2' }}" data-aos="fade-up" data-aos-delay="200">
+          <h3>{{ $job->name }}</h3>
+          <p>{{ $job->description }}</p>
+        </div>
+
+        <!-- Image Block -->
+        <div class="col-lg-7 {{ $index % 2 == 0 ? 'order-lg-2' : 'order-lg-1' }} d-flex align-items-center justify-content-center" data-aos="zoom-out" data-aos-delay="100">
+          <div class="image-stack position-relative">
+            @if($job->image)
+              <img src="{{ asset('storage/' . $job->image) }}" alt="{{ $job->name }}" class="stack-front img-fluid rounded shadow-sm">
+            @else
+              <img src="{{ asset('template/img/default.jpg') }}" alt="Default Image" class="stack-front img-fluid rounded shadow-sm">
+            @endif
+          </div>
+        </div>
+      </div><!-- End Features Item -->
+    @endforeach
+  </div>
+
+</section><!-- End Job Hiring Section -->
+
+
 
 <!-- Portfolio Section -->
 <section id="portfolio" class="portfolio section">

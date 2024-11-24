@@ -17,9 +17,7 @@
                     <li class="list-group-item">
                         <a href="#hotels" class="sidebar-link">Hotels</a>
                     </li>
-                    <li class="list-group-item">
-                        <a href="#job-opportunities" class="sidebar-link">Job Opportunities</a>
-                    </li>
+
                     <li class="list-group-item">
                         <a href="#parks" class="sidebar-link">Parks</a>
                     </li>
@@ -44,7 +42,7 @@
                     ['id' => 'churches', 'title' => 'Churches', 'items' => $churches],
                     ['id' => 'hospitals', 'title' => 'Hospitals', 'items' => $hospitals],
                     ['id' => 'hotels', 'title' => 'Hotels', 'items' => $hotels],
-                    ['id' => 'job-opportunities', 'title' => 'Job Opportunities', 'items' => $jobOpportunities],
+
                     ['id' => 'parks', 'title' => 'Parks', 'items' => $parks],
                     ['id' => 'restaurants', 'title' => 'Restaurants', 'items' => $restaurants],
                     ['id' => 'schools', 'title' => 'Schools', 'items' => $schools],
