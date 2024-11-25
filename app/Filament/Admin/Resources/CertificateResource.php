@@ -15,6 +15,7 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;  // Make sure to import the User model
 
 class CertificateResource extends Resource
 {
@@ -28,15 +29,21 @@ class CertificateResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->label('Name')
-                    ->required()
-                    ->maxLength(255),
+            Forms\Components\Select::make('name')
+            ->label('Name')  // Label for the select field
+            ->options(User::pluck('name', 'name'))  // Retrieve names for options
+            ->default(auth()->user()->name)  // Automatically set the logged-in user's name as the default
+            ->required()
+            ->disabled(),  // Optional: to prevent the user from changing their own name,
 
-                Forms\Components\TextInput::make('email')
-                    ->label('Email')
-                    ->email()
-                    ->required(),
+
+            Forms\Components\Select::make('email')
+            ->label('Email')
+            ->options(User::pluck('email', 'email'))  // Retrieves emails for options
+            ->default(auth()->user()->email)  // Automatically set the logged-in user's email as the default
+            ->disabled()
+            ->required(),
+
 
                 Forms\Components\Select::make('certificate_type')
                     ->label('Certificate Type')
@@ -124,11 +131,11 @@ class CertificateResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')
-                    ->label('Name')
-                    ->searchable(),
+                TextColumn::make('user.name')  // Access the 'name' from the related 'User' model
+                ->label('Name')
+                ->searchable(),
 
-                TextColumn::make('email')
+                TextColumn::make('user.email')
                     ->label('Email'),
 
                 TextColumn::make('certificate_type')
