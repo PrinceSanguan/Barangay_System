@@ -3,6 +3,7 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\FamilyProfileResource\Pages;
+use App\Models\BrgyInhabitant;
 use App\Models\FamilyProfile;
 use Filament\Facades\Filament;
 use Filament\Forms;
@@ -26,27 +27,28 @@ class FamilyProfileResource extends Resource
     {
         return $form
             ->schema([
+               
                 Forms\Components\Hidden::make('user_id')->default(auth()->id()),
-                Forms\Components\TextInput::make('Family HouseHold Name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('sex')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('age')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\DatePicker::make('birthdate')
-                    ->required(),
-                Forms\Components\TextInput::make('civilstatus')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('religion')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('educAttainment')
-                    ->required()
-                    ->maxLength(255),
+                Forms\Components\Select::make('head_of_family')
+                    ->label('Head of the Family')
+                    ->options(BrgyInhabitant::where('positioninFamily', 'Head of the family')
+                        ->pluck('firstname', 'id'))
+                    ->reactive()
+                    ->searchable()
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        $inhabitant = BrgyInhabitant::find($state);
+                        if ($inhabitant) {
+                            $set('sex', $inhabitant->sex);
+                            $set('age', $inhabitant->age);
+                            $set('birthdate', $inhabitant->birthdate);
+                            $set('educAttainment', $inhabitant->educAttainment);
+                        }
+                    }),
+                    Forms\Components\TextInput::make('sex')->required()->disabled(),
+                    Forms\Components\TextInput::make('age')->required()->disabled(),
+                    Forms\Components\TextInput::make('birthdate')->required()->disabled(),
+                    Forms\Components\TextInput::make('civilstatus')->required(),
+                    Forms\Components\TextInput::make('educAttainment')->required()->disabled(),
                 Forms\Components\TextInput::make('occupation')
                     ->required()
                     ->maxLength(255),

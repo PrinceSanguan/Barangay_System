@@ -25,25 +25,8 @@ class BrgyInhabitant extends Model
     public $timestamps = true;
 
     // Define the attributes that are mass assignable
-    protected $fillable = [
-        'user_id',
-        'lastname',
-        'firstname',
-        'middlename',
-        'age',
-        'birthdate',
-        'purok',
-        'placeofbirth',
-        'sex',
-        'civilstatus',
-        'positioninFamily',
-        'citizenship',
-        'educAttainment',
-        'occupation',
-        'ofw',
-        'email',
-        'pwd',
-        'is_approved',
+    protected $guarded = [
+   
     ];
 
     // Define any relationships (e.g., belongsTo, hasMany) if applicable
