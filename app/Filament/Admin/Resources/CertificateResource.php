@@ -51,6 +51,10 @@ class CertificateResource extends Resource
                         'Indigency_certificate' => 'Indigency Certificate',
                         'barangay_clearance' => 'Barangay Clearance',
                         'business_permit' => 'Business Permit',
+                        'community_tax_certificate' => 'Community Tax Certificate (CTC)',
+                        'health_certificate' => 'Health Certificate',
+                        'permit_to_operate' => 'Permit to Operate',
+                        'peace_order_clearance' => 'Peace & Order Clearance',
                     ])
                     ->required()
                     ->reactive()
@@ -59,6 +63,11 @@ class CertificateResource extends Resource
                             'Indigency_certificate' => '100.00',
                             'barangay_clearance' => '150.00',
                             'business_permit' => '300.00',
+                            'community_tax_certificate' => '50.00',  // New addition
+                            'health_certificate' => '0.00',          // Free service
+                            'permit_to_operate' => '200.00',
+                            'peace_order_clearance' => '150.00',
+
                         ];
 
                         $set('price', $prices[$state] ?? '0.00');
@@ -85,7 +94,6 @@ class CertificateResource extends Resource
                     ->label('Payment Status')
                     ->options([
                         'pending' => 'Pending',
-                        'paid' => 'Paid',
                         'failed' => 'Failed',
                     ])
                     ->default('pending')
@@ -95,15 +103,13 @@ class CertificateResource extends Resource
                 Forms\Components\Select::make('status')
                     ->label('Status')
                     ->options([
-                        'submitted' => 'Submitted',
-                        'received' => 'Received',
-                        'under_processing' => 'Under Processing',
                         'pending' => 'Pending',
-                        'ready_for_release' => 'Ready for Release',
-                        'released' => 'Released',
+                        'approved' => 'Approved',
+                        'denied' => 'Denied',
                         'cancelled' => 'Cancelled',
+                        
                     ])
-                    ->default('submitted')
+                    ->default('pending')
                     ->required()
                     ->disabled(fn () => Auth::user()->hasRole('brgyUser')),
 
@@ -188,13 +194,10 @@ class CertificateResource extends Resource
                     ->form([
                         Forms\Components\Select::make('status')
                             ->options([
-                                'submitted' => 'Submitted',
-                                'received' => 'Received',
-                                'under_processing' => 'Under Processing',
-                                'pending' => 'Pending',
-                                'ready_for_release' => 'Ready for Release',
-                                'released' => 'Released',
-                                'cancelled' => 'Cancelled',
+                            'pending' => 'Pending',
+                            'approved' => 'Approved',
+                            'denied' => 'Denied',
+                            'cancelled' => 'Cancelled',
                             ])
                             ->placeholder('All'),
                     ])
@@ -238,6 +241,10 @@ class CertificateResource extends Resource
             'Indigency_certificate' => '100.00',
             'barangay_clearance' => '150.00',
             'business_permit' => '300.00',
+            'community_tax_certificate' => '50.00',  // New addition
+            'health_certificate' => '0.00',          // Free service
+            'permit_to_operate' => '200.00',
+            'peace_order_clearance' => '150.00',
         ];
 
         $data['price'] = $prices[$data['certificate_type']] ?? '0.00';
@@ -251,6 +258,10 @@ class CertificateResource extends Resource
             'Indigency_certificate' => '100.00',
             'barangay_clearance' => '150.00',
             'business_permit' => '300.00',
+            'community_tax_certificate' => '50.00',  // New addition
+            'health_certificate' => '0.00',          // Free service
+            'permit_to_operate' => '200.00',
+            'peace_order_clearance' => '150.00',
         ];
 
         $data['price'] = $prices[$data['certificate_type']] ?? '0.00';
