@@ -32,7 +32,7 @@ class FamilyProfileResource extends Resource
                 Forms\Components\Select::make('head_of_family')
                     ->label('Head of the Family')
                     ->options(BrgyInhabitant::where('positioninFamily', 'Head of the family')
-                        ->pluck('firstname', 'id'))
+                        ->pluck('lastname', 'id'))
                     ->reactive()
                     ->searchable()
                     ->afterStateUpdated(function ($state, callable $set) {
@@ -42,13 +42,16 @@ class FamilyProfileResource extends Resource
                             $set('age', $inhabitant->age);
                             $set('birthdate', $inhabitant->birthdate);
                             $set('educAttainment', $inhabitant->educAttainment);
+                            $set('civilstatus', $inhabitant->civilstatus);
+                            $set('occupation', $inhabitant->occupation);
                         }
                     }),
                     Forms\Components\TextInput::make('sex')->required()->disabled(),
                     Forms\Components\TextInput::make('age')->required()->disabled(),
                     Forms\Components\TextInput::make('birthdate')->required()->disabled(),
-                    Forms\Components\TextInput::make('civilstatus')->required(),
+                    Forms\Components\TextInput::make('civilstatus')->required()->disabled(),
                     Forms\Components\TextInput::make('educAttainment')->required()->disabled(),
+                    Forms\Components\TextInput::make('occupation')->required()->disabled(),
                 Forms\Components\TextInput::make('occupation')
                     ->required()
                     ->maxLength(255),
@@ -70,6 +73,7 @@ class FamilyProfileResource extends Resource
                 Forms\Components\TextInput::make('4ps')
                     ->required()
                     ->maxLength(255),
+
             ]);
     }
 
