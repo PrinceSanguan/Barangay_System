@@ -8,38 +8,38 @@
             <!-- Gender Distribution Pie Chart -->
             <div class="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center">
                 <h3 class="text-xl font-semibold text-gray-700 mb-4">Gender Distribution</h3>
-                <canvas id="genderPieChart" class="w-full max-w-xs h-auto"></canvas>
+                <canvas id="genderPieChart" class="w-full max-w-sm h-auto"></canvas>
             </div>
 
             <!-- Age Groups Distribution Pie Chart -->
             <div class="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center">
                 <h3 class="text-xl font-semibold text-gray-700 mb-4">Population by Age Groups</h3>
-                <canvas id="ageGroupsPieChart" class="w-full max-w-xs h-auto"></canvas>
+                <canvas id="ageGroupsPieChart" class="w-full max-w-sm h-auto"></canvas>
             </div>
         </div>
 
         <!-- Statistics Boxes -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
             <!-- Total Population -->
-            <div class="p-6 bg-gray-100 shadow rounded-lg text-center">
+            <div class="p-6 bg-gray-100 shadow rounded-lg text-center hover:bg-gray-200 transition duration-300">
                 <h4 class="text-lg font-medium text-gray-700">Total Population</h4>
                 <p class="mt-2 text-2xl font-bold text-gray-900">{{ number_format($this->getDemographicData()['total_population']) }}</p>
             </div>
 
             <!-- Male Count -->
-            <div class="p-6 bg-gray-100 shadow rounded-lg text-center">
+            <div class="p-6 bg-gray-100 shadow rounded-lg text-center hover:bg-gray-200 transition duration-300">
                 <h4 class="text-lg font-medium text-gray-700">Male Count</h4>
                 <p class="mt-2 text-2xl font-bold text-blue-600">{{ number_format($this->getDemographicData()['male_count']) }}</p>
             </div>
 
             <!-- Female Count -->
-            <div class="p-6 bg-gray-100 shadow rounded-lg text-center">
+            <div class="p-6 bg-gray-100 shadow rounded-lg text-center hover:bg-gray-200 transition duration-300">
                 <h4 class="text-lg font-medium text-gray-700">Female Count</h4>
                 <p class="mt-2 text-2xl font-bold text-pink-600">{{ number_format($this->getDemographicData()['female_count']) }}</p>
             </div>
 
             <!-- Additional Demographics (Optional) -->
-            <div class="p-6 bg-gray-100 shadow rounded-lg text-center">
+            <div class="p-6 bg-gray-100 shadow rounded-lg text-center hover:bg-gray-200 transition duration-300">
                 <h4 class="text-lg font-medium text-gray-700">Other Demographics</h4>
                 <p class="mt-2 text-2xl font-bold text-green-600">--</p>
             </div>

@@ -237,9 +237,9 @@ h6 {
 
 /* Index Page Header */
 .index-page .header {
-  --background-color: transparent; /* Make background color solid white */
+  --background-color:#9e3939;
   --heading-color: #ffffff;
-  --nav-color: rgba(255, 255, 255, 0.5);
+  --nav-color: #ffffff;
   --nav-hover-color: #ffffff;
 }
 
@@ -259,7 +259,7 @@ h6 {
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;
-    justify-content: center; /* Center the nav items */
+    justify-content: left; /* Center the nav items */
   }
 
   .navmenu ul {
