@@ -49,6 +49,17 @@ class FamilyProfile extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function members()
+{
+    return $this->belongsToMany(BrgyInhabitant::class, 'family_member', 'family_id', 'inhabitant_id');
+}
+
+public function families()
+{
+    return $this->belongsToMany(FamilyProfile::class, 'family_member', 'inhabitant_id', 'family_id');
+}
+
+
     // Example of a local scope for filtering approved inhabitants
     public function scopeApproved($query)
     {
