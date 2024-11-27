@@ -1128,98 +1128,99 @@
         </div>
     </div>
 </section>
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
+ <!-- Contact Section -->
+<section id="contact" class="contact section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Contact Us</h2>
+    <p>For inquiries, suggestions, and feedback, feel free to get in touch with us.</p>
+  </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-6">
 
         <div class="row gy-4">
+            <div class="col-md-6">
+              <div class="info-item" data-aos="fade" data-aos-delay="200">
+                <i class="bi bi-geo-alt"></i>
+                <h3>Address</h3>
+                <p>Barangay Centro 2 Office</p>
+                <p>Centro 2, Sanchez Mira, Cagayan</p>
+                <p>Philippines</p>
+              </div>
+            </div><!-- End Info Item -->
 
-          <div class="col-lg-6">
-
-            <div class="row gy-4">
-                <div class="col-md-6">
-                  <div class="info-item" data-aos="fade" data-aos-delay="200">
-                    <i class="bi bi-geo-alt"></i>
-                    <h3>Address</h3>
-                    <p>A108 Adam Street</p>
-                    <p>New York, NY 535022</p>
-                  </div>
-                </div><!-- End Info Item -->
-
-              <div class="col-md-6">
-                <div class="info-item" data-aos="fade" data-aos-delay="300">
-                  <i class="bi bi-telephone"></i>
-                  <h3>Call Us</h3>
-                  <p>+1 5589 55488 55</p>
-                  <p>+1 6678 254445 41</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="col-md-6">
-                <div class="info-item" data-aos="fade" data-aos-delay="400">
-                  <i class="bi bi-envelope"></i>
-                  <h3>Email Us</h3>
-                  <p>info@example.com</p>
-                  <p>contact@example.com</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="col-md-6">
-                <div class="info-item" data-aos="fade" data-aos-delay="500">
-                  <i class="bi bi-clock"></i>
-                  <h3>Open Hours</h3>
-                  <p>Monday - Friday</p>
-                  <p>9:00AM - 05:00PM</p>
-                </div>
-              </div><!-- End Info Item -->
-
+          <div class="col-md-6">
+            <div class="info-item" data-aos="fade" data-aos-delay="300">
+              <i class="bi bi-telephone"></i>
+              <h3>Call Us</h3>
+              <p>+63 917 123 4567</p>
+              <p>+63 922 654 7890</p>
             </div>
+          </div><!-- End Info Item -->
 
-          </div>
+          <div class="col-md-6">
+            <div class="info-item" data-aos="fade" data-aos-delay="400">
+              <i class="bi bi-envelope"></i>
+              <h3>Email Us</h3>
+              <p>barangaycentro2@example.com</p>
+              <p>contact@barangaycentro2.com</p>
+            </div>
+          </div><!-- End Info Item -->
 
-          <div class="col-lg-6">
-            <form id="contactForm" action="get" class="php-email-form" onsubmit="sendMail(); return false;" data-aos="fade-up" data-aos-delay="200">
-                <div class="row gy-4">
-                  <div class="col-md-6">
-                    <input type="text" id="name" class="form-control" placeholder="Your Name" required>
-                  </div>
-
-                  <div class="col-md-6">
-                    <input type="email" id="email" class="form-control" placeholder="Your Email" required>
-                  </div>
-
-                  <div class="col-12">
-                    <input type="text" id="subject" class="form-control" placeholder="Subject" required>
-                  </div>
-
-                  <div class="col-12">
-                    <textarea id="message" class="form-control" rows="6" placeholder="Message" required></textarea>
-                  </div>
-
-                  <div class="text-center col-12">
-                    <!-- Remove error-related elements to avoid unnecessary error messages -->
-                    <div class="loading" style="display: none;">Loading</div>
-                    <div class="error-message" style="display: none;"></div>
-                    <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
-
-                    <button type="submit">Send Message</button>
-                  </div>
-                </div>
-              </form>
-          </div><!-- End Contact Form -->
+          <div class="col-md-6">
+            <div class="info-item" data-aos="fade" data-aos-delay="500">
+              <i class="bi bi-clock"></i>
+              <h3>Open Hours</h3>
+              <p>Monday - Friday</p>
+              <p>8:00AM - 5:00PM</p>
+            </div>
+          </div><!-- End Info Item -->
 
         </div>
 
       </div>
 
-    </section><!-- /Contact Section -->
+      <div class="col-lg-6">
+        <form id="contactForm" action="get" class="php-email-form" onsubmit="sendMail(); return false;" data-aos="fade-up" data-aos-delay="200">
+          <div class="row gy-4">
+            <div class="col-md-6">
+              <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+            </div>
+
+            <div class="col-md-6">
+              <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+            </div>
+
+            <div class="col-12">
+              <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+            </div>
+
+            <div class="col-12">
+              <textarea id="message" class="form-control" rows="6" placeholder="Message" required></textarea>
+            </div>
+
+            <div class="text-center col-12">
+              <!-- Remove error-related elements to avoid unnecessary error messages -->
+              <div class="loading" style="display: none;">Loading</div>
+              <div class="error-message" style="display: none;"></div>
+              <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
+
+              <button type="submit">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div><!-- End Contact Form -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Contact Section -->
 
   </main>
 
@@ -1231,61 +1232,58 @@
           <a href="index.html" class="logo d-flex align-items-center">
             <span class="sitename">Barangay Centro 2</span>
           </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <p>Welcome to Barangay Centro 2! Our mission is to provide excellent services to our residents, ensuring the well-being and progress of our community. We strive for innovation and inclusivity in every aspect of our work.</p>
           <div class="mt-4 social-links d-flex">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <a href="https://twitter.com/BarangayCentro2"><i class="bi bi-twitter"></i></a>
+            <a href="https://facebook.com/BarangayCentro2"><i class="bi bi-facebook"></i></a>
+            <a href="https://instagram.com/BarangayCentro2"><i class="bi bi-instagram"></i></a>
+            <a href="https://linkedin.com/company/BarangayCentro2"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
-
+  
         <div class="col-lg-2 col-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
+            <li><a href="#">About Us</a></li>
             <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
           </ul>
         </div>
-
+  
         <div class="col-lg-2 col-6 footer-links">
           <h4>Our Services</h4>
           <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
+            <li><a href="#">Community Programs</a></li>
+            <li><a href="#">Health Services</a></li>
+            <li><a href="#">Education & Training</a></li>
+            <li><a href="#">Events & Recreation</a></li>
+            <li><a href="#">Public Safety</a></li>
           </ul>
         </div>
-
+  
         <div class="text-center col-lg-3 col-md-12 footer-contact text-md-start">
           <h4>Contact Us</h4>
-          <p>A108 Adam Street</p>
-          <p>New York, NY 535022</p>
-          <p>United States</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-          <p><strong>Email:</strong> <span>info@example.com</span></p>
+          <p>Barangay Centro 2 Office</p>
+          <p>Centro 2, Sanchez Mira, Cagayan</p>
+          <p>Philippines</p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+63 917 123 4567</span></p>
+          <p><strong>Email:</strong> <span>barangaycentro2@example.com</span></p>
         </div>
-
+  
       </div>
     </div>
-
+  
     <div class="container mt-4 text-center copyright">
-      <p>© <span>Copyright 2024 All Rights Reserved | Sanchez Mira Centro02</span> <strong class="sitename"></strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright 2024 All Rights Reserved | Barangay Centro 2</span></p>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://facebook.com/">Barangay Centro</a>
+        Designed by <a href="https://facebook.com/BarangayCentro2">Barangay Centro</a>
       </div>
     </div>
-
+  
   </footer>
+  
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
