@@ -3,21 +3,21 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\BarangayProductResource\Pages;
+use App\Filament\Admin\Resources\BarangayProductResource\RelationManagers;
 use App\Models\BarangayProduct;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class BarangayProductResource extends Resource
 {
     protected static ?string $model = BarangayProduct::class;
 
-    protected static ?string $pluralModelLabel = 'Health ';
-    protected static ?string $navigationIcon = 'heroicon-o-archive-box';
-
-    protected static ?string $navigationGroup = 'Community Management';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
@@ -63,7 +63,7 @@ class BarangayProductResource extends Resource
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make('price')
-                    ->money('USD', true) // Adjust currency format if needed
+                    ->money('PHP', true) // Adjust currency format if needed
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('created_at')
@@ -92,14 +92,14 @@ class BarangayProductResource extends Resource
     public static function getRelations(): array
     {
         return [
-            // Define any relations if needed
+            //
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBarangayProduct::route('/'),
+            'index' => Pages\ListBarangayProducts::route('/'),
             'create' => Pages\CreateBarangayProduct::route('/create'),
             'edit' => Pages\EditBarangayProduct::route('/{record}/edit'),
         ];

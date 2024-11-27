@@ -46,6 +46,20 @@
             font-size: 18px;
             margin-bottom: 20px;
         }
+        .download-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .download-link:hover {
+            background-color: #2980b9;
+        }
         .footer {
             background-color: #ecf0f1;
             text-align: center;
@@ -76,6 +90,9 @@
         </div>
         <div class="email-body">
             <p>{{ $body }}</p>
+            @if (!empty($attachment))
+                <a href="{{ $attachment }}" class="download-link" download>Download Attachment</a>
+            @endif
         </div>
         <div class="footer">
             <p>This email is from Barangay Centro2 Sanchez Mira.</p>
