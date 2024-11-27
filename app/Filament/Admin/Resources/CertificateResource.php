@@ -153,10 +153,7 @@ class CertificateResource extends Resource
                     ->prefix('₱')
                     ->sortable(),
 
-                TextColumn::make('payment_method')
-                    ->label('Payment Method')
-                    ->formatStateUsing(fn ($state) => ucfirst($state))
-                    ->sortable(),
+
 
                 TextColumn::make('payment_status')
                     ->label('Payment Status')
