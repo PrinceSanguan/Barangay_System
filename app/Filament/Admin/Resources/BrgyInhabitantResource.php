@@ -168,7 +168,6 @@ class BrgyInhabitantResource extends Resource
                 Tables\Columns\TextColumn::make('civilstatus')->searchable(),
                 Tables\Columns\TextColumn::make('positioninFamily')->searchable(),
                 Tables\Columns\TextColumn::make('citizenship')->searchable(),
-                // Removed 'other_citizenship' column from the table since it's handled in the form.
                 Tables\Columns\TextColumn::make('educAttainment')->searchable(),
                 Tables\Columns\TextColumn::make('occupation')->searchable(),
                 Tables\Columns\TextColumn::make('ofw')->searchable(),
@@ -177,10 +176,25 @@ class BrgyInhabitantResource extends Resource
                 BooleanColumn::make('is_approved')->label('Approved')->sortable(),
             ])
             ->filters([
-                Filter::make('Pending Approval')
-                    ->query(fn (Builder $query) => $query->where('is_approved', false)),
-                Filter::make('Approved Only')
-                    ->query(fn (Builder $query) => $query->where('is_approved', true)),
+                Filter::make('Inhabitant Status')
+                ->query(function (Builder $query, array $data) {
+                    if (isset($data['status']) && $data['status'] === 'pending') {
+                        $query->where('is_approved', false);
+                    } elseif (isset($data['status']) && $data['status'] === 'approved') {
+                        $query->where('is_approved', true);
+                    }
+                })
+                ->form([
+                    Forms\Components\Select::make('status')
+                        ->label('Inhabitant Status')
+                        ->options([
+                            'pending' => 'Pending Approval',
+                            'approved' => 'Approved Only',
+                        ])
+                        ->placeholder('Select Inhabitant Status'),
+                ])
+                ->label('Filter by Inhabitant Status'),
+            
                 Filter::make('PWD')
                     ->query(fn (Builder $query) => $query->where('PWD', 'YES')),
                 Filter::make('OFW')
@@ -188,6 +202,104 @@ class BrgyInhabitantResource extends Resource
                 Filter::make('Senior Citizens')
                     ->label('Age 60 and Above')
                     ->query(fn (Builder $query) => $query->where('age', '>=', 60)),
+                // Custom Age Range Filter
+                Filter::make('Age Range')
+                    ->form([
+                        Forms\Components\TextInput::make('min_age')
+                            ->label('Min Age')
+                            ->numeric()
+                            ->maxLength(3)
+                            ->placeholder('e.g. 15'),
+                        Forms\Components\TextInput::make('max_age')
+                            ->label('Max Age')
+                            ->numeric()
+                            ->maxLength(3)
+                            ->placeholder('e.g. 30'),
+                    ])
+                    ->query(function (Builder $query, array $data) {
+                        if (isset($data['min_age']) && isset($data['max_age'])) {
+                            $query->whereBetween('age', [(int)$data['min_age'], (int)$data['max_age']]);
+                        }
+                    })
+                    ->label('Age Range (Min-Max)'),
+                // Additional Citizenship Filters (if needed)
+                Filter::make('Citizenship')
+                    ->query(function (Builder $query) {
+                        $query->where('citizenship', 'Filipino'); // Show only Filipino
+                    })
+                    ->label('Filipino Citizenship'),
+                Filter::make('Other Citizenship')
+                    ->query(function (Builder $query) {
+                        $query->where('citizenship', 'Others'); // Show only 'Others' for citizenship
+                    })
+                    ->label('Other Citizenship'),
+                    Filter::make('Civil Status')
+                    ->query(function (Builder $query, array $data) {
+                        if (isset($data['civilstatus'])) {
+                            $query->where('civilstatus', $data['civilstatus']);
+                        }
+                    })
+                    ->form([
+                        Forms\Components\Select::make('civilstatus')
+                            ->label('Civil Status')
+                            ->options([
+                                'Single' => 'Single',
+                                'Married' => 'Married',
+                                'Widowed' => 'Widowed',
+                                'Separated' => 'Separated',
+                                'Annulled' => 'Annulled',
+                                'Live-in' => 'Live-in',
+                            ])
+                            ->placeholder('Select Civil Status'),
+                    ])
+                    ->label('Filter by Civil Status'),
+                    Filter::make('Position in Family')
+    ->query(function (Builder $query, array $data) {
+        if (isset($data['positioninFamily'])) {
+            $query->where('positioninFamily', $data['positioninFamily']);
+        }
+    })
+    
+    ->form([
+        Forms\Components\Select::make('positioninFamily')
+            ->label('Position in Family')
+            ->options([
+                'Head of the family' => 'Head of the family',
+                'Wife' => 'Wife',
+                'Husband' => 'Husband',
+                'Son' => 'Son',
+                'Daughter' => 'Daughter',
+                'Father' => 'Father',
+                'Mother' => 'Mother',
+                'Grandfather' => 'Grandfather',
+                'Grandmother' => 'Grandmother',
+                'Brother' => 'Brother',
+                'Sister' => 'Sister',
+                'Uncle' => 'Uncle',
+                'Aunt' => 'Aunt',
+                'Cousin' => 'Cousin',
+            ])
+            ->placeholder('Select Position in Family'),
+    ])
+    ->label('Filter by Position in Family'),
+    Filter::make('Sex')
+    ->query(function (Builder $query, array $data) {
+        if (isset($data['sex'])) {
+            $query->where('sex', $data['sex']);
+        }
+    })
+    ->form([
+        Forms\Components\Select::make('sex')
+            ->label('Sex')
+            ->options([
+                'Male' => 'Male',
+                'Female' => 'Female',
+            ])
+            ->placeholder('Select Sex'),
+    ])
+    ->label('Filter by Sex'),
+
+                
             ])
             ->actions([
                 Action::make('approve')
@@ -205,6 +317,8 @@ class BrgyInhabitantResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
+    
+    
 
     public static function getEloquentQuery(): Builder
     {

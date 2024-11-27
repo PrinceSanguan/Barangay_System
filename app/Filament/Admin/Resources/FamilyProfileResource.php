@@ -27,7 +27,6 @@ class FamilyProfileResource extends Resource
     {
         return $form
             ->schema([
-               
                 Forms\Components\Hidden::make('user_id')->default(auth()->id()),
                 Forms\Components\Select::make('head_of_family')
                     ->label('Head of the Family')
@@ -46,16 +45,13 @@ class FamilyProfileResource extends Resource
                             $set('occupation', $inhabitant->occupation);
                         }
                     }),
-                    Forms\Components\TextInput::make('sex')->required()->disabled(),
-                    Forms\Components\TextInput::make('age')->required()->disabled(),
-                    Forms\Components\TextInput::make('birthdate')->required()->disabled(),
-                    Forms\Components\TextInput::make('civilstatus')->required()->disabled(),
-                    Forms\Components\TextInput::make('educAttainment')->required()->disabled(),
-                    Forms\Components\TextInput::make('occupation')->required()->disabled(),
-                Forms\Components\TextInput::make('occupation')
-                    ->required()
-                    ->maxLength(255),
-                    Forms\Components\Select::make('monthlyincome')
+                Forms\Components\TextInput::make('sex')->required()->disabled(),
+                Forms\Components\TextInput::make('age')->required()->disabled(),
+                Forms\Components\TextInput::make('birthdate')->required()->disabled(),
+                Forms\Components\TextInput::make('civilstatus')->required()->disabled(),
+                Forms\Components\TextInput::make('educAttainment')->required()->disabled(),
+                Forms\Components\TextInput::make('occupation')->required()->disabled(),
+                Forms\Components\Select::make('monthlyincome')
                     ->label('Monthly Income')
                     ->required()
                     ->options([
@@ -67,32 +63,27 @@ class FamilyProfileResource extends Resource
                         'Above 50,000' => 'Above 50,000',
                     ])
                     ->reactive(),
-                
-                Forms\Components\TextInput::make('typeOfDwelling')
+                Forms\Components\Select::make('typeOfDwelling')
+                    ->label('Type of Dwelling')
                     ->required()
-                    ->maxLength(255),
+                    ->options([
+                        'Concrete House' => 'Concrete House',
+                        'Wooden House' => 'Wooden House',
+                        'Bamboo House' => 'Bamboo House',
+                        'Nipa Hut' => 'Nipa Hut',
+                        'Mixed Materials' => 'Mixed Materials',
+                        'Apartment' => 'Apartment',
+                        'Condominium' => 'Condominium',
+                        'Shanty' => 'Shanty',
+                    ])
+                    ->reactive(),
                 Forms\Components\TextInput::make('watersource')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('toiletFacility')
                     ->required()
                     ->maxLength(255),
-                    Forms\Components\Select::make('housing_materials')
-                    ->label('Housing Materials')
-                    ->required()
-                    ->options([
-                        'Concrete' => 'Concrete',
-                        'Wood' => 'Wood',
-                        'Bamboo' => 'Bamboo',
-                        'Nipa (Nipa Palm)' => 'Nipa (Nipa Palm)',
-                        'Steel' => 'Steel',
-                        'Clay/Bricks' => 'Clay/Bricks',
-                        'Asbestos' => 'Asbestos',
-                        'CGI (Corrugated Galvanized Iron)' => 'CGI (Corrugated Galvanized Iron)',
-                    ])
-                    ->reactive(),
-                
-                    Forms\Components\Select::make('4ps')
+                Forms\Components\Select::make('4ps')
                     ->label('4Ps (Pantawid Pamilyang Pilipino Program)')
                     ->required()
                     ->options([
@@ -100,7 +91,6 @@ class FamilyProfileResource extends Resource
                         'No' => 'No',
                     ])
                     ->reactive(),
-                
             ]);
     }
 
@@ -135,8 +125,6 @@ class FamilyProfileResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('toiletFacility')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('housing_materials')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('4ps')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('is_approved')
@@ -154,6 +142,57 @@ class FamilyProfileResource extends Resource
             ->filters([
                 Filter::make('Pending Approval')
                     ->query(fn (Builder $query) => $query->where('is_approved', false)),
+                    Filter::make('4Ps Members')
+                    ->query(fn (Builder $query) => $query->where('4ps', 'Yes')),
+                                 
+                    
+                    Filter::make('Monthly Income')
+                    ->query(function (Builder $query, array $data) {
+                        if (!empty($data['monthlyincome'])) {
+                            $query->where('monthlyincome', $data['monthlyincome']);
+                        }
+                    })
+                    ->form([
+                        Forms\Components\Select::make('monthlyincome')
+                            ->label('Monthly Income')
+                            ->options([
+                                'Below 10,000' => 'Below 10,000',
+                                '10,000 - 20,000' => '10,000 - 20,000',
+                                '20,000 - 30,000' => '20,000 - 30,000',
+                                '30,000 - 40,000' => '30,000 - 40,000',
+                                '40,000 - 50,000' => '40,000 - 50,000',
+                                'Above 50,000' => 'Above 50,000',
+                            ])
+                            ->placeholder('Select Income Range'),
+                    ]),
+
+                
+    
+                // Filtering for Type of Dwelling
+                Filter::make('Type of Dwelling')
+                    ->query(function (Builder $query, array $data) {
+                        if (!empty($data['typeOfDwelling'])) {
+                            $query->where('typeOfDwelling', $data['typeOfDwelling']);
+                        }
+                    })
+                    ->form([
+                        Forms\Components\Select::make('typeOfDwelling')
+                            ->label('Type of Dwelling')
+                            ->options([
+                                'Concrete House' => 'Concrete House',
+                                'Wooden House' => 'Wooden House',
+                                'Bamboo House' => 'Bamboo House',
+                                'Nipa Hut' => 'Nipa Hut',
+                                'Mixed Materials' => 'Mixed Materials',
+                                'Apartment' => 'Apartment',
+                                'Condominium' => 'Condominium',
+                                'Shanty' => 'Shanty',
+                                'Other' => 'Other',
+                            ])
+                            ->placeholder('All Types'),
+                    ]),
+    
+
             ])
             ->actions([
                 Action::make('approve')
@@ -164,33 +203,14 @@ class FamilyProfileResource extends Resource
                     })
                     ->visible(fn (FamilyProfile $record) => Filament::auth()->user() && (Filament::auth()->user()->hasRole('super_admin') || Filament::auth()->user()->hasRole('brgySecretary')) && ! $record->is_approved),
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
+                Tables\Actions\BulkActionGroup::make([ 
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ])
-            ->filters([
-                Filter::make('Pending Approval')
-                    ->query(fn (Builder $query) => $query->where('is_approved', false)),
-    
-                Filter::make('Approved Only')
-                    ->query(fn (Builder $query) => $query->where('is_approved', true)),
-    
-                // Filtering for "4Ps"
-                Filter::make('4Ps Program')
-                    ->query(fn (Builder $query) => $query->where('4ps', 'Yes'))
-                    ->label('4Ps Only'),
-    
-                // Filtering by Monthly Income
-                Filter::make('Income Range')
-                    ->query(fn (Builder $query) => $query->where('monthlyincome', 'Above 50,000'))
-                    ->label('Above 50,000'),
-    
-                // Add more filters as necessary
             ]);
     }
+    
 
     public static function getEloquentQuery(): Builder
     {
