@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('emails', function (Blueprint $table) {
-            $table->string('attachment')->nullable()->after('body');
+        Schema::table('family_profiles', function (Blueprint $table) {
+            $table->string('name')->default('Default Family Name')->change();
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('emails', function (Blueprint $table) {
-            $table->dropColumn('attachment');
+        Schema::table('family_profiles', function (Blueprint $table) {
+            $table->string('name')->default(null)->change();
         });
     }
 };

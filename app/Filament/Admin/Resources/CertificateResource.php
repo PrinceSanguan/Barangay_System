@@ -3,6 +3,7 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\CertificateResource\Pages;
+use App\Mail\CertificateApprovedMail;
 use App\Models\Certificate;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -16,6 +17,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;  // Make sure to import the User model
+use Illuminate\Support\Facades\Mail;
 
 class CertificateResource extends Resource
 {
@@ -202,12 +204,16 @@ class CertificateResource extends Resource
             ])
             ->actions([
                 Action::make('approve')
-                    ->label('Approve')
-                    ->action(function (Certificate $record) {
-                        $record->is_approved = true;
-                        $record->save();
-                    })
-                    ->visible(fn (Certificate $record) => Auth::user()->hasAnyRole(['brgySecretary', 'super_admin']) && ! $record->is_approved),
+                ->label('Approve')
+                ->action(function (Certificate $record) {
+                    $record->is_approved = true;
+                    $record->status = 'approved'; // Update the status to "approved"
+                    $record->save();
+            
+                    // Send email notification to the user
+                    Mail::to($record->user->email)->send(new CertificateApprovedMail($record));
+                })
+                ->visible(fn (Certificate $record) => Auth::user()->hasAnyRole(['brgySecretary', 'super_admin']) && ! $record->is_approved),
 
                 Tables\Actions\EditAction::make(),
             ])

@@ -9,20 +9,20 @@ class Certificate extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'name',
-        'email',
-        'certificate_type',
-        'purpose',
-        'price',
-        'payment_method', // Add this line
-        'payment_status',
-        'status',
-        'is_approved',
-        'certificate_date',
-    ];
-
+    // protected $fillable = [
+    //     'user_id',
+    //     'name',
+    //     'email',
+    //     'certificate_type',
+    //     'purpose',
+    //     'price',
+    //     'payment_method', // Add this line
+    //     'payment_status',
+    //     'status',
+    //     'is_approved',
+    //     'certificate_date',
+    // ];
+protected $guarded = [];
     protected $casts = [
         'requested_date' => 'date',
     ];

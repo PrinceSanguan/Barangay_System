@@ -4,7 +4,7 @@
     <title>Your Account Approved</title>
 </head>
 <body>
-    <p>Dear {{ $name }},</p>
+    <p>Dear {{ $user->name }},</p>
 
     <p>Congratulations! Your account has been approved. You can now access your account using the provided login credentials.</p>
 

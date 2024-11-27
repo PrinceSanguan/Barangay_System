@@ -9,24 +9,16 @@ class FamilyProfile extends Model
 {
     use HasFactory;
 
-    // Define the table associated with the model if it's not the plural of the model name
-    protected $table = 'family_profiles';
+    protected $table = 'family_profiles'; // Optional, if table name matches the pluralized model name
+    protected $primaryKey = 'id'; // Optional if primary key is `id`
+    public $incrementing = true; // Default behavior
+    protected $keyType = 'int'; // Default behavior
+    public $timestamps = true; // Default behavior
 
-    // Specify the primary key if it's not 'id'
-    protected $primaryKey = 'id';
-
-    // Indicate if the IDs are auto-incrementing
-    public $incrementing = true;
-
-    // Specify the data type of the primary key if it's not an integer
-    protected $keyType = 'int';
-
-    // Enable or disable the timestamps (created_at, updated_at)
-    public $timestamps = true;
-
+    // Define the attributes that are mass assignable
     protected $fillable = [
         'user_id',
-        'name',
+        'head_of_family',
         'sex',
         'age',
         'birthdate',
@@ -43,36 +35,35 @@ class FamilyProfile extends Model
         'is_approved',
     ];
 
-    // Define any relationships (e.g., belongsTo, hasMany) if applicable
+    // Relationships
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function headOfFamily()
+    {
+        return $this->belongsTo(BrgyInhabitant::class, 'head_of_family');
+    }
+
     public function members()
-{
-    return $this->belongsToMany(BrgyInhabitant::class, 'family_member', 'family_id', 'inhabitant_id');
-}
+    {
+        return $this->belongsToMany(BrgyInhabitant::class, 'family_member', 'family_id', 'inhabitant_id');
+    }
 
-public function families()
-{
-    return $this->belongsToMany(FamilyProfile::class, 'family_member', 'inhabitant_id', 'family_id');
-}
-
-
-    // Example of a local scope for filtering approved inhabitants
+    // Local Scopes
     public function scopeApproved($query)
     {
         return $query->where('is_approved', true);
     }
 
-    // Accessor to format the inhabitant's full name
+    // Accessors
     public function getFullNameAttribute()
     {
         return "{$this->firstname} {$this->middlename} {$this->lastname}";
     }
 
-    // Mutator for birthdate to automatically convert to Carbon instance
+    // Mutators
     public function setBirthdateAttribute($value)
     {
         $this->attributes['birthdate'] = \Carbon\Carbon::parse($value);

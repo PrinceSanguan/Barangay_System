@@ -29,22 +29,21 @@ class FamilyProfileResource extends Resource
             ->schema([
                 Forms\Components\Hidden::make('user_id')->default(auth()->id()),
                 Forms\Components\Select::make('head_of_family')
-                    ->label('Head of the Family')
-                    ->options(BrgyInhabitant::where('positioninFamily', 'Head of the family')
-                        ->pluck('lastname', 'id'))
-                    ->reactive()
-                    ->searchable()
-                    ->afterStateUpdated(function ($state, callable $set) {
-                        $inhabitant = BrgyInhabitant::find($state);
-                        if ($inhabitant) {
-                            $set('sex', $inhabitant->sex);
-                            $set('age', $inhabitant->age);
-                            $set('birthdate', $inhabitant->birthdate);
-                            $set('educAttainment', $inhabitant->educAttainment);
-                            $set('civilstatus', $inhabitant->civilstatus);
-                            $set('occupation', $inhabitant->occupation);
-                        }
-                    }),
+                ->label('Head of the Family')
+                ->options(BrgyInhabitant::where('positioninFamily', 'Head of the family')->pluck('lastname', 'id'))
+                ->reactive()
+                ->afterStateUpdated(function ($state, callable $set) {
+                    $inhabitant = BrgyInhabitant::find($state);
+                    if ($inhabitant) {
+                        $set('sex', $inhabitant->sex);
+                        $set('age', $inhabitant->age);
+                        $set('birthdate', $inhabitant->birthdate);
+                        $set('civilstatus', $inhabitant->civilstatus);
+                        $set('religion', $inhabitant->religion);
+                        $set('educAttainment', $inhabitant->educAttainment);
+                        $set('occupation', $inhabitant->occupation);
+                    }
+                }),
                 Forms\Components\TextInput::make('sex')->required()->disabled(),
                 Forms\Components\TextInput::make('age')->required()->disabled(),
                 Forms\Components\TextInput::make('birthdate')->required()->disabled(),
@@ -99,46 +98,99 @@ class FamilyProfileResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('sex')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('age')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('birthdate')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('civilstatus')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('religion')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('educAttainment')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('occupation')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('monthlyincome')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('typeOfDwelling')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('watersource')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('toiletFacility')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('4ps')
-                    ->searchable(),
-                Tables\Columns\IconColumn::make('is_approved')
-                    ->boolean(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                BooleanColumn::make('is_approved')->label('Approved'),
-            ])
+                ->label('User ID')
+                ->sortable(),
+
+            // Display the head of the family
+            Tables\Columns\TextColumn::make('headOfFamily.full_name')
+                ->label('Head of Family')
+                ->sortable()
+                ->searchable(),
+
+            // Display the sex of the head of the family
+            Tables\Columns\TextColumn::make('headOfFamily.sex')
+                ->label('Sex')
+                ->sortable()
+                ->searchable(),
+
+            // Display the age of the head of the family
+            Tables\Columns\TextColumn::make('headOfFamily.age')
+                ->label('Age')
+                ->sortable()
+                ->searchable(),
+
+            // Display the birthdate of the head of the family
+            Tables\Columns\TextColumn::make('headOfFamily.birthdate')
+                ->label('Birthdate')
+                ->date()
+                ->sortable()
+                ->searchable(),
+
+            // Civil status
+            Tables\Columns\TextColumn::make('headOfFamily.civilstatus')
+                ->label('Civil Status')
+                ->sortable()
+                ->searchable(),
+
+            // Religion
+            // Tables\Columns\TextColumn::make('headOfFamily.religion')
+            //     ->label('Religion')
+            //     ->sortable()
+            //     ->searchable(),
+
+            // Educational attainment
+            Tables\Columns\TextColumn::make('headOfFamily.educAttainment')
+                ->label('Educational Attainment')
+                ->sortable()
+                ->searchable(),
+
+            // Occupation
+            Tables\Columns\TextColumn::make('headOfFamily.occupation')
+            ->label('Occupation')
+            ->sortable()
+            ->searchable(),
+
+            // Monthly income
+            Tables\Columns\TextColumn::make('monthlyincome')
+                ->label('Monthly Income')
+                ->sortable()
+                ->searchable(),
+
+            // Type of dwelling
+            Tables\Columns\TextColumn::make('typeOfDwelling')
+                ->label('Type of Dwelling')
+                ->sortable()
+                ->searchable(),
+
+            // Water source
+            Tables\Columns\TextColumn::make('watersource')
+                ->label('Water Source')
+                ->sortable()
+                ->searchable(),
+
+            // Toilet facility
+            Tables\Columns\TextColumn::make('toiletFacility')
+                ->label('Toilet Facility')
+                ->sortable()
+                ->searchable(),
+
+            // Housing materials
+            Tables\Columns\TextColumn::make('housing_materials')
+                ->label('Housing Materials')
+                ->sortable()
+                ->searchable(),
+
+            // 4Ps
+            Tables\Columns\TextColumn::make('4ps')
+                ->label('4Ps')
+                ->sortable()
+                ->searchable(),
+
+            // Approval status
+            Tables\Columns\BooleanColumn::make('is_approved')
+                ->label('Approved')
+                ->sortable(),
+        ])
             ->filters([
                 Filter::make('Pending Approval')
                     ->query(fn (Builder $query) => $query->where('is_approved', false)),

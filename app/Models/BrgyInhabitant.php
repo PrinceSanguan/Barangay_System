@@ -9,45 +9,49 @@ class BrgyInhabitant extends Model
 {
     use HasFactory;
 
-    // Define the table associated with the model if it's not the plural of the model name
     protected $table = 'brgy_inhabitants';
-
-    // Specify the primary key if it's not 'id'
     protected $primaryKey = 'id';
-
-    // Indicate if the IDs are auto-incrementing
     public $incrementing = true;
-
-    // Specify the data type of the primary key if it's not an integer
     protected $keyType = 'int';
-
-    // Enable or disable the timestamps (created_at, updated_at)
     public $timestamps = true;
 
-    // Define the attributes that are mass assignable
-    protected $guarded = [
-   
+    protected $fillable = [
+        'firstname',
+        'middlename',
+        'lastname',
+        'positioninFamily',
+        'birthdate',
+        'sex',
+        'age',
+        'educAttainment',
+        'civilstatus',
+        'occupation',
     ];
 
-    // Define any relationships (e.g., belongsTo, hasMany) if applicable
+    // Relationships
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    // Example of a local scope for filtering approved inhabitants
+    public function families()
+    {
+        return $this->belongsToMany(FamilyProfile::class, 'family_member', 'inhabitant_id', 'family_id');
+    }
+
+    // Local Scopes
     public function scopeApproved($query)
     {
         return $query->where('is_approved', true);
     }
 
-    // Accessor to format the inhabitant's full name
+    // Accessors
     public function getFullNameAttribute()
     {
         return "{$this->firstname} {$this->middlename} {$this->lastname}";
     }
 
-    // Mutator for birthdate to automatically convert to Carbon instance
+    // Mutators
     public function setBirthdateAttribute($value)
     {
         $this->attributes['birthdate'] = \Carbon\Carbon::parse($value);
