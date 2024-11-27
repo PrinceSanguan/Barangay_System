@@ -34,6 +34,7 @@ class AdminPanelProvider extends PanelProvider
             ->spa(true)
             ->login()
             ->registration()
+            ->emailVerification()
             // ->databaseNotifications()
             ->passwordReset()
             ->defaultThemeMode(ThemeMode::Light)

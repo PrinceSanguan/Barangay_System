@@ -3,13 +3,10 @@
 namespace App\Filament\Admin\Resources\BarangayProductResource\Pages;
 
 use App\Filament\Admin\Resources\BarangayProductResource;
+use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateBarangayProduct extends CreateRecord
 {
     protected static string $resource = BarangayProductResource::class;
-    protected function getRedirectUrl(): string
-    {
-        return $this->getResource()::getUrl('index');
-    }
 }

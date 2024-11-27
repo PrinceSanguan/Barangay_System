@@ -3,6 +3,7 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\UserResource\Pages;
+use App\Mail\UserApprovedMail;
 use App\Models\Role;
 use App\Models\User; // Add this import for the Role model
 use Filament\Forms;
@@ -14,6 +15,7 @@ use Filament\Tables\Columns\BooleanColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserResource extends Resource
 {
@@ -140,20 +142,23 @@ class UserResource extends Resource
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
                 Tables\Actions\Action::make('approve')
-                    ->label('Approve')
-                    ->icon('heroicon-o-check')
-                    ->requiresConfirmation()
-                    ->action(function (User $record) {
-                        // Set the user as active
-                        $record->is_active = true;
-
-                        // Replace the user's role with "brgyUser"
-                        $record->roles()->sync([Role::where('name', 'brgyUser')->first()->id]);
-
-                        // Save the updated user record
-                        $record->save();
-                    })
-                    ->visible(fn (User $record) => ! $record->is_active),
+                ->label('Approve')
+                ->icon('heroicon-o-check')
+                ->requiresConfirmation()
+                ->action(function (User $record) {
+                    // Set the user as active
+                    $record->is_active = true;
+            
+                    // Replace the user's role with "brgyUser"
+                    $record->roles()->sync([Role::where('name', 'brgyUser')->first()->id]);
+            
+                    // Save the updated user record
+                    $record->save();
+            
+                    // Send email to the user
+                    Mail::to($record->email)->send(new UserApprovedMail($record));
+                })
+                ->visible(fn (User $record) => ! $record->is_active),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

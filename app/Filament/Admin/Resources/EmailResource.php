@@ -6,6 +6,7 @@ use App\Filament\Admin\Resources\EmailResource\Pages;
 // Add this
 use App\Models\Email;
 use App\Models\User;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -35,6 +36,8 @@ class EmailResource extends Resource
                 Textarea::make('body')
                     ->label('Email Body')
                     ->required(),
+                    FileUpload::make('attachment')
+                    ,
 
                 Select::make('users')
                     ->label('Select Users')
@@ -49,6 +52,10 @@ class EmailResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')
+                    ->searchable(),
+                    Tables\Columns\TextColumn::make('body')
+                    ->searchable(),
+                    Tables\Columns\TextColumn::make('attachment')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
