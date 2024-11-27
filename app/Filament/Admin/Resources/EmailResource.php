@@ -3,7 +3,6 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\EmailResource\Pages;
-// Add this
 use App\Models\Email;
 use App\Models\User;
 use Filament\Forms\Components\Select;
@@ -13,8 +12,6 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-
-// Add this
 
 class EmailResource extends Resource
 {
@@ -40,7 +37,21 @@ class EmailResource extends Resource
                     ->label('Select Users')
                     ->multiple()
                     ->options(User::pluck('email', 'id'))  // Retrieve users' email
-                    ->required(),
+                    ->required()
+                    ->afterStateHydrated(function (Select $component, $state) {
+                        // Add "Select All" manually in the options
+                        $component->options([
+                            'select_all' => 'Select All',
+                            ...User::pluck('email', 'id')->toArray(),
+                        ]);
+                    })
+                    ->reactive()
+                    ->afterStateUpdated(function (callable $set, $state) {
+                        if (in_array('select_all', $state)) {
+                            // Automatically select all users if "Select All" is chosen
+                            $set('users', User::pluck('id')->toArray());
+                        }
+                    }),
             ]);
     }
 
@@ -88,3 +99,4 @@ class EmailResource extends Resource
         ];
     }
 }
+
