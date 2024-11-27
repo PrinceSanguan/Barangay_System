@@ -263,10 +263,12 @@
 
           <div class="col-xl-5 content">
             <h3>About Us</h3>
-            <h2>Our History</h2>
-            <p>The history of our barangay dates back to the early 1900s. It was originally a small farming community that gradually evolved into a vibrant hub of culture and commerce. Our ancestors worked hard to establish the barangay as a place of unity, progress, and shared values.</p>
-            <p>Through the years, the barangay has overcome various challenges, including natural disasters, economic hardships, and social changes. Despite these obstacles, our community has remained resilient, maintaining its core values of unity, hard work, and mutual respect.</p>
-            <p>Today, our barangay continues to thrive, blending modern progress with our rich cultural heritage. We honor our past by remembering the efforts and sacrifices of those who came before us, and we strive to build a brighter future for the generations to come.</p>
+            <h2>BRIEF HISTORY OF BARANGAY CENTRO 2</h2>
+            <p>In 1842, Centro 2 was just a sitio of Malolokit, a barrio of Pamplona. When it was requested to be separated, and was granted, they officially changed the name of Malolokit to Sanchez Mira in honor of the late Manuel Sanchez Mira, who was then assigned to Cagayan Valley.</p>
+            <p>With the issuance of the Magna Carta, Barangay Centro 2 was created.</p>
+            <p>In 1883, a group of farmers, fishermen, and hunters landed at Masisit by boat from Ilocos Norte. Some of the groups settled at Centro 2, although the area was quite a jungle at the time. The families of the early settlers, including the Mangligot, Negres, Galanos, Cacatian, Maltos, and Arjonillios, laboriously cleared the land and began building homes. Inspired by the abundance of resources in the area, they settled and thrived. Other families followed suit and contributed to the community's growth.</p>
+            <p>In 1935, the leaders of Centro 2, through the SILAW ORGANIZATION and with the cooperation of the residents, erected the Sanchez Mira West Central Elementary School. The land for the school was purchased from Mr. Ponciano Mangosing, who donated part of it for the project.</p>
+            
             <a href="{{route('assoc.foundation')}}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
           </div>
 
@@ -303,38 +305,136 @@
 
     
 <!-- Demographic Stats Section -->
-<section id="stats" class="stats-section py-5 bg-light">
-    <div class="container">
-        <h2 class="section-title text-center">Demographic Statistics</h2>
-        
-        <div class="row text-center mb-4">
-            <!-- Total Population, Male, and Female Counts Display -->
-            <div class="col-md-4">
-                <p><strong>Total Population:</strong> {{ $totalPopulation }}</p>
-            </div>
-            <div class="col-md-4">
-                <p><strong>Male Count:</strong> {{ $maleCount }}</p>
-            </div>
-            <div class="col-md-4">
-                <p><strong>Female Count:</strong> {{ $femaleCount }}</p>
-            </div>
-        </div>
+<section id="services" class="stats-section py-5 bg-light">
+  <div class="container section-title">
+      <h2 class="section-title text-center" style="font-size: 2rem;">Demographic Statistics</h2>
+      <div class="row text-center mb-4">
+          <!-- Total Population, Male, and Female Counts Display -->
+          <div class="col-md-4">
+              <p><strong style="font-size: 1.2rem;">Total Population:</strong> {{ number_format($totalPopulation) }}</p>
+          </div>
+          <div class="col-md-4">
+              <p><strong style="font-size: 1.2rem;">Male Count:</strong> {{ number_format($maleCount) }}</p>
+          </div>
+          <div class="col-md-4">
+              <p><strong style="font-size: 1.2rem;">Female Count:</strong> {{ number_format($femaleCount) }}</p>
+          </div>
+      </div>
 
-        <div class="row">
-            <!-- Gender Distribution Pie Chart -->
-            <div class="col-md-6">
-                <h4 class="text-center">Gender Distribution</h4>
-                <canvas id="genderChart" width="100%" height="100"></canvas>
-            </div>
+      <div class="row">
+          <!-- Gender Distribution Pie Chart -->
+          <div class="col-md-6">
+              <h4 class="text-center" style="font-size: 1.5rem;">Gender Distribution</h4>
+              <canvas id="genderChart" style="max-width: 85%;"></canvas>
+          </div>
 
-            <!-- Population by Age Groups Pie Chart -->
-            <div class="col-md-6">
-                <h4 class="text-center">Population by Age Groups</h4>
-                <canvas id="ageGroupChart" width="80%" height="80"></canvas>
-            </div>
-        </div>
-    </div>
+          <!-- Population by Age Groups Pie Chart -->
+          <div class="col-md-6">
+              <h4 class="text-center" style="font-size: 1.5rem;">Population by Age Groups</h4>
+              <canvas id="ageGroupChart" style="max-width: 85%;"></canvas>
+          </div>
+      </div>
+  </div>
 </section>
+
+<!-- Include Chart.js Script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Fetch demographic data from PHP (make sure this data is available)
+  const demographicData = {
+      maleCount: {{ $maleCount }},
+      femaleCount: {{ $femaleCount }},
+      totalPopulation: {{ $totalPopulation }},
+      ageGroups: @json($ageGroups)  // Assuming $ageGroups is an associative array from PHP
+  };
+
+  // Gender Distribution Pie Chart Initialization
+  const genderCtx = document.getElementById('genderChart').getContext('2d');
+  const genderChart = new Chart(genderCtx, {
+      type: 'pie',
+      data: {
+          labels: ['Male', 'Female'],
+          datasets: [{
+              data: [demographicData.maleCount, demographicData.femaleCount],
+              backgroundColor: ['#36A2EB', '#FF6384'],
+              borderColor: '#ffffff',
+              borderWidth: 2
+          }]
+      },
+      options: {
+          responsive: true,
+          plugins: {
+              legend: {
+                  position: 'bottom',
+                  labels: {
+                      font: {
+                          size: 16 // Increased legend font size
+                      },
+                      color: '#4A5568'
+                  }
+              },
+              tooltip: {
+                  enabled: true,
+                  callbacks: {
+                      label: function(context) {
+                          let label = context.label || '';
+                          let value = context.raw || 0;
+                          let percentage = ((value / demographicData.totalPopulation) * 100).toFixed(2) + '%';
+                          return `${label}: ${value} (${percentage})`;
+                      }
+                  }
+              }
+          }
+      }
+  });
+
+  // Age Groups Pie Chart Initialization
+  const ageCtx = document.getElementById('ageGroupChart').getContext('2d');
+  const ageGroupsData = demographicData.ageGroups;
+  const ageLabels = Object.keys(ageGroupsData);
+  const ageValues = Object.values(ageGroupsData);
+  const ageColors = ageLabels.map(() => '#' + Math.floor(Math.random() * 16777215).toString(16));
+
+  const ageGroupChart = new Chart(ageCtx, {
+      type: 'pie',
+      data: {
+          labels: ageLabels,
+          datasets: [{
+              data: ageValues,
+              backgroundColor: ageColors,
+              borderColor: '#ffffff',
+              borderWidth: 2
+          }]
+      },
+      options: {
+          responsive: true,
+          plugins: {
+              legend: {
+                  position: 'bottom',
+                  labels: {
+                      font: {
+                          size: 16 // Increased legend font size
+                      },
+                      color: '#4A5568'
+                  }
+              },
+              tooltip: {
+                  enabled: true,
+                  callbacks: {
+                      label: function(context) {
+                          let label = context.label || '';
+                          let value = context.raw || 0;
+                          let percentage = ((value / demographicData.totalPopulation) * 100).toFixed(2) + '%';
+                          return `${label}: ${value} (${percentage})`;
+                      }
+                  }
+              }
+          }
+      }
+  });
+</script>
+
+
 
     <!-- Barangay Services Section -->
 <section id="services" class="services section">
@@ -934,37 +1034,38 @@
 </section><!-- /Recent Posts Section -->
   <!-- Section Title -->
   
-    <!-- Team Section -->
-    <section id="team" class="team section light-background">
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>BARANGAY OFFICIALS</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-            </div>
+   <!-- Team Section -->
+<section id="team" class="team section light-background">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+      <h2>BARANGAY OFFICIALS</h2>
+      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+  </div>
 
-            <div class="container">
-                <div class="row gy-5">
-                    @foreach($barangayOfficials as $official)
-                        <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="{{ asset('storage/' . $official->image) }}" class="img-fluid" alt="{{ $official->name }}">
-                                <div class="social">
-                                    <a href="#"><i class="bi bi-twitter"></i></a>
-                                    <a href="#"><i class="bi bi-facebook"></i></a>
-                                    <a href="#"><i class="bi bi-instagram"></i></a>
-                                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center member-info">
-                                <h4>{{ $official->name }}</h4>
-                                <span>{{ $official->designation }}</span>
-                                <p>{{ $official->description }}</p>
-                            </div>
-                        </div><!-- End Team Member -->
-                    @endforeach
-                </div>
-            </div>
-        </section>
+  <div class="container">
+      <div class="row gy-5">
+          @foreach($barangayOfficials as $official)
+              <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
+                  <div class="member-img">
+                      <img src="{{ asset('storage/' . $official->image) }}" class="img-fluid" alt="{{ $official->name }}">
+                      <div class="social">
+                          <a href="#"><i class="bi bi-twitter"></i></a>
+                          <a href="#"><i class="bi bi-facebook"></i></a>
+                          <a href="#"><i class="bi bi-instagram"></i></a>
+                          <a href="#"><i class="bi bi-linkedin"></i></a>
+                      </div>
+                  </div>
+                  <div class="text-center member-info">
+                      <h4>{{ $official->name }}</h4>
+                      <span>{{ $official->designation }}</span>
+                      <p>{{ $official->description }}</p>
+                  </div>
+              </div><!-- End Team Member -->
+          @endforeach
+      </div>
+  </div>
+</section>
+
 
 <!-- Barangay Health Worker Section -->
 <section id="team" class="team section light-background">

@@ -39,7 +39,7 @@ class BrgyInhabitantResource extends Resource
                 Forms\Components\TextInput::make('age')
                     ->required()
                     ->numeric()
-                    ->maxLength(3), // Changed to max 3 for more realistic age limits
+                    ->maxLength(3),
                 Forms\Components\DatePicker::make('birthdate')
                     ->required(),
                 Forms\Components\TextInput::make('purok')
@@ -66,26 +66,51 @@ class BrgyInhabitantResource extends Resource
                         'Annulled' => 'Annulled',
                         'Live-in' => 'Live-in',
                     ]),
-                Forms\Components\Select::make('positioninFamily')
+                    Forms\Components\Select::make('positioninFamily')
                     ->required()
                     ->options([
                         'Head of the family' => 'Head of the family',
                         'Wife' => 'Wife',
+                        'Husband' => 'Husband',  // Added "Husband"
                         'Son' => 'Son',
                         'Daughter' => 'Daughter',
+                        'Father' => 'Father',  // Added "Father"
+                        'Mother' => 'Mother',  // Added "Mother"
+                        'Grandfather' => 'Grandfather',  // Added "Grandfather"
+                        'Grandmother' => 'Grandmother',  // Added "Grandmother"
+                        'Brother' => 'Brother',  // Added "Brother"
+                        'Sister' => 'Sister',  // Added "Sister"
+                        'Uncle' => 'Uncle',  // Added "Uncle"
+                        'Aunt' => 'Aunt',  // Added "Aunt"
+                        'Cousin' => 'Cousin',  // Added "Cousin"
                     ]),
+                
                 Forms\Components\Select::make('citizenship')
                     ->required()
                     ->options([
                         'Filipino' => 'Filipino',
                         'Others' => 'Others',
                     ])
-                    ->reactive(),
+                    ->reactive()
+                    ->afterStateUpdated(function (callable $set, $state) {
+                        if ($state === 'Others') {
+                            // If 'Others' is selected, show the `other_citizenship` value as the selected citizenship.
+                            $set('citizenship', 'Others');
+                        }
+                    }),
                 Forms\Components\TextInput::make('other_citizenship')
                     ->label('Please specify citizenship')
                     ->required()
                     ->maxLength(255)
-                    ->visible(fn ($get) => $get('citizenship') === 'Others'),
+                    ->visible(fn ($get) => $get('citizenship') === 'Others')
+                    ->reactive()
+                    ->afterStateUpdated(function (callable $set, $state) {
+                        if ($state) {
+                            // If 'other_citizenship' is provided, set it as the value of citizenship.
+                            $set('citizenship', $state);
+                        }
+                    }),
+                    
                 Forms\Components\Select::make('educAttainment')
                     ->label('Educational Attainment')
                     ->required()
@@ -143,6 +168,7 @@ class BrgyInhabitantResource extends Resource
                 Tables\Columns\TextColumn::make('civilstatus')->searchable(),
                 Tables\Columns\TextColumn::make('positioninFamily')->searchable(),
                 Tables\Columns\TextColumn::make('citizenship')->searchable(),
+                // Removed 'other_citizenship' column from the table since it's handled in the form.
                 Tables\Columns\TextColumn::make('educAttainment')->searchable(),
                 Tables\Columns\TextColumn::make('occupation')->searchable(),
                 Tables\Columns\TextColumn::make('ofw')->searchable(),
@@ -190,7 +216,15 @@ class BrgyInhabitantResource extends Resource
         }
 
         // Show only approved records for other users
-        return $query->where('is_approved', true);
+        $query = $query->where('is_approved', true);
+
+        // Check if citizenship is 'Others' and filter by 'other_citizenship'
+        $citizenshipFilter = request()->input('citizenship'); // Get citizenship filter from request
+        if ($citizenshipFilter === 'Others') {
+            $query = $query->whereNotNull('other_citizenship'); // Show records with a non-null 'other_citizenship'
+        }
+
+        return $query;
     }
 
     public static function getRelations(): array

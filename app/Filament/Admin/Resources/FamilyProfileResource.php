@@ -55,9 +55,19 @@ class FamilyProfileResource extends Resource
                 Forms\Components\TextInput::make('occupation')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('monthlyincome')
+                    Forms\Components\Select::make('monthlyincome')
+                    ->label('Monthly Income')
                     ->required()
-                    ->maxLength(255),
+                    ->options([
+                        'Below 10,000' => 'Below 10,000',
+                        '10,000 - 20,000' => '10,000 - 20,000',
+                        '20,000 - 30,000' => '20,000 - 30,000',
+                        '30,000 - 40,000' => '30,000 - 40,000',
+                        '40,000 - 50,000' => '40,000 - 50,000',
+                        'Above 50,000' => 'Above 50,000',
+                    ])
+                    ->reactive(),
+                
                 Forms\Components\TextInput::make('typeOfDwelling')
                     ->required()
                     ->maxLength(255),
@@ -67,13 +77,30 @@ class FamilyProfileResource extends Resource
                 Forms\Components\TextInput::make('toiletFacility')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('housing_materials')
+                    Forms\Components\Select::make('housing_materials')
+                    ->label('Housing Materials')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('4ps')
+                    ->options([
+                        'Concrete' => 'Concrete',
+                        'Wood' => 'Wood',
+                        'Bamboo' => 'Bamboo',
+                        'Nipa (Nipa Palm)' => 'Nipa (Nipa Palm)',
+                        'Steel' => 'Steel',
+                        'Clay/Bricks' => 'Clay/Bricks',
+                        'Asbestos' => 'Asbestos',
+                        'CGI (Corrugated Galvanized Iron)' => 'CGI (Corrugated Galvanized Iron)',
+                    ])
+                    ->reactive(),
+                
+                    Forms\Components\Select::make('4ps')
+                    ->label('4Ps (Pantawid Pamilyang Pilipino Program)')
                     ->required()
-                    ->maxLength(255),
-
+                    ->options([
+                        'Yes' => 'Yes',
+                        'No' => 'No',
+                    ])
+                    ->reactive(),
+                
             ]);
     }
 
@@ -143,6 +170,25 @@ class FamilyProfileResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ])
+            ->filters([
+                Filter::make('Pending Approval')
+                    ->query(fn (Builder $query) => $query->where('is_approved', false)),
+    
+                Filter::make('Approved Only')
+                    ->query(fn (Builder $query) => $query->where('is_approved', true)),
+    
+                // Filtering for "4Ps"
+                Filter::make('4Ps Program')
+                    ->query(fn (Builder $query) => $query->where('4ps', 'Yes'))
+                    ->label('4Ps Only'),
+    
+                // Filtering by Monthly Income
+                Filter::make('Income Range')
+                    ->query(fn (Builder $query) => $query->where('monthlyincome', 'Above 50,000'))
+                    ->label('Above 50,000'),
+    
+                // Add more filters as necessary
             ]);
     }
 
