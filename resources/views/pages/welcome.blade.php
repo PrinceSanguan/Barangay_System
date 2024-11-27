@@ -88,8 +88,6 @@
               <li><a href="{{url('visitors-lounge')}}">Visitor's Lounge</a></li>
 
               <li><a href="#citizens-charter">Citizens Charter</a></li>
-              <li><a href="#">Deep Dropdown 4</a></li>
-              <li><a href="#">Deep Dropdown 5</a></li>
             </ul>
           </li>
         </ul>
