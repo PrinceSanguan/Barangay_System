@@ -79,7 +79,7 @@
           <a href="#"><span>Barangay Officials & Health Workers</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#team">Barangay officials</a></li>
-              <li><a href="#team">Barangay Health Worker</a></li>
+              <li><a href="#bhw">Barangay Health Worker</a></li>
             </ul>
           </li>
           <li class="dropdown">
@@ -176,7 +176,7 @@
 <!-- Barangay Captain Section -->
 <section id="barangay-captain" class="barangay-captain-section py-5 bg-light">
   <div class="container">
-      <h2 class="section-title text-center mb-5">Message from the Barangay Captain</h2>
+      <h2 class="section-title text-center mb-5">Barangay Chairperson's Corner</h2>
       @if(isset($chairperson))
           <div class="row align-items-center">
               <div class="col-md-4 text-center mb-4 mb-md-0">
@@ -1036,9 +1036,10 @@
 <section id="team" class="team section light-background">
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
-      <h2>BARANGAY OFFICIALS</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+    <h2>Barangay Officials</h2>
+    <p>Meet the dedicated leaders serving our community with integrity and commitment.</p>
   </div>
+  
 
   <div class="container">
       <div class="row gy-5">
@@ -1066,7 +1067,7 @@
 
 
 <!-- Barangay Health Worker Section -->
-<section id="team" class="team section light-background">
+<section id="bhw" class="team section light-background">
   <!-- Section Title -->
   <div class="container section-title text-center" data-aos="fade-up">
       <h2>BARANGAY HEALTH WORKER</h2>

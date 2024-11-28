@@ -166,10 +166,7 @@ class CertificateResource extends Resource
                     ->label('Purpose')
                     ->limit(50),
 
-                BooleanColumn::make('is_approved')
-                    ->label('Approved')
-                    ->trueIcon('heroicon-o-check-circle')
-                    ->falseIcon('heroicon-o-x-circle'),
+                
 
                 TextColumn::make('status')
                     ->label('Status')
@@ -182,6 +179,11 @@ class CertificateResource extends Resource
                     ->label('Certificate Date')
                     ->dateTime()
                     ->sortable(),
+                    
+                    BooleanColumn::make('is_approved')
+                    ->label('Approved')
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->falseIcon('heroicon-o-x-circle'),
             ])
             ->filters([
                 Filter::make('certificate_type')

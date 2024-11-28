@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('watersource');
             $table->string('toiletFacility');
             $table->string('4ps');
+            $table->string('houseMember');
             $table->boolean('is_approved')->default(false); // default zero
             $table->timestamps();
         });

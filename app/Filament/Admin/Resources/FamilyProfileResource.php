@@ -15,6 +15,7 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 
+
 class FamilyProfileResource extends Resource
 {
     protected static ?string $model = FamilyProfile::class;
@@ -27,10 +28,14 @@ class FamilyProfileResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Hidden::make('user_id')->default(auth()->id()),
                 Forms\Components\Select::make('head_of_family')
                 ->label('Head of the Family')
-                ->options(BrgyInhabitant::where('positioninFamily', 'Head of the family')->pluck('lastname', 'id'))
+                ->options(
+                    BrgyInhabitant::where('positioninFamily', 'Head of the family')
+                        ->get()
+                        ->mapWithKeys(fn($inhabitant) => [$inhabitant->id => "{$inhabitant->firstname} {$inhabitant->lastname}"])
+                )
+                ->default(fn ($record) => $record?->head_of_family) // Set default for editing
                 ->reactive()
                 ->afterStateUpdated(function ($state, callable $set) {
                     $inhabitant = BrgyInhabitant::find($state);
@@ -44,12 +49,15 @@ class FamilyProfileResource extends Resource
                         $set('occupation', $inhabitant->occupation);
                     }
                 }),
+            
+                
                 Forms\Components\TextInput::make('sex')->required()->disabled(),
                 Forms\Components\TextInput::make('age')->required()->disabled(),
                 Forms\Components\TextInput::make('birthdate')->required()->disabled(),
                 Forms\Components\TextInput::make('civilstatus')->required()->disabled(),
                 Forms\Components\TextInput::make('educAttainment')->required()->disabled(),
                 Forms\Components\TextInput::make('occupation')->required()->disabled(),
+                Forms\Components\TextInput::make('religion')->required(),
                 Forms\Components\Select::make('monthlyincome')
                     ->label('Monthly Income')
                     ->required()
@@ -90,14 +98,37 @@ class FamilyProfileResource extends Resource
                         'No' => 'No',
                     ])
                     ->reactive(),
+
+                    Forms\Components\Select::make('houseMember')
+                    ->label('Select Family Members')
+                    ->multiple()
+                    ->options(BrgyInhabitant::pluck('id', 'id')->toArray()) // Retrieve inhabitants' IDs
+                    ->required()
+                    ->afterStateHydrated(function (Forms\Components\Select $component, $state) {
+                        // Add "Select All" manually to the options
+                        $component->options([
+                            'select_all' => 'Select All',
+                            ...BrgyInhabitant::get()->mapWithKeys(function ($inhabitant) {
+                                return [$inhabitant->id => $inhabitant->firstname . ' ' . $inhabitant->lastname];
+                            })->toArray(),
+                        ]);
+                    })
+                    ->reactive()
+                    ->afterStateUpdated(function (callable $set, $state) {
+                        if (in_array('select_all', $state)) {
+                            // Automatically select all Barangay Inhabitants if "Select All" is chosen
+                            $set('houseMember', BrgyInhabitant::pluck('id')->toArray());
+                        }
+                    }),
             ]);
+            
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user_id')
+                Tables\Columns\TextColumn::make('id')
                 ->label('User ID')
                 ->sortable(),
 
@@ -106,6 +137,24 @@ class FamilyProfileResource extends Resource
                 ->label('Head of Family')
                 ->sortable()
                 ->searchable(),
+                // Display the Family Members
+                Tables\Columns\TextColumn::make('houseMember')
+                    ->label('Family Members')
+                    ->getStateUsing(function (FamilyProfile $record) {
+                        // Check if houseMember field exists and is not empty
+                        if (is_array($record->houseMember) || is_object($record->houseMember)) {
+                            // Fetch the related Barangay Inhabitants and join their names
+                            return BrgyInhabitant::whereIn('id', $record->houseMember)
+                                ->get()
+                                ->map(fn($inhabitant) => "{$inhabitant->firstname} {$inhabitant->lastname}")
+                                ->join(', ');
+                        }
+
+                        return '-'; // Default if no members are found
+                    })
+                    ->sortable()
+                    ->searchable(),
+
 
             // Display the sex of the head of the family
             Tables\Columns\TextColumn::make('headOfFamily.sex')
@@ -150,6 +199,13 @@ class FamilyProfileResource extends Resource
             ->sortable()
             ->searchable(),
 
+                        // Occupation
+                        Tables\Columns\TextColumn::make('religion')
+                        ->label('Religion')
+                        ->sortable()
+                        ->searchable(),
+            
+
             // Monthly income
             Tables\Columns\TextColumn::make('monthlyincome')
                 ->label('Monthly Income')
@@ -174,11 +230,7 @@ class FamilyProfileResource extends Resource
                 ->sortable()
                 ->searchable(),
 
-            // Housing materials
-            Tables\Columns\TextColumn::make('housing_materials')
-                ->label('Housing Materials')
-                ->sortable()
-                ->searchable(),
+        
 
             // 4Ps
             Tables\Columns\TextColumn::make('4ps')
