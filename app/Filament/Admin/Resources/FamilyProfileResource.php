@@ -44,20 +44,19 @@ class FamilyProfileResource extends Resource
                         $set('age', $inhabitant->age);
                         $set('birthdate', $inhabitant->birthdate);
                         $set('civilstatus', $inhabitant->civilstatus);
-                        $set('religion', $inhabitant->religion);
                         $set('educAttainment', $inhabitant->educAttainment);
                         $set('occupation', $inhabitant->occupation);
                     }
                 }),
             
                 
-                Forms\Components\TextInput::make('sex')->required()->disabled(),
-                Forms\Components\TextInput::make('age')->required()->disabled(),
-                Forms\Components\TextInput::make('birthdate')->required()->disabled(),
-                Forms\Components\TextInput::make('civilstatus')->required()->disabled(),
-                Forms\Components\TextInput::make('educAttainment')->required()->disabled(),
-                Forms\Components\TextInput::make('occupation')->required()->disabled(),
-                Forms\Components\TextInput::make('religion')->required(),
+                Forms\Components\TextInput::make('sex'),
+                Forms\Components\TextInput::make('age'),
+                Forms\Components\TextInput::make('birthdate'),
+                Forms\Components\TextInput::make('civilstatus'),
+                Forms\Components\TextInput::make('educAttainment'),
+                Forms\Components\TextInput::make('occupation'),
+                Forms\Components\TextInput::make('religion'),
                 Forms\Components\Select::make('monthlyincome')
                     ->label('Monthly Income')
                     ->required()
@@ -103,7 +102,6 @@ class FamilyProfileResource extends Resource
                     ->label('Select Family Members')
                     ->multiple()
                     ->options(BrgyInhabitant::pluck('id', 'id')->toArray()) // Retrieve inhabitants' IDs
-                    ->required()
                     ->afterStateHydrated(function (Forms\Components\Select $component, $state) {
                         // Add "Select All" manually to the options
                         $component->options([

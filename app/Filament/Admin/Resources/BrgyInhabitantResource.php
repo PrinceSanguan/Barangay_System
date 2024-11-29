@@ -78,11 +78,7 @@ class BrgyInhabitantResource extends Resource
                         'Mother' => 'Mother',  // Added "Mother"
                         'Grandfather' => 'Grandfather',  // Added "Grandfather"
                         'Grandmother' => 'Grandmother',  // Added "Grandmother"
-                        'Brother' => 'Brother',  // Added "Brother"
-                        'Sister' => 'Sister',  // Added "Sister"
-                        'Uncle' => 'Uncle',  // Added "Uncle"
-                        'Aunt' => 'Aunt',  // Added "Aunt"
-                        'Cousin' => 'Cousin',  // Added "Cousin"
+
                     ]),
                 
                 Forms\Components\Select::make('citizenship')
@@ -139,11 +135,11 @@ class BrgyInhabitantResource extends Resource
                         'Yes' => 'Yes',
                         'No' => 'No',
                     ]),
-                Forms\Components\Select::make('PWD')
+                Forms\Components\Select::make('pwd')
                     ->required()
                     ->options([
-                        'YES' => 'YES',
-                        'NO' => 'NO',
+                        'Yes' => 'Yes',
+                        'No' => 'No',
                     ]),
                 Forms\Components\TextInput::make('email')
                     ->label('Active Email Account')
@@ -165,13 +161,15 @@ class BrgyInhabitantResource extends Resource
                 Tables\Columns\TextColumn::make('purok')->searchable(),
                 Tables\Columns\TextColumn::make('placeofbirth')->searchable(),
                 Tables\Columns\TextColumn::make('sex')->searchable(),
-                Tables\Columns\TextColumn::make('civilstatus')->searchable(),
+                Tables\Columns\TextColumn::make('civilstatus')
+
+                ->searchable(),
                 Tables\Columns\TextColumn::make('positioninFamily')->searchable(),
                 Tables\Columns\TextColumn::make('citizenship')->searchable(),
                 Tables\Columns\TextColumn::make('educAttainment')->searchable(),
                 Tables\Columns\TextColumn::make('occupation')->searchable(),
                 Tables\Columns\TextColumn::make('ofw')->searchable(),
-                Tables\Columns\TextColumn::make('PWD')->label('PWD')->searchable(),
+                Tables\Columns\TextColumn::make('pwd')->label('Pwd')->searchable(),
                 Tables\Columns\TextColumn::make('email')->label('Active Email Account')->searchable(),
                 BooleanColumn::make('is_approved')->label('Approved')->sortable(),
             ])
@@ -195,9 +193,9 @@ class BrgyInhabitantResource extends Resource
                 ])
                 ->label('Filter by Inhabitant Status'),
             
-                Filter::make('PWD')
-                    ->query(fn (Builder $query) => $query->where('PWD', 'YES')),
-                Filter::make('OFW')
+                Filter::make('pwd')
+                    ->query(fn (Builder $query) => $query->where('pwd', 'Yes')),
+                Filter::make('ofw')
                     ->query(fn (Builder $query) => $query->where('ofw', 'Yes')),
                 Filter::make('Senior Citizens')
                     ->label('Age 60 and Above')
@@ -273,11 +271,7 @@ class BrgyInhabitantResource extends Resource
                 'Mother' => 'Mother',
                 'Grandfather' => 'Grandfather',
                 'Grandmother' => 'Grandmother',
-                'Brother' => 'Brother',
-                'Sister' => 'Sister',
-                'Uncle' => 'Uncle',
-                'Aunt' => 'Aunt',
-                'Cousin' => 'Cousin',
+
             ])
             ->placeholder('Select Position in Family'),
     ])

@@ -26,6 +26,12 @@ class BrgyInhabitant extends Model
         'educAttainment',
         'civilstatus',
         'occupation',
+        'ofw',
+        'purok',
+        'pwd',
+        'placeofbirth',
+        'citizenship',
+        'email',
     ];
 
     // Relationships
