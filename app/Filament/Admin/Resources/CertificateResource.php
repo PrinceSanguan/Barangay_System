@@ -4,6 +4,7 @@ namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\CertificateResource\Pages;
 use App\Mail\CertificateApprovedMail;
+use App\Mail\CertificateCancelledMail;
 use App\Models\Certificate;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -31,21 +32,20 @@ class CertificateResource extends Resource
     {
         return $form
             ->schema([
-            Forms\Components\Select::make('name')
-            ->label('Name')  // Label for the select field
-            ->options(User::pluck('name', 'name'))  // Retrieve names for options
-            ->default(auth()->user()->name)  // Automatically set the logged-in user's name as the default
-            ->required()
-            ->disabled(),  // Optional: to prevent the user from changing their own name,
+                Forms\Components\Select::make('user_id')
+                ->label('Name')
+                ->relationship('user', 'name') 
+                // ->searchable() // Makes the select field searchable
+                ->required()
+                ->disabled(),
+                Forms\Components\Select::make('user_id')
+                ->label('Email')
+                ->relationship('user', 'email') 
+                // ->searchable() // Makes the select field searchable
+                ->required()
+                ->disabled(),
 
-
-            Forms\Components\Select::make('email')
-            ->label('Email')
-            ->options(User::pluck('email', 'email'))  // Retrieves emails for options
-            ->default(auth()->user()->email)  // Automatically set the logged-in user's email as the default
-            ->disabled()
-            ->required(),
-
+         
 
                 Forms\Components\Select::make('certificate_type')
                     ->label('Certificate Type')
@@ -216,6 +216,18 @@ class CertificateResource extends Resource
                     Mail::to($record->user->email)->send(new CertificateApprovedMail($record));
                 })
                 ->visible(fn (Certificate $record) => Auth::user()->hasAnyRole(['brgySecretary', 'super_admin']) && ! $record->is_approved),
+                Action::make('cancel')
+    ->label('Cancel')
+    ->action(function (Certificate $record) {
+        $record->is_approved = false;
+        $record->status = 'cancelled'; // Update the status to "cancelled"
+        $record->save();
+
+        // Send email notification to the user
+        Mail::to($record->user->email)->send(new CertificateCancelledMail($record));
+    })
+    ->requiresConfirmation()
+    ->visible(fn (Certificate $record) => Auth::user()->hasAnyRole(['brgySecretary', 'super_admin']) && $record->status !== 'cancelled'),
 
                 Tables\Actions\EditAction::make(),
             ])
