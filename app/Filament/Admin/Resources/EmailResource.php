@@ -33,25 +33,18 @@ class EmailResource extends Resource
                 Textarea::make('body')
                     ->label('Email Body')
                     ->required(),
-                    FileUpload::make('attachment')
-                    ,
+
+                FileUpload::make('attachment')
+                    ->label('Attachment'),
 
                 Select::make('users')
                     ->label('Select Users')
                     ->multiple()
-                    ->options(User::pluck('email', 'id'))  // Retrieve users' email
+                    ->options(User::pluck('email', 'id'))
                     ->required()
-                    ->afterStateHydrated(function (Select $component, $state) {
-                        // Add "Select All" manually in the options
-                        $component->options([
-                            'select_all' => 'Select All',
-                            ...User::pluck('email', 'id')->toArray(),
-                        ]);
-                    })
                     ->reactive()
                     ->afterStateUpdated(function (callable $set, $state) {
                         if (in_array('select_all', $state)) {
-                            // Automatically select all users if "Select All" is chosen
                             $set('users', User::pluck('id')->toArray());
                         }
                     }),
@@ -64,9 +57,9 @@ class EmailResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
-                    Tables\Columns\TextColumn::make('body')
+                Tables\Columns\TextColumn::make('body')
                     ->searchable(),
-                    Tables\Columns\TextColumn::make('attachment')
+                Tables\Columns\TextColumn::make('attachment')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -77,24 +70,17 @@ class EmailResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array
@@ -106,4 +92,3 @@ class EmailResource extends Resource
         ];
     }
 }
-

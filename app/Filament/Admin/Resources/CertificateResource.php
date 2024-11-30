@@ -32,16 +32,17 @@ class CertificateResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Hidden::make('user_id')
+    ->default(fn () => auth()->id()) // Automatically set the current logged-in user's ID
+    ->required(),
                 Forms\Components\Select::make('user_id')
                 ->label('Name')
                 ->relationship('user', 'name') 
-                // ->searchable() // Makes the select field searchable
                 ->required()
                 ->disabled(),
                 Forms\Components\Select::make('user_id')
                 ->label('Email')
                 ->relationship('user', 'email') 
-                // ->searchable() // Makes the select field searchable
                 ->required()
                 ->disabled(),
 
