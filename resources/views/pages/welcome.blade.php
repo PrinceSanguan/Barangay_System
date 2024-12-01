@@ -319,58 +319,17 @@
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
                   <h4>Restaurants</h4>
-                  <div class="row">
-                    @forelse ($restaurants as $restaurant)
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="{{ $restaurant->image ? asset($restaurant->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $restaurant->name }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $restaurant->name }}</h5>
-                                    <p class="card-text">{{ $restaurant->description }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        <p>No Park available at the moment.</p>
-                    @endforelse
-                </div>
+               
                 </a>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
                       <h4>Schools</h4>
-                      <div class="row">
-                        @forelse ($schools as $shcool)
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="{{ $shcool->image ? asset($shcool->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $shcool->name }}">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $shcool->name }}</h5>
-                                        <p class="card-text">{{ $shcool->description }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        @empty
-                            <p>No Park available at the moment.</p>
-                        @endforelse
-                    </div>
+                      
                     </a>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
                           <h4>Tourist Spots</h4>
-                          <div class="row">
-                            @forelse ($touristSpots as $tourist)
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <img src="{{ $tourist->image ? asset($tourist->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $tourist->name }}">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ $tourist->name }}</h5>
-                                            <p class="card-text">{{ $tourist->description }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @empty
-                                <p>No Park available at the moment.</p>
-                            @endforelse
+                         
                         </div>
                         </a>
           </li><!-- End tab nav item -->
@@ -522,6 +481,64 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $restaurant->name }}</h5>
                                     <p class="card-text">{{ $restaurant->description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <p>No Park available at the moment.</p>
+                    @endforelse
+                </div>
+        
+            </div>
+          
+
+        </div>
+        <div class="tab-pane fade" id="menu-dinner">
+
+            <div class="text-center tab-header">
+              <p>School</p>
+              {{-- <h3>Dinner</h3> --}}
+            </div>
+
+            <div class="row gy-5">
+
+                <div class="row">
+                    @forelse ($schools as $school)
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="{{ $school->image ? asset($school->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $school->name }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $school->name }}</h5>
+                                    <p class="card-text">{{ $school->description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <p>No Park available at the moment.</p>
+                    @endforelse
+                </div>
+        
+            </div>
+          
+
+        </div>
+        <div class="tab-pane fade" id="menu-dinner">
+
+            <div class="text-center tab-header">
+              <p>Tourist Spots</p>
+              {{-- <h3>Dinner</h3> --}}
+            </div>
+
+            <div class="row gy-5">
+
+                <div class="row">
+                    @forelse ($touristSpots as $spot)
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="{{ $spot->image ? asset($spot->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $spot->name }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $spot->name }}</h5>
+                                    <p class="card-text">{{ $spot->description }}</p>
                                 </div>
                             </div>
                         </div>
