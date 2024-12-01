@@ -307,42 +307,14 @@
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
               <h4>Hospitals</h4>
-              <div class="row">
-                @forelse ($hospitals as $hospital)
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="{{ $hospital->image ? asset($hospital->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $hospital->name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $hospital->name }}</h5>
-                                <p class="card-text">{{ $hospital->description }}</p>
-                            </div>
-                        </div>
-                    </div>
-                @empty
-                    <p>No Hospital available at the moment.</p>
-                @endforelse
-            </div>
+            
             </a>
           </li><!-- End tab nav item -->
 
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
               <h4>Parks</h4>
-              <div class="row">
-                @forelse ($parks as $park)
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="{{ $park->image ? asset($park->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $park->name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $park->name }}</h5>
-                                <p class="card-text">{{ $park->description }}</p>
-                            </div>
-                        </div>
-                    </div>
-                @empty
-                    <p>No Park available at the moment.</p>
-                @endforelse
-            </div>
+            
             </a>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
@@ -442,8 +414,8 @@
           <div class="tab-pane fade" id="menu-breakfast">
 
             <div class="text-center tab-header">
-              <p>Menu</p>
-              <h3>Breakfast</h3>
+              <p>Church</p>
+              <h3>Church</h3>
             </div>
 
             <div class="row gy-5">
@@ -474,77 +446,31 @@
           <div class="tab-pane fade" id="menu-lunch">
 
             <div class="text-center tab-header">
-              <p>Menu</p>
-              <h3>Lunch</h3>
+              <p>Hospitals</p>
+              <h3></h3>
             </div>
 
             <div class="row gy-5">
 
               <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-1.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-1.png') }}" class="menu-img img-fluid" alt=""></a>
-                <h4>Magnam Tiste</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $5.95
-                </p>
+                <div class="row">
+                    @forelse ($hospitals as $hospital)
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="{{ $hospital->image ? asset($hospital->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $hospital->name }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $hospital->name }}</h5>
+                                    <p class="card-text">{{ $hospital->description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <p>No Hospital available at the moment.</p>
+                    @endforelse
+                </div>
               </div><!-- Menu Item -->
 
-              <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-2.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-2.png') }}" class="menu-img img-fluid" alt=""></a>
-                <h4>Aut Luia</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $14.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-3.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-3.png') }}" class="menu-img img-fluid" alt=""></a>
-                <h4>Est Eligendi</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $8.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-4.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-4.png') }}" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $12.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-5.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-5.png') }}" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $12.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-6.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-6.png') }}" class="menu-img img-fluid" alt=""></a>
-                <h4>Laboriosam Direva</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $9.95
-                </p>
-              </div><!-- Menu Item -->
+             
 
             </div>
           </div><!-- End Lunch Menu Content -->
@@ -552,80 +478,60 @@
           <div class="tab-pane fade" id="menu-dinner">
 
             <div class="text-center tab-header">
-              <p>Menu</p>
-              <h3>Dinner</h3>
+              <p>Parks</p>
+              {{-- <h3>Dinner</h3> --}}
             </div>
 
             <div class="row gy-5">
 
-              <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-1.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-1.png') }}" class="menu-img img-fluid" alt=""></a>
-                <h4>Magnam Tiste</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $5.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-2.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-2.png') }}" class="menu-img img-fluid" alt=""></a>
-                <h4>Aut Luia</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $14.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-3.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-3.png') }}" class="menu-img img-fluid" alt=""></a>
-                <h4>Est Eligendi</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $8.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-4.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-4.png') }}" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $12.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-5.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-5.png') }}" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $12.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-6.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-6.png') }}" class="menu-img img-fluid" alt=""></a>
-                <h4>Laboriosam Direva</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $9.95
-                </p>
-              </div><!-- Menu Item -->
-
+                <div class="row">
+                    @forelse ($parks as $park)
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="{{ $park->image ? asset($park->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $park->name }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $park->name }}</h5>
+                                    <p class="card-text">{{ $park->description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <p>No Park available at the moment.</p>
+                    @endforelse
+                </div>
+        
             </div>
-          </div><!-- End Dinner Menu Content -->
+          
+
+        </div>
+
+        <div class="tab-pane fade" id="menu-dinner">
+
+            <div class="text-center tab-header">
+              <p>Restaurants</p>
+              {{-- <h3>Dinner</h3> --}}
+            </div>
+
+            <div class="row gy-5">
+
+                <div class="row">
+                    @forelse ($restaurants as $restaurant)
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="{{ $restaurant->image ? asset($restaurant->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $restaurant->name }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $restaurant->name }}</h5>
+                                    <p class="card-text">{{ $restaurant->description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <p>No Park available at the moment.</p>
+                    @endforelse
+                </div>
+        
+            </div>
+          
 
         </div>
 
