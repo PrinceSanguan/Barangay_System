@@ -10,9 +10,13 @@ class FamilyProfile extends Model
     use HasFactory;
 
     protected $table = 'family_profiles'; // Optional, if table name matches the pluralized model name
+
     protected $primaryKey = 'id'; // Optional if primary key is `id`
+
     public $incrementing = true; // Default behavior
+
     protected $keyType = 'int'; // Default behavior
+
     public $timestamps = true; // Default behavior
 
     // Define the attributes that are mass assignable

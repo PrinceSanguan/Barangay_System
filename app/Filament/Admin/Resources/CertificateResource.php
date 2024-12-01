@@ -6,6 +6,7 @@ use App\Filament\Admin\Resources\CertificateResource\Pages;
 use App\Mail\CertificateApprovedMail;
 use App\Mail\CertificateCancelledMail;
 use App\Models\Certificate;
+use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -16,8 +17,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;  // Make sure to import the User model
+use Illuminate\Support\Facades\Auth;  // Make sure to import the User model
 use Illuminate\Support\Facades\Mail;
 
 class CertificateResource extends Resource
@@ -33,20 +33,18 @@ class CertificateResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Hidden::make('user_id')
-    ->default(fn () => auth()->id()) // Automatically set the current logged-in user's ID
-    ->required(),
+                    ->default(fn () => auth()->id()) // Automatically set the current logged-in user's ID
+                    ->required(),
                 Forms\Components\Select::make('user_id')
-                ->label('Name')
-                ->relationship('user', 'name') 
-                ->required()
-                ->disabled(),
+                    ->label('Name')
+                    ->relationship('user', 'name')
+                    ->required()
+                    ->disabled(),
                 Forms\Components\Select::make('user_id')
-                ->label('Email')
-                ->relationship('user', 'email') 
-                ->required()
-                ->disabled(),
-
-         
+                    ->label('Email')
+                    ->relationship('user', 'email')
+                    ->required()
+                    ->disabled(),
 
                 Forms\Components\Select::make('certificate_type')
                     ->label('Certificate Type')
@@ -110,7 +108,7 @@ class CertificateResource extends Resource
                         'approved' => 'Approved',
                         'denied' => 'Denied',
                         'cancelled' => 'Cancelled',
-                        
+
                     ])
                     ->default('pending')
                     ->required()
@@ -141,8 +139,8 @@ class CertificateResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('user.name')  // Access the 'name' from the related 'User' model
-                ->label('Name')
-                ->searchable(),
+                    ->label('Name')
+                    ->searchable(),
 
                 TextColumn::make('user.email')
                     ->label('Email'),
@@ -156,8 +154,6 @@ class CertificateResource extends Resource
                     ->prefix('₱')
                     ->sortable(),
 
-
-
                 TextColumn::make('payment_status')
                     ->label('Payment Status')
                     ->formatStateUsing(fn ($state) => ucfirst($state))
@@ -166,8 +162,6 @@ class CertificateResource extends Resource
                 TextColumn::make('purpose')
                     ->label('Purpose')
                     ->limit(50),
-
-                
 
                 TextColumn::make('status')
                     ->label('Status')
@@ -180,8 +174,8 @@ class CertificateResource extends Resource
                     ->label('Certificate Date')
                     ->dateTime()
                     ->sortable(),
-                    
-                    BooleanColumn::make('is_approved')
+
+                BooleanColumn::make('is_approved')
                     ->label('Approved')
                     ->trueIcon('heroicon-o-check-circle')
                     ->falseIcon('heroicon-o-x-circle'),
@@ -196,10 +190,10 @@ class CertificateResource extends Resource
                     ->form([
                         Forms\Components\Select::make('status')
                             ->options([
-                            'pending' => 'Pending',
-                            'approved' => 'Approved',
-                            'denied' => 'Denied',
-                            'cancelled' => 'Cancelled',
+                                'pending' => 'Pending',
+                                'approved' => 'Approved',
+                                'denied' => 'Denied',
+                                'cancelled' => 'Cancelled',
                             ])
                             ->placeholder('All'),
                     ])
@@ -207,28 +201,28 @@ class CertificateResource extends Resource
             ])
             ->actions([
                 Action::make('approve')
-                ->label('Approve')
-                ->action(function (Certificate $record) {
-                    $record->is_approved = true;
-                    $record->status = 'approved'; // Update the status to "approved"
-                    $record->save();
-            
-                    // Send email notification to the user
-                    Mail::to($record->user->email)->send(new CertificateApprovedMail($record));
-                })
-                ->visible(fn (Certificate $record) => Auth::user()->hasAnyRole(['brgySecretary', 'super_admin']) && ! $record->is_approved),
-                Action::make('cancel')
-    ->label('Cancel')
-    ->action(function (Certificate $record) {
-        $record->is_approved = false;
-        $record->status = 'cancelled'; // Update the status to "cancelled"
-        $record->save();
+                    ->label('Approve')
+                    ->action(function (Certificate $record) {
+                        $record->is_approved = true;
+                        $record->status = 'approved'; // Update the status to "approved"
+                        $record->save();
 
-        // Send email notification to the user
-        Mail::to($record->user->email)->send(new CertificateCancelledMail($record));
-    })
-    ->requiresConfirmation()
-    ->visible(fn (Certificate $record) => Auth::user()->hasAnyRole(['brgySecretary', 'super_admin']) && $record->status !== 'cancelled'),
+                        // Send email notification to the user
+                        Mail::to($record->user->email)->send(new CertificateApprovedMail($record));
+                    })
+                    ->visible(fn (Certificate $record) => Auth::user()->hasAnyRole(['brgySecretary', 'super_admin']) && ! $record->is_approved),
+                Action::make('cancel')
+                    ->label('Cancel')
+                    ->action(function (Certificate $record) {
+                        $record->is_approved = false;
+                        $record->status = 'cancelled'; // Update the status to "cancelled"
+                        $record->save();
+
+                        // Send email notification to the user
+                        Mail::to($record->user->email)->send(new CertificateCancelledMail($record));
+                    })
+                    ->requiresConfirmation()
+                    ->visible(fn (Certificate $record) => Auth::user()->hasAnyRole(['brgySecretary', 'super_admin']) && $record->status !== 'cancelled'),
 
                 Tables\Actions\EditAction::make(),
             ])

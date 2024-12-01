@@ -15,10 +15,12 @@ class Task extends Model
         'progress',
         'status',
         'order_column',
-        'user_id'
+        'user_id',
 
     ];
-    public function sortable(): array {
+
+    public function sortable(): array
+    {
         return ['order_column'];
     }
 

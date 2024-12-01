@@ -68,10 +68,12 @@ class SkProgramResource extends Resource
             //
         ];
     }
+
     public static function canViewAny(): bool
     {
         return auth()->user()?->hasRole(['super_admin', 'brgySecretary']); // Replace with roles allowed to view this resource
     }
+
     public static function getPages(): array
     {
         return [

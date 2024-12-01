@@ -2,13 +2,14 @@
 
 namespace App\Providers;
 
+use App\Http\Responses\LogoutResponse;
 use App\Models\User;
 use App\Policies\ActivityPolicy;
-use Illuminate\Support\Facades\Gate;
-use Spatie\Activitylog\Models\Activity;
-use App\Http\Responses\LogoutResponse;
-use Illuminate\Support\ServiceProvider;
 use Filament\Http\Responses\Auth\Contracts\LogoutResponse as LogoutResponseContract;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\ServiceProvider;
+use Spatie\Activitylog\Models\Activity;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**

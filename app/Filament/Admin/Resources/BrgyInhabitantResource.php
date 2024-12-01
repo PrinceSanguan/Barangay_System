@@ -66,7 +66,7 @@ class BrgyInhabitantResource extends Resource
                         'Annulled' => 'Annulled',
                         'Live-in' => 'Live-in',
                     ]),
-                    Forms\Components\Select::make('positioninFamily')
+                Forms\Components\Select::make('positioninFamily')
                     ->required()
                     ->options([
                         'Head of the family' => 'Head of the family',
@@ -80,7 +80,7 @@ class BrgyInhabitantResource extends Resource
                         'Grandmother' => 'Grandmother',  // Added "Grandmother"
 
                     ]),
-                
+
                 Forms\Components\Select::make('citizenship')
                     ->required()
                     ->options([
@@ -106,7 +106,7 @@ class BrgyInhabitantResource extends Resource
                             $set('citizenship', $state);
                         }
                     }),
-                    
+
                 Forms\Components\Select::make('educAttainment')
                     ->label('Educational Attainment')
                     ->required()
@@ -162,8 +162,7 @@ class BrgyInhabitantResource extends Resource
                 Tables\Columns\TextColumn::make('placeofbirth')->searchable(),
                 Tables\Columns\TextColumn::make('sex')->searchable(),
                 Tables\Columns\TextColumn::make('civilstatus')
-
-                ->searchable(),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('positioninFamily')->searchable(),
                 Tables\Columns\TextColumn::make('citizenship')->searchable(),
                 Tables\Columns\TextColumn::make('educAttainment')->searchable(),
@@ -175,24 +174,24 @@ class BrgyInhabitantResource extends Resource
             ])
             ->filters([
                 Filter::make('Inhabitant Status')
-                ->query(function (Builder $query, array $data) {
-                    if (isset($data['status']) && $data['status'] === 'pending') {
-                        $query->where('is_approved', false);
-                    } elseif (isset($data['status']) && $data['status'] === 'approved') {
-                        $query->where('is_approved', true);
-                    }
-                })
-                ->form([
-                    Forms\Components\Select::make('status')
-                        ->label('Inhabitant Status')
-                        ->options([
-                            'pending' => 'Pending Approval',
-                            'approved' => 'Approved Only',
-                        ])
-                        ->placeholder('Select Inhabitant Status'),
-                ])
-                ->label('Filter by Inhabitant Status'),
-            
+                    ->query(function (Builder $query, array $data) {
+                        if (isset($data['status']) && $data['status'] === 'pending') {
+                            $query->where('is_approved', false);
+                        } elseif (isset($data['status']) && $data['status'] === 'approved') {
+                            $query->where('is_approved', true);
+                        }
+                    })
+                    ->form([
+                        Forms\Components\Select::make('status')
+                            ->label('Inhabitant Status')
+                            ->options([
+                                'pending' => 'Pending Approval',
+                                'approved' => 'Approved Only',
+                            ])
+                            ->placeholder('Select Inhabitant Status'),
+                    ])
+                    ->label('Filter by Inhabitant Status'),
+
                 Filter::make('pwd')
                     ->query(fn (Builder $query) => $query->where('pwd', 'Yes')),
                 Filter::make('ofw')
@@ -216,7 +215,7 @@ class BrgyInhabitantResource extends Resource
                     ])
                     ->query(function (Builder $query, array $data) {
                         if (isset($data['min_age']) && isset($data['max_age'])) {
-                            $query->whereBetween('age', [(int)$data['min_age'], (int)$data['max_age']]);
+                            $query->whereBetween('age', [(int) $data['min_age'], (int) $data['max_age']]);
                         }
                     })
                     ->label('Age Range (Min-Max)'),
@@ -231,7 +230,7 @@ class BrgyInhabitantResource extends Resource
                         $query->where('citizenship', 'Others'); // Show only 'Others' for citizenship
                     })
                     ->label('Other Citizenship'),
-                    Filter::make('Civil Status')
+                Filter::make('Civil Status')
                     ->query(function (Builder $query, array $data) {
                         if (isset($data['civilstatus'])) {
                             $query->where('civilstatus', $data['civilstatus']);
@@ -251,49 +250,47 @@ class BrgyInhabitantResource extends Resource
                             ->placeholder('Select Civil Status'),
                     ])
                     ->label('Filter by Civil Status'),
-                    Filter::make('Position in Family')
-    ->query(function (Builder $query, array $data) {
-        if (isset($data['positioninFamily'])) {
-            $query->where('positioninFamily', $data['positioninFamily']);
-        }
-    })
-    
-    ->form([
-        Forms\Components\Select::make('positioninFamily')
-            ->label('Position in Family')
-            ->options([
-                'Head of the family' => 'Head of the family',
-                'Wife' => 'Wife',
-                'Husband' => 'Husband',
-                'Son' => 'Son',
-                'Daughter' => 'Daughter',
-                'Father' => 'Father',
-                'Mother' => 'Mother',
-                'Grandfather' => 'Grandfather',
-                'Grandmother' => 'Grandmother',
+                Filter::make('Position in Family')
+                    ->query(function (Builder $query, array $data) {
+                        if (isset($data['positioninFamily'])) {
+                            $query->where('positioninFamily', $data['positioninFamily']);
+                        }
+                    })
+                    ->form([
+                        Forms\Components\Select::make('positioninFamily')
+                            ->label('Position in Family')
+                            ->options([
+                                'Head of the family' => 'Head of the family',
+                                'Wife' => 'Wife',
+                                'Husband' => 'Husband',
+                                'Son' => 'Son',
+                                'Daughter' => 'Daughter',
+                                'Father' => 'Father',
+                                'Mother' => 'Mother',
+                                'Grandfather' => 'Grandfather',
+                                'Grandmother' => 'Grandmother',
 
-            ])
-            ->placeholder('Select Position in Family'),
-    ])
-    ->label('Filter by Position in Family'),
-    Filter::make('Sex')
-    ->query(function (Builder $query, array $data) {
-        if (isset($data['sex'])) {
-            $query->where('sex', $data['sex']);
-        }
-    })
-    ->form([
-        Forms\Components\Select::make('sex')
-            ->label('Sex')
-            ->options([
-                'Male' => 'Male',
-                'Female' => 'Female',
-            ])
-            ->placeholder('Select Sex'),
-    ])
-    ->label('Filter by Sex'),
+                            ])
+                            ->placeholder('Select Position in Family'),
+                    ])
+                    ->label('Filter by Position in Family'),
+                Filter::make('Sex')
+                    ->query(function (Builder $query, array $data) {
+                        if (isset($data['sex'])) {
+                            $query->where('sex', $data['sex']);
+                        }
+                    })
+                    ->form([
+                        Forms\Components\Select::make('sex')
+                            ->label('Sex')
+                            ->options([
+                                'Male' => 'Male',
+                                'Female' => 'Female',
+                            ])
+                            ->placeholder('Select Sex'),
+                    ])
+                    ->label('Filter by Sex'),
 
-                
             ])
             ->actions([
                 Action::make('approve')
@@ -311,8 +308,6 @@ class BrgyInhabitantResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
-    
 
     public static function getEloquentQuery(): Builder
     {

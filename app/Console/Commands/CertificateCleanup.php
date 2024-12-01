@@ -26,10 +26,10 @@ class CertificateCleanup extends Command
      */
     public function handle()
     {
-         // Delete cert older than 3 days
-         $deletedCert = Certificate::where('created_at', '<', now()->subDays(3) )
-         ->delete();
+        // Delete cert older than 3 days
+        $deletedCert = Certificate::where('created_at', '<', now()->subDays(3))
+            ->delete();
 
-        $this->info($deletedCert .' old certificates  have been cleaned up!');
+        $this->info($deletedCert.' old certificates  have been cleaned up!');
     }
 }

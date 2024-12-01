@@ -10,11 +10,9 @@ use Filament\Forms;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\Action;
-use Filament\Tables\Columns\BooleanColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-
 
 class FamilyProfileResource extends Resource
 {
@@ -29,27 +27,26 @@ class FamilyProfileResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('head_of_family')
-                ->label('Head of the Family')
-                ->options(
-                    BrgyInhabitant::where('positioninFamily', 'Head of the family')
-                        ->get()
-                        ->mapWithKeys(fn($inhabitant) => [$inhabitant->id => "{$inhabitant->firstname} {$inhabitant->lastname}"])
-                )
-                ->default(fn ($record) => $record?->head_of_family) // Set default for editing
-                ->reactive()
-                ->afterStateUpdated(function ($state, callable $set) {
-                    $inhabitant = BrgyInhabitant::find($state);
-                    if ($inhabitant) {
-                        $set('sex', $inhabitant->sex);
-                        $set('age', $inhabitant->age);
-                        $set('birthdate', $inhabitant->birthdate);
-                        $set('civilstatus', $inhabitant->civilstatus);
-                        $set('educAttainment', $inhabitant->educAttainment);
-                        $set('occupation', $inhabitant->occupation);
-                    }
-                }),
-            
-                
+                    ->label('Head of the Family')
+                    ->options(
+                        BrgyInhabitant::where('positioninFamily', 'Head of the family')
+                            ->get()
+                            ->mapWithKeys(fn ($inhabitant) => [$inhabitant->id => "{$inhabitant->firstname} {$inhabitant->lastname}"])
+                    )
+                    ->default(fn ($record) => $record?->head_of_family) // Set default for editing
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        $inhabitant = BrgyInhabitant::find($state);
+                        if ($inhabitant) {
+                            $set('sex', $inhabitant->sex);
+                            $set('age', $inhabitant->age);
+                            $set('birthdate', $inhabitant->birthdate);
+                            $set('civilstatus', $inhabitant->civilstatus);
+                            $set('educAttainment', $inhabitant->educAttainment);
+                            $set('occupation', $inhabitant->occupation);
+                        }
+                    }),
+
                 Forms\Components\TextInput::make('sex'),
                 Forms\Components\TextInput::make('age'),
                 Forms\Components\TextInput::make('birthdate'),
@@ -98,7 +95,7 @@ class FamilyProfileResource extends Resource
                     ])
                     ->reactive(),
 
-                    Forms\Components\Select::make('houseMember')
+                Forms\Components\Select::make('houseMember')
                     ->label('Select Family Members')
                     ->multiple()
                     ->options(BrgyInhabitant::pluck('id', 'id')->toArray()) // Retrieve inhabitants' IDs
@@ -107,7 +104,7 @@ class FamilyProfileResource extends Resource
                         $component->options([
                             'select_all' => 'Select All',
                             ...BrgyInhabitant::get()->mapWithKeys(function ($inhabitant) {
-                                return [$inhabitant->id => $inhabitant->firstname . ' ' . $inhabitant->lastname];
+                                return [$inhabitant->id => $inhabitant->firstname.' '.$inhabitant->lastname];
                             })->toArray(),
                         ]);
                     })
@@ -119,7 +116,7 @@ class FamilyProfileResource extends Resource
                         }
                     }),
             ]);
-            
+
     }
 
     public static function table(Table $table): Table
@@ -127,14 +124,14 @@ class FamilyProfileResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                ->label('User ID')
-                ->sortable(),
+                    ->label('User ID')
+                    ->sortable(),
 
-            // Display the head of the family
-            Tables\Columns\TextColumn::make('headOfFamily.full_name')
-                ->label('Head of Family')
-                ->sortable()
-                ->searchable(),
+                // Display the head of the family
+                Tables\Columns\TextColumn::make('headOfFamily.full_name')
+                    ->label('Head of Family')
+                    ->sortable()
+                    ->searchable(),
                 // Display the Family Members
                 Tables\Columns\TextColumn::make('houseMember')
                     ->label('Family Members')
@@ -144,7 +141,7 @@ class FamilyProfileResource extends Resource
                             // Fetch the related Barangay Inhabitants and join their names
                             return BrgyInhabitant::whereIn('id', $record->houseMember)
                                 ->get()
-                                ->map(fn($inhabitant) => "{$inhabitant->firstname} {$inhabitant->lastname}")
+                                ->map(fn ($inhabitant) => "{$inhabitant->firstname} {$inhabitant->lastname}")
                                 ->join(', ');
                         }
 
@@ -153,104 +150,99 @@ class FamilyProfileResource extends Resource
                     ->sortable()
                     ->searchable(),
 
+                // Display the sex of the head of the family
+                Tables\Columns\TextColumn::make('headOfFamily.sex')
+                    ->label('Sex')
+                    ->sortable()
+                    ->searchable(),
 
-            // Display the sex of the head of the family
-            Tables\Columns\TextColumn::make('headOfFamily.sex')
-                ->label('Sex')
-                ->sortable()
-                ->searchable(),
+                // Display the age of the head of the family
+                Tables\Columns\TextColumn::make('headOfFamily.age')
+                    ->label('Age')
+                    ->sortable()
+                    ->searchable(),
 
-            // Display the age of the head of the family
-            Tables\Columns\TextColumn::make('headOfFamily.age')
-                ->label('Age')
-                ->sortable()
-                ->searchable(),
+                // Display the birthdate of the head of the family
+                Tables\Columns\TextColumn::make('headOfFamily.birthdate')
+                    ->label('Birthdate')
+                    ->date()
+                    ->sortable()
+                    ->searchable(),
 
-            // Display the birthdate of the head of the family
-            Tables\Columns\TextColumn::make('headOfFamily.birthdate')
-                ->label('Birthdate')
-                ->date()
-                ->sortable()
-                ->searchable(),
+                // Civil status
+                Tables\Columns\TextColumn::make('headOfFamily.civilstatus')
+                    ->label('Civil Status')
+                    ->sortable()
+                    ->searchable(),
 
-            // Civil status
-            Tables\Columns\TextColumn::make('headOfFamily.civilstatus')
-                ->label('Civil Status')
-                ->sortable()
-                ->searchable(),
+                // Religion
+                // Tables\Columns\TextColumn::make('headOfFamily.religion')
+                //     ->label('Religion')
+                //     ->sortable()
+                //     ->searchable(),
 
-            // Religion
-            // Tables\Columns\TextColumn::make('headOfFamily.religion')
-            //     ->label('Religion')
-            //     ->sortable()
-            //     ->searchable(),
+                // Educational attainment
+                Tables\Columns\TextColumn::make('headOfFamily.educAttainment')
+                    ->label('Educational Attainment')
+                    ->sortable()
+                    ->searchable(),
 
-            // Educational attainment
-            Tables\Columns\TextColumn::make('headOfFamily.educAttainment')
-                ->label('Educational Attainment')
-                ->sortable()
-                ->searchable(),
+                // Occupation
+                Tables\Columns\TextColumn::make('headOfFamily.occupation')
+                    ->label('Occupation')
+                    ->sortable()
+                    ->searchable(),
 
-            // Occupation
-            Tables\Columns\TextColumn::make('headOfFamily.occupation')
-            ->label('Occupation')
-            ->sortable()
-            ->searchable(),
+                // Occupation
+                Tables\Columns\TextColumn::make('religion')
+                    ->label('Religion')
+                    ->sortable()
+                    ->searchable(),
 
-                        // Occupation
-                        Tables\Columns\TextColumn::make('religion')
-                        ->label('Religion')
-                        ->sortable()
-                        ->searchable(),
-            
+                // Monthly income
+                Tables\Columns\TextColumn::make('monthlyincome')
+                    ->label('Monthly Income')
+                    ->sortable()
+                    ->searchable(),
 
-            // Monthly income
-            Tables\Columns\TextColumn::make('monthlyincome')
-                ->label('Monthly Income')
-                ->sortable()
-                ->searchable(),
+                // Type of dwelling
+                Tables\Columns\TextColumn::make('typeOfDwelling')
+                    ->label('Type of Dwelling')
+                    ->sortable()
+                    ->searchable(),
 
-            // Type of dwelling
-            Tables\Columns\TextColumn::make('typeOfDwelling')
-                ->label('Type of Dwelling')
-                ->sortable()
-                ->searchable(),
+                // Water source
+                Tables\Columns\TextColumn::make('watersource')
+                    ->label('Water Source')
+                    ->sortable()
+                    ->searchable(),
 
-            // Water source
-            Tables\Columns\TextColumn::make('watersource')
-                ->label('Water Source')
-                ->sortable()
-                ->searchable(),
+                // Toilet facility
+                Tables\Columns\TextColumn::make('toiletFacility')
+                    ->label('Toilet Facility')
+                    ->sortable()
+                    ->searchable(),
 
-            // Toilet facility
-            Tables\Columns\TextColumn::make('toiletFacility')
-                ->label('Toilet Facility')
-                ->sortable()
-                ->searchable(),
+                // 4Ps
+                Tables\Columns\TextColumn::make('4ps')
+                    ->label('4Ps')
+                    ->sortable()
+                    ->searchable(),
 
-        
-
-            // 4Ps
-            Tables\Columns\TextColumn::make('4ps')
-                ->label('4Ps')
-                ->sortable()
-                ->searchable(),
-
-            // Approval status
-            Tables\Columns\BooleanColumn::make('is_approved')
-                ->label('Approved')
-                ->sortable(),
-        ])
+                // Approval status
+                Tables\Columns\BooleanColumn::make('is_approved')
+                    ->label('Approved')
+                    ->sortable(),
+            ])
             ->filters([
                 Filter::make('Pending Approval')
                     ->query(fn (Builder $query) => $query->where('is_approved', false)),
-                    Filter::make('4Ps Members')
+                Filter::make('4Ps Members')
                     ->query(fn (Builder $query) => $query->where('4ps', 'Yes')),
-                                 
-                    
-                    Filter::make('Monthly Income')
+
+                Filter::make('Monthly Income')
                     ->query(function (Builder $query, array $data) {
-                        if (!empty($data['monthlyincome'])) {
+                        if (! empty($data['monthlyincome'])) {
                             $query->where('monthlyincome', $data['monthlyincome']);
                         }
                     })
@@ -268,12 +260,10 @@ class FamilyProfileResource extends Resource
                             ->placeholder('Select Income Range'),
                     ]),
 
-                
-    
                 // Filtering for Type of Dwelling
                 Filter::make('Type of Dwelling')
                     ->query(function (Builder $query, array $data) {
-                        if (!empty($data['typeOfDwelling'])) {
+                        if (! empty($data['typeOfDwelling'])) {
                             $query->where('typeOfDwelling', $data['typeOfDwelling']);
                         }
                     })
@@ -293,7 +283,6 @@ class FamilyProfileResource extends Resource
                             ])
                             ->placeholder('All Types'),
                     ]),
-    
 
             ])
             ->actions([
@@ -307,12 +296,11 @@ class FamilyProfileResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([ 
+                Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
-    
 
     public static function getEloquentQuery(): Builder
     {

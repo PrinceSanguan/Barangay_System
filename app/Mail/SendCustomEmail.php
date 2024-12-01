@@ -3,10 +3,7 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
 class SendCustomEmail extends Mailable
@@ -28,7 +25,7 @@ class SendCustomEmail extends Mailable
 
         // Attach file if present
         if (isset($this->emailData['attachment'])) {
-            $email->attach(storage_path('app/' . $this->emailData['attachment']));
+            $email->attach(storage_path('app/'.$this->emailData['attachment']));
         }
 
         return $email;

@@ -3,10 +3,7 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
 class UserApprovedMail extends Mailable
@@ -18,7 +15,7 @@ class UserApprovedMail extends Mailable
     /**
      * Create a new message instance.
      *
-     * @param \App\Models\User $user
+     * @param  \App\Models\User  $user
      */
     public function __construct($user)
     {
@@ -33,9 +30,9 @@ class UserApprovedMail extends Mailable
     public function build()
     {
         return $this->subject('Your Account Has Been Approved')
-                    ->view('emails.user-approved') // Email template
-                    ->with([
-                        'user' => $this->user, // Pass the user to the view
-                    ]);
+            ->view('emails.user-approved') // Email template
+            ->with([
+                'user' => $this->user, // Pass the user to the view
+            ]);
     }
 }

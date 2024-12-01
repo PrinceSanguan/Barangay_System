@@ -22,7 +22,8 @@ class Certificate extends Model
     //     'is_approved',
     //     'certificate_date',
     // ];
-protected $guarded = [];
+    protected $guarded = [];
+
     protected $casts = [
         'requested_date' => 'date',
     ];

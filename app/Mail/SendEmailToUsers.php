@@ -18,7 +18,7 @@ class SendEmailToUsers extends Mailable
     {
         $this->title = $title;
         $this->body = $body;
-     
+
     }
 
     public function build()
@@ -27,7 +27,7 @@ class SendEmailToUsers extends Mailable
             ->view('emails.send_email_to_users')  // Create this view file
             ->with([
                 'body' => $this->body,
-                
+
             ]);
     }
 }
