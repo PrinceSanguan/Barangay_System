@@ -16,11 +16,11 @@
         <li>Appointment Date: {{ $date }}</li>
     </ul>
 
-    <p>Please proceed to the Barangay Office to claim your certificate.</p>
+    <p>Please proceed to the Barangay Centro I Office to claim your certificate.</p>
 
     <p>Thank you!</p>
 
     <p>Best Regards,</p>
-    <p>Barangay Centro 2</p>
+    <p>Barangay Centro I</p>
 </body>
 </html>

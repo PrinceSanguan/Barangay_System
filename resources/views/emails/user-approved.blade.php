@@ -11,6 +11,6 @@
     <p>Thank you for being part of our community.</p>
 
     <p>Best Regards,</p>
-    <p>Barangay Centro 2</p>
+    <p>Barangay Centro I</p>
 </body>
 </html>

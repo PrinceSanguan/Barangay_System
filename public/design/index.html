@@ -1,22 +1,16 @@
-@php
-    // Fetch the first site setting
-    $siteSetting = \App\Models\SiteSetting::first();
-@endphp
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Home - Barangay Centro 1</title>
+  <title>Index - Yummy Bootstrap Template</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="{{asset('design/img/favicon.png')}}" rel="icon">
-  <link href="{{ asset('design/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -24,14 +18,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{{ asset('design/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('design/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('design/vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ asset('design/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('design/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link href="{{ asset('design/css/main.css') }}" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Yummy
@@ -47,13 +41,10 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
 
-      <a href="{{ url('/') }}" class="logo d-flex align-items-center me-auto me-xl-0">
-        @if ($siteSetting && $siteSetting->logo)
-        <img src="{{ asset('storage/' . $siteSetting->logo) }}" alt="Barangay Logo" style="max-height: 50px;">
-      @else
-        <img src="https://via.placeholder.com/50x50.png?text=Logo" alt="Barangay Logo"> <!-- Fallback logo -->
-      @endif
-        <h1 class="sitename">Barangay Centro 01</h1>
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Yummy</h1>
         <span>.</span>
       </a>
 
@@ -87,8 +78,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="{{ auth()->check() ? route('filament.admin.pages.dashboard') : route('filament.admin.auth.login') }}">
-        {{ auth()->check() ? 'Dashboard' : 'Login' }}</a>
+      <a class="btn-getstarted" href="index.html#book-a-table">Book a Table</a>
 
     </div>
   </header>
@@ -100,16 +90,16 @@
 
       <div class="container">
         <div class="row gy-4 justify-content-center justify-content-lg-between">
-          <div class="order-2 col-lg-5 order-lg-1 d-flex flex-column justify-content-center">
-            <h1 data-aos="fade-up">Welcome To our Healthy<br>Barangay Centro01</h1>
-            <p data-aos="fade-up" data-aos-delay="100">We are team of talented Brgy. Officials</p>
+          <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <h1 data-aos="fade-up">Enjoy Your Healthy<br>Delicious Food</h1>
+            <p data-aos="fade-up" data-aos-delay="100">We are team of talented designers making websites with Bootstrap</p>
             <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
               <a href="#book-a-table" class="btn-get-started">Booka a Table</a>
-              <a href="https://www.youtube.com/watch?v=IRCasGmiIJY" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+              <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
             </div>
           </div>
-          <div class="order-1 col-lg-5 order-lg-2 hero-img" data-aos="zoom-out">
-            <img src="design/img/cap.png" class="img-fluid animated" alt="">
+          <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+            <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
           </div>
         </div>
       </div>
@@ -129,10 +119,10 @@
 
         <div class="row gy-4">
           <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-            <img src="design/img/about.jpg" class="mb-4 img-fluid" alt="">
+            <img src="assets/img/about.jpg" class="img-fluid mb-4" alt="">
             <div class="book-a-table">
-              <h3>Call Us</h3>
-              <p>0912-3456-7890</p>
+              <h3>Book a Table</h3>
+              <p>+1 5589 55488 55</p>
             </div>
           </div>
           <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
@@ -151,8 +141,8 @@
                 velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
               </p>
 
-              <div class="mt-4 position-relative">
-                <img src="design/img/about-2.jpg" class="img-fluid" alt="">
+              <div class="position-relative mt-4">
+                <img src="assets/img/about-2.jpg" class="img-fluid" alt="">
                 <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
               </div>
             </div>
@@ -172,7 +162,7 @@
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="why-box">
-              <h3>Why Visit Us</h3>
+              <h3>Why Choose Yummy</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
                 Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
@@ -222,39 +212,43 @@
     <!-- Stats Section -->
     <section id="stats" class="stats section dark-background">
 
-      <img src="{{ asset('design/img/stats-bg.jpg') }}" alt="" data-aos="fade-in">
+      <img src="assets/img/stats-bg.jpg" alt="" data-aos="fade-in">
 
       <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
 
-            <h2 class="section-title text-center">Demographic Statistics</h2>
-        
-            <div class="row text-center mb-4">
-                <!-- Total Population, Male, and Female Counts Display -->
-                <div class="col-md-4">
-                    <p><strong>Total Population:</strong> {{ $totalPopulation }}</p>
-                </div>
-                <div class="col-md-4">
-                    <p><strong>Male Count:</strong> {{ $maleCount }}</p>
-                </div>
-                <div class="col-md-4">
-                    <p><strong>Female Count:</strong> {{ $femaleCount }}</p>
-                </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Clients</p>
             </div>
-            <div class="row">
-                <!-- Gender Distribution Pie Chart -->
-                <div class="col-md-6">
-                    <h4 class="text-center">Gender Distribution</h4>
-                    <canvas id="genderChart" width="100%" height="100"></canvas>
-                </div>
-    
-                <!-- Population by Age Groups Pie Chart -->
-                <div class="col-md-6">
-                    <h4 class="text-center">Population by Age Groups</h4>
-                    <canvas id="ageGroupChart" width="80%" height="80"></canvas>
-                </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Projects</p>
             </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Hours Of Support</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Workers</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
 
     </section><!-- /Stats Section -->
 
@@ -263,8 +257,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Visitor's Lounge</h2>
-        <p><span>Check Our</span> <span class="description-title">Lounge</span></p>
+        <h2>Our Menu</h2>
+        <p><span>Check Our</span> <span class="description-title">Yummy Menu</span></p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -273,134 +267,26 @@
 
           <li class="nav-item">
             <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
-              <h4>Hotels</h4>
-              {{-- <div class="tab-content">
-                <div class="tab-pane fade active show" id="menu-starters">
-                    <div class="row">
-                        @forelse ($hotels as $hotel)
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="{{ $hotel->image ? asset($hotel->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $hotel->name }}">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $hotel->name }}</h5>
-                                        <p class="card-text">{{ $hotel->description }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        @empty
-                            <p>No hotels available at the moment.</p>
-                        @endforelse
-                    </div>
-                </div>
-            </div> --}}
+              <h4>Starters</h4>
             </a>
-            
           </li><!-- End tab nav item -->
 
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
-              <h4>Churches</h4>
-            
+              <h4>Breakfast</h4>
             </a><!-- End tab nav item -->
 
           </li>
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
-              <h4>Hospitals</h4>
-              <div class="row">
-                @forelse ($hospitals as $hospital)
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="{{ $hospital->image ? asset($hospital->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $hospital->name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $hospital->name }}</h5>
-                                <p class="card-text">{{ $hospital->description }}</p>
-                            </div>
-                        </div>
-                    </div>
-                @empty
-                    <p>No Hospital available at the moment.</p>
-                @endforelse
-            </div>
+              <h4>Lunch</h4>
             </a>
           </li><!-- End tab nav item -->
 
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-              <h4>Parks</h4>
-              <div class="row">
-                @forelse ($parks as $park)
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="{{ $park->image ? asset($park->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $park->name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $park->name }}</h5>
-                                <p class="card-text">{{ $park->description }}</p>
-                            </div>
-                        </div>
-                    </div>
-                @empty
-                    <p>No Park available at the moment.</p>
-                @endforelse
-            </div>
+              <h4>Dinner</h4>
             </a>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-                  <h4>Restaurants</h4>
-                  <div class="row">
-                    @forelse ($restaurants as $restaurant)
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="{{ $restaurant->image ? asset($restaurant->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $restaurant->name }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $restaurant->name }}</h5>
-                                    <p class="card-text">{{ $restaurant->description }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        <p>No Park available at the moment.</p>
-                    @endforelse
-                </div>
-                </a>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-                      <h4>Schools</h4>
-                      <div class="row">
-                        @forelse ($schools as $shcool)
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="{{ $shcool->image ? asset($shcool->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $shcool->name }}">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $shcool->name }}</h5>
-                                        <p class="card-text">{{ $shcool->description }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        @empty
-                            <p>No Park available at the moment.</p>
-                        @endforelse
-                    </div>
-                    </a>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-                          <h4>Tourist Spots</h4>
-                          <div class="row">
-                            @forelse ($touristSpots as $tourist)
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <img src="{{ $tourist->image ? asset($tourist->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $tourist->name }}">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ $tourist->name }}</h5>
-                                            <p class="card-text">{{ $tourist->description }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @empty
-                                <p>No Park available at the moment.</p>
-                            @endforelse
-                        </div>
-                        </a>
           </li><!-- End tab nav item -->
 
         </ul>
@@ -409,79 +295,15 @@
 
           <div class="tab-pane fade active show" id="menu-starters">
 
-            <div class="text-center tab-header">
-              <p>Hotels</p>
-              <h3>Hotel</h3>
-            </div>
-
-            <div class="row gy-5">
-
-              <div class="col-lg-4 menu-item">
-                <div class="row">
-                    @forelse ($hotels as $hotel)
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="{{ $hotel->image ? asset($hotel->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $hotel->name }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $hotel->name }}</h5>
-                                    <p class="card-text">{{ $hotel->description }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        <p>No hotels available at the moment.</p>
-                    @endforelse
-                </div>
-              </div><!-- Menu Item -->
-
-             
-
-            </div>
-          </div><!-- End Starter Menu Content -->
-
-          <div class="tab-pane fade" id="menu-breakfast">
-
-            <div class="text-center tab-header">
+            <div class="tab-header text-center">
               <p>Menu</p>
-              <h3>Breakfast</h3>
+              <h3>Starters</h3>
             </div>
 
             <div class="row gy-5">
 
               <div class="col-lg-4 menu-item">
-                <div class="row">
-                    @forelse ($churches as $church)
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="{{ $church->image ? asset($church->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $church->name }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $church->name }}</h5>
-                                    <p class="card-text">{{ $church->description }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        <p>No Church available at the moment.</p>
-                    @endforelse
-                </div>
-              </div><!-- Menu Item -->
-
-              
-
-            </div>
-          </div><!-- End Breakfast Menu Content -->
-
-          <div class="tab-pane fade" id="menu-lunch">
-
-            <div class="text-center tab-header">
-              <p>Menu</p>
-              <h3>Lunch</h3>
-            </div>
-
-            <div class="row gy-5">
-
-              <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-1.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-1.png') }}" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Magnam Tiste</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -492,7 +314,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-2.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-2.png') }}" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Aut Luia</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -503,7 +325,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-3.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-3.png') }}" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Est Eligendi</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -514,7 +336,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-4.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-4.png') }}" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Eos Luibusdam</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -525,7 +347,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-5.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-5.png') }}" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Eos Luibusdam</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -536,7 +358,163 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-6.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-6.png') }}" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
+                <h4>Laboriosam Direva</h4>
+                <p class="ingredients">
+                  Lorem, deren, trataro, filede, nerada
+                </p>
+                <p class="price">
+                  $9.95
+                </p>
+              </div><!-- Menu Item -->
+
+            </div>
+          </div><!-- End Starter Menu Content -->
+
+          <div class="tab-pane fade" id="menu-breakfast">
+
+            <div class="tab-header text-center">
+              <p>Menu</p>
+              <h3>Breakfast</h3>
+            </div>
+
+            <div class="row gy-5">
+
+              <div class="col-lg-4 menu-item">
+                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                <h4>Magnam Tiste</h4>
+                <p class="ingredients">
+                  Lorem, deren, trataro, filede, nerada
+                </p>
+                <p class="price">
+                  $5.95
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
+                <h4>Aut Luia</h4>
+                <p class="ingredients">
+                  Lorem, deren, trataro, filede, nerada
+                </p>
+                <p class="price">
+                  $14.95
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
+                <h4>Est Eligendi</h4>
+                <p class="ingredients">
+                  Lorem, deren, trataro, filede, nerada
+                </p>
+                <p class="price">
+                  $8.95
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
+                <h4>Eos Luibusdam</h4>
+                <p class="ingredients">
+                  Lorem, deren, trataro, filede, nerada
+                </p>
+                <p class="price">
+                  $12.95
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
+                <h4>Eos Luibusdam</h4>
+                <p class="ingredients">
+                  Lorem, deren, trataro, filede, nerada
+                </p>
+                <p class="price">
+                  $12.95
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
+                <h4>Laboriosam Direva</h4>
+                <p class="ingredients">
+                  Lorem, deren, trataro, filede, nerada
+                </p>
+                <p class="price">
+                  $9.95
+                </p>
+              </div><!-- Menu Item -->
+
+            </div>
+          </div><!-- End Breakfast Menu Content -->
+
+          <div class="tab-pane fade" id="menu-lunch">
+
+            <div class="tab-header text-center">
+              <p>Menu</p>
+              <h3>Lunch</h3>
+            </div>
+
+            <div class="row gy-5">
+
+              <div class="col-lg-4 menu-item">
+                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                <h4>Magnam Tiste</h4>
+                <p class="ingredients">
+                  Lorem, deren, trataro, filede, nerada
+                </p>
+                <p class="price">
+                  $5.95
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
+                <h4>Aut Luia</h4>
+                <p class="ingredients">
+                  Lorem, deren, trataro, filede, nerada
+                </p>
+                <p class="price">
+                  $14.95
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
+                <h4>Est Eligendi</h4>
+                <p class="ingredients">
+                  Lorem, deren, trataro, filede, nerada
+                </p>
+                <p class="price">
+                  $8.95
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
+                <h4>Eos Luibusdam</h4>
+                <p class="ingredients">
+                  Lorem, deren, trataro, filede, nerada
+                </p>
+                <p class="price">
+                  $12.95
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
+                <h4>Eos Luibusdam</h4>
+                <p class="ingredients">
+                  Lorem, deren, trataro, filede, nerada
+                </p>
+                <p class="price">
+                  $12.95
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Laboriosam Direva</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -551,7 +529,7 @@
 
           <div class="tab-pane fade" id="menu-dinner">
 
-            <div class="text-center tab-header">
+            <div class="tab-header text-center">
               <p>Menu</p>
               <h3>Dinner</h3>
             </div>
@@ -559,7 +537,7 @@
             <div class="row gy-5">
 
               <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-1.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-1.png') }}" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Magnam Tiste</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -570,7 +548,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-2.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-2.png') }}" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Aut Luia</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -581,7 +559,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-3.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-3.png') }}" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Est Eligendi</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -592,7 +570,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-4.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-4.png') }}" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Eos Luibusdam</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -603,7 +581,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-5.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-5.png') }}" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Eos Luibusdam</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -614,7 +592,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="{{ asset('design/img/menu/menu-item-6.png') }}" class="glightbox"><img src="{{ asset('design/img/menu/menu-item-6.png') }}" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Laboriosam Direva</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -679,8 +657,8 @@
                       </div>
                     </div>
                   </div>
-                  <div class="text-center col-lg-2">
-                    <img src="design/img/testimonials/testimonials-1.jpg" class="img-fluid testimonial-img" alt="">
+                  <div class="col-lg-2 text-center">
+                    <img src="assets/img/testimonials/testimonials-1.jpg" class="img-fluid testimonial-img" alt="">
                   </div>
                 </div>
               </div>
@@ -703,8 +681,8 @@
                       </div>
                     </div>
                   </div>
-                  <div class="text-center col-lg-2">
-                    <img src="design/img/testimonials/testimonials-2.jpg" class="img-fluid testimonial-img" alt="">
+                  <div class="col-lg-2 text-center">
+                    <img src="assets/img/testimonials/testimonials-2.jpg" class="img-fluid testimonial-img" alt="">
                   </div>
                 </div>
               </div>
@@ -727,8 +705,8 @@
                       </div>
                     </div>
                   </div>
-                  <div class="text-center col-lg-2">
-                    <img src="design/img/testimonials/testimonials-3.jpg" class="img-fluid testimonial-img" alt="">
+                  <div class="col-lg-2 text-center">
+                    <img src="assets/img/testimonials/testimonials-3.jpg" class="img-fluid testimonial-img" alt="">
                   </div>
                 </div>
               </div>
@@ -751,8 +729,8 @@
                       </div>
                     </div>
                   </div>
-                  <div class="text-center col-lg-2">
-                    <img src="{{ asset('design/img/testimonials/testimonials-4.jpg') }}" class="img-fluid testimonial-img" alt="">
+                  <div class="col-lg-2 text-center">
+                    <img src="assets/img/testimonials/testimonials-4.jpg" class="img-fluid testimonial-img" alt="">
                   </div>
                 </div>
               </div>
@@ -799,7 +777,7 @@
           </script>
           <div class="swiper-wrapper">
 
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url({{ asset('design/img/events-1.jpg') }})">
+            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(assets/img/events-1.jpg)">
               <h3>Custom Parties</h3>
               <div class="price align-self-start">$99</div>
               <p class="description">
@@ -807,7 +785,7 @@
               </p>
             </div><!-- End Event item -->
 
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url({{ asset('design/img/events-2.jpg') }})">
+            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(assets/img/events-2.jpg)">
               <h3>Private Parties</h3>
               <div class="price align-self-start">$289</div>
               <p class="description">
@@ -815,7 +793,7 @@
               </p>
             </div><!-- End Event item -->
 
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url({{ asset('design/img/events-3.jpg') }})">
+            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(assets/img/events-3.jpg)">
               <h3>Birthday Parties</h3>
               <div class="price align-self-start">$499</div>
               <p class="description">
@@ -823,7 +801,7 @@
               </p>
             </div><!-- End Event item -->
 
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url({{ asset('design/img/events-4.jpg') }})">
+            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(assets/img/events-4.jpg)">
               <h3>Wedding Parties</h3>
               <div class="price align-self-start">$899</div>
               <p class="description">
@@ -855,7 +833,7 @@
           <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="team-member">
               <div class="member-img">
-                <img src="design/img/chefs/chefs-1.jpg" class="img-fluid" alt="">
+                <img src="assets/img/chefs/chefs-1.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -874,7 +852,7 @@
           <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member">
               <div class="member-img">
-                <img src="{{ asset('design/img/chefs/chefs-2.jpg') }}" class="img-fluid" alt="">
+                <img src="assets/img/chefs/chefs-2.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -893,7 +871,7 @@
           <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member">
               <div class="member-img">
-                <img src="{{ asset('design/img/chefs/chefs-3.jpg') }}" class="img-fluid" alt="">
+                <img src="assets/img/chefs/chefs-3.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -928,7 +906,7 @@
 
         <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
 
-          <div class="col-lg-4 reservation-img" style="background-image: url({{ asset('design/img/reservation.jpg') }});"></div>
+          <div class="col-lg-4 reservation-img" style="background-image: url(assets/img/reservation.jpg);"></div>
 
           <div class="col-lg-8 d-flex align-items-center reservation-form-bg" data-aos="fade-up" data-aos-delay="200">
             <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
@@ -953,11 +931,11 @@
                 </div>
               </div>
 
-              <div class="mt-3 form-group">
+              <div class="form-group mt-3">
                 <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
               </div>
 
-              <div class="mt-3 text-center">
+              <div class="text-center mt-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
@@ -975,57 +953,60 @@
     <!-- Gallery Section -->
     <section id="gallery" class="gallery section light-background">
 
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Gallery</h2>
-            <p><span>Check</span> <span class="description-title">Our Gallery</span></p>
-        </div><!-- End Section Title -->
-    
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-            <div class="swiper init-swiper">
-                <script type="application/json" class="swiper-config">
-                    {
-                        "loop": true,
-                        "speed": 600,
-                        "autoplay": {
-                            "delay": 5000
-                        },
-                        "slidesPerView": "auto",
-                        "centeredSlides": true,
-                        "pagination": {
-                            "el": ".swiper-pagination",
-                            "type": "bullets",
-                            "clickable": true
-                        },
-                        "breakpoints": {
-                            "320": {
-                                "slidesPerView": 1,
-                                "spaceBetween": 0
-                            },
-                            "768": {
-                                "slidesPerView": 3,
-                                "spaceBetween": 20
-                            },
-                            "1200": {
-                                "slidesPerView": 5,
-                                "spaceBetween": 20
-                            }
-                        }
-                    }
-                </script>
-                <div class="swiper-wrapper align-items-center">
-                    @foreach ($siteSetting->slider_images ?? [] as $image)
-                        <div class="swiper-slide">
-                            <a class="glightbox" data-gallery="images-gallery" href="{{ asset('storage/' . $image) }}">
-                                <img src="{{ asset('storage/' . $image) }}" class="img-fluid" alt="Gallery Image">
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Gallery</h2>
+        <p><span>Check</span> <span class="description-title">Our Gallery</span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "centeredSlides": true,
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 0
+                },
+                "768": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 20
+                },
+                "1200": {
+                  "slidesPerView": 5,
+                  "spaceBetween": 20
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-1.jpg"><img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-2.jpg"><img src="assets/img/gallery/gallery-2.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-3.jpg"><img src="assets/img/gallery/gallery-3.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-4.jpg"><img src="assets/img/gallery/gallery-4.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-5.jpg"><img src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-6.jpg"><img src="assets/img/gallery/gallery-6.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-7.jpg"><img src="assets/img/gallery/gallery-7.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-8.jpg"><img src="assets/img/gallery/gallery-8.jpg" class="img-fluid" alt=""></a></div>
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
-    
+
+      </div>
+
     </section><!-- /Gallery Section -->
 
     <!-- Contact Section -->
@@ -1040,16 +1021,14 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="mb-5">
-          <iframe style="width: 100%; height: 400px;"src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.1613053753626!2d121.22107192293363!3d18.566765122607467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3388c1fcba51eeff%3A0xd1e329108ffbc16!2sCentro%201%20sanchez%20mira!5e0!3m2!1sen!2sph!4v1733021845836!5m2!1sen!2sph" frameborder="0" allowfullscreen=""></iframe>
-          
-       
+          <iframe style="width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen=""></iframe>
         </div><!-- End Google Maps -->
 
         <div class="row gy-4">
 
           <div class="col-md-6">
             <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
-              <i class="flex-shrink-0 icon bi bi-geo-alt"></i>
+              <i class="icon bi bi-geo-alt flex-shrink-0"></i>
               <div>
                 <h3>Address</h3>
                 <p>A108 Adam Street, New York, NY 535022</p>
@@ -1059,7 +1038,7 @@
 
           <div class="col-md-6">
             <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
-              <i class="flex-shrink-0 icon bi bi-telephone"></i>
+              <i class="icon bi bi-telephone flex-shrink-0"></i>
               <div>
                 <h3>Call Us</h3>
                 <p>+1 5589 55488 55</p>
@@ -1069,7 +1048,7 @@
 
           <div class="col-md-6">
             <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
-              <i class="flex-shrink-0 icon bi bi-envelope"></i>
+              <i class="icon bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email Us</h3>
                 <p>info@example.com</p>
@@ -1079,7 +1058,7 @@
 
           <div class="col-md-6">
             <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="500">
-              <i class="flex-shrink-0 icon bi bi-clock"></i>
+              <i class="icon bi bi-clock flex-shrink-0"></i>
               <div>
                 <h3>Opening Hours<br></h3>
                 <p><strong>Mon-Sat:</strong> 11AM - 23PM; <strong>Sunday:</strong> Closed</p>
@@ -1108,7 +1087,7 @@
               <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
             </div>
 
-            <div class="text-center col-md-12">
+            <div class="col-md-12 text-center">
               <div class="loading">Loading</div>
               <div class="error-message"></div>
               <div class="sent-message">Your message has been sent. Thank you!</div>
@@ -1175,7 +1154,7 @@
       </div>
     </div>
 
-    <div class="container mt-4 text-center copyright">
+    <div class="container copyright text-center mt-4">
       <p>© <span>Copyright</span> <strong class="px-1 sitename">Yummy</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
@@ -1195,15 +1174,15 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="{{ asset('design/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('design/vendor/php-email-form/validate.js') }}"></script>
-  <script src="{{ asset('design/vendor/aos/aos.js') }}"></script>
-  <script src="{{ asset('design/vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('design/vendor/purecounter/purecounter_vanilla.js') }}"></script>
-  <script src="{{ asset('design/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="{{ asset('design/js/main.js') }}"></script>
+  <script src="assets/js/main.js"></script>
 
 </body>
 
