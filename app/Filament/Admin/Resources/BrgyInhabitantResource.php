@@ -36,12 +36,35 @@ class BrgyInhabitantResource extends Resource
                 Forms\Components\TextInput::make('middlename')
                     ->label('Middlename (optional)')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('age')
+                    Forms\Components\TextInput::make('extensionName')
+                    ->label('Extension Name (optional)')
+                    ->maxLength(255),
+                    Forms\Components\TextInput::make('age')
                     ->required()
                     ->numeric()
-                    ->maxLength(3),
+                    ->maxLength(3)
+                    ->disabled(), // Disable manual input for age
                 Forms\Components\DatePicker::make('birthdate')
-                    ->required(),
+                    ->required()
+                    ->reactive()
+                    ->afterStateUpdated(function (callable $set, $state) {
+                        if ($state) {
+                            try {
+                                // Parse the birthdate and calculate age
+                                $birthDate = \Carbon\Carbon::parse($state);
+                                $age = (int) $birthDate->diffInYears(now()); // Ensure age is an integer
+                                $set('age', $age); // Dynamically update the age field
+                            } catch (\Exception $e) {
+                                // Handle parsing errors or invalid dates gracefully
+                                $set('age', null);
+                            }
+                        } else {
+                            // Reset age if birthdate is cleared
+                            $set('age', null);
+                        }
+                    }),
+                
+                
                 Forms\Components\TextInput::make('purok')
                     ->label('Purok')
                     ->required()
@@ -87,6 +110,7 @@ class BrgyInhabitantResource extends Resource
                         'Filipino' => 'Filipino',
                         'Others' => 'Others',
                     ])
+                    ->default('Filipino')
                     ->reactive()
                     ->afterStateUpdated(function (callable $set, $state) {
                         if ($state === 'Others') {
@@ -129,6 +153,40 @@ class BrgyInhabitantResource extends Resource
                 Forms\Components\TextInput::make('occupation')
                     ->required()
                     ->maxLength(255),
+                    Forms\Components\Select::make('livestock')
+                    ->label('Livestock')
+                    ->required()
+                    ->options([
+                        'Chickens' => 'Chickens',
+                        'Ducks' => 'Ducks',
+                        'Pigs' => 'Pigs',
+                        'Cattle' => 'Cattle',
+                        'Goats' => 'Goats',
+                        'Carabaos' => 'Carabaos',
+                        'Tilapia' => 'Tilapia',
+                        'Bangus (Milkfish)' => 'Bangus (Milkfish)',
+                        'Others' => 'Others',
+                    ])
+                    ->reactive()
+                    ->afterStateUpdated(function (callable $set, $state) {
+                        if ($state === 'Others') {
+                            // If 'Others' is selected, show the `other_livestock` value as the selected livestock.
+                            $set('livestock', 'Others');
+                        }
+                    }),
+                Forms\Components\TextInput::make('other_livestock')
+                    ->label('Please specify livestock')
+                    ->required()
+                    ->maxLength(255)
+                    ->visible(fn ($get) => $get('livestock') === 'Others')
+                    ->reactive()
+                    ->afterStateUpdated(function (callable $set, $state) {
+                        if ($state) {
+                            // If 'other_livestock' is provided, set it as the value of livestock.
+                            $set('livestock', $state);
+                        }
+                    }),
+                
                 Forms\Components\Select::make('ofw')
                     ->required()
                     ->options([
@@ -141,6 +199,21 @@ class BrgyInhabitantResource extends Resource
                         'Yes' => 'Yes',
                         'No' => 'No',
                     ]),
+                    Forms\Components\Select::make('registeredVoters')
+                    ->required()
+                    ->options([
+                        'Yes' => 'Yes',
+                        'No' => 'No',
+                    ]),
+                    Forms\Components\Select::make('IPmember')
+                    ->label('IP member')
+                    ->required()
+                    ->options([
+                        'Yes' => 'Yes',
+                        'No' => 'No',
+                    ]),
+                    
+                
                 Forms\Components\TextInput::make('email')
                     ->label('Active Email Account')
                     ->email()
@@ -156,19 +229,23 @@ class BrgyInhabitantResource extends Resource
                 Tables\Columns\TextColumn::make('lastname')->searchable(),
                 Tables\Columns\TextColumn::make('firstname')->searchable(),
                 Tables\Columns\TextColumn::make('middlename')->searchable(),
+                Tables\Columns\TextColumn::make('extensionName')->searchable(),
                 Tables\Columns\TextColumn::make('age')->searchable(),
                 Tables\Columns\TextColumn::make('birthdate')->date()->sortable(),
                 Tables\Columns\TextColumn::make('purok')->searchable(),
                 Tables\Columns\TextColumn::make('placeofbirth')->searchable(),
                 Tables\Columns\TextColumn::make('sex')->searchable(),
-                Tables\Columns\TextColumn::make('civilstatus')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('civilstatus')   ->searchable(),
                 Tables\Columns\TextColumn::make('positioninFamily')->searchable(),
                 Tables\Columns\TextColumn::make('citizenship')->searchable(),
                 Tables\Columns\TextColumn::make('educAttainment')->searchable(),
                 Tables\Columns\TextColumn::make('occupation')->searchable(),
+                Tables\Columns\TextColumn::make('livestock')->searchable(),
+                Tables\Columns\TextColumn::make('IPmember')->searchable(),
+                
                 Tables\Columns\TextColumn::make('ofw')->searchable(),
                 Tables\Columns\TextColumn::make('pwd')->label('Pwd')->searchable(),
+                Tables\Columns\TextColumn::make('registeredVoters')->label('Registered Voters')->searchable(),
                 Tables\Columns\TextColumn::make('email')->label('Active Email Account')->searchable(),
                 BooleanColumn::make('is_approved')->label('Approved')->sortable(),
             ])
@@ -249,6 +326,7 @@ class BrgyInhabitantResource extends Resource
                             ])
                             ->placeholder('Select Civil Status'),
                     ])
+                    
                     ->label('Filter by Civil Status'),
                 Filter::make('Position in Family')
                     ->query(function (Builder $query, array $data) {
@@ -256,6 +334,7 @@ class BrgyInhabitantResource extends Resource
                             $query->where('positioninFamily', $data['positioninFamily']);
                         }
                     })
+        
                     ->form([
                         Forms\Components\Select::make('positioninFamily')
                             ->label('Position in Family')
@@ -290,6 +369,39 @@ class BrgyInhabitantResource extends Resource
                             ->placeholder('Select Sex'),
                     ])
                     ->label('Filter by Sex'),
+
+                    Filter::make('IP Members')
+                    ->query(fn (Builder $query) => $query->where('IPmember', 'Yes'))
+                    ->label('Filter by IP Members'),
+                
+                Filter::make('Livestock')
+                    ->form([
+                        Forms\Components\Select::make('livestock')
+                            ->label('Livestock')
+                            ->options([
+                                'Chickens' => 'Chickens',
+                                'Ducks' => 'Ducks',
+                                'Pigs' => 'Pigs',
+                                'Cattle' => 'Cattle',
+                                'Goats' => 'Goats',
+                                'Carabaos' => 'Carabaos',
+                                'Tilapia' => 'Tilapia',
+                                'Bangus (Milkfish)' => 'Bangus (Milkfish)',
+                                'Others' => 'Others',
+                            ])
+                            ->placeholder('Select Livestock'),
+                    ])
+                    ->query(function (Builder $query, array $data) {
+                        if (isset($data['livestock'])) {
+                            $query->where('livestock', $data['livestock']);
+                        }
+                    })
+                    ->label('Filter by Livestock'),
+                
+                Filter::make('Registered Voters')
+                    ->query(fn (Builder $query) => $query->where('registeredVoters', 'Yes'))
+                    ->label('Filter by Registered Voters'),
+                
 
             ])
             ->actions([

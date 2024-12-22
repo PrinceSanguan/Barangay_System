@@ -66,6 +66,36 @@ class FamilyProfileResource extends Resource
                         'Above 50,000' => 'Above 50,000',
                     ])
                     ->reactive(),
+                
+                    Forms\Components\Select::make('employment')
+                    ->required()
+                    ->options([
+                        'Govt' => 'Govt',
+                        'Private' => 'Private',
+                        'Self Employed' => 'Self Employed',
+                        'Un-Employed' => 'Un-Employed',
+                        'Others' => 'Others',
+                    ])
+                    ->reactive()
+                    ->afterStateUpdated(function (callable $set, $state) {
+                        if ($state === 'Others') {
+                            // If 'Others' is selected, set it as the selected occupation.
+                            $set('employment', 'Others');
+                        }
+                    }),
+                Forms\Components\TextInput::make('other_employment')
+                    ->label('Please specify employment')
+                    ->required()
+                    ->maxLength(255)
+                    ->visible(fn ($get) => $get('employment') === 'Others')
+                    ->reactive()
+                    ->afterStateUpdated(function (callable $set, $state) {
+                        if ($state) {
+                            // If 'other_occupation' is provided, set it as the value of occupation.
+                            $set('employment', $state);
+                        }
+                    }),
+                
                 Forms\Components\Select::make('typeOfDwelling')
                     ->label('Type of Dwelling')
                     ->required()
@@ -80,12 +110,61 @@ class FamilyProfileResource extends Resource
                         'Shanty' => 'Shanty',
                     ])
                     ->reactive(),
-                Forms\Components\TextInput::make('watersource')
+                    Forms\Components\Select::make('watersource')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('toiletFacility')
+                    ->options([
+                        'Tap Water' => 'Tap Water',
+                        'Well' => 'Well',
+                        'Spring' => 'Spring',
+                        'Rainwater' => 'Rainwater',
+                        'Others' => 'Others',
+                    ])
+                    ->reactive()
+                    ->afterStateUpdated(function (callable $set, $state) {
+                        if ($state === 'Others') {
+                            $set('watersource', 'Others');
+                        }
+                    }),
+                Forms\Components\TextInput::make('other_watersource')
+                    ->label('Please specify water source')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->visible(fn ($get) => $get('watersource') === 'Others')
+                    ->reactive()
+                    ->afterStateUpdated(function (callable $set, $state) {
+                        if ($state) {
+                            $set('watersource', $state);
+                        }
+                    }),
+                
+                Forms\Components\Select::make('toiletFacility')
+                    ->required()
+                    ->options([
+                        'Flush Toilet' => 'Flush Toilet',
+                        'Pit Latrine' => 'Pit Latrine',
+                        'Composting Toilet' => 'Composting Toilet',
+                        'Shared Facility' => 'Shared Facility',
+                        'None' => 'None',
+                        'Others' => 'Others',
+                    ])
+                    ->reactive()
+                    ->afterStateUpdated(function (callable $set, $state) {
+                        if ($state === 'Others') {
+                            $set('toiletFacility', 'Others');
+                        }
+                    }),
+                Forms\Components\TextInput::make('other_toiletFacility')
+                    ->label('Please specify toilet facility')
+                    ->required()
+                    ->maxLength(255)
+                    ->visible(fn ($get) => $get('toiletFacility') === 'Others')
+                    ->reactive()
+                    ->afterStateUpdated(function (callable $set, $state) {
+                        if ($state) {
+                            $set('toiletFacility', $state);
+                        }
+                    }),
+                
                 Forms\Components\Select::make('4ps')
                     ->label('4Ps (Pantawid Pamilyang Pilipino Program)')
                     ->required()
@@ -205,6 +284,12 @@ class FamilyProfileResource extends Resource
                     ->sortable()
                     ->searchable(),
 
+
+                    Tables\Columns\TextColumn::make('employment')
+                    ->label('Employment')
+                    ->sortable()
+                    ->searchable(),
+
                 // Type of dwelling
                 Tables\Columns\TextColumn::make('typeOfDwelling')
                     ->label('Type of Dwelling')
@@ -234,6 +319,7 @@ class FamilyProfileResource extends Resource
                     ->label('Approved')
                     ->sortable(),
             ])
+            
             ->filters([
                 Filter::make('Pending Approval')
                     ->query(fn (Builder $query) => $query->where('is_approved', false)),
@@ -259,6 +345,64 @@ class FamilyProfileResource extends Resource
                             ])
                             ->placeholder('Select Income Range'),
                     ]),
+                      // Employment Filter
+    Filter::make('Employment')
+    ->query(function (Builder $query, array $data) {
+        if (! empty($data['employment'])) {
+            $query->where('employment', $data['employment']);
+        }
+    })
+    ->form([
+        Forms\Components\Select::make('employment')
+            ->label('Employment')
+            ->options([
+                'Govt' => 'Govt',
+                'Private' => 'Private',
+                'Self Employed' => 'Self Employed',
+                'Un-Employed' => 'Un-Employed',
+                'Others' => 'Others',
+            ])
+            ->placeholder('All Employment Types'),
+    ]),
+     // Toilet Facility Filter
+     Filter::make('Toilet Facility')
+     ->query(function (Builder $query, array $data) {
+         if (! empty($data['toiletFacility'])) {
+             $query->where('toiletFacility', $data['toiletFacility']);
+         }
+     })
+     ->form([
+         Forms\Components\Select::make('toiletFacility')
+             ->label('Toilet Facility')
+             ->options([
+                 'Flush Toilet' => 'Flush Toilet',
+                 'Pit Latrine' => 'Pit Latrine',
+                 'Composting Toilet' => 'Composting Toilet',
+                 'Shared Facility' => 'Shared Facility',
+                 'None' => 'None',
+                 'Others' => 'Others',
+             ])
+             ->placeholder('All Facilities'),
+     ]),
+      // Water Source Filter
+    Filter::make('Water Source')
+    ->query(function (Builder $query, array $data) {
+        if (! empty($data['watersource'])) {
+            $query->where('watersource', $data['watersource']);
+        }
+    })
+    ->form([
+        Forms\Components\Select::make('watersource')
+            ->label('Water Source')
+            ->options([
+                'Tap Water' => 'Tap Water',
+                'Well' => 'Well',
+                'Spring' => 'Spring',
+                'Rainwater' => 'Rainwater',
+                'Others' => 'Others',
+            ])
+            ->placeholder('All Water Sources'),
+    ]),
 
                 // Filtering for Type of Dwelling
                 Filter::make('Type of Dwelling')

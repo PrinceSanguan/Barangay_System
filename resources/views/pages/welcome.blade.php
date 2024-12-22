@@ -65,7 +65,8 @@
           <li><a href="#about">About</a></li>
           <li><a href="#menu">Menu</a></li>
           <li><a href="#events">Events</a></li>
-          <li><a href="#chefs">Chefs</a></li>
+          <li><a href="#chefs">Barangay Officials</a></li>
+          <li><a href="#bhw">Barangay Officials</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
@@ -106,8 +107,7 @@
             <h1 data-aos="fade-up">Welcome To our Healthy<br>Barangay Centro01</h1>
             <p data-aos="fade-up" data-aos-delay="100">We are team of talented Brgy. Officials</p>
             <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-              <a href="{{ route('barangay.captain.details') }}" class="btn-get-started">Booka a Table</a>
-              <a href="https://www.youtube.com/watch?v=IRCasGmiIJY" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+              <a href="https://www.youtube.com/watch?v=rluEnEYfuJs" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
             </div>
           </div>
           <div class="order-1 col-lg-5 order-lg-2 hero-img" data-aos="zoom-out">
@@ -192,8 +192,8 @@
               <div class="section-title">
                   <h2>CITIZENS CHARTER</h2>
                   <p>Pursuant to Section 6 of R.A 9485</p>
-                  <h4>VISION: Centro 2: An exemplar Barangay with unified, disciplined, and God-loving constituents towards prosperity</h4>
-                  <h4>MISSION: To provide satisfactory services through democratic leadership that would enable the people to become politically responsible, morally upright, and economically capable</h4>
+                  <h4>VISION:An economically stable center of business in Sanchez Mira with self-reliant, more responsible and empowered people protecting its natural resources and maintaining environment towards a more progressive society.</h4>
+                  <h4>MISSION:To provide quality services through a dynamic transparent and honest governance</h4>
               </div>
       
               <div class="charter-table">
@@ -211,23 +211,7 @@
                       </thead>
                       <tbody>
                           <!-- Row 1 -->
-                          <tr>
-                              <td>Camilo P. Perdido<br>Punong Barangay</td>
-                              <td>ISSUANCE OF CLEARANCES AND CERTIFICATE (CTC)</td>
-                              <td>
-                                  1. Filling-up of Request Slip<br>
-                                  2. Receiving/Recording of request<br>
-                                  3. Issuance/Approval of CTC
-                              </td>
-                              <td>Officer of the Day<br>Barangay Secretary<br>Barangay Treasurer</td>
-                              <td>
-                                  5 minutes<br>
-                                  3 minutes<br>
-                                  2 minutes
-                              </td>
-                              <td>None</td>
-                              <td>P5.00 Basic Tax plus 0.001 of his/her preceding annual income</td>
-                          </tr>
+ 
       
                           <!-- Row 2 -->
                           <tr>
@@ -1398,7 +1382,7 @@
 
 
 <!-- BHW Officials Section -->
-<section id="chefs" class="chefs section">
+<section id="bhw" class="chefs section">
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
@@ -1535,13 +1519,26 @@
                     }
                 </script>
                 <div class="swiper-wrapper align-items-center">
-                    @foreach ($siteSetting->slider_images ?? [] as $image)
-                        <div class="swiper-slide">
-                            <a class="glightbox" data-gallery="images-gallery" href="{{ asset('storage/' . $image) }}">
-                                <img src="{{ asset('storage/' . $image) }}" class="img-fluid" alt="Gallery Image">
-                            </a>
-                        </div>
-                    @endforeach
+                  @foreach($brgyFestival as $index => $brgyFestival)
+                  <div class="row gy-4 align-items-center features-item">
+                      <!-- Alternate the layout for each announcement -->
+                      <div class="{{ $index % 2 == 0 ? 'order-2' : 'order-1' }} col-lg-5 {{ $index % 2 == 0 ? 'order-lg-1' : 'order-lg-2' }}" data-aos="fade-up" data-aos-delay="200">
+                          <h3>{{ $brgyFestival->title }}</h3>
+                          <p>{{ $brgyFestival->description }}</p>
+        
+                      </div>
+        
+                      <div class="{{ $index % 2 == 0 ? 'order-1' : '  order-2' }} col-lg-7 {{ $index % 2 == 0 ? 'order-lg-2' : 'order-lg-1' }} d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+                          <div class="image-stack">
+                              @if($brgyFestival->image)
+                                  <img src="{{ asset('storage/' . $brgyFestival->image) }}" alt="{{ $brgyFestival->name }}" class="stack-front img-fluid">
+                              @else
+                                  <img src="{{ asset('template/img/default.jpg') }}" alt="Default Image" class="stack-front img-fluid">
+                              @endif
+                          </div>
+                      </div>
+                  </div><!-- Features Item -->
+              @endforeach
                 </div>
                 <div class="swiper-pagination"></div>
             </div>

@@ -37,6 +37,10 @@ class BrgyInhabitant extends Model
         'citizenship',
         'email',
         'user_id',
+        'registeredVoters',
+        'livestock',
+        'extensionName',
+        'IPmember',
     ];
 
     // Relationships
