@@ -14,21 +14,25 @@ return new class extends Migration
         Schema::create('family_profiles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('name');
+            $table->string('head_of_family'); // Head of the Family
             $table->string('sex');
-            $table->string('age');
-            $table->string('birthdate');
+            $table->integer('age');
+            $table->date('birthdate');
             $table->string('civilstatus');
             $table->string('religion');
             $table->string('educAttainment');
             $table->string('occupation');
             $table->string('monthlyincome');
+            $table->string('employment'); // Employment status
+            $table->string('other_employment')->nullable(); // Optional field for other employment
             $table->string('typeOfDwelling');
             $table->string('watersource');
+            $table->string('other_watersource')->nullable(); // Optional field for other water source
             $table->string('toiletFacility');
-            $table->string('4ps');
-            $table->string('houseMember');
-            $table->boolean('is_approved')->default(false); // default zero
+            $table->string('other_toiletFacility')->nullable(); // Optional field for other toilet facility
+            $table->string('4ps'); // 4Ps Program
+            $table->string('houseMember'); // Family members stored as JSON
+            $table->boolean('is_approved')->default(false); // Approval status
             $table->timestamps();
         });
     }
