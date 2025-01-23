@@ -10,9 +10,13 @@ class BrgyInhabitant extends Model
     use HasFactory;
 
     protected $table = 'brgy_inhabitants';
+
     protected $primaryKey = 'id';
+
     public $incrementing = true;
+
     protected $keyType = 'int';
+
     public $timestamps = true;
 
     protected $fillable = [
@@ -32,6 +36,11 @@ class BrgyInhabitant extends Model
         'placeofbirth',
         'citizenship',
         'email',
+        'user_id',
+        'registeredVoters',
+        'livestock',
+        'extensionName',
+        'IPmember',
     ];
 
     // Relationships

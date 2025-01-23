@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Admin\Widgets\GenderChartWidget;
 use App\Filament\Pages\TaskKanbanBoard;
 use App\Filament\Pages\UsersKanbanBoard;
 use Filament\Enums\ThemeMode;
@@ -48,12 +49,13 @@ class AdminPanelProvider extends PanelProvider
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
             ->pages([
                 Pages\Dashboard::class,
-                
+
 
             ])
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
             ->widgets([
                 \Awcodes\Overlook\Widgets\OverlookWidget::class,
+                GenderChartWidget::class,
             ])
             ->plugins([
                 \Jeffgreco13\FilamentBreezy\BreezyCore::make()

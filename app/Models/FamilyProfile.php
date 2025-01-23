@@ -33,6 +33,8 @@ class FamilyProfile extends Model
         'housing_materials',
         '4ps',
         'is_approved',
+        'employment',
+  
     ];
 
     // Relationships

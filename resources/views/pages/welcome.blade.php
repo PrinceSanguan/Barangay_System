@@ -21,6 +21,8 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -63,7 +65,8 @@
           <li><a href="#about">About</a></li>
           <li><a href="#menu">Menu</a></li>
           <li><a href="#events">Events</a></li>
-          <li><a href="#chefs">Chefs</a></li>
+          <li><a href="#chefs">Barangay Officials</a></li>
+          <li><a href="#bhw">Barangay Officials</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
@@ -104,20 +107,561 @@
             <h1 data-aos="fade-up">Welcome To our Healthy<br>Barangay Centro01</h1>
             <p data-aos="fade-up" data-aos-delay="100">We are team of talented Brgy. Officials</p>
             <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-              <a href="#book-a-table" class="btn-get-started">Booka a Table</a>
-              <a href="https://www.youtube.com/watch?v=IRCasGmiIJY" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+              <a href="https://www.youtube.com/watch?v=rluEnEYfuJs" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
             </div>
           </div>
           <div class="order-1 col-lg-5 order-lg-2 hero-img" data-aos="zoom-out">
-            <img src="design/img/cap.png" class="img-fluid animated" alt="">
+            <img src="design/img/capitan.png" class="img-fluid animated" alt="">
           </div>
         </div>
       </div>
 
     </section><!-- /Hero Section -->
 
-    <!-- About Section -->
-    <section id="about" class="about section">
+
+        <!-- About Section -->
+        <section id="about" class="about section light-background">
+
+          <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="row align-items-xl-center gy-5">
+    
+              <div class="col-xl-5 content">
+                <h3>About Barangay</h3>
+                <h2>BRIEF HISTORY OF BARANGAY CENTRO 1</h2>
+                <p>Centro I is a flourishing community classified as an urban barangay. It is bounded on the north by Barangay Dammang, on the west by Barangay Centro 2, and on the south and east by Barangay Langagan. It is the hub of business and education. Several government and non-government institutions are established to cater to the needs of the town and other neighboring towns of Northwestern Cagayan and lower Apayao.</p>
+                <p>The official founding of the town of Sanchez Mira in 1892 created the poblacion as the seat of the Municipal government. As Ilocano settlers came in, mostly from Paoay, Ilocos Norte, the population increased rapidly. The poblacion was headed by a "cabeza de barangay," which later on became "teniente del barrio." During the term of President Diosdado Macapagal, the barrios were changed to barangays, so the town proper was named Barangay Centro. Later on, as the population increased, the town proper was divided into Barangay Centro 1 and Barangay Centro 2.</p>
+                <p>The Eastern portion of Dammang and Kanamukan, now Carrillo, were sitios of the Barangay until the creation of Barangay Dammang. The first head of the Barangay was Mr. Paterno Ramiro (1962-1971, deceased), succeeded by the following:
+                  <ul>
+                    <li>Mr. Segundo Monje (1971-1982, deceased)</li>
+                    <li>Mr. Dadie Rasgo (1982-1989, deceased)</li>
+                    <li>Mr. Avelino de Ocampo (1989-1994, deceased)</li>
+                    <li>Mr. Remigio Cereñado (1994-1996, deceased)</li>
+                    <li>Mr. Guillermo Ouano (1996-1997, succession)</li>
+                    <li>Mr. Arnel C. Sacramed (1997-2007)</li>
+                    <li>Mr. Jovitor S. Biado (2007-2013, deceased)</li>
+                    <li>Dr. Melbina S. Mangosing (2013 to June 2022)</li>
+                    <li>Mr. Aris Wendel R. Monje (July 2022 to present, succession)</li>
+                  </ul>
+                </p>
+                <p>Today, Barangay Centro I has its own Barangay hall, which is the seat of local governance. The Regional Trial Court (RTC), the Registry of Deeds (ROD), the Social Security System (SSS), and the Municipal hall are also within Centro 1. The public market is at the eastern part of the Barangay. Several business establishments are situated along the national road. There are three banking institutions, five lending incorporations, one elementary school, three high schools, and five preschools. This is Barangay Centro 1, the premier Barangay of Sanchez Mira.</p>
+              </div>
+              
+    
+              <div class="col-xl-7">
+                <div class="row gy-4 icon-boxes">
+    
+                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box">
+                      <i class="bi bi-buildings"></i>
+                      <h3>Mission</h3>
+                      <p>To provide quality services through a dynamic transparent and honest governance</p>
+                    </div>
+                  </div> <!-- End Icon Box -->
+    
+                   <!-- End Icon Box -->
+    
+                 <!-- End Icon Box -->
+    
+                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="icon-box">
+                      <i class="bi bi-graph-up-arrow"></i>
+                      <h3>Vision</h3>
+                      <p>An economically stable center of business in Sanchez Mira with self-reliant, more responsible and empowered people protecting its natural resources and maintaining environment towards a more progressive society.</p>
+                    </div>
+                  </div> <!-- End Icon Box -->
+                  
+                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="icon-box">
+                      <i class="bi bi-graph-up-arrow"></i>
+                      <h3>OBJECTIVES:</h3>
+                      <p>1. To provide health and social services</p>
+                      <p>2. To improve services related to infrastructure, sanitation, beautification and solid waste management.</p>
+                      <p>3. To provide livelihood opportunities</p>
+                    </div>
+                  </div> <!-- End Icon Box -->
+                </div>
+              </div>
+    
+            </div>
+          </div>
+    
+        </section><!-- /About Section -->
+      
+        <section id="citizens-charter" class="section light-background">
+          <div class="container" data-aos="fade-up">
+              <div class="section-title">
+                  <h2>CITIZENS CHARTER</h2>
+                  <p>Pursuant to Section 6 of R.A 9485</p>
+                  <h4>VISION:An economically stable center of business in Sanchez Mira with self-reliant, more responsible and empowered people protecting its natural resources and maintaining environment towards a more progressive society.</h4>
+                  <h4>MISSION:To provide quality services through a dynamic transparent and honest governance</h4>
+              </div>
+      
+              <div class="charter-table">
+                  <table class="table table-bordered">
+                      <thead>
+                          <tr>
+                              <th>BARANGAY OFFICIAL</th>
+                              <th>FRONTLINE SERVICES</th>
+                              <th>STEP / PROCEDURES</th>
+                              <th>RESPONSIBLE PERSON</th>
+                              <th>MAXIMUM RESPONSE TIME</th>
+                              <th>REQUIREMENTS</th>
+                              <th>AMOUNT OF FEES</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <!-- Row 1 -->
+ 
+      
+                          <!-- Row 2 -->
+                          <tr>
+                              <td>Vicky C. Fuertes<br>Chairman - Peace & Order</td>
+                              <td>ISSUANCE OF CLEARANCES AND CERTIFICATIONS</td>
+                              <td>
+                                  1. Filling-up of Request Slip<br>
+                                  2. Receiving/Recording of request<br>
+                                  3. Approval/Release of document
+                              </td>
+                              <td>Barangay Secretary<br>Barangay Treasurer</td>
+                              <td>
+                                  5 minutes<br>
+                                  2 minutes<br>
+                                  3 minutes
+                              </td>
+                              <td>Barangay Clearance</td>
+                              <td>P100.00 - P200.00</td>
+                          </tr>
+      
+                          <!-- Row 3 -->
+                          <tr>
+                              <td>Recto S. Obispo<br>Chairman - Facilities & Public Utilities</td>
+                              <td>FILING OF SUMMONS</td>
+                              <td>
+                                  1. Filing of Complaint Form<br>
+                                  2. Approval of the request<br>
+                                  3. Scheduling of hearings
+                              </td>
+                              <td>Punong Barangay</td>
+                              <td>10 minutes</td>
+                              <td>CTC</td>
+                              <td>P100.00</td>
+                          </tr>
+      
+                          <!-- Row 4 -->
+                          <tr>
+                              <td>Andrew L. Pagayatan<br>Chairman - Public Works & Highways</td>
+                              <td>ISSUANCE OF PERMIT</td>
+                              <td>
+                                  1. Filling-up of Request Slip<br>
+                                  2. Receiving/Recording of request<br>
+                                  3. Processing of requested permit<br>
+                                  4. Paying of fees<br>
+                                  5. Approving/Issuing of requested document
+                              </td>
+                              <td>Barangay Secretary<br>Barangay Treasurer</td>
+                              <td>
+                                  3 minutes<br>
+                                  2 minutes<br>
+                                  10 minutes<br>
+                                  3 minutes<br>
+                                  2 minutes
+                              </td>
+                              <td>Barangay Clearance</td>
+                              <td>P200.00</td>
+                          </tr>
+      
+                          <!-- Row 5 -->
+                          <tr>
+                              <td>Alfonso S. Grande Jr.<br>Chairman - Peace & Order and Public Safety</td>
+                              <td>HEALTH SERVICES</td>
+                              <td>
+                                  1. Filling-up of Request Slip<br>
+                                  2. Evaluation of request<br>
+                                  3. Check-up (if medical attention required)
+                              </td>
+                              <td>Barangay Health Workers</td>
+                              <td>5 minutes</td>
+                              <td>CTC</td>
+                              <td>FREE</td>
+                          </tr>
+                          <!-- Add more rows as necessary -->
+                      </tbody>
+                  </table>
+                  <p>Note: Each frontline service shall be given two (2) days processing time extension.</p>
+              </div>
+          </div>
+      </section>
+
+      <!-- Stats Section -->
+<section id="stats" class="stats section dark-background">
+
+  <img src="" alt="" data-aos="fade-in">
+
+  <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+
+      <h2 class="section-title text-center" style="font-size: 2rem;">Demographic Statistics</h2>
+
+      <div class="row text-center mb-4">
+          <!-- Total Population, Male, and Female Counts Display -->
+          <div class="col-md-4">
+              <p><strong style="font-size: 1.2rem;">Total Population:</strong> {{ number_format($totalPopulation) }}</p>
+          </div>
+          <div class="col-md-4">
+              <p><strong style="font-size: 1.2rem;">Male Count:</strong> {{ number_format($maleCount) }}</p>
+          </div>
+          <div class="col-md-4">
+              <p><strong style="font-size: 1.2rem;">Female Count:</strong> {{ number_format($femaleCount) }}</p>
+          </div>
+      </div>
+
+      <div class="row">
+          <!-- Gender Distribution Pie Chart -->
+          <div class="col-md-6">
+              <h4 class="text-center" style="font-size: 1.5rem;">Gender Distribution</h4>
+              <canvas id="genderChart" style="max-width: 85%;"></canvas>
+          </div>
+
+          <!-- Population by Age Groups Pie Chart -->
+          <div class="col-md-6">
+              <h4 class="text-center" style="font-size: 1.5rem;">Population by Age Groups</h4>
+              <canvas id="ageGroupChart" style="max-width: 85%;"></canvas>
+          </div>
+      </div>
+  </div>
+
+</section>
+<!-- /Stats Section -->
+
+<!-- Include Chart.js Script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Fetch demographic data from PHP (make sure this data is available)
+  const demographicData = {
+      maleCount: {{ $maleCount }},
+      femaleCount: {{ $femaleCount }},
+      totalPopulation: {{ $totalPopulation }},
+      ageGroups: @json($ageGroups)  // Assuming $ageGroups is an associative array from PHP
+  };
+
+  // Gender Distribution Pie Chart Initialization
+  const genderCtx = document.getElementById('genderChart').getContext('2d');
+  const genderChart = new Chart(genderCtx, {
+      type: 'pie',
+      data: {
+          labels: ['Male', 'Female'],
+          datasets: [{
+              data: [demographicData.maleCount, demographicData.femaleCount],
+              backgroundColor: ['#36A2EB', '#FF6384'],
+              borderColor: '#ffffff',
+              borderWidth: 2
+          }]
+      },
+      options: {
+          responsive: true,
+          plugins: {
+              legend: {
+                  position: 'bottom',
+                  labels: {
+                      font: {
+                          size: 16 // Increased legend font size
+                      },
+                      color: '#4A5568'
+                  }
+              },
+              tooltip: {
+                  enabled: true,
+                  callbacks: {
+                      label: function(context) {
+                          let label = context.label || '';
+                          let value = context.raw || 0;
+                          let percentage = ((value / demographicData.totalPopulation) * 100).toFixed(2) + '%';
+                          return `${label}: ${value} (${percentage})`;
+                      }
+                  }
+              }
+          }
+      }
+  });
+
+  // Age Groups Pie Chart Initialization
+  const ageCtx = document.getElementById('ageGroupChart').getContext('2d');
+  const ageGroupsData = demographicData.ageGroups;
+  const ageLabels = Object.keys(ageGroupsData);
+  const ageValues = Object.values(ageGroupsData);
+  const ageColors = ageLabels.map(() => '#' + Math.floor(Math.random() * 16777215).toString(16));
+
+  const ageGroupChart = new Chart(ageCtx, {
+      type: 'pie',
+      data: {
+          labels: ageLabels,
+          datasets: [{
+              data: ageValues,
+              backgroundColor: ageColors,
+              borderColor: '#ffffff',
+              borderWidth: 2
+          }]
+      },
+      options: {
+          responsive: true,
+          plugins: {
+              legend: {
+                  position: 'bottom',
+                  labels: {
+                      font: {
+                          size: 16 // Increased legend font size
+                      },
+                      color: '#4A5568'
+                  }
+              },
+              tooltip: {
+                  enabled: true,
+                  callbacks: {
+                      label: function(context) {
+                          let label = context.label || '';
+                          let value = context.raw || 0;
+                          let percentage = ((value / demographicData.totalPopulation) * 100).toFixed(2) + '%';
+                          return `${label}: ${value} (${percentage})`;
+                      }
+                  }
+              }
+          }
+      }
+  });
+</script>
+
+
+<!-- Barangay Services Section -->
+<section id="services" class="services section" style="background-color: #f9f9f9; padding: 50px 0; font-family: 'Arial', sans-serif;">
+  <!-- Section Title -->
+  <div class="container section-title" style="text-align: center; margin-bottom: 30px;">
+    <h2 style="font-size: 2.5rem; font-weight: bold; color: #2c3e50;">Barangay Services</h2>
+    <p style="font-size: 1.2rem; color: #7f8c8d;">Providing essential services to the community for a better and safer environment</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+    <div class="accordion" id="servicesAccordion">
+      <!-- Service Item 1 -->
+      <div class="accordion-item" style="margin-bottom: 15px; border: 1px solid #dcdde1; border-radius: 5px;">
+        <h2 class="accordion-header" id="headingOne" style="background-color: #ecf0f1;">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
+            style="font-size: 1.2rem; color: #34495e; font-weight: bold; background-color: transparent; border: none; outline: none;">
+            <i class="bi bi-briefcase me-2" style="color: #1abc9c;"></i> Community Clean-up
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body" style="font-size: 1rem; color: #2c3e50; padding: 15px; background-color: #fff;">
+            This service involves organizing regular community-wide clean-up drives to ensure the neighborhood stays clean and free from waste. Volunteers from the community actively participate in picking up trash, sorting recyclables, and maintaining public spaces like parks and streets. 
+            <br><strong>Objective:</strong> Maintain a clean, sustainable, and healthy environment for residents.
+            <br><strong>Barangay Tupad</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service Item 2 -->
+      <div class="accordion-item" style="margin-bottom: 15px; border: 1px solid #dcdde1; border-radius: 5px;">
+        <h2 class="accordion-header" id="headingTwo" style="background-color: #ecf0f1;">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+            style="font-size: 1.2rem; color: #34495e; font-weight: bold; background-color: transparent; border: none; outline: none;">
+            <i class="bi bi-card-checklist me-2" style="color: #3498db;"></i> Health and Wellness Programs
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body" style="font-size: 1rem; color: #2c3e50; padding: 15px; background-color: #fff;">
+            These programs are focused on improving the overall health and well-being of the community. They include free medical check-ups, mental health support, vaccination drives, fitness programs, and health education to help residents lead healthier lives.
+            <br><strong>Objective:</strong> Promote better health practices and increase awareness of disease prevention and well-being.
+          </div>
+        </div>
+      </div>
+
+      <!-- Service Item 3 -->
+      <div class="accordion-item" style="margin-bottom: 15px; border: 1px solid #dcdde1; border-radius: 5px;">
+        <h2 class="accordion-header" id="headingThree" style="background-color: #ecf0f1;">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
+            style="font-size: 1.2rem; color: #34495e; font-weight: bold; background-color: transparent; border: none; outline: none;">
+            <i class="bi bi-bar-chart me-2" style="color: #9b59b6;"></i> Security and Safety Patrols
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body" style="font-size: 1rem; color: #2c3e50; padding: 15px; background-color: #fff;">
+            This service ensures the safety and security of residents through regular patrols by barangay officers. It also includes surveillance programs, emergency response teams, and community watch initiatives to prevent crime and maintain peace.
+            <br><strong>Objective:</strong> Provide a safe and secure environment for all community members.
+          </div>
+        </div>
+      </div>
+
+      <!-- Service Item 4 -->
+      <div class="accordion-item" style="margin-bottom: 15px; border: 1px solid #dcdde1; border-radius: 5px;">
+        <h2 class="accordion-header" id="headingFour" style="background-color: #ecf0f1;">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
+            style="font-size: 1.2rem; color: #34495e; font-weight: bold; background-color: transparent; border: none; outline: none;">
+            <i class="bi bi-binoculars me-2" style="color: #e74c3c;"></i> Educational Workshops
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body" style="font-size: 1rem; color: #2c3e50; padding: 15px; background-color: #fff;">
+            These workshops aim to educate community members on various topics such as financial literacy, legal rights, first aid training, and emergency preparedness. The workshops are designed to empower residents with knowledge and skills for daily life and unexpected situations.
+            <br><strong>Objective:</strong> Equip residents with essential skills for personal development and emergency situations.
+          </div>
+        </div>
+      </div>
+
+      <!-- Service Item 5 -->
+      <div class="accordion-item" style="margin-bottom: 15px; border: 1px solid #dcdde1; border-radius: 5px;">
+        <h2 class="accordion-header" id="headingFive" style="background-color: #ecf0f1;">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive"
+            style="font-size: 1.2rem; color: #34495e; font-weight: bold; background-color: transparent; border: none; outline: none;">
+            <i class="bi bi-brightness-high me-2" style="color: #f1c40f;"></i> Disaster Preparedness Training
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body" style="font-size: 1rem; color: #2c3e50; padding: 15px; background-color: #fff;">
+            This training is aimed at educating residents on how to prepare for and respond to natural disasters such as earthquakes, floods, and fires. The program includes safety drills, first responder training, and emergency preparedness planning.
+            <br><strong>Objective:</strong> Equip residents with the knowledge and skills to handle emergency situations.
+          </div>
+        </div>
+      </div>
+
+      <!-- Service Item 6 -->
+      <div class="accordion-item" style="margin-bottom: 15px; border: 1px solid #dcdde1; border-radius: 5px;">
+        <h2 class="accordion-header" id="headingSix" style="background-color: #ecf0f1;">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix"
+            style="font-size: 1.2rem; color: #34495e; font-weight: bold; background-color: transparent; border: none; outline: none;">
+            <i class="bi bi-calendar4-week me-2" style="color: #2ecc71;"></i> Other Services
+          </button>
+        </h2>
+        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body" style="font-size: 1rem; color: #2c3e50; padding: 15px; background-color: #fff;">
+            The barangay offers a variety of other services, including assistance for senior citizens, support for families in need, and outreach programs to help marginalized communities. These services aim to ensure that all residents have access to basic necessities and support systems.
+            <br><strong>Objective:</strong> Provide a range of services to ensure the well-being and inclusion of all residents.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- /Barangay Services Section -->
+
+<!-- Menu Section -->
+<section id="menu" class="menu section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Barangay Chairperson's Corner</h2>
+    <p><span>Check Our</span> <span class="description-title">Barangay Captain</span></p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <!-- Navigation Tabs -->
+    <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+      <li class="nav-item">
+        <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-Release">
+          <h4>Photo Release</h4>
+        </a>
+      </li><!-- End tab nav item -->
+
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-Speeches">
+          <h4>Speeches</h4>
+        </a>
+      </li><!-- End tab nav item -->
+
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-Achievements">
+          <h4>Achievements</h4>
+        </a>
+      </li><!-- End tab nav item -->
+    </ul><!-- End Navigation Tabs -->
+
+    <!-- Tab Content -->
+    <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
+      <!-- Photo Release Tab -->
+      <div class="tab-pane fade" id="menu-Release">
+        <div class="text-center tab-header">
+          <h3>Photo Release</h3>
+        </div>
+        <div class="row gy-5">
+          @foreach($PhotoRelease as $PhotoRelease)
+          <div class="col-md-4">
+            <div class="card">
+              <a href="{{ asset('storage/' . $PhotoRelease->image) }}" class="glightbox">
+                <img src="{{ asset('storage/' . $PhotoRelease->image) }}" class="card-img-top" alt="{{ $PhotoRelease->name }}">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">{{ $PhotoRelease->name }}</h5>
+                <p class="card-text">{{ $PhotoRelease->description }}</p>
+              </div>
+              <div class="portfolio-info">
+                <a href="{{ asset('storage/' . $PhotoRelease->image) }}" title="{{ $PhotoRelease->name }}" data-gallery="portfolio-gallery-church" class="glightbox preview-link">
+                  <i class="bi bi-zoom-in"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </div><!-- End Photo Release Tab -->
+
+      <!-- Speeches Tab -->
+      <div class="tab-pane fade" id="menu-Speeches">
+        <div class="text-center tab-header">
+          <h3>Speeches</h3>
+        </div>
+        <div class="row gy-5">
+          @foreach($Speech as $Speech)
+          <div class="col-md-4">
+            <div class="card">
+              <a href="{{ asset('storage/' . $Speech->image) }}" class="glightbox">
+                <img src="{{ asset('storage/' . $Speech->image) }}" class="card-img-top" alt="{{ $Speech->name }}">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">{{ $Speech->name }}</h5>
+                <p class="card-text">{{ $Speech->description }}</p>
+              </div>
+              <div class="portfolio-info">
+                <a href="{{ asset('storage/' . $Speech->image) }}" title="{{ $Speech->name }}" data-gallery="portfolio-gallery-church" class="glightbox preview-link">
+                  <i class="bi bi-zoom-in"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </div><!-- End Speeches Tab -->
+
+      <!-- Achievements Tab -->
+      <div class="tab-pane fade" id="menu-Achievements">
+        <div class="text-center tab-header">
+          <h3>Achievements</h3>
+        </div>
+        <div class="row gy-5">
+          @foreach($Achievement as $Achievement)
+          <div class="col-md-4">
+            <div class="card">
+              <a href="{{ asset('storage/' . $Achievement->image) }}" class="glightbox">
+                <img src="{{ asset('storage/' . $Achievement->image) }}" class="card-img-top" alt="{{ $Achievement->name }}">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">{{ $Achievement->name }}</h5>
+                <p class="card-text">{{ $Achievement->description }}</p>
+              </div>
+              <div class="portfolio-info">
+                <a href="{{ asset('storage/' . $Achievement->image) }}" title="{{ $Achievement->name }}" data-gallery="portfolio-gallery-hospital" class="glightbox preview-link">
+                  <i class="bi bi-zoom-in"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </div><!-- End Achievements Tab -->
+
+    </div><!-- End Tab Content -->
+  </div><!-- End Container -->
+</section><!-- End Menu Section -->
+
+
+
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -162,6 +706,9 @@
       </div>
 
     </section><!-- /About Section -->
+
+
+ 
 
     <!-- Why Us Section -->
     <section id="why-us" class="why-us section light-background">
@@ -219,342 +766,369 @@
 
     </section><!-- /Why Us Section -->
 
-    <!-- Stats Section -->
-    <section id="stats" class="stats section dark-background">
 
-      <img src="{{ asset('design/img/stats-bg.jpg') }}" alt="" data-aos="fade-in">
 
-      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+<!-- Menu Section -->
+<section id="menu" class="menu section">
 
-        <div class="row gy-4">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Visitor's Lounge</h2>
+    <p><span>Check Our</span> <span class="description-title">Lounge</span></p>
+  </div><!-- End Section Title -->
 
-            <h2 class="section-title text-center">Demographic Statistics</h2>
-        
-            <div class="row text-center mb-4">
-                <!-- Total Population, Male, and Female Counts Display -->
-                <div class="col-md-4">
-                    <p><strong>Total Population:</strong> {{ $totalPopulation }}</p>
-                </div>
-                <div class="col-md-4">
-                    <p><strong>Male Count:</strong> {{ $maleCount }}</p>
-                </div>
-                <div class="col-md-4">
-                    <p><strong>Female Count:</strong> {{ $femaleCount }}</p>
-                </div>
-            </div>
-            <div class="row">
-                <!-- Gender Distribution Pie Chart -->
-                <div class="col-md-6">
-                    <h4 class="text-center">Gender Distribution</h4>
-                    <canvas id="genderChart" width="100%" height="100"></canvas>
-                </div>
-    
-                <!-- Population by Age Groups Pie Chart -->
-                <div class="col-md-6">
-                    <h4 class="text-center">Population by Age Groups</h4>
-                    <canvas id="ageGroupChart" width="80%" height="80"></canvas>
-                </div>
-            </div>
+  <div class="container">
 
-    </section><!-- /Stats Section -->
+    <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+      <li class="nav-item">
+        <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-hotels">
+          <h4>Hotels</h4>
+        </a>
+      </li><!-- End tab nav item -->
 
-    <!-- Menu Section -->
-    <section id="menu" class="menu section">
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-churches">
+          <h4>Churches</h4>
+        </a>
+      </li><!-- End tab nav item -->
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Visitor's Lounge</h2>
-        <p><span>Check Our</span> <span class="description-title">Lounge</span></p>
-      </div><!-- End Section Title -->
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-hospitals">
+          <h4>Hospitals</h4>
+        </a><!-- End tab nav item -->
+      </li>
 
-      <div class="container">
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-parks">
+          <h4>Parks</h4>
+        </a><!-- End tab nav item -->
+      </li>
 
-        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-restaurants">
+          <h4>Restaurants</h4>
+        </a><!-- End tab nav item -->
+      </li>
 
-          <li class="nav-item">
-            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
-              <h4>Hotels</h4>
-              {{-- <div class="tab-content">
-                <div class="tab-pane fade active show" id="menu-starters">
-                    <div class="row">
-                        @forelse ($hotels as $hotel)
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="{{ $hotel->image ? asset($hotel->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $hotel->name }}">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $hotel->name }}</h5>
-                                        <p class="card-text">{{ $hotel->description }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        @empty
-                            <p>No hotels available at the moment.</p>
-                        @endforelse
-                    </div>
-                </div>
-            </div> --}}
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-schools">
+          <h4>Schools</h4>
+        </a><!-- End tab nav item -->
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-tourist-spots">
+          <h4>Tourist Spots</h4>
+        </a><!-- End tab nav item -->
+      </li>
+
+    </ul>
+
+<!-- Tab Content -->
+<div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
+  <!-- Hotels Tab -->
+  <div class="tab-pane fade active show" id="menu-hotels">
+    <div class="text-center tab-header">
+      <p>Hotels</p>
+      <h3>Hotel</h3>
+    </div>
+    <div class="row gy-5">
+      @foreach($Hotel as $Hotel)
+        <div class="col-md-4">
+          <div class="card">
+            <a href="{{ asset('storage/' . $Hotel->image) }}" class="glightbox">
+              <img src="{{ asset('storage/' . $Hotel->image) }}" class="card-img-top" alt="{{ $Hotel->name }}">
             </a>
-            
-          </li><!-- End tab nav item -->
+            <div class="card-body">
+              <h5 class="card-title">{{ $Hotel->name }}</h5>
+              <p class="card-text">{{ $Hotel->description }}</p>
+            </div>
+            <div class="portfolio-info">
+              <a href="{{ asset('storage/' . $Hotel->image) }}" title="{{ $Hotel->name }}" data-gallery="portfolio-gallery-hotel" class="glightbox preview-link">
+                <i class="bi bi-zoom-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      @endforeach
+    </div>
+  </div><!-- End Hotels Tab -->
 
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
-              <h4>Churches</h4>
-            
-            </a><!-- End tab nav item -->
-
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
-              <h4>Hospitals</h4>
-            
+  <!-- Churches Tab -->
+  <div class="tab-pane fade" id="menu-churches">
+    <div class="text-center tab-header">
+      <p>Churches</p>
+      <h3>Church</h3>
+    </div>
+    <div class="row gy-5">
+      @foreach($Church as $Church)
+        <div class="col-md-4">
+          <div class="card">
+            <a href="{{ asset('storage/' . $Church->image) }}" class="glightbox">
+              <img src="{{ asset('storage/' . $Church->image) }}" class="card-img-top" alt="{{ $Church->name }}">
             </a>
-          </li><!-- End tab nav item -->
+            <div class="card-body">
+              <h5 class="card-title">{{ $Church->name }}</h5>
+              <p class="card-text">{{ $Church->description }}</p>
+            </div>
+            <div class="portfolio-info">
+              <a href="{{ asset('storage/' . $Church->image) }}" title="{{ $Church->name }}" data-gallery="portfolio-gallery-church" class="glightbox preview-link">
+                <i class="bi bi-zoom-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      @endforeach
+    </div>
+  </div><!-- End Churches Tab -->
 
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-              <h4>Parks</h4>
-            
+  <!-- Hospitals Tab -->
+  <div class="tab-pane fade" id="menu-hospitals">
+    <div class="text-center tab-header">
+      <p>Hospitals</p>
+      <h3>Hospitals</h3>
+    </div>
+    <div class="row gy-5">
+      @foreach($hospitals as $hospital)
+        <div class="col-md-4">
+          <div class="card">
+            <a href="{{ asset('storage/' . $hospital->image) }}" class="glightbox">
+              <img src="{{ asset('storage/' . $hospital->image) }}" class="card-img-top" alt="{{ $hospital->name }}">
             </a>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-                  <h4>Restaurants</h4>
-               
-                </a>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-                      <h4>Schools</h4>
-                      
-                    </a>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-                          <h4>Tourist Spots</h4>
-                         
-                        </div>
-                        </a>
-          </li><!-- End tab nav item -->
-
-        </ul>
-
-        <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="tab-pane fade active show" id="menu-starters">
-
-            <div class="text-center tab-header">
-              <p>Hotels</p>
-              <h3>Hotel</h3>
+            <div class="card-body">
+              <h5 class="card-title">{{ $hospital->name }}</h5>
+              <p class="card-text">{{ $hospital->description }}</p>
             </div>
-
-            <div class="row gy-5">
-
-              <div class="col-lg-4 menu-item">
-                <div class="row">
-                    @forelse ($hotels as $hotel)
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="{{ $hotel->image ? asset($hotel->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $hotel->name }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $hotel->name }}</h5>
-                                    <p class="card-text">{{ $hotel->description }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        <p>No hotels available at the moment.</p>
-                    @endforelse
-                </div>
-              </div><!-- Menu Item -->
-
-             
-
+            <div class="portfolio-info">
+              <a href="{{ asset('storage/' . $hospital->image) }}" title="{{ $hospital->name }}" data-gallery="portfolio-gallery-hospital" class="glightbox preview-link">
+                <i class="bi bi-zoom-in"></i>
+              </a>
             </div>
-          </div><!-- End Starter Menu Content -->
-
-          <div class="tab-pane fade" id="menu-breakfast">
-
-            <div class="text-center tab-header">
-              <p>Church</p>
-              <h3>Church</h3>
-            </div>
-
-            <div class="row gy-5">
-
-              <div class="col-lg-4 menu-item">
-                <div class="row">
-                    @forelse ($churches as $church)
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="{{ $church->image ? asset($church->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $church->name }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $church->name }}</h5>
-                                    <p class="card-text">{{ $church->description }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        <p>No Church available at the moment.</p>
-                    @endforelse
-                </div>
-              </div><!-- Menu Item -->
-
-              
-
-            </div>
-          </div><!-- End Breakfast Menu Content -->
-
-          <div class="tab-pane fade" id="menu-lunch">
-
-            <div class="text-center tab-header">
-              <p>Hospitals</p>
-              <h3></h3>
-            </div>
-
-            <div class="row gy-5">
-
-              <div class="col-lg-4 menu-item">
-                <div class="row">
-                    @forelse ($hospitals as $hospital)
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="{{ $hospital->image ? asset($hospital->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $hospital->name }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $hospital->name }}</h5>
-                                    <p class="card-text">{{ $hospital->description }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        <p>No Hospital available at the moment.</p>
-                    @endforelse
-                </div>
-              </div><!-- Menu Item -->
-
-             
-
-            </div>
-          </div><!-- End Lunch Menu Content -->
-
-          <div class="tab-pane fade" id="menu-dinner">
-
-            <div class="text-center tab-header">
-              <p>Parks</p>
-              {{-- <h3>Dinner</h3> --}}
-            </div>
-
-            <div class="row gy-5">
-
-                <div class="row">
-                    @forelse ($parks as $park)
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="{{ $park->image ? asset($park->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $park->name }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $park->name }}</h5>
-                                    <p class="card-text">{{ $park->description }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        <p>No Park available at the moment.</p>
-                    @endforelse
-                </div>
-        
-            </div>
-          
-
+          </div>
         </div>
+      @endforeach
+    </div>
+  </div><!-- End Hospitals Tab -->
 
-        <div class="tab-pane fade" id="menu-dinner">
-
-            <div class="text-center tab-header">
-              <p>Restaurants</p>
-              {{-- <h3>Dinner</h3> --}}
+  <!-- Parks Tab -->
+  <div class="tab-pane fade" id="menu-parks">
+    <div class="text-center tab-header">
+      <p>Parks</p>
+      <h3>Parks</h3>
+    </div>
+    <div class="row gy-5">
+      @foreach($parks as $park)
+        <div class="col-md-4">
+          <div class="card">
+            <a href="{{ asset('storage/' . $park->image) }}" class="glightbox">
+              <img src="{{ asset('storage/' . $park->image) }}" class="card-img-top" alt="{{ $park->name }}">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">{{ $park->name }}</h5>
+              <p class="card-text">{{ $park->description }}</p>
             </div>
-
-            <div class="row gy-5">
-
-                <div class="row">
-                    @forelse ($restaurants as $restaurant)
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="{{ $restaurant->image ? asset($restaurant->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $restaurant->name }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $restaurant->name }}</h5>
-                                    <p class="card-text">{{ $restaurant->description }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        <p>No Park available at the moment.</p>
-                    @endforelse
-                </div>
-        
+            <div class="portfolio-info">
+              <a href="{{ asset('storage/' . $park->image) }}" title="{{ $park->name }}" data-gallery="portfolio-gallery-park" class="glightbox preview-link">
+                <i class="bi bi-zoom-in"></i>
+              </a>
             </div>
-          
-
+          </div>
         </div>
-        <div class="tab-pane fade" id="menu-dinner">
+      @endforeach
+    </div>
+  </div><!-- End Parks Tab -->
 
-            <div class="text-center tab-header">
-              <p>School</p>
-              {{-- <h3>Dinner</h3> --}}
+  <!-- Restaurants Tab -->
+  <div class="tab-pane fade" id="menu-restaurants">
+    <div class="text-center tab-header">
+      <p>Restaurants</p>
+      <h3>Restaurants</h3>
+    </div>
+    <div class="row gy-5">
+      @foreach($restaurants as $restaurant)
+        <div class="col-md-4">
+          <div class="card">
+            <a href="{{ asset('storage/' . $restaurant->image) }}" class="glightbox">
+              <img src="{{ asset('storage/' . $restaurant->image) }}" class="card-img-top" alt="{{ $restaurant->name }}">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">{{ $restaurant->name }}</h5>
+              <p class="card-text">{{ $restaurant->description }}</p>
             </div>
-
-            <div class="row gy-5">
-
-                <div class="row">
-                    @forelse ($schools as $school)
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="{{ $school->image ? asset($school->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $school->name }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $school->name }}</h5>
-                                    <p class="card-text">{{ $school->description }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        <p>No Park available at the moment.</p>
-                    @endforelse
-                </div>
-        
+            <div class="portfolio-info">
+              <a href="{{ asset('storage/' . $restaurant->image) }}" title="{{ $restaurant->name }}" data-gallery="portfolio-gallery-restaurant" class="glightbox preview-link">
+                <i class="bi bi-zoom-in"></i>
+              </a>
             </div>
-          
-
+          </div>
         </div>
-        <div class="tab-pane fade" id="menu-dinner">
+      @endforeach
+    </div>
+  </div><!-- End Restaurants Tab -->
 
-            <div class="text-center tab-header">
-              <p>Tourist Spots</p>
-              {{-- <h3>Dinner</h3> --}}
+  <!-- Schools Tab -->
+  <div class="tab-pane fade" id="menu-schools">
+    <div class="text-center tab-header">
+      <p>Schools</p>
+      <h3>Schools</h3>
+    </div>
+    <div class="row gy-5">
+      @foreach($schools as $school)
+        <div class="col-md-4">
+          <div class="card">
+            <a href="{{ asset('storage/' . $school->image) }}" class="glightbox">
+              <img src="{{ asset('storage/' . $school->image) }}" class="card-img-top" alt="{{ $school->name }}">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">{{ $school->name }}</h5>
+              <p class="card-text">{{ $school->description }}</p>
             </div>
-
-            <div class="row gy-5">
-
-                <div class="row">
-                    @forelse ($touristSpots as $spot)
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="{{ $spot->image ? asset($spot->image) : 'default-image-path.jpg' }}" class="card-img-top" alt="{{ $spot->name }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $spot->name }}</h5>
-                                    <p class="card-text">{{ $spot->description }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        <p>No Park available at the moment.</p>
-                    @endforelse
-                </div>
-        
+            <div class="portfolio-info">
+              <a href="{{ asset('storage/' . $school->image) }}" title="{{ $school->name }}" data-gallery="portfolio-gallery-school" class="glightbox preview-link">
+                <i class="bi bi-zoom-in"></i>
+              </a>
             </div>
-          
-
+          </div>
         </div>
+      @endforeach
+    </div>
+  </div><!-- End Schools Tab -->
 
-      </div>
+  <!-- Tourist Spots Tab -->
+  <div class="tab-pane fade" id="menu-tourist-spots">
+    <div class="text-center tab-header">
+      <p>Tourist Spots</p>
+      <h3>Tourist Spots</h3>
+    </div>
+    <div class="row gy-5">
+      @foreach($touristSpots as $spot)
+        <div class="col-md-4">
+          <div class="card">
+            <a href="{{ asset('storage/' . $spot->image) }}" class="glightbox">
+              <img src="{{ asset('storage/' . $spot->image) }}" class="card-img-top" alt="{{ $spot->name }}">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">{{ $spot->name }}</h5>
+              <p class="card-text">{{ $spot->description }}</p>
+            </div>
+            <div class="portfolio-info">
+              <a href="{{ asset('storage/' . $spot->image) }}" title="{{ $spot->name }}" data-gallery="portfolio-gallery-tourist-spot" class="glightbox preview-link">
+                <i class="bi bi-zoom-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      @endforeach
+    </div>
+  </div><!-- End Tourist Spots Tab -->
 
-    </section><!-- /Menu Section -->
+</div><!-- End Tab Content -->
+
+</div><!-- End Container -->
+</section><!-- End Menu Section -->
+
+
+<!-- Events Section -->
+<div class="container section-title" data-aos="fade-up">
+  <h2>Latest events!</h2>
+  <p>Check our latest<span class="description-title"> events!</span></p>
+</div><!-- End Section Title -->
+<section id="events" class="events section">
+    <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+            {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                    "delay": 5000
+                },
+                "slidesPerView": "auto",
+                "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                },
+                "breakpoints": {
+                    "320": {
+                        "slidesPerView": 1,
+                        "spaceBetween": 40
+                    },
+                    "1200": {
+                        "slidesPerView": 3,
+                        "spaceBetween": 1
+                    }
+                }
+            }
+            </script>
+            <div class="swiper-wrapper">
+              @foreach($events->reverse() as $event)
+              <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url({{ asset('storage/' . $event->image) }})">
+                  <h3>{{ $event->title }}</h3>
+                  <p class="description">{{ $event->description }}</p>
+                  @if($event->price)
+                      <div class="price align-self-start">${{ $event->price }}</div>
+                  @endif
+              </div><!-- End Event Item -->
+          @endforeach
+          
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section><!-- /Events Section -->
+
+<!-- Events Section -->
+<div class="container section-title" data-aos="fade-up">
+  <h2>Check our latest news!</h2>
+  <p>Check our latest news<span class="description-title">news!</span></p>
+</div><!-- End Section Title -->
+<section id="events" class="events section">
+    <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+            {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                    "delay": 5000
+                },
+                "slidesPerView": "auto",
+                "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                },
+                "breakpoints": {
+                    "320": {
+                        "slidesPerView": 1,
+                        "spaceBetween": 40
+                    },
+                    "1200": {
+                        "slidesPerView": 3,
+                        "spaceBetween": 1
+                    }
+                }
+            }
+            </script>
+            <div class="swiper-wrapper">
+              @foreach($LatestNews->reverse() as $LatestNews)
+              <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url({{ asset('storage/' . $LatestNews->image) }})">
+                  <h3>{{ $LatestNews->title }}</h3>
+                  <p class="description">{{ $LatestNews->description }}</p>
+                  @if($LatestNews->price)
+                      <div class="price align-self-start">${{ $LatestNews->price }}</div>
+                  @endif
+              </div><!-- End Event Item -->
+          @endforeach
+          
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section><!-- /Events Section -->
+
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section light-background">
@@ -689,162 +1263,170 @@
 
     </section><!-- /Testimonials Section -->
 
-    <!-- Events Section -->
-    <section id="events" class="events section">
+ 
 
-      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 1
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
+<!-- Features Section -->
+<section id="features" class="features section">
 
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url({{ asset('design/img/events-1.jpg') }})">
-              <h3>Custom Parties</h3>
-              <div class="price align-self-start">$99</div>
-              <p class="description">
-                Quo corporis voluptas ea ad. Consectetur inventore sapiente ipsum voluptas eos omnis facere. Enim facilis veritatis id est rem repudiandae nulla expedita quas.
-              </p>
-            </div><!-- End Event item -->
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2 class="highlight">Announcement</h2>
+    <p>
+      <span>Our</span> 
+      <span class="description-title">BARANGAY Announcement!</span>
+    </p>
+  </div><!-- End Section Title -->
 
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url({{ asset('design/img/events-2.jpg') }})">
-              <h3>Private Parties</h3>
-              <div class="price align-self-start">$289</div>
-              <p class="description">
-                In delectus sint qui et enim. Et ab repudiandae inventore quaerat doloribus. Facere nemo vero est ut dolores ea assumenda et. Delectus saepe accusamus aspernatur.
-              </p>
-            </div><!-- End Event item -->
+  <div class="container">
+      @foreach($announcements as $index => $announcement)
+          <div class="row gy-4 align-items-center features-item">
+              
+              <!-- Content Area -->
+              <div class="{{ $index % 2 == 0 ? 'order-2' : 'order-1' }} col-lg-5 {{ $index % 2 == 0 ? 'order-lg-1' : 'order-lg-2' }}" data-aos="fade-up" data-aos-delay="200">
+                  <h3 class="announcement-title">{{ $announcement->name }}</h3>
+                  <p class="announcement-description">{{ $announcement->description }}</p>
+                  <a href="#" class="btn btn-get-started">Read More</a>
+              </div>
 
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url({{ asset('design/img/events-3.jpg') }})">
-              <h3>Birthday Parties</h3>
-              <div class="price align-self-start">$499</div>
-              <p class="description">
-                Laborum aperiam atque omnis minus omnis est qui assumenda quos. Quis id sit quibusdam. Esse quisquam ducimus officia ipsum ut quibusdam maxime. Non enim perspiciatis.
-              </p>
-            </div><!-- End Event item -->
+              <!-- Image Area -->
+              <div class="{{ $index % 2 == 0 ? 'order-1' : 'order-2' }} col-lg-7 {{ $index % 2 == 0 ? 'order-lg-2' : 'order-lg-1' }} d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+                  <div class="image-stack">
+                      @if($announcement->image)
+                          <img src="{{ asset('storage/' . $announcement->image) }}" alt="{{ $announcement->name }}" class="stack-front img-fluid">
+                      @else
+                          <img src="{{ asset('template/img/default.jpg') }}" alt="Default Image" class="stack-front img-fluid">
+                      @endif
+                  </div>
+              </div>
+          </div><!-- Features Item -->
+      @endforeach
+  </div>
 
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url({{ asset('design/img/events-4.jpg') }})">
-              <h3>Wedding Parties</h3>
-              <div class="price align-self-start">$899</div>
-              <p class="description">
-                Laborum aperiam atque omnis minus omnis est qui assumenda quos. Quis id sit quibusdam. Esse quisquam ducimus officia ipsum ut quibusdam maxime. Non enim perspiciatis.
-              </p>
-            </div><!-- End Event item -->
+</section><!-- /Features Section -->
 
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
 
+
+<section id="portfolio" class="portfolio section">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+      <h2>SK EVENTS AND PROGRAMS</h2>
+      <p>Discover the latest youth-led initiatives and vibrant community events with SK Events – your go-to platform for staying connected, inspired, and involved!</p>
+  </div><!-- End Section Title -->
+
+  <!-- SK Programs -->
+  <div class="container">
+      <div class="row gy-4"> <!-- Start a Bootstrap row for horizontal layout -->
+          @foreach($skPrograms as $program)
+              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-skprogram">
+                  <a href="{{ asset('storage/' . $program->image) }}" class="glightbox">
+                      <img src="{{ asset('storage/' . $program->image) }}" class="img-fluid" alt="{{ $program->name }}">
+                  </a>
+                  <div class="portfolio-info">
+                      <h4>{{ $program->name }}</h4>
+                      <p>{{ $program->description }}</p>
+                      <a href="{{ asset('storage/' . $program->image) }}" title="{{ $program->name }}" data-gallery="portfolio-gallery-skprogram" class="glightbox preview-link">
+                          <i class="bi bi-zoom-in"></i>
+                      </a>
+                  </div>
+              </div>
+          @endforeach
+      </div> <!-- End row -->
+  </div>
+
+</section><!-- /Portfolio Section -->
+<!-- i FRAME-->
+
+
+<!-- Barangay Officials Section -->
+<section id="chefs" class="chefs section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+      <h2>OFFICIALS</h2>
+      <p><span>Our</span> <span class="description-title">BARANGAY OFFICIALS<br></span></p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+      <div class="row gy-4">
+          @foreach($barangayOfficials as $official)
+              <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                  <div class="team-member">
+                      <!-- Official's Image -->
+                      <div class="member-img">
+                          <img src="{{ asset('storage/' . $official->image) }}" class="img-fluid" alt="{{ $official->name }}">
+                          <div class="social">
+                              <!-- Social Links -->
+                              
+                              <div class="img-fluid" alt="">
+                              @if($official->facebook) <a href="{{ $official->facebook }}"><i class="fab fa-facebook"></i></a> @endif
+                              @if($official->twitter) <a href="{{ $official->twitter }}"><i class="fab fa-twitter"></i></a> @endif
+                              @if($official->instagram) <a href="{{ $official->instagram }}"><i class="fab fa-instagram"></i></a> @endif
+                              @if($official->linkedin) <a href="{{ $official->linkedin }}"><i class="fab fa-linkedin"></i></a> @endif
+                            </div>
+                          </div>
+                      </div>
+                      <!-- Official's Info -->
+                      <div class="member-info">
+                          <h4>{{ $official->name }}</h4>
+                          <span>{{ $official->designation }}</span>
+                          <p>{{ $official->description }}</p>
+                      </div>
+                  </div>
+              </div><!-- End Team Member -->
+          @endforeach
       </div>
+  </div>
 
-    </section><!-- /Events Section -->
+</section><!-- /Barangay Officials Section -->
 
-    <!-- Chefs Section -->
-    <section id="chefs" class="chefs section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>chefs</h2>
-        <p><span>Our</span> <span class="description-title">Proffesional Chefs<br></span></p>
-      </div><!-- End Section Title -->
+<!-- BHW Officials Section -->
+<section id="bhw" class="chefs section">
 
-      <div class="container">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+      <h2>OFFICIALS</h2>
+      <p><span>OUR</span> <span class="description-title">BARANGAY HEALTH WORKER<br></span></p>
+  </div><!-- End Section Title -->
 
-        <div class="row gy-4">
-
-          <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="design/img/chefs/chefs-1.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+  <div class="container">
+      <div class="row gy-4">
+        @foreach($barangayHealthWorker as $worker)
+        <div class="col-lg-4 col-md-6 member-container" data-aos="fade-up" data-aos-delay="100">
+            <div class="member position-relative">
+                <!-- Image and Social Icons -->
+                <div class="member-img position-relative overflow-hidden">
+                    <img src="{{ asset('storage/' . $worker->image) }}" class="img-fluid" alt="{{ $worker->name }}">
+                    <div class="social d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50">
+                        <a href="#" class="mx-2 text-white"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="mx-2 text-white"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="mx-2 text-white"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="mx-2 text-white"><i class="bi bi-linkedin"></i></a>
+                    </div>
                 </div>
-              </div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Master Chef</span>
-                <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
-              </div>
-            </div>
-          </div><!-- End Chef Team Member -->
 
-          <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="{{ asset('design/img/chefs/chefs-2.jpg') }}" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                <!-- Worker Info -->
+                <div class="text-center member-info p-3">
+                    <h4 class="mb-1">{{ $worker->name }}</h4>
+                    <span class="text-muted d-block mb-2">{{ $worker->designation }}</span>
                 </div>
-              </div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Patissier</span>
-                <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
-              </div>
             </div>
-          </div><!-- End Chef Team Member -->
-
-          <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="{{ asset('design/img/chefs/chefs-3.jpg') }}" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>Cook</span>
-                <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
-              </div>
-            </div>
-          </div><!-- End Chef Team Member -->
-
-        </div>
-
+        </div><!-- End Barangay Health Worker Member -->
+    @endforeach
       </div>
+  </div>
 
-    </section><!-- /Chefs Section -->
+</section><!-- /BHW Officials Section -->
+
 
     <!-- Book A Table Section -->
     <section id="book-a-table" class="book-a-table section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Book A Table</h2>
-        <p><span>Book Your</span> <span class="description-title">Stay With Us<br></span></p>
+        <h2>Contact Us</h2>
+        <p><span>Send me your concert</span> <span class="description-title">Stay With Us<br></span></p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -883,8 +1465,8 @@
               <div class="mt-3 text-center">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
-                <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
-                <button type="submit">Book a Table</button>
+                <div class="sent-message">Your email request was sent. We will call back or send an Email to confirm your concern. Thank you!</div>
+                <button type="submit">Send a Message</button>
               </div>
             </form>
           </div><!-- End Reservation Form -->
@@ -937,19 +1519,140 @@
                     }
                 </script>
                 <div class="swiper-wrapper align-items-center">
-                    @foreach ($siteSetting->slider_images ?? [] as $image)
-                        <div class="swiper-slide">
-                            <a class="glightbox" data-gallery="images-gallery" href="{{ asset('storage/' . $image) }}">
-                                <img src="{{ asset('storage/' . $image) }}" class="img-fluid" alt="Gallery Image">
-                            </a>
-                        </div>
-                    @endforeach
+                  @foreach($brgyFestival as $index => $brgyFestival)
+                  <div class="row gy-4 align-items-center features-item">
+                      <!-- Alternate the layout for each announcement -->
+                      <div class="{{ $index % 2 == 0 ? 'order-2' : 'order-1' }} col-lg-5 {{ $index % 2 == 0 ? 'order-lg-1' : 'order-lg-2' }}" data-aos="fade-up" data-aos-delay="200">
+                          <h3>{{ $brgyFestival->title }}</h3>
+                          <p>{{ $brgyFestival->description }}</p>
+        
+                      </div>
+        
+                      <div class="{{ $index % 2 == 0 ? 'order-1' : '  order-2' }} col-lg-7 {{ $index % 2 == 0 ? 'order-lg-2' : 'order-lg-1' }} d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+                          <div class="image-stack">
+                              @if($brgyFestival->image)
+                                  <img src="{{ asset('storage/' . $brgyFestival->image) }}" alt="{{ $brgyFestival->name }}" class="stack-front img-fluid">
+                              @else
+                                  <img src="{{ asset('template/img/default.jpg') }}" alt="Default Image" class="stack-front img-fluid">
+                              @endif
+                          </div>
+                      </div>
+                  </div><!-- Features Item -->
+              @endforeach
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
         </div>
     
     </section><!-- /Gallery Section -->
+
+
+     <!-- About Section -->
+<section id="about" class="about section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Frequently Asked Questions</h2>
+    <p><span>Explore</span> <span class="description-title">Our Programs, Services, and Community Initiatives</span></p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+    <div class="row gy-4">
+
+      <!-- Right Column: FAQ Section -->
+      <div class="col-lg-12" data-aos="fade-up" data-aos-delay="250">
+        <div class="accordion" id="faqAccordion">
+
+          <!-- FAQ Item 1 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading1">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
+                <span class="num">1.</span> What is the vision of Barangay Centro1?
+              </button>
+            </h2>
+            <div id="faqCollapse1" class="accordion-collapse collapse show" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                The vision of Barangay Centro1 is to create a unified, disciplined, and God-loving community working together towards progress and prosperity.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading2">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                <span class="num">2.</span> What services does Barangay Centro1 offer?
+              </button>
+            </h2>
+            <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Barangay Centro1 offers various services, including health programs, educational support, livelihood initiatives, and infrastructure development to enhance community well-being.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading3">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                <span class="num">3.</span> How can I get involved in Barangay Centro1's programs?
+              </button>
+            </h2>
+            <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Residents can participate by visiting the Barangay office, signing up during local events, or staying updated through official announcements and social media pages.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading4">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+                <span class="num">4.</span> How does the Barangay Centro1 website help residents?
+              </button>
+            </h2>
+            <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                The Barangay Centro1 website serves as an information hub where residents can access updates about programs, services, and events. It also offers online forms for requests and registration, making it easier to connect with Barangay officials.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading5">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
+                <span class="num">5.</span> Can residents request services online?
+              </button>
+            </h2>
+            <div id="faqCollapse5" class="accordion-collapse collapse" aria-labelledby="faqHeading5" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Yes! The Barangay Centro1 website allows residents to submit requests for services such as Barangay clearance, permits, and more through a user-friendly online platform.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 6 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading6">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse6" aria-expanded="false" aria-controls="faqCollapse6">
+                <span class="num">6.</span> How can I stay updated on Barangay activities?
+              </button>
+            </h2>
+            <div id="faqCollapse6" class="accordion-collapse collapse" aria-labelledby="faqHeading6" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Residents can stay informed by regularly visiting the Barangay Centro1 website, subscribing to email updates, or following the Barangay's official social media accounts.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- End Right Column -->
+
+    </div>
+  </div>
+</section><!-- End About Section -->
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">

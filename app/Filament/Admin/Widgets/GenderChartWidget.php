@@ -9,17 +9,14 @@ class GenderChartWidget extends Widget
 {
     protected static string $view = 'filament.admin.widgets.gender-chart-widget';
 
-    protected function getType(): string
-    {
-        return 'pie';
-    }
+    public $chartData;
 
-    protected function getData(): array
+    public function mount(): void
     {
         $maleCount = BrgyInhabitant::where('sex', 'Male')->count();
         $femaleCount = BrgyInhabitant::where('sex', 'Female')->count();
 
-        return [
+        $this->chartData = [
             'datasets' => [
                 [
                     'data' => [$maleCount, $femaleCount],

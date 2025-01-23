@@ -1,45 +1,46 @@
 <x-filament::page>
     <div class="space-y-6">
         <!-- Page Title -->
-        <h2 class="text-3xl font-bold text-gray-800 text-center">Demographic Statistics</h2>
+        <h2 class="text-3xl font-bold text-center text-gray-800">Demographic Statistics</h2>
 
         <!-- Charts Section -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
             <!-- Gender Distribution Pie Chart -->
-            <div class="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center">
-                <h3 class="text-xl font-semibold text-gray-700 mb-4">Gender Distribution</h3>
-                <canvas id="genderPieChart" class="w-full max-w-sm h-auto"></canvas>
+            <div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg">
+                <h3 class="mb-4 text-xl font-semibold text-gray-700">Gender Distribution</h3>
+                <canvas id="genderPieChart" class="w-full h-auto max-w-sm"></canvas>
             </div>
 
             <!-- Age Groups Distribution Pie Chart -->
-            <div class="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center">
-                <h3 class="text-xl font-semibold text-gray-700 mb-4">Population by Age Groups</h3>
-                <canvas id="ageGroupsPieChart" class="w-full max-w-sm h-auto"></canvas>
+            <div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg">
+                <h3 class="mb-4 text-xl font-semibold text-gray-700">Population by Age Groups</h3>
+                <canvas id="ageGroupsPieChart" class="w-full h-auto max-w-sm"></canvas>
             </div>
         </div>
 
         <!-- Statistics Boxes -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-4">
             <!-- Total Population -->
-            <div class="p-6 bg-gray-100 shadow rounded-lg text-center hover:bg-gray-200 transition duration-300">
+            <div class="p-6 text-center transition duration-300 bg-gray-100 rounded-lg shadow hover:bg-gray-200">
                 <h4 class="text-lg font-medium text-gray-700">Total Population</h4>
                 <p class="mt-2 text-2xl font-bold text-gray-900">{{ number_format($this->getDemographicData()['total_population']) }}</p>
             </div>
 
-            <!-- Male Count -->
-            <div class="p-6 bg-gray-100 shadow rounded-lg text-center hover:bg-gray-200 transition duration-300">
-                <h4 class="text-lg font-medium text-gray-700">Male Count</h4>
-                <p class="mt-2 text-2xl font-bold text-blue-600">{{ number_format($this->getDemographicData()['male_count']) }}</p>
-            </div>
+           <!-- Male Count -->
+           <a href="{{ route('filament.admin.resources.brgy-inhabitants.index', ['gender' => 'male']) }}" class="p-6 text-center transition duration-300 bg-gray-100 rounded-lg shadow hover:bg-gray-200">
+            <h4 class="text-lg font-medium text-gray-700">Male Count</h4>
+            <p class="mt-2 text-2xl font-bold text-blue-600">{{ number_format($this->getDemographicData()['male_count']) }}</p>
+        </a>
 
             <!-- Female Count -->
-            <div class="p-6 bg-gray-100 shadow rounded-lg text-center hover:bg-gray-200 transition duration-300">
-                <h4 class="text-lg font-medium text-gray-700">Female Count</h4>
-                <p class="mt-2 text-2xl font-bold text-pink-600">{{ number_format($this->getDemographicData()['female_count']) }}</p>
-            </div>
+         <!-- Female Count -->
+         <a href="{{ route('filament.admin.resources.brgy-inhabitants.index', ['gender' => 'female']) }}" class="p-6 text-center transition duration-300 bg-gray-100 rounded-lg shadow hover:bg-gray-200">
+            <h4 class="text-lg font-medium text-gray-700">Female Count</h4>
+            <p class="mt-2 text-2xl font-bold text-pink-600">{{ number_format($this->getDemographicData()['female_count']) }}</p>
+        </a>
 
             <!-- Additional Demographics (Optional) -->
-            <div class="p-6 bg-gray-100 shadow rounded-lg text-center hover:bg-gray-200 transition duration-300">
+            <div class="p-6 text-center transition duration-300 bg-gray-100 rounded-lg shadow hover:bg-gray-200">
                 <h4 class="text-lg font-medium text-gray-700">Other Demographics</h4>
                 <p class="mt-2 text-2xl font-bold text-green-600">--</p>
             </div>

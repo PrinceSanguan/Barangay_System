@@ -25,9 +25,12 @@ use App\Models\Program;
 use App\Models\Restaurant;
 use App\Models\School;
 use App\Models\Schoolar;
+use App\Models\Speech;
+use App\Models\Achievement;
 use App\Models\SiteSetting;
 use App\Models\Skprogram;
 use App\Models\TouristSpot;
+use App\Models\PhotoRelease;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -66,17 +69,21 @@ Route::get('/', function () {
     // Fetch other models
     $touristSpots = TouristSpot::all();
     $restaurants = Restaurant::all();
-    $hotels = Hotel::all();
+    $Hotel = Hotel::all();
     $parks = Park::all();
     $schools = School::all();
     $hospitals = Hospital::all();
-    $churches = Church::all();
+    $Church = Church::all();
     $skPrograms = Skprogram::all();
     $brgyActivities = brgyActivity::all();
     $brgyFestival = brgyFestival::all();
     $LatestNews = LatestNews::all();
     $LatestEvents = LatestEvents::all();
     $JobHiring = JobHiring::all();
+    $PhotoRelease = PhotoRelease::all();
+    $Speech = Speech::all();
+    $Achievement = Achievement::all();
+    
 
     // Fetch Barangay Officials
     $barangayOfficials = BrangayOfficials::all();
@@ -102,11 +109,11 @@ Route::get('/', function () {
         'siteSetting',
         'touristSpots',
         'restaurants',
-        'hotels',
+        'Hotel',
         'parks',
         'schools',
         'hospitals',
-        'churches',
+        'Church',
         'skPrograms',
         'barangayOfficials',
         'programs',
@@ -119,6 +126,9 @@ Route::get('/', function () {
         'barangayHealthWorker',
         'brgyFestival',
         'LatestNews',
+        'PhotoRelease',
+        'Speech',
+        'Achievement',
     ));
 });
 
